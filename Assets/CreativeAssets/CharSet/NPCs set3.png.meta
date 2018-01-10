@@ -1,0 +1,964 @@
+fileFormatVersion: 2
+guid: 7ea1370ea0012c2498edbe91d91b9fc7
+timeCreated: 1514035392
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: NPCs set3_0
+    21300002: NPCs set3_1
+    21300004: NPCs set3_2
+    21300006: NPCs set3_3
+    21300008: NPCs set3_4
+    21300010: NPCs set3_5
+    21300012: NPCs set3_6
+    21300014: NPCs set3_7
+    21300016: NPCs set3_8
+    21300018: NPCs set3_9
+    21300020: NPCs set3_10
+    21300022: NPCs set3_11
+    21300024: NPCs set3_12
+    21300026: NPCs set3_13
+    21300028: NPCs set3_14
+    21300030: NPCs set3_15
+    21300032: NPCs set3_16
+    21300034: NPCs set3_17
+    21300036: NPCs set3_18
+    21300038: NPCs set3_19
+    21300040: NPCs set3_20
+    21300042: NPCs set3_21
+    21300044: NPCs set3_22
+    21300046: NPCs set3_23
+    21300048: NPCs set3_24
+    21300050: NPCs set3_25
+    21300052: NPCs set3_26
+    21300054: NPCs set3_27
+    21300056: NPCs set3_28
+    21300058: NPCs set3_29
+    21300060: NPCs set3_30
+    21300062: NPCs set3_31
+    21300064: NPCs set3_32
+    21300066: NPCs set3_33
+    21300068: NPCs set3_34
+    21300070: NPCs set3_35
+    21300072: NPCs set3_36
+    21300074: NPCs set3_37
+    21300076: NPCs set3_38
+    21300078: NPCs set3_39
+    21300080: NPCs set3_40
+    21300082: NPCs set3_41
+    21300084: NPCs set3_42
+    21300086: NPCs set3_43
+    21300088: NPCs set3_44
+    21300090: NPCs set3_45
+    21300092: NPCs set3_46
+    21300094: NPCs set3_47
+  externalObjects: {}
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 16
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: Standalone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: iPhone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: tvOS
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: Android
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: WebGL
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: NPCs set3_1
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 224
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -6, y: -1}
+        - {x: -7, y: -3}
+        - {x: -7, y: -16}
+        - {x: 6, y: -16}
+        - {x: 6, y: -2}
+        - {x: 3, y: -1}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPCs set3_3
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 224
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -11, y: -16}
+        - {x: 10, y: -16}
+        - {x: 12, y: -12}
+        - {x: 12, y: 0}
+        - {x: -9, y: 0}
+        - {x: -11, y: -1}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPCs set3_4
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 224
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -11, y: -16}
+        - {x: 10, y: -16}
+        - {x: 12, y: -12}
+        - {x: 12, y: 0}
+        - {x: -9, y: 0}
+        - {x: -11, y: -1}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPCs set3_5
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 224
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -12, y: -16}
+        - {x: 9, y: -16}
+        - {x: 12, y: -11}
+        - {x: 12, y: 0}
+        - {x: -10, y: 0}
+        - {x: -12, y: -1}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPCs set3_6
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 224
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 6, y: 8}
+        - {x: -7, y: 8}
+        - {x: -8, y: 6}
+        - {x: -7, y: -16}
+        - {x: 7, y: -16}
+        - {x: 7, y: 7}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPCs set3_7
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 224
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 7, y: -16}
+        - {x: 7, y: 8}
+        - {x: 6, y: 9}
+        - {x: -7, y: 9}
+        - {x: -8, y: 7}
+        - {x: -7, y: -15}
+        - {x: -6, y: -16}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPCs set3_8
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 224
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 6, y: 8}
+        - {x: -7, y: 8}
+        - {x: -8, y: 6}
+        - {x: -8, y: -16}
+        - {x: 7, y: -16}
+        - {x: 7, y: 7}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPCs set3_9
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 224
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 5, y: 1}
+        - {x: 3, y: 0}
+        - {x: -6, y: -3}
+        - {x: -10, y: -8}
+        - {x: -10, y: -16}
+        - {x: 11, y: -16}
+        - {x: 12, y: -11}
+        - {x: 12, y: -3}
+        - {x: 8, y: 1}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPCs set3_10
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 224
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 4, y: 1}
+        - {x: 2, y: 0}
+        - {x: -7, y: -3}
+        - {x: -11, y: -8}
+        - {x: -11, y: -16}
+        - {x: 10, y: -16}
+        - {x: 11, y: -11}
+        - {x: 11, y: -3}
+        - {x: 7, y: 1}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPCs set3_11
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 224
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 4, y: 1}
+        - {x: 2, y: 0}
+        - {x: -7, y: -3}
+        - {x: -11, y: -8}
+        - {x: -11, y: -16}
+        - {x: 10, y: -16}
+        - {x: 11, y: -11}
+        - {x: 11, y: -3}
+        - {x: 7, y: 1}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPCs set3_15
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 192
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -12, y: -16}
+        - {x: 9, y: -16}
+        - {x: 12, y: -11}
+        - {x: 12, y: 0}
+        - {x: -10, y: 0}
+        - {x: -12, y: -1}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPCs set3_16
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 192
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -12, y: -16}
+        - {x: 9, y: -16}
+        - {x: 12, y: -11}
+        - {x: 12, y: 0}
+        - {x: -10, y: 0}
+        - {x: -12, y: -1}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPCs set3_17
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 192
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 0, y: 0}
+        - {x: -1, y: -2}
+        - {x: -9, y: -6}
+        - {x: -12, y: -9}
+        - {x: -12, y: -16}
+        - {x: 8, y: -16}
+        - {x: 11, y: -11}
+        - {x: 11, y: -5}
+        - {x: 9, y: 0}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPCs set3_18
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 192
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 6, y: 8}
+        - {x: -7, y: 8}
+        - {x: -8, y: 6}
+        - {x: -7, y: -16}
+        - {x: 7, y: -16}
+        - {x: 7, y: 7}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPCs set3_19
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 192
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 7, y: -16}
+        - {x: 7, y: 8}
+        - {x: 6, y: 9}
+        - {x: -7, y: 9}
+        - {x: -8, y: 7}
+        - {x: -7, y: -15}
+        - {x: -6, y: -16}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPCs set3_20
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 6, y: 8}
+        - {x: -7, y: 8}
+        - {x: -8, y: 6}
+        - {x: -8, y: -16}
+        - {x: 7, y: -16}
+        - {x: 7, y: 7}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPCs set3_21
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 192
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 5, y: 1}
+        - {x: 3, y: 0}
+        - {x: -6, y: -3}
+        - {x: -10, y: -8}
+        - {x: -10, y: -16}
+        - {x: 11, y: -16}
+        - {x: 12, y: -11}
+        - {x: 12, y: -3}
+        - {x: 8, y: 1}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPCs set3_22
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 192
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 4, y: 1}
+        - {x: 2, y: 0}
+        - {x: -7, y: -3}
+        - {x: -11, y: -8}
+        - {x: -11, y: -16}
+        - {x: 10, y: -16}
+        - {x: 11, y: -11}
+        - {x: 11, y: -3}
+        - {x: 7, y: 1}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPCs set3_23
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 192
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 4, y: 1}
+        - {x: 2, y: 0}
+        - {x: -7, y: -3}
+        - {x: -11, y: -8}
+        - {x: -11, y: -16}
+        - {x: 10, y: -16}
+        - {x: 11, y: -11}
+        - {x: 11, y: -3}
+        - {x: 7, y: 1}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPCs set3_27
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 160
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -1, y: 0}
+        - {x: -8, y: 0}
+        - {x: -11, y: -3}
+        - {x: -11, y: -8}
+        - {x: -8, y: -16}
+        - {x: 12, y: -16}
+        - {x: 12, y: -8}
+        - {x: 10, y: -5}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPCs set3_28
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 160
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -2, y: 0}
+        - {x: -9, y: 0}
+        - {x: -12, y: -3}
+        - {x: -12, y: -8}
+        - {x: -9, y: -16}
+        - {x: 12, y: -16}
+        - {x: 12, y: -10}
+        - {x: 9, y: -5}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPCs set3_29
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 160
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -2, y: 0}
+        - {x: -9, y: 0}
+        - {x: -12, y: -3}
+        - {x: -12, y: -8}
+        - {x: -9, y: -16}
+        - {x: 12, y: -16}
+        - {x: 12, y: -10}
+        - {x: 9, y: -5}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPCs set3_30
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 160
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 6, y: 8}
+        - {x: -7, y: 8}
+        - {x: -8, y: 6}
+        - {x: -7, y: -16}
+        - {x: 7, y: -16}
+        - {x: 7, y: 7}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPCs set3_31
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 160
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 7, y: -16}
+        - {x: 7, y: 8}
+        - {x: 6, y: 9}
+        - {x: -7, y: 9}
+        - {x: -8, y: 7}
+        - {x: -7, y: -15}
+        - {x: -6, y: -16}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPCs set3_32
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 160
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 6, y: 8}
+        - {x: -7, y: 8}
+        - {x: -8, y: 6}
+        - {x: -8, y: -16}
+        - {x: 7, y: -16}
+        - {x: 7, y: 7}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPCs set3_33
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 160
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -7, y: 1}
+        - {x: -10, y: -4}
+        - {x: -10, y: -11}
+        - {x: -8, y: -16}
+        - {x: 12, y: -16}
+        - {x: 12, y: -8}
+        - {x: 10, y: -1}
+        - {x: 0, y: 1}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPCs set3_34
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 160
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -8, y: 1}
+        - {x: -11, y: -4}
+        - {x: -11, y: -11}
+        - {x: -9, y: -16}
+        - {x: 11, y: -16}
+        - {x: 11, y: -8}
+        - {x: 9, y: -1}
+        - {x: -1, y: 1}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPCs set3_35
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 160
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -8, y: 1}
+        - {x: -11, y: -4}
+        - {x: -11, y: -11}
+        - {x: -9, y: -16}
+        - {x: 11, y: -16}
+        - {x: 11, y: -8}
+        - {x: 9, y: -1}
+        - {x: -1, y: 1}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPCs set3_39
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 128
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -1, y: 0}
+        - {x: -8, y: 0}
+        - {x: -11, y: -3}
+        - {x: -11, y: -8}
+        - {x: -8, y: -16}
+        - {x: 12, y: -16}
+        - {x: 12, y: -8}
+        - {x: 10, y: -5}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPCs set3_40
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 128
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -2, y: 0}
+        - {x: -9, y: 0}
+        - {x: -12, y: -3}
+        - {x: -12, y: -8}
+        - {x: -9, y: -16}
+        - {x: 12, y: -16}
+        - {x: 12, y: -10}
+        - {x: 9, y: -5}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPCs set3_41
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 128
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -2, y: 0}
+        - {x: -9, y: 0}
+        - {x: -12, y: -3}
+        - {x: -12, y: -8}
+        - {x: -9, y: -16}
+        - {x: 12, y: -16}
+        - {x: 12, y: -10}
+        - {x: 9, y: -5}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPCs set3_42
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 128
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 6, y: 8}
+        - {x: -7, y: 8}
+        - {x: -8, y: 6}
+        - {x: -7, y: -16}
+        - {x: 7, y: -16}
+        - {x: 7, y: 7}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPCs set3_43
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 128
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 7, y: -16}
+        - {x: 7, y: 8}
+        - {x: 6, y: 9}
+        - {x: -7, y: 9}
+        - {x: -8, y: 7}
+        - {x: -7, y: -15}
+        - {x: -6, y: -16}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPCs set3_44
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 6, y: 8}
+        - {x: -7, y: 8}
+        - {x: -8, y: 6}
+        - {x: -8, y: -16}
+        - {x: 7, y: -16}
+        - {x: 7, y: 7}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPCs set3_45
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 128
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -7, y: 1}
+        - {x: -10, y: -4}
+        - {x: -10, y: -11}
+        - {x: -8, y: -16}
+        - {x: 12, y: -16}
+        - {x: 12, y: -8}
+        - {x: 10, y: -1}
+        - {x: 0, y: 1}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPCs set3_46
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 128
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -8, y: 1}
+        - {x: -11, y: -4}
+        - {x: -11, y: -11}
+        - {x: -9, y: -16}
+        - {x: 11, y: -16}
+        - {x: 11, y: -8}
+        - {x: 9, y: -1}
+        - {x: -1, y: 1}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPCs set3_47
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 128
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -8, y: 1}
+        - {x: -11, y: -4}
+        - {x: -11, y: -11}
+        - {x: -9, y: -16}
+        - {x: 11, y: -16}
+        - {x: 11, y: -8}
+        - {x: 9, y: -1}
+        - {x: -1, y: 1}
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
