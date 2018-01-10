@@ -6,14 +6,14 @@ public class _BaseTR : MonoBehaviour {
     protected int langRegisterCode = -1;
     protected EventPage ep;
 
-    public Vector2 Up = Vector2.up;
-    public Vector2 UpRight = Vector2.up + Vector2.right;
-    public Vector2 Right = Vector2.right;
-    public Vector2 DownRight = Vector2.down + Vector2.right;
-    public Vector2 Down = Vector2.down;
-    public Vector2 DownLeft = Vector2.down + Vector2.left;
-    public Vector2 Left = Vector2.left;
-    public Vector2 UpLeft = Vector2.up + Vector2.left;
+    public readonly Vector2 Up = Vector2.up;
+    public readonly Vector2 UpRight = Vector2.up + Vector2.right;
+    public readonly Vector2 Right = Vector2.right;
+    public readonly Vector2 DownRight = Vector2.down + Vector2.right;
+    public readonly Vector2 Down = Vector2.down;
+    public readonly Vector2 DownLeft = Vector2.down + Vector2.left;
+    public readonly Vector2 Left = Vector2.left;
+    public readonly Vector2 UpLeft = Vector2.up + Vector2.left;
 
 
     [HideInInspector] public string TranslationName;

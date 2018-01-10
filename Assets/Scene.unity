@@ -10254,14 +10254,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f506ad11680029341a601efa7fbcbced, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Up: {x: 0, y: 1}
-  UpRight: {x: 1, y: 1}
-  Right: {x: 1, y: 0}
-  DownRight: {x: 1, y: -1}
-  Down: {x: 0, y: -1}
-  DownLeft: {x: -1, y: -1}
-  Left: {x: -1, y: 0}
-  UpLeft: {x: -1, y: 1}
   TranslationName: 
   TranslationCredits: 
   font: {fileID: 12800000, guid: b66472161bd0ffa43991554b44539c89, type: 3}
@@ -75317,6 +75309,7 @@ GameObject:
   - component: {fileID: 1856509716}
   - component: {fileID: 1856509715}
   - component: {fileID: 1856509719}
+  - component: {fileID: 1856509720}
   m_Layer: 0
   m_Name: Scene Camera
   m_TagString: MainCamera
@@ -75404,6 +75397,17 @@ MonoBehaviour:
   BoundsList: {fileID: 526277037}
   disabledMapEdges: 0
   UI: {fileID: 858590178}
+--- !u!114 &1856509720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1856509714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8be42e3236c2e6d48b1395168a297d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1858310795
 GameObject:
   m_ObjectHideFlags: 0
