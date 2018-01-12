@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class EventFlashScreen : _BaseLogicEvent {
     float time = .1f;
-
-    //TODO: add override for other colors
     Color col = Color.white;
 
     public static EventFlashScreen c(float time, Color? col = null)

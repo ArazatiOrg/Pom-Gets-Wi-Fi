@@ -19,6 +19,29 @@ public class _BaseTR : MonoBehaviour {
     [HideInInspector] public string TranslationName;
     [HideInInspector] public string TranslationCredits;
 
+    public string PomName =         "Pom";
+    public string ShibeName =       "Shibe";
+    public string AlmaName =        "Alma";
+    public string BernardName =     "Bernard";
+    public string BoldName =        "Bold";
+    public string ChiName =         "Chi";
+    public string CorgName =        "Corg";
+    public string CrestName =       "Crest";
+    public string DavePointerName = "Dave Pointer";
+    public string DogName =         "Dog";
+    public string GlishName =       "Glish";
+    public string GoldieName =      "Goldie";
+    public string HusName =         "Hus";
+    public string LabraName =       "Labra";
+    public string MaltaName =       "Malta";
+    public string PapiName =        "Papi";
+    public string PuddleName =      "Puddle";
+    public string SharpeiiName =    "Sharpeii";
+    public string ShermanName =     "Sherman";
+    public string UgName =          "Ug";
+    public string WittyFidoName =   "Witty Fido";
+    public string YorkName =        "York";
+
     public Font font;
 
     public virtual void Initialize()

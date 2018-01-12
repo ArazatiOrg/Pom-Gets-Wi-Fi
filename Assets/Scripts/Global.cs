@@ -28,22 +28,26 @@ public class Global : MonoBehaviour {
     public static GlobalInt ActiveBGM = new GlobalInt(-1);
     public static GlobalFloat ActiveBGMVolume = new GlobalFloat(1f);
 
-    public static GlobalFloat PlayerPosX = new GlobalFloat(0f);
-    public static GlobalFloat PlayerPosY = new GlobalFloat(0f);
+    public static GlobalFloat PlayerPosX = new GlobalFloat();
+    public static GlobalFloat PlayerPosY = new GlobalFloat();
 
     //Gamestate Variables
-    public static GlobalInt Intro = new GlobalInt(0);
-    public static GlobalBool Intro_Facewoof = new GlobalBool(false);
-    public static GlobalBool Intro_Reddig = new GlobalBool(false);
-    public static GlobalBool Intro_gTail = new GlobalBool(false);
-    public static GlobalBool Intro_Tumfur = new GlobalBool(false);
-    public static GlobalInt Intro_LastWebsiteSelector = new GlobalInt(0);
+    public static GlobalInt ShibeInParty = new GlobalInt();
 
-    public static GlobalInt IntroGround = new GlobalInt(0);
-    public static GlobalInt ShibeIntro = new GlobalInt(0);
-    public static GlobalInt ShibeTalk = new GlobalInt(0);
+    public static GlobalInt Intro = new GlobalInt();
+    public static GlobalBool Intro_Facewoof = new GlobalBool();
+    public static GlobalBool Intro_Reddig = new GlobalBool();
+    public static GlobalBool Intro_gTail = new GlobalBool();
+    public static GlobalBool Intro_Tumfur = new GlobalBool();
+    public static GlobalInt Intro_LastWebsiteSelector = new GlobalInt();
 
-    public static GlobalInt FlowerField = new GlobalInt(0);
+    public static GlobalInt IntroGround = new GlobalInt();
+    public static GlobalInt ShibeIntro = new GlobalInt();
+    public static GlobalInt ShibeTalk = new GlobalInt();
+
+    public static GlobalInt FlowerField = new GlobalInt();
+    public static GlobalInt Silent_Treatment = new GlobalInt();
+    public static GlobalInt Cherry_Blossoms = new GlobalInt();
 
     private void Start()
     {
@@ -84,7 +88,7 @@ public class Global : MonoBehaviour {
     {
         public int value;
 
-        public GlobalInt(int value)
+        public GlobalInt(int value = 0)
         {
             this.value = value;
         }
@@ -103,7 +107,7 @@ public class Global : MonoBehaviour {
     {
         public float value;
 
-        public GlobalFloat(float value)
+        public GlobalFloat(float value = 0f)
         {
             this.value = value;
         }
@@ -122,7 +126,7 @@ public class Global : MonoBehaviour {
     {
         public bool value;
 
-        public GlobalBool(bool value)
+        public GlobalBool(bool value = false)
         {
             this.value = value;
         }

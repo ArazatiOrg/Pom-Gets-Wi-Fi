@@ -15,8 +15,7 @@ public class VersionIncrementor
     [PostProcessBuildAttribute(1)]
     public static void OnPostprocessBuild(BuildTarget target, string pathToBuiltProject)
     {
-        //Debug.Log("Build v" + PlayerSettings.bundleVersion + " (" + PlayerSettings.Android.bundleVersionCode + ")");
-        //IncreaseBuild();
+
     }
 
     [MenuItem("Build/Build All")]

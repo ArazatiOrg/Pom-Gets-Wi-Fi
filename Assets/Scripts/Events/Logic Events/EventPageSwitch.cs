@@ -5,16 +5,16 @@ using UnityEngine;
 public class EventPageSwitch : _BaseLogicEvent
 {
     Global.GlobalInt switchCondition;
-    Dictionary<int,EventPage> eps = new Dictionary<int, EventPage>();
+    List<EP2> eps = new List<EP2>();
 
     public static EventPageSwitch c(Global.GlobalInt switchCondition)
     {
         return new EventPageSwitch() { switchCondition = switchCondition };
     }
 
-    public EventPageSwitch AddEventPage(int condition, EventPage eventPage)
+    public EventPageSwitch AddEventPage(int condition, EventPage eventPage, SwitchComparator comparator = SwitchComparator.Equal)
     {
-        eps.Add(condition, eventPage);
+        eps.Add(new EP2() { num = condition, page = eventPage, comp = comparator });
 
         return this;
     }
@@ -23,14 +23,46 @@ public class EventPageSwitch : _BaseLogicEvent
     {
         var val = switchCondition.value;
 
-        if(eps.ContainsKey(val))
+        foreach (var item in eps)
         {
-            for (int i = 0; i < eps[val].events.Count; i++)
+            var b = false;
+
+            switch(item.comp)
             {
-                yield return eps[val].events[i].Execute();
+                case SwitchComparator.Equal: { if (item.num == val) b = true; break; }
+                case SwitchComparator.Greater: { if (item.num > val) b = true; break; }
+                case SwitchComparator.GreaterOrEqual: { if (item.num >= val) b = true; break; }
+                case SwitchComparator.Less: { if (item.num < val) b = true; break; }
+                case SwitchComparator.LessOrEqual: { if (item.num <= val) b = true; break; }
+                case SwitchComparator.NotEqual: { if (item.num != val) b = true; break; }
+            }
+
+            if(b)
+            {
+                for (int i = 0; i < item.page.events.Count; i++)
+                {
+                    yield return item.page.events[i].Execute();
+                }
             }
         }
 
         yield return null;
     }
+
+    class EP2
+    {
+        public EventPage page;
+        public int num;
+        public SwitchComparator comp;
+    }
+}
+
+public enum SwitchComparator
+{
+    Less,
+    LessOrEqual,
+    Equal,
+    Greater,
+    GreaterOrEqual,
+    NotEqual
 }
