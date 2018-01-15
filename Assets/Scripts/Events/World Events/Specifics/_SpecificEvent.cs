@@ -11,9 +11,14 @@ public class _SpecificEvent : _BaseEvent
 
     public string Guid;
 
-    public override IEnumerator TriggeredEvent()
+    public override IEnumerator TriggeredEvent(GameObject triggeredBy)
     {
-        if(eventPages == null)
+        if (transform.parent != null)
+        {
+            transform.parent.SendMessage("LookAt", triggeredBy, SendMessageOptions.DontRequireReceiver);
+        }
+
+        if (eventPages == null)
         {
             guid = new Guid(Guid);
             if (EventPage.eventPages.ContainsKey(guid)) eventPages = EventPage.eventPages[guid];

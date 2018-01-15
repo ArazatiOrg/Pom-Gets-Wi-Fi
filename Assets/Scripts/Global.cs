@@ -32,22 +32,22 @@ public class Global : MonoBehaviour {
     public static GlobalFloat PlayerPosY = new GlobalFloat();
 
     //Gamestate Variables
-    public static GlobalInt ShibeInParty = new GlobalInt();
+    public static GlobalInt ShibeInParty = new GlobalInt() { name = "ShibeInParty" };
 
-    public static GlobalInt Intro = new GlobalInt();
-    public static GlobalBool Intro_Facewoof = new GlobalBool();
-    public static GlobalBool Intro_Reddig = new GlobalBool();
-    public static GlobalBool Intro_gTail = new GlobalBool();
-    public static GlobalBool Intro_Tumfur = new GlobalBool();
-    public static GlobalInt Intro_LastWebsiteSelector = new GlobalInt();
+    public static GlobalInt Intro = new GlobalInt() { name = "Intro" };
+    public static GlobalBool Intro_Facewoof = new GlobalBool() { name = "Intro_FaceWoof" };
+    public static GlobalBool Intro_Reddig = new GlobalBool() { name = "Intro_Reddig" };
+    public static GlobalBool Intro_gTail = new GlobalBool() { name = "Intro_gTail" };
+    public static GlobalBool Intro_Tumfur = new GlobalBool() { name = "Intro_Tumfur" };
+    public static GlobalInt Intro_LastWebsiteSelector = new GlobalInt() { name = "Intro_LastWebsiteSelector" };
 
-    public static GlobalInt IntroGround = new GlobalInt();
-    public static GlobalInt ShibeIntro = new GlobalInt();
-    public static GlobalInt ShibeTalk = new GlobalInt();
+    public static GlobalInt IntroGround = new GlobalInt() { name = "IntroGround" };
+    public static GlobalInt ShibeIntro = new GlobalInt() { name = "ShibeIntro" };
+    public static GlobalInt ShibeTalk = new GlobalInt() { name = "ShibeTalk" };
 
-    public static GlobalInt FlowerField = new GlobalInt();
-    public static GlobalInt Silent_Treatment = new GlobalInt();
-    public static GlobalInt Cherry_Blossoms = new GlobalInt();
+    public static GlobalInt FlowerField = new GlobalInt() { name = "FlowerField" } ;
+    public static GlobalInt Silent_Treatment = new GlobalInt() { name = "Silent_Treatment" };
+    public static GlobalInt Cherry_Blossoms = new GlobalInt() { name = "Cherry_Blossoms" };
 
     private void Start()
     {
@@ -87,6 +87,7 @@ public class Global : MonoBehaviour {
     public class GlobalInt
     {
         public int value;
+        public string name = "Unknown GlobalInt";
 
         public GlobalInt(int value = 0)
         {
@@ -102,10 +103,16 @@ public class Global : MonoBehaviour {
         {
             return value.ToString();
         }
+
+        public string Name
+        {
+            get { return name; }
+        }
     }
     public class GlobalFloat
     {
         public float value;
+        public string name = "Unknown GlobalFloat";
 
         public GlobalFloat(float value = 0f)
         {
@@ -121,10 +128,16 @@ public class Global : MonoBehaviour {
         {
             return value.ToString();
         }
+
+        public string Name
+        {
+            get { return name; }
+        }
     }
     public class GlobalBool
     {
         public bool value;
+        public string name = "Unknown GlobalBool";
 
         public GlobalBool(bool value = false)
         {
@@ -139,6 +152,11 @@ public class Global : MonoBehaviour {
         public override string ToString()
         {
             return value.ToString();
+        }
+
+        public string Name
+        {
+            get { return name; }
         }
     }
 }

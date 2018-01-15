@@ -7,6 +7,8 @@ public class EventTeleportPlayer : _BaseEvent {
 	public SpriteDir facingDirection = SpriteDir.None;
 	public bool teleportRelative = false;
 
+    public Vector2 shibeTeleOffset;
+
 	void OnDrawGizmosSelected ()
 	{
 		var telePos = TeleportPosition;
@@ -17,7 +19,7 @@ public class EventTeleportPlayer : _BaseEvent {
 		Gizmos.DrawCube(telePos, Vector3.one);
 	}
 
-	public override IEnumerator TriggeredEvent ()
+	public override IEnumerator TriggeredEvent (GameObject triggeredBy)
 	{
 		Player.playerInstance.AllowMovement = false;
 
@@ -34,6 +36,9 @@ public class EventTeleportPlayer : _BaseEvent {
 		Player.playerInstance.StallMovement ();
 		if(facingDirection != SpriteDir.None) Player.playerInstance.SetFacingDirection(facingDirection);
 		Camera.main.SendMessage ("UpdateBounds");
+
+        if(shibeTeleOffset.magnitude > 0 && Global.ShibeInParty > 0)
+            ShibeFollowLogic.instance.TeleToPomWithOffset(shibeTeleOffset);
 
 		cameraFader.StartUnfading();
 

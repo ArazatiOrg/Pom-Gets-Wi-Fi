@@ -109,7 +109,7 @@ public class TextEngine : MonoBehaviour {
         }
         else if (lineIndex < 5)
         {
-            if(Global.devMode && Input.GetKey(KeyCode.RightControl))
+            if(Global.devMode && (Input.GetKey(KeyCode.RightControl) || Input.GetKey(KeyCode.Backslash)))
             {
                 ShowLines(4);
 
@@ -128,6 +128,12 @@ public class TextEngine : MonoBehaviour {
 
                 while (true)
                 {
+                    if(textIndex > text.text.Length)
+                    {
+                        Debug.LogError("Text Length of Zero: " + text.text);
+                        break;
+                    }
+
                     var c = text.text[textIndex];
                     if (c == '\n')
                     {
@@ -165,7 +171,7 @@ public class TextEngine : MonoBehaviour {
             }
         }
             
-        if(waitingForInput && Input.anyKeyDown && timeSinceOpened + .05f < Time.realtimeSinceStartup)
+        if(waitingForInput && (Input.anyKeyDown || (Global.devMode && Input.GetKey(KeyCode.Backslash))) && timeSinceOpened + .05f < Time.realtimeSinceStartup)
         {
             waitingForInput = false;
             finishedTextbox = true;

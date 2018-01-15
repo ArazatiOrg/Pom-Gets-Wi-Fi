@@ -78,7 +78,7 @@ public class VersionIncrementor
         string[] lines = PlayerSettings.bundleVersion.Split('.');
         
         int OldMajorVersion = int.Parse(lines[0]);
-        int OldMinorVersion = int.Parse(lines[1]);
+        //int OldMinorVersion = int.Parse(lines[1]);
 
         //months since the start of 2018
         int MajorVersion = (DateTime.UtcNow.Year - 2018) * 12 + DateTime.UtcNow.Month;
@@ -92,9 +92,6 @@ public class VersionIncrementor
                                         MinorVersion.ToString("0") + "." +
                                         Build.ToString("0");
         PlayerSettings.Android.bundleVersionCode = MajorVersion * 1000000 + MinorVersion * 1000 + Build;
-
-        //1,000,000
-        //  366,000
     }
 
     private static void IncreaseBuild()

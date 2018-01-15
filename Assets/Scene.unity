@@ -243,7 +243,7 @@ Transform:
   - {fileID: 1624618228}
   - {fileID: 1363090126}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &28691092
 GameObject:
@@ -322,9 +322,10 @@ MonoBehaviour:
   triggerBySteppedOn: 1
   triggerByBumped: 1
   triggerByActivated: 1
-  TeleportPosition: {x: -7, y: 0}
+  TeleportPosition: {x: -5, y: 0}
   facingDirection: -1
   teleportRelative: 1
+  shibeTeleOffset: {x: 1, y: 0}
 --- !u!114 &53368954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -451,9 +452,10 @@ MonoBehaviour:
   triggerBySteppedOn: 1
   triggerByBumped: 1
   triggerByActivated: 1
-  TeleportPosition: {x: -6.5, y: -42.5}
+  TeleportPosition: {x: -5.5, y: -42.5}
   facingDirection: 3
   teleportRelative: 0
+  shibeTeleOffset: {x: 1, y: 0}
 --- !u!114 &86395774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -583,6 +585,7 @@ MonoBehaviour:
   TeleportPosition: {x: 11.5, y: -25.5}
   facingDirection: -1
   teleportRelative: 0
+  shibeTeleOffset: {x: 0, y: 0}
 --- !u!114 &88803896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -709,9 +712,10 @@ MonoBehaviour:
   triggerBySteppedOn: 1
   triggerByBumped: 1
   triggerByActivated: 1
-  TeleportPosition: {x: 20.5, y: -52.5}
+  TeleportPosition: {x: 21.5, y: -52.5}
   facingDirection: 3
   teleportRelative: 0
+  shibeTeleOffset: {x: 1, y: 0}
 --- !u!114 &98379127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1162,9 +1166,10 @@ MonoBehaviour:
   triggerBySteppedOn: 1
   triggerByBumped: 1
   triggerByActivated: 1
-  TeleportPosition: {x: 92.5, y: -20.5}
-  facingDirection: 3
+  TeleportPosition: {x: 91.5, y: -20.5}
+  facingDirection: 1
   teleportRelative: 0
+  shibeTeleOffset: {x: -1, y: 0}
 --- !u!114 &144977371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1291,9 +1296,10 @@ MonoBehaviour:
   triggerBySteppedOn: 1
   triggerByBumped: 1
   triggerByActivated: 1
-  TeleportPosition: {x: 7, y: 0}
+  TeleportPosition: {x: 5, y: 0}
   facingDirection: -1
   teleportRelative: 1
+  shibeTeleOffset: {x: -1, y: 0}
 --- !u!114 &145053035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1901,7 +1907,7 @@ Transform:
   - {fileID: 1317003189}
   - {fileID: 2087384859}
   m_Father: {fileID: 868990551}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &301635910
 MonoBehaviour:
@@ -2039,9 +2045,10 @@ MonoBehaviour:
   triggerBySteppedOn: 1
   triggerByBumped: 1
   triggerByActivated: 1
-  TeleportPosition: {x: 7, y: -1}
+  TeleportPosition: {x: 5, y: -1}
   facingDirection: -1
   teleportRelative: 1
+  shibeTeleOffset: {x: -1, y: 0}
 --- !u!114 &327602179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2151,7 +2158,7 @@ Transform:
   - {fileID: 589724011}
   - {fileID: 148872525}
   m_Father: {fileID: 868990551}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &328503495
 MonoBehaviour:
@@ -10138,6 +10145,7 @@ MonoBehaviour:
   TeleportPosition: {x: 1.5, y: -45.5}
   facingDirection: 1
   teleportRelative: 0
+  shibeTeleOffset: {x: -1, y: 0}
 --- !u!114 &463059874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10738,6 +10746,7 @@ MonoBehaviour:
   TeleportPosition: {x: 11.5, y: -25.5}
   facingDirection: -1
   teleportRelative: 0
+  shibeTeleOffset: {x: 0, y: 0}
 --- !u!114 &543738091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10864,9 +10873,10 @@ MonoBehaviour:
   triggerBySteppedOn: 1
   triggerByBumped: 1
   triggerByActivated: 1
-  TeleportPosition: {x: 25.5, y: -36.5}
+  TeleportPosition: {x: 24.5, y: -36.5}
   facingDirection: 1
   teleportRelative: 0
+  shibeTeleOffset: {x: -1, y: 0}
 --- !u!114 &545231877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10976,7 +10986,7 @@ Transform:
   - {fileID: 1319985571}
   - {fileID: 1864093826}
   m_Father: {fileID: 868990551}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &549016868
 MonoBehaviour:
@@ -11121,9 +11131,10 @@ MonoBehaviour:
   triggerBySteppedOn: 1
   triggerByBumped: 1
   triggerByActivated: 1
-  TeleportPosition: {x: 25.5, y: -36.5}
+  TeleportPosition: {x: 24.5, y: -36.5}
   facingDirection: 1
   teleportRelative: 0
+  shibeTeleOffset: {x: -1, y: 0}
 --- !u!114 &559704889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11527,9 +11538,10 @@ MonoBehaviour:
   triggerBySteppedOn: 1
   triggerByBumped: 1
   triggerByActivated: 1
-  TeleportPosition: {x: -7, y: -1}
+  TeleportPosition: {x: -5, y: -1}
   facingDirection: -1
   teleportRelative: 1
+  shibeTeleOffset: {x: 1, y: 0}
 --- !u!114 &602874055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11734,6 +11746,7 @@ MonoBehaviour:
   TeleportPosition: {x: 9.5, y: -17.5}
   facingDirection: -1
   teleportRelative: 0
+  shibeTeleOffset: {x: 0, y: 0}
 --- !u!114 &638255790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11918,7 +11931,7 @@ Transform:
   - {fileID: 1162458772}
   - {fileID: 919346081}
   m_Father: {fileID: 868990551}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &663629035
 MonoBehaviour:
@@ -12065,9 +12078,10 @@ MonoBehaviour:
   triggerBySteppedOn: 1
   triggerByBumped: 1
   triggerByActivated: 1
-  TeleportPosition: {x: 7, y: -1}
+  TeleportPosition: {x: 5, y: -1}
   facingDirection: -1
   teleportRelative: 1
+  shibeTeleOffset: {x: -1, y: 0}
 --- !u!114 &718106410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68555,7 +68569,7 @@ Transform:
   - {fileID: 523057983}
   - {fileID: 1560294035}
   m_Father: {fileID: 868990551}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &750177975
 MonoBehaviour:
@@ -68705,6 +68719,7 @@ MonoBehaviour:
   TeleportPosition: {x: 102.5, y: -50.5}
   facingDirection: 3
   teleportRelative: 0
+  shibeTeleOffset: {x: 1, y: 0}
 --- !u!114 &765590902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68932,9 +68947,10 @@ MonoBehaviour:
   triggerBySteppedOn: 1
   triggerByBumped: 1
   triggerByActivated: 1
-  TeleportPosition: {x: 49.5, y: -22.5}
+  TeleportPosition: {x: 50.5, y: -24.5}
   facingDirection: -1
   teleportRelative: 0
+  shibeTeleOffset: {x: 0, y: -1}
 --- !u!114 &790643107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69169,9 +69185,10 @@ MonoBehaviour:
   triggerBySteppedOn: 1
   triggerByBumped: 1
   triggerByActivated: 1
-  TeleportPosition: {x: 7, y: -0.5}
+  TeleportPosition: {x: 5, y: -0.5}
   facingDirection: -1
   teleportRelative: 1
+  shibeTeleOffset: {x: -1, y: 0}
 --- !u!114 &801357527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69364,9 +69381,10 @@ MonoBehaviour:
   triggerBySteppedOn: 1
   triggerByBumped: 1
   triggerByActivated: 1
-  TeleportPosition: {x: 7, y: 0}
+  TeleportPosition: {x: 5, y: 0}
   facingDirection: -1
   teleportRelative: 1
+  shibeTeleOffset: {x: -1, y: 0}
 --- !u!114 &824887568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69548,7 +69566,7 @@ Transform:
   - {fileID: 580966696}
   - {fileID: 1457589067}
   m_Father: {fileID: 868990551}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &853346610
 MonoBehaviour:
@@ -69830,6 +69848,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 868990551}
+  - component: {fileID: 868990552}
+  - component: {fileID: 868990553}
   m_Layer: 0
   m_Name: NPCs
   m_TagString: Untagged
@@ -69847,6 +69867,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1047790598}
   - {fileID: 1378141786}
   - {fileID: 2134612927}
   - {fileID: 2008383115}
@@ -69869,8 +69890,52 @@ Transform:
   - {fileID: 2006174758}
   - {fileID: 663629034}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &868990552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 868990550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a45dad76db77abe4e9b13601c6635a61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcs:
+  - {fileID: 1047790597}
+  - {fileID: 1378141787}
+  - {fileID: 2134612928}
+  - {fileID: 2008383116}
+  - {fileID: 2056755677}
+  - {fileID: 2113735834}
+  - {fileID: 750177975}
+  - {fileID: 2021687130}
+  - {fileID: 1172049727}
+  - {fileID: 1812530859}
+  - {fileID: 549016868}
+  - {fileID: 1831251113}
+  - {fileID: 1800224350}
+  - {fileID: 1418669156}
+  - {fileID: 2136004111}
+  - {fileID: 853346610}
+  - {fileID: 328503495}
+  - {fileID: 301635910}
+  - {fileID: 2133639711}
+  - {fileID: 1341757343}
+  - {fileID: 2006174759}
+  - {fileID: 663629035}
+--- !u!210 &868990553
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 868990550}
+  m_Enabled: 1
+  m_SortingLayerID: -1124078137
+  m_SortingLayer: -1
+  m_SortingOrder: 0
 --- !u!1001 &888839394
 Prefab:
   m_ObjectHideFlags: 0
@@ -70206,9 +70271,10 @@ MonoBehaviour:
   triggerBySteppedOn: 1
   triggerByBumped: 1
   triggerByActivated: 1
-  TeleportPosition: {x: 8, y: -34}
+  TeleportPosition: {x: 8, y: -35}
   facingDirection: 0
   teleportRelative: 1
+  shibeTeleOffset: {x: 0, y: 0}
 --- !u!114 &959048945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70335,9 +70401,10 @@ MonoBehaviour:
   triggerBySteppedOn: 1
   triggerByBumped: 1
   triggerByActivated: 1
-  TeleportPosition: {x: 7, y: -1}
+  TeleportPosition: {x: 5, y: -1}
   facingDirection: -1
   teleportRelative: 1
+  shibeTeleOffset: {x: -1, y: 0}
 --- !u!114 &975596531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70687,8 +70754,8 @@ Transform:
   m_Children:
   - {fileID: 854881157}
   - {fileID: 1893567529}
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_Father: {fileID: 868990551}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1086500307
 GameObject:
@@ -70739,6 +70806,7 @@ MonoBehaviour:
   TeleportPosition: {x: 9.5, y: -17.5}
   facingDirection: -1
   teleportRelative: 0
+  shibeTeleOffset: {x: 0, y: 0}
 --- !u!114 &1086500310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71107,9 +71175,10 @@ MonoBehaviour:
   triggerBySteppedOn: 1
   triggerByBumped: 1
   triggerByActivated: 1
-  TeleportPosition: {x: 7, y: 0}
+  TeleportPosition: {x: 5, y: 0}
   facingDirection: -1
   teleportRelative: 1
+  shibeTeleOffset: {x: -1, y: 0}
 --- !u!114 &1153837128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71388,7 +71457,7 @@ Transform:
   - {fileID: 1779296802}
   - {fileID: 116608592}
   m_Father: {fileID: 868990551}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1172049727
 MonoBehaviour:
@@ -71535,9 +71604,10 @@ MonoBehaviour:
   triggerBySteppedOn: 1
   triggerByBumped: 1
   triggerByActivated: 1
-  TeleportPosition: {x: 49.5, y: -34.5}
+  TeleportPosition: {x: 50.5, y: -32.5}
   facingDirection: -1
   teleportRelative: 0
+  shibeTeleOffset: {x: 0, y: 1}
 --- !u!114 &1189110150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72297,7 +72367,7 @@ Transform:
   - {fileID: 5460548}
   - {fileID: 564944731}
   m_Father: {fileID: 868990551}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1341757343
 MonoBehaviour:
@@ -72580,6 +72650,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1378141786}
   - component: {fileID: 1378141787}
+  - component: {fileID: 1378141788}
   m_Layer: 0
   m_Name: Shibe
   m_TagString: Untagged
@@ -72600,7 +72671,7 @@ Transform:
   - {fileID: 514298373}
   - {fileID: 292332290}
   m_Father: {fileID: 868990551}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1378141787
 MonoBehaviour:
@@ -72636,6 +72707,17 @@ MonoBehaviour:
   - name: Shibe_nervous
     face: {fileID: 21300000, guid: 65b22d4d55f9b2d4ea26dc0c79cfe8fe, type: 3}
   moveTimeout: 0
+--- !u!114 &1378141788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1378141785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28131a0d4fe820242a31d772880a7352, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1383902483
 Prefab:
   m_ObjectHideFlags: 0
@@ -72816,9 +72898,10 @@ MonoBehaviour:
   triggerBySteppedOn: 1
   triggerByBumped: 1
   triggerByActivated: 1
-  TeleportPosition: {x: -7, y: 0}
+  TeleportPosition: {x: -5, y: 0}
   facingDirection: -1
   teleportRelative: 1
+  shibeTeleOffset: {x: 1, y: 0}
 --- !u!114 &1391667505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72928,7 +73011,7 @@ Transform:
   - {fileID: 1695421951}
   - {fileID: 622773343}
   m_Father: {fileID: 868990551}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1418669156
 MonoBehaviour:
@@ -73326,6 +73409,7 @@ MonoBehaviour:
   TeleportPosition: {x: 1.5, y: -45.5}
   facingDirection: 1
   teleportRelative: 0
+  shibeTeleOffset: {x: -1, y: 0}
 --- !u!114 &1507753548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74116,6 +74200,7 @@ MonoBehaviour:
   TeleportPosition: {x: 9.5, y: -17.5}
   facingDirection: -1
   teleportRelative: 0
+  shibeTeleOffset: {x: 0, y: 0}
 --- !u!114 &1657723187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74590,9 +74675,10 @@ MonoBehaviour:
   triggerBySteppedOn: 1
   triggerByBumped: 1
   triggerByActivated: 1
-  TeleportPosition: {x: -7, y: -1}
+  TeleportPosition: {x: -5, y: -1}
   facingDirection: -1
   teleportRelative: 1
+  shibeTeleOffset: {x: 1, y: 0}
 --- !u!114 &1753771328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74719,9 +74805,10 @@ MonoBehaviour:
   triggerBySteppedOn: 1
   triggerByBumped: 1
   triggerByActivated: 1
-  TeleportPosition: {x: -6.5, y: -42.5}
+  TeleportPosition: {x: -5.5, y: -42.5}
   facingDirection: 3
   teleportRelative: 0
+  shibeTeleOffset: {x: 1, y: 0}
 --- !u!114 &1765553584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75004,7 +75091,7 @@ Transform:
   - {fileID: 2130273689}
   - {fileID: 764835905}
   m_Father: {fileID: 868990551}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1800224350
 MonoBehaviour:
@@ -75078,9 +75165,10 @@ MonoBehaviour:
   triggerBySteppedOn: 1
   triggerByBumped: 1
   triggerByActivated: 1
-  TeleportPosition: {x: 92.5, y: -20.5}
-  facingDirection: 3
+  TeleportPosition: {x: 91.5, y: -20.5}
+  facingDirection: 1
   teleportRelative: 0
+  shibeTeleOffset: {x: -1, y: 0}
 --- !u!114 &1801459137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75210,6 +75298,7 @@ MonoBehaviour:
   TeleportPosition: {x: 11.5, y: -25.5}
   facingDirection: -1
   teleportRelative: 0
+  shibeTeleOffset: {x: 0, y: 0}
 --- !u!114 &1805203183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75319,7 +75408,7 @@ Transform:
   - {fileID: 1225580124}
   - {fileID: 2015528455}
   m_Father: {fileID: 868990551}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1812530859
 MonoBehaviour:
@@ -75376,7 +75465,7 @@ Transform:
   - {fileID: 1489422211}
   - {fileID: 1183642476}
   m_Father: {fileID: 868990551}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1831251113
 MonoBehaviour:
@@ -75625,9 +75714,10 @@ MonoBehaviour:
   triggerBySteppedOn: 1
   triggerByBumped: 1
   triggerByActivated: 1
-  TeleportPosition: {x: 20.5, y: -52.5}
+  TeleportPosition: {x: 21.5, y: -52.5}
   facingDirection: 3
   teleportRelative: 0
+  shibeTeleOffset: {x: 1, y: 0}
 --- !u!114 &1858310798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75977,9 +76067,10 @@ MonoBehaviour:
   triggerBySteppedOn: 1
   triggerByBumped: 1
   triggerByActivated: 1
-  TeleportPosition: {x: -7, y: 0}
+  TeleportPosition: {x: -5, y: 0}
   facingDirection: -1
   teleportRelative: 1
+  shibeTeleOffset: {x: 1, y: 0}
 --- !u!114 &1876951024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76181,9 +76272,10 @@ MonoBehaviour:
   triggerBySteppedOn: 1
   triggerByBumped: 1
   triggerByActivated: 1
-  TeleportPosition: {x: 49.5, y: -34.5}
+  TeleportPosition: {x: 50.5, y: -32.5}
   facingDirection: -1
   teleportRelative: 0
+  shibeTeleOffset: {x: 0, y: 1}
 --- !u!114 &1898611025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76449,9 +76541,10 @@ MonoBehaviour:
   triggerBySteppedOn: 1
   triggerByBumped: 1
   triggerByActivated: 1
-  TeleportPosition: {x: -20, y: -36}
+  TeleportPosition: {x: -20, y: -37}
   facingDirection: -1
   teleportRelative: 1
+  shibeTeleOffset: {x: 0, y: 0}
 --- !u!114 &1953906558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84039,7 +84132,7 @@ Transform:
   - {fileID: 2137391221}
   - {fileID: 698421244}
   m_Father: {fileID: 868990551}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2006174759
 MonoBehaviour:
@@ -84094,7 +84187,7 @@ Transform:
   - {fileID: 768232413}
   - {fileID: 1872483294}
   m_Father: {fileID: 868990551}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2008383116
 MonoBehaviour:
@@ -84296,7 +84389,7 @@ Transform:
   - {fileID: 2103041585}
   - {fileID: 1631872354}
   m_Father: {fileID: 868990551}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2021687130
 MonoBehaviour:
@@ -84370,9 +84463,10 @@ MonoBehaviour:
   triggerBySteppedOn: 1
   triggerByBumped: 1
   triggerByActivated: 1
-  TeleportPosition: {x: 49.5, y: -22.5}
+  TeleportPosition: {x: 50.5, y: -24.5}
   facingDirection: -1
   teleportRelative: 0
+  shibeTeleOffset: {x: 0, y: -1}
 --- !u!114 &2033406619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97092,7 +97186,7 @@ Transform:
   - {fileID: 143283691}
   - {fileID: 1738843893}
   m_Father: {fileID: 868990551}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2056755677
 MonoBehaviour:
@@ -97164,9 +97258,10 @@ MonoBehaviour:
   triggerBySteppedOn: 1
   triggerByBumped: 1
   triggerByActivated: 1
-  TeleportPosition: {x: -7, y: -1}
+  TeleportPosition: {x: -5, y: -1}
   facingDirection: -1
   teleportRelative: 1
+  shibeTeleOffset: {x: 1, y: 0}
 --- !u!114 &2077011712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97293,9 +97388,10 @@ MonoBehaviour:
   triggerBySteppedOn: 1
   triggerByBumped: 1
   triggerByActivated: 1
-  TeleportPosition: {x: -7, y: -0.5}
+  TeleportPosition: {x: -5, y: -0.5}
   facingDirection: -1
   teleportRelative: 1
+  shibeTeleOffset: {x: 1, y: 0}
 --- !u!114 &2086990163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97653,7 +97749,7 @@ Transform:
   - {fileID: 192885251}
   - {fileID: 1471614661}
   m_Father: {fileID: 868990551}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2113735834
 MonoBehaviour:
@@ -97811,7 +97907,7 @@ Transform:
   - {fileID: 1702319547}
   - {fileID: 643995812}
   m_Father: {fileID: 868990551}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2133639711
 MonoBehaviour:
@@ -97866,7 +97962,7 @@ Transform:
   - {fileID: 281776274}
   - {fileID: 1606029280}
   m_Father: {fileID: 868990551}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2134612928
 MonoBehaviour:
@@ -97921,7 +98017,7 @@ Transform:
   - {fileID: 1537033657}
   - {fileID: 100181271}
   m_Father: {fileID: 868990551}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2136004111
 MonoBehaviour:

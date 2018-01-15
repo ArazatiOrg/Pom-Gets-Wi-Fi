@@ -513,10 +513,242 @@ public class tr_English : _BaseTR
         //Shibe
         NewEP("f125b5c1-a3e4-4128-8dbc-f2e06d2091bc");
         {
-            e = EventPlayerMoveable.c(false);
-            e = EventTextbox.c(Faces.Shibe, "Hi..");
-            e = EventTextboxClose.c;
-            e = EventPlayerMoveable.c(true);
+            var shibeTalkIs1 = new EventPage();
+            var shibeTalkIs3 = new EventPage();
+            var shibeTalkIs4 = new EventPage();
+            var shibeTalkIs5 = new EventPage();
+            var shibeTalkIs6 = new EventPage();
+            var shibeTalkIs7 = new EventPage();
+            var shibeTalkIs8 = new EventPage();
+            var shibeTalkIs9 = new EventPage();
+            var shibeTalkIs10 = new EventPage();
+            var shibeTalkIs11 = new EventPage();
+            var shibeTalkIs12 = new EventPage();
+            var shibeTalkIs13 = new EventPage();
+            var shibeTalkIs14 = new EventPage();
+            var shibeTalkIs15 = new EventPage();
+            var shibeTalkIs16 = new EventPage();
+            var shibeTalkIs17 = new EventPage();
+            var shibeTalkIs18 = new EventPage();
+            var shibeTalkIs19 = new EventPage();
+            var shibeTalkIs20 = new EventPage();
+            var shibeTalkIs21 = new EventPage();
+            var shibeTalkIs22 = new EventPage();
+            var shibeTalkIs23 = new EventPage();
+            var shibeTalkIs24 = new EventPage();
+            var shibeTalkIs25 = new EventPage();
+
+            e = EventPageSwitch.c(Global.ShibeTalk).AddEventPage(1, shibeTalkIs1).AddEventPage(3, shibeTalkIs3).AddEventPage(4, shibeTalkIs4)
+                                                   .AddEventPage(5, shibeTalkIs5).AddEventPage(6, shibeTalkIs6).AddEventPage(7, shibeTalkIs7)
+                                                   .AddEventPage(8, shibeTalkIs8).AddEventPage(9, shibeTalkIs9).AddEventPage(10, shibeTalkIs10)
+                                                   .AddEventPage(11, shibeTalkIs11).AddEventPage(12, shibeTalkIs12).AddEventPage(13, shibeTalkIs13)
+                                                   .AddEventPage(14, shibeTalkIs14).AddEventPage(15, shibeTalkIs15).AddEventPage(16, shibeTalkIs16)
+                                                   .AddEventPage(17, shibeTalkIs17).AddEventPage(18, shibeTalkIs18).AddEventPage(19, shibeTalkIs19)
+                                                   .AddEventPage(20, shibeTalkIs20).AddEventPage(21, shibeTalkIs21).AddEventPage(22, shibeTalkIs22)
+                                                   .AddEventPage(23, shibeTalkIs23).AddEventPage(24, shibeTalkIs24).AddEventPage(25, shibeTalkIs25);
+
+            ep = shibeTalkIs1;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Shibe, @"Why do you have laptop with you,
+                                                  always?");
+                e = EventTextbox.c(Faces.Pom, @"i am a lapdog after all");
+                e = EventTextbox.c(Faces.Shibe_uh, @"I'm pretty sure that's not what the
+                                                     term means.");
+                e = EventSetGlobal.c(Global.ShibeTalk, 3);
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+
+            ep = shibeTalkIs3;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Pom, @"if i dont check my facebark soon
+                                                im going 2 die");
+                e = EventTextbox.c(Faces.Pom, @"come on sebastian
+                                                lets get going");
+                e = EventTextbox.c(Faces.Shibe_annoyed, @"My name's not Sebastian!");
+                e = EventTextbox.c(Faces.Pom, @"mush");
+                e = EventTextbox.c(Faces.Shibe_uh, @"Alright, alright! I get it!");
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+
+            ep = shibeTalkIs4;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Shibe, "");
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+
+            ep = shibeTalkIs5;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Shibe, "");
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+
+            ep = shibeTalkIs6;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Shibe, "");
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+
+            ep = shibeTalkIs7;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Shibe, "");
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+
+            ep = shibeTalkIs8;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Shibe, "");
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+
+            ep = shibeTalkIs9;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Shibe, "");
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+
+            ep = shibeTalkIs10;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Shibe, "");
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+
+            ep = shibeTalkIs11;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Shibe, "");
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+
+            ep = shibeTalkIs12;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Shibe, "");
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+
+            ep = shibeTalkIs13;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Shibe, "");
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+
+            ep = shibeTalkIs14;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Shibe, "");
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+
+            ep = shibeTalkIs15;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Shibe, "");
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+
+            ep = shibeTalkIs16;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Shibe, "");
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+
+            ep = shibeTalkIs17;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Shibe, "");
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+
+            ep = shibeTalkIs18;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Shibe, "");
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+
+            ep = shibeTalkIs19;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Shibe, "");
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+
+            ep = shibeTalkIs20;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Shibe, "");
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+
+            ep = shibeTalkIs21;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Shibe, "");
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+
+            ep = shibeTalkIs22;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Shibe, "");
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+
+            ep = shibeTalkIs23;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Shibe, "");
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+
+            ep = shibeTalkIs24;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Shibe, "");
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+
+            ep = shibeTalkIs25;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Shibe, "");
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
         }
 
         #endregion

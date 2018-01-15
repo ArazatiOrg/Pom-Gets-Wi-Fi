@@ -23,7 +23,7 @@ public class NPCController : MonoBehaviour {
 
     public List<TextboxFace> faces = new List<TextboxFace>();
 
-    float movePercentage = 0f;
+    public float movePercentage = 0f;
 
     float animClock = 0f;
 
@@ -44,7 +44,10 @@ public class NPCController : MonoBehaviour {
 
 	int standingStillForXFrames = 0;
 
+    Vector3 oldPos = Vector3.zero;
+
 	public void UpdateMovement() {
+
 		if (moveTimeout >= 0) moveTimeout -= Time.smoothDeltaTime;
 
 		if (standingStill) {
@@ -76,6 +79,7 @@ public class NPCController : MonoBehaviour {
             }
             else
             {
+                movePercentage = 1f;
                 transform.position = boxCollider.transform.position;
                 boxCollider.transform.localPosition = Vector3.zero;
                 anim.transform.localPosition = Vector3.zero;
@@ -83,7 +87,11 @@ public class NPCController : MonoBehaviour {
 				stoppedOnTile = true;
             }
         }
-	}
+
+        if (oldPos != transform.position && anim != null && anim.spriteRenderer != null) anim.spriteRenderer.sortingOrder = 16384 - (int)(transform.position.y * 2);
+
+        oldPos = transform.position;
+    }
 
     private void UpdateAnim()
     {
@@ -153,9 +161,7 @@ public class NPCController : MonoBehaviour {
         movePercentage = 0f;
 
         stoppedOnTile = false;
-
-		//boxCollider.gameObject.GetComponent<Rigidbody2D> ().MovePosition ( (Vector2)transform.position + direction );
-		//boxCollider.transform.Translate (direction);
+        
         boxCollider.transform.localPosition = direction;
     }
 
@@ -165,6 +171,30 @@ public class NPCController : MonoBehaviour {
 
         facingDir = direction;
         anim.SetSprite(direction, 0);
+    }
+
+    public void LookAt(GameObject obj)
+    {
+        var dir = obj.transform.position - transform.position;
+        var dirAbs = new Vector2(Mathf.Abs(dir.x), Mathf.Abs(dir.y));
+
+        if (dir.magnitude < 0.01f) return;
+
+        var lookDir = dirAbs.x > dirAbs.y ? ( dir.x > 0 ? SpriteDir.Right : SpriteDir.Left ) : ( dir.y > 0 ? SpriteDir.Up : SpriteDir.Down );
+
+        SetFacingDirection(lookDir);
+    }
+
+    public SpriteDir DirFromVector(Vector2 vec)
+    {
+        var dir = vec;
+        var dirAbs = new Vector2(Mathf.Abs(dir.x), Mathf.Abs(dir.y));
+
+        if (vec.magnitude < 0.01f) return SpriteDir.None;
+
+        var lookDir = dirAbs.x > dirAbs.y ? (dir.x > 0 ? SpriteDir.Right : SpriteDir.Left) : (dir.y > 0 ? SpriteDir.Up : SpriteDir.Down);
+
+        return lookDir;
     }
 
 	public void StallMovement(float timeout = -1f)
@@ -188,6 +218,16 @@ public class NPCController : MonoBehaviour {
             standingStill = true;
             boxCollider.transform.localPosition = transform.position;
         }
+    }
+
+    public void ResetMovement()
+    {
+        transform.position = boxCollider.transform.position;
+        boxCollider.transform.localPosition = Vector3.zero;
+        anim.transform.localPosition = Vector3.zero;
+        standingStill = true;
+        stoppedOnTile = true;
+        movePercentage = 1f;
     }
 
     [System.Serializable]
