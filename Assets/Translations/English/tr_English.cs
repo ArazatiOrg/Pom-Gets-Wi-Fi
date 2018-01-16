@@ -31,10 +31,10 @@ public class tr_English : _BaseTR
         WittyFidoName = "Witty Fido";
         YorkName = "York";
 
-    //the following variables have to be configured in the Global object in the scene editor
-    //Font - the font used by text in this translation
+        //the following variables have to be configured in the Global object in the scene editor
+        //Font - the font used by text in this translation
 
-    langRegisterCode = EventPage.RegisterTranslation(this);
+        langRegisterCode = EventPage.RegisterTranslation(this);
 
         //uncomment the next line out if you want to automatically test your new events when running the game
         //Global.ActiveLanguage = langRegisterCode;
@@ -484,25 +484,97 @@ public class tr_English : _BaseTR
         // Big White Rose
         NewEP("F9794751-D80A-41DA-9888-83E57059A4F1");
         {
-            e = EventPlayerMoveable.c(false);
-            e = EventTextbox.c(Faces.Shibe, @"This flower is so tall");
-            e = EventTextbox.c(Faces.Pom, @"If normal roses r Kuroko then
+            {
+                var shibeInParty = new EventPage();
+                var shibeNotInparty = new EventPage();
+                e = EventPageSwitch.c(Global.ShibeInParty).AddEventPage(1, shibeInParty).AddEventPage(1, shibeNotInparty, SwitchComparator.NotEqual);
+
+                ep = shibeNotInparty;
+                {
+                    e = EventPlayerMoveable.c(false);
+                    e = EventTextbox.c(Faces.Pom, @"...");
+                    e = EventTextboxClose.c;
+                    e = EventPlayerMoveable.c(true);
+                }
+
+                ep = shibeInParty;
+                {
+                    var silentTreatment = new EventPage();
+                    var notSilentTreatment = new EventPage();
+                    e = EventPageSwitch.c(Global.Silent_Treatment).AddEventPage(0, silentTreatment, SwitchComparator.NotEqual)
+                                                                  .AddEventPage(0, notSilentTreatment);
+
+                    ep = silentTreatment;
+                    {
+                        e = EventPlayerMoveable.c(false);
+                        e = EventTextbox.c(Faces.Pom, @"hey shibe");
+                        e = EventTextbox.c(Faces.Shibe_uh, @"...");
+                        e = EventTextbox.c(Faces.Pom, @"...");
+                        e = EventTextboxClose.c;
+                        e = EventPlayerMoveable.c(true);
+                    }
+
+                    ep = notSilentTreatment;
+                    {
+                        e = EventPlayerMoveable.c(false);
+                        e = EventTextbox.c(Faces.Shibe, @"This flower is so tall");
+                        e = EventTextbox.c(Faces.Pom, @"If normal roses r Kuroko then
                                             this one is Kagami");
-            e = EventTextbox.c(Faces.Shibe_uh, @"...Sometimes I really can't understand
+                        e = EventTextbox.c(Faces.Shibe_uh, @"...Sometimes I really can't understand
                                                  what you're saying.");
-            e = EventTextboxClose.c;
-            e = EventPlayerMoveable.c(true);
+                        e = EventTextboxClose.c;
+                        e = EventPlayerMoveable.c(true);
+                    }
+                }
+            }
         }
 
         // Big Black/Purple Rose
         NewEP("95b58f5e-4227-4d69-97e6-f005ce41f5d4");
         {
-            e = EventPlayerMoveable.c(false);
-            e = EventTextbox.c(Faces.Pom, @"wouldnt it have been funny if garry
+            {
+                {
+                    var shibeInParty = new EventPage();
+                    var shibeNotInparty = new EventPage();
+                    e = EventPageSwitch.c(Global.ShibeInParty).AddEventPage(1, shibeInParty).AddEventPage(1, shibeNotInparty, SwitchComparator.NotEqual);
+
+                    ep = shibeNotInparty;
+                    {
+                        e = EventPlayerMoveable.c(false);
+                        e = EventTextbox.c(Faces.Pom, @"...");
+                        e = EventTextboxClose.c;
+                        e = EventPlayerMoveable.c(true);
+                    }
+
+                    ep = shibeInParty;
+                    {
+                        var silentTreatment = new EventPage();
+                        var notSilentTreatment = new EventPage();
+                        e = EventPageSwitch.c(Global.Silent_Treatment).AddEventPage(0, silentTreatment, SwitchComparator.NotEqual)
+                                                                      .AddEventPage(0, notSilentTreatment);
+
+                        ep = silentTreatment;
+                        {
+                            e = EventPlayerMoveable.c(false);
+                            e = EventTextbox.c(Faces.Pom, @"hey shibe");
+                            e = EventTextbox.c(Faces.Shibe_uh, @"...");
+                            e = EventTextbox.c(Faces.Pom, @"...");
+                            e = EventTextboxClose.c;
+                            e = EventPlayerMoveable.c(true);
+                        }
+
+                        ep = notSilentTreatment;
+                        {
+                            e = EventPlayerMoveable.c(false);
+                            e = EventTextbox.c(Faces.Pom, @"wouldnt it have been funny if garry
                                             had to carry around a rose this big");
-            e = EventTextbox.c(Faces.Shibe_annoyed, @"Who the heck is ''Garry''?!");
-            e = EventTextboxClose.c;
-            e = EventPlayerMoveable.c(true);
+                            e = EventTextbox.c(Faces.Shibe_annoyed, @"Who the heck is ''Garry''?!");
+                            e = EventTextboxClose.c;
+                            e = EventPlayerMoveable.c(true);
+                        }
+                    }
+                }
+            }
         }
 
         #endregion
@@ -577,7 +649,20 @@ public class tr_English : _BaseTR
             ep = shibeTalkIs4;
             {
                 e = EventPlayerMoveable.c(false);
-                e = EventTextbox.c(Faces.Shibe, "");
+                e = EventTextbox.c(Faces.Shibe_uh, @"I can't believe we're really dead...");
+                e = EventTextbox.c(Faces.Shibe_uh, @"I thought it was strange when I
+                                                     suddenly woke up here, but
+                                                     still!");
+                e = EventTextbox.c(Faces.Pom, @"i thought it was strange when
+                                                my wi-fi was gone");
+                e = EventTextbox.c(Faces.Shibe_uh, @"So, what should we do now?");
+                e = EventTextbox.c(Faces.Pom, @"keep asking around about wi-fi");
+                e = EventTextbox.c(Faces.Shibe_uh, @"Not a lot of dogs would know what it
+                                                     is, though.");
+                e = EventTextbox.c(Faces.Shibe_uh, @"If I didn't live with you, I wouldn't
+                                                     have known what it was either.");
+                e = EventTextbox.c(Faces.Pom, @"got any better ideas");
+                e = EventTextbox.c(Faces.Shibe_uh, @"Not really...");
                 e = EventTextboxClose.c;
                 e = EventPlayerMoveable.c(true);
             }
@@ -585,7 +670,9 @@ public class tr_English : _BaseTR
             ep = shibeTalkIs5;
             {
                 e = EventPlayerMoveable.c(false);
-                e = EventTextbox.c(Faces.Shibe, "");
+                e = EventTextbox.c(Faces.Pom, @"lets go!! 2 da cafe");
+                e = EventTextbox.c(Faces.Shibe, @"Alright! All we have to do is keep
+                                                  going east.");
                 e = EventTextboxClose.c;
                 e = EventPlayerMoveable.c(true);
             }
@@ -593,7 +680,16 @@ public class tr_English : _BaseTR
             ep = shibeTalkIs6;
             {
                 e = EventPlayerMoveable.c(false);
-                e = EventTextbox.c(Faces.Shibe, "");
+                e = EventTextbox.c(Faces.Pom, @"we'll have 2 do something about this
+                                                line if we wanna pass");
+                e = EventTextbox.c(Faces.Pom, @"why is life so suck");
+                e = EventTextbox.c(Faces.Shibe_uh, @"Maybe if we could get into the park,
+                                                     we could figure out why they're not
+                                                     lettign anyone in.");
+                e = EventTextbox.c(Faces.Shibe_uh, @"Sherman is blocking the entrance,
+                                                     though");
+                e = EventTextbox.c(Faces.Pom, @"lets kill him");
+                e = EventTextbox.c(Faces.Shibe_annoyed, @"That's not the answer!");
                 e = EventTextboxClose.c;
                 e = EventPlayerMoveable.c(true);
             }
@@ -601,7 +697,12 @@ public class tr_English : _BaseTR
             ep = shibeTalkIs7;
             {
                 e = EventPlayerMoveable.c(false);
-                e = EventTextbox.c(Faces.Shibe, "");
+                e = EventTextbox.c(Faces.Shibe, @"We need to gather things to pile
+                                                  onto that stone in front of the park");
+                e = EventTextbox.c(Faces.Shibe, @"Seeing how those two rude ladies in
+                                                  line happened to have stuff on them...");
+                e = EventTextbox.c(Faces.Pom, @"...makes u wonder if the other doges
+                                                have stuff we could use too");
                 e = EventTextboxClose.c;
                 e = EventPlayerMoveable.c(true);
             }
@@ -609,7 +710,10 @@ public class tr_English : _BaseTR
             ep = shibeTalkIs8;
             {
                 e = EventPlayerMoveable.c(false);
-                e = EventTextbox.c(Faces.Shibe, "");
+                e = EventTextbox.c(Faces.Pom, @"we should find papi and beat da dog
+                                                treats outta her");
+                e = EventTextbox.c(Faces.Shibe_annoyed, @"Don't be so eager to resort to
+                                                          violent measures!");
                 e = EventTextboxClose.c;
                 e = EventPlayerMoveable.c(true);
             }
@@ -617,7 +721,12 @@ public class tr_English : _BaseTR
             ep = shibeTalkIs9;
             {
                 e = EventPlayerMoveable.c(false);
-                e = EventTextbox.c(Faces.Shibe, "");
+                e = EventTextbox.c(Faces.Pom, @"whats goldie going 2 think of this tho");
+                e = EventTextbox.c(Faces.Shibe_uh, @"There's nothing we can do but tell her
+                                                     what happened.");
+                e = EventTextbox.c(Faces.Shibe, @"Honesty is the best policy!").SwitchSides;
+                e = EventTextbox.c(Faces.Pom, @"when u say things like that it makes
+                                                me want to throw up");
                 e = EventTextboxClose.c;
                 e = EventPlayerMoveable.c(true);
             }
@@ -625,7 +734,7 @@ public class tr_English : _BaseTR
             ep = shibeTalkIs10;
             {
                 e = EventPlayerMoveable.c(false);
-                e = EventTextbox.c(Faces.Shibe, "");
+                e = EventTextbox.c(Faces.Shibe_annoyed, @"I think we should help Crest...");
                 e = EventTextboxClose.c;
                 e = EventPlayerMoveable.c(true);
             }
@@ -633,7 +742,9 @@ public class tr_English : _BaseTR
             ep = shibeTalkIs11;
             {
                 e = EventPlayerMoveable.c(false);
-                e = EventTextbox.c(Faces.Shibe, "");
+                e = EventTextbox.c(Faces.Shibe, @"We have enough stuff to scale the
+                                                  fence now!").SwitchSides;
+                e = EventTextbox.c(Faces.Shibe, @"Let's go!").SwitchSides;
                 e = EventTextboxClose.c;
                 e = EventPlayerMoveable.c(true);
             }
@@ -641,7 +752,7 @@ public class tr_English : _BaseTR
             ep = shibeTalkIs12;
             {
                 e = EventPlayerMoveable.c(false);
-                e = EventTextbox.c(Faces.Shibe, "");
+                e = EventTextbox.c(Faces.Shibe, @"Let's go see what's wrong.").SwitchSides;
                 e = EventTextboxClose.c;
                 e = EventPlayerMoveable.c(true);
             }
@@ -649,7 +760,15 @@ public class tr_English : _BaseTR
             ep = shibeTalkIs13;
             {
                 e = EventPlayerMoveable.c(false);
-                e = EventTextbox.c(Faces.Shibe, "");
+                e = EventTextbox.c(Faces.Shibe, @"Looks like we found the problem.
+                                                  The frisbee throwing machine's gone
+                                                  berserk!").SwitchSides;
+                e = EventTextbox.c(Faces.Pom, @"there must b some way 2 fix it");
+                e = EventTextbox.c(Faces.Pom, @"lets try 2 dodge all da frisbees and c
+                                                what's on the other side");
+                e = EventTextbox.c(Faces.Shibe, @"Be careful!
+                                                  It would be bad if we both got knocked
+                                                  out by those frisbees at once.");
                 e = EventTextboxClose.c;
                 e = EventPlayerMoveable.c(true);
             }
@@ -657,7 +776,12 @@ public class tr_English : _BaseTR
             ep = shibeTalkIs14;
             {
                 e = EventPlayerMoveable.c(false);
-                e = EventTextbox.c(Faces.Shibe, "");
+                e = EventTextbox.c(Faces.Pom, @"how did u even get in here hus");
+                e = EventTextbox.c(Faces.Hus, @"Through the entrance.
+                                                Sherman let me in.");
+                e = EventTextbox.c(Faces.Shibe_uh, @"...So you're not a ghost..?").SwitchSides;
+                e = EventTextbox.c(Faces.Hus, @"Is that what you were thinking all
+                                                this time?!");
                 e = EventTextboxClose.c;
                 e = EventPlayerMoveable.c(true);
             }
@@ -665,7 +789,15 @@ public class tr_English : _BaseTR
             ep = shibeTalkIs15;
             {
                 e = EventPlayerMoveable.c(false);
-                e = EventTextbox.c(Faces.Shibe, "");
+                e = EventTextbox.c(Faces.Shibe, @"For a place that's supposed to be heaven,
+                                                  there sure is a lot wrong with it.").SwitchSides;
+                e = EventTextbox.c(Faces.Hus, @"Seriously. I wonder what Dog is up to
+                                                these days.");
+                e = EventTextbox.c(Faces.Shibe_uh, @"Dog?").SwitchSides;
+                e = EventTextbox.c(Faces.Hus, @"He's something like the head honcho
+                                                around here.");
+                e = EventTextbox.c(Faces.Hus, @"I've never met him, but I hear that
+                                                he's invincible.");
                 e = EventTextboxClose.c;
                 e = EventPlayerMoveable.c(true);
             }
@@ -673,7 +805,9 @@ public class tr_English : _BaseTR
             ep = shibeTalkIs16;
             {
                 e = EventPlayerMoveable.c(false);
-                e = EventTextbox.c(Faces.Shibe, "");
+                e = EventTextbox.c(Faces.Shibe, @"I don't recall ever joining a gang.");
+                e = EventTextbox.c(Faces.Pom, @"we homies 4 life");
+                e = EventTextbox.c(Faces.Pom, @"we ride together we die together");
                 e = EventTextboxClose.c;
                 e = EventPlayerMoveable.c(true);
             }
@@ -681,7 +815,15 @@ public class tr_English : _BaseTR
             ep = shibeTalkIs17;
             {
                 e = EventPlayerMoveable.c(false);
-                e = EventTextbox.c(Faces.Shibe, "");
+                e = EventTextbox.c(Faces.Pom, @"our theme song should b a screamo
+                                                cover of love story by taylor swift");
+                e = EventTextbox.c(Faces.Pom, @"then we should get black hoodies and
+                                                paint skulls on them with white-out");
+                e = EventTextbox.c(Faces.Hus, @"Not hardcore enough!");
+                e = EventTextbox.c(Faces.Hus, @"We need temporary tattoos.");
+                e = EventTextbox.c(Faces.Hus, @"Dibs on the kitty one!");
+                e = EventTextbox.c(Faces.Shibe_uh, @"Aren't you two getting awfully
+                                                     excited about this?").SwitchSides;
                 e = EventTextboxClose.c;
                 e = EventPlayerMoveable.c(true);
             }
@@ -689,7 +831,15 @@ public class tr_English : _BaseTR
             ep = shibeTalkIs18;
             {
                 e = EventPlayerMoveable.c(false);
-                e = EventTextbox.c(Faces.Shibe, "");
+                e = EventTextbox.c(Faces.Chi, @"I forgot to ask, but...
+                                                What did you need me for?");
+                e = EventTextbox.c(Faces.Pom, @"gang activities");
+                e = EventTextbox.c(Faces.Pom, @"we're burying a dead body");
+                e = EventTextbox.c(Faces.Pom, @"in fact that dead body is gONNA B U");
+                e = EventTextbox.c(Faces.Chi_nervous, @"Oh...oh, no!
+                                                        Please reconsider!");
+                e = EventTextbox.c(Faces.Shibe_annoyed, @"Pom, stop that!
+                                                          You're scaring him!");
                 e = EventTextboxClose.c;
                 e = EventPlayerMoveable.c(true);
             }
@@ -697,7 +847,13 @@ public class tr_English : _BaseTR
             ep = shibeTalkIs19;
             {
                 e = EventPlayerMoveable.c(false);
-                e = EventTextbox.c(Faces.Shibe, "");
+                e = EventTextbox.c(Faces.Pom, @"da path 2 da cafe is finally clear");
+                e = EventTextbox.c(Faces.Pom, @"googogogogogog og og");
+                e = EventTextbox.c(Faces.Pom, @"gotta gio fatus");
+                e = EventTextbox.c(Faces.Pom, @"gottas go fatser faster
+                                                fastre fatsre fgaster fatre fatsre");
+                e = EventTextbox.c(Faces.Shibe_annoyed, @"I can't understand a single word
+                                                          you're saying!");
                 e = EventTextboxClose.c;
                 e = EventPlayerMoveable.c(true);
             }
@@ -705,7 +861,14 @@ public class tr_English : _BaseTR
             ep = shibeTalkIs20;
             {
                 e = EventPlayerMoveable.c(false);
-                e = EventTextbox.c(Faces.Shibe, "");
+                e = EventTextbox.c(Faces.Shibe_uh, @"I guess I should have known better
+                                                     than to expect it to be simple.");
+                e = EventTextbox.c(Faces.Shibe_uh, @"We'll have to obtain some dog treats
+                                                     so we can buy a drink...");
+                e = EventTextbox.c(Faces.Shibe_uh, @"So that we can sit inside StarPugs...");
+                e = EventTextbox.c(Faces.Shibe_uh, @"So that you can use their wi-fi.");
+                e = EventTextbox.c(Faces.Pom, @"time to look for dogs to shake down
+                                                for dog treats");
                 e = EventTextboxClose.c;
                 e = EventPlayerMoveable.c(true);
             }
@@ -713,7 +876,17 @@ public class tr_English : _BaseTR
             ep = shibeTalkIs21;
             {
                 e = EventPlayerMoveable.c(false);
-                e = EventTextbox.c(Faces.Shibe, "");
+                e = EventTextbox.c(Faces.Shibe_annoyed, @"Why did you accept?!");
+                e = EventTextbox.c(Faces.Pom, @"we need da treats dont we");
+                e = EventTextbox.c(Faces.Shibe_annoyed, @"No matter how you look at it, this
+                                                          isn't right!");
+                e = EventTextbox.c(Faces.Shibe_annoyed, @"I'm not talking to you!");
+                e = EventTextbox.c(Faces.Pom, @"lol we'll c how long that lasts");
+                e = EventTextbox.c(Faces.Pom, @"poopy head");
+                e = EventTextbox.c(Faces.Shibe_blush, @"..................................");
+                e = EventTextbox.c(Faces.Pom, @"ur tail looks like poop too");
+                e = EventTextbox.c(Faces.Shibe_blush, @"..............................................................");
+                e = EventSetGlobal.c(Global.Silent_Treatment, 1);
                 e = EventTextboxClose.c;
                 e = EventPlayerMoveable.c(true);
             }
@@ -721,7 +894,10 @@ public class tr_English : _BaseTR
             ep = shibeTalkIs22;
             {
                 e = EventPlayerMoveable.c(false);
-                e = EventTextbox.c(Faces.Shibe, "");
+                e = EventTextbox.c(Faces.Pom, @"hey shibe");
+                e = EventTextbox.c(Faces.Shibe_annoyed, @"......................");
+                e = EventTextbox.c(Faces.Pom, @"fine b that way");
+                e = EventTextbox.c(Faces.Pom, @"c if i care");
                 e = EventTextboxClose.c;
                 e = EventPlayerMoveable.c(true);
             }
@@ -729,7 +905,11 @@ public class tr_English : _BaseTR
             ep = shibeTalkIs23;
             {
                 e = EventPlayerMoveable.c(false);
-                e = EventTextbox.c(Faces.Shibe, "");
+                e = EventTextbox.c(Faces.Shibe_annoyed, @"I can't believe I messed up and talked
+                                                          yo you...");
+                e = EventTextbox.c(Faces.Pom, @"u do this every single time u try 2
+                                                give me the silent treatment");
+                e = EventTextbox.c(Faces.Pom, @"it's never going 2 work");
                 e = EventTextboxClose.c;
                 e = EventPlayerMoveable.c(true);
             }
@@ -737,7 +917,18 @@ public class tr_English : _BaseTR
             ep = shibeTalkIs24;
             {
                 e = EventPlayerMoveable.c(false);
-                e = EventTextbox.c(Faces.Shibe, "");
+                e = EventTextbox.c(Faces.Shibe_uh, @"Come on! Let's hurry to the cafe!");
+                e = EventTextbox.c(Faces.Pom, @"whats this??");
+                e = EventTextbox.c(Faces.Pom, @"shibe have u at last realized how
+                                                vital wi-fi is 2 ur well being");
+                e = EventTextbox.c(Faces.Shibe_uh, @"No, that's not it.");
+                e = EventTextbox.c(Faces.Shibe_uh, @"Since this is heaven I'm not hungry or
+                                                     anything, but it's still really difficult
+                                                     to restrain myself from eating these
+                                                     treats while holding them.");
+                e = EventTextbox.c(Faces.Shibe_uh, @"I can see why they're used as currency.
+                                                     They're a measure of the holder's
+                                                     self-control.");
                 e = EventTextboxClose.c;
                 e = EventPlayerMoveable.c(true);
             }
@@ -745,11 +936,20 @@ public class tr_English : _BaseTR
             ep = shibeTalkIs25;
             {
                 e = EventPlayerMoveable.c(false);
-                e = EventTextbox.c(Faces.Shibe, "");
+                e = EventTextbox.c(Faces.Pom, @"i still cant fukkin believe this
+                                                happened");
+                e = EventTextbox.c(Faces.Shibe_uh, @"I feel really bad for you, after your
+                                                     hopes got all raised like that.");
+                e = EventTextbox.c(Faces.Pom, @"but i wont be broken");
+                e = EventTextbox.c(Faces.Pom, @"ill persevere like a tru hero");
+                e = EventTextbox.c(Faces.Shibe_uh, @"I don't know if ''hero'' is really
+                                                     the right word to describe you...");
                 e = EventTextboxClose.c;
                 e = EventPlayerMoveable.c(true);
             }
         }
+
+
 
         #endregion
 

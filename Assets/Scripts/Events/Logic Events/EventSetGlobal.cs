@@ -25,12 +25,10 @@ public class EventSetGlobal : _BaseLogicEvent {
         if (globalInt != null)
         {
             globalInt.value = setToInt;
-            //Debug.Log("Setting " + globalInt.name + " to " + globalInt.value);
         }
         if (globalBool != null)
         {
             globalBool.value = setToBool;
-            //Debug.Log("Setting " + globalBool.name + " to " + globalBool.value);
         }
 
 

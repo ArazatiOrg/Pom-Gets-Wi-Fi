@@ -130,9 +130,4 @@ public class Player : NPCController {
 
         moveSpeed = beforeSpeed;
     }
-
-    private void OnGUI()
-    {
-        GUI.Label(new Rect(5, 25, 500, 500), "PlayerStanding: " + stoppedOnTile + " - PlayerMovePercentage: " + movePercentage);
-    }
 }

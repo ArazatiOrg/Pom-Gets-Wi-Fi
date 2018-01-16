@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 //Stop that, don't shame me. I'm just porting the game. I don't intend people to -actually- make their own stuff with this in the future. :V
 
@@ -8,7 +9,7 @@ public class Global : MonoBehaviour {
     //TODO: set this to false for normal mode..
     public static bool devMode = true;
 
-    private static GlobalInt _activeLanguage = new GlobalInt(0); //english is 0
+    private static GlobalInt _activeLanguage; //english is 0
     public static GlobalInt ActiveLanguage
     {
         get { return _activeLanguage; }
@@ -25,32 +26,62 @@ public class Global : MonoBehaviour {
         }
     }
     
-    public static GlobalInt ActiveBGM = new GlobalInt(-1);
-    public static GlobalFloat ActiveBGMVolume = new GlobalFloat(1f);
+    public static GlobalInt ActiveBGM;
+    public static GlobalFloat ActiveBGMVolume;
 
-    public static GlobalFloat PlayerPosX = new GlobalFloat();
-    public static GlobalFloat PlayerPosY = new GlobalFloat();
+    public static GlobalFloat PlayerPosX;
+    public static GlobalFloat PlayerPosY;
 
     //Gamestate Variables
-    public static GlobalInt ShibeInParty = new GlobalInt() { name = "ShibeInParty" };
+    public static GlobalInt ShibeInParty;
 
-    public static GlobalInt Intro = new GlobalInt() { name = "Intro" };
-    public static GlobalBool Intro_Facewoof = new GlobalBool() { name = "Intro_FaceWoof" };
-    public static GlobalBool Intro_Reddig = new GlobalBool() { name = "Intro_Reddig" };
-    public static GlobalBool Intro_gTail = new GlobalBool() { name = "Intro_gTail" };
-    public static GlobalBool Intro_Tumfur = new GlobalBool() { name = "Intro_Tumfur" };
-    public static GlobalInt Intro_LastWebsiteSelector = new GlobalInt() { name = "Intro_LastWebsiteSelector" };
+    public static GlobalInt Intro;
+    public static GlobalBool Intro_Facewoof;
+    public static GlobalBool Intro_Reddig;
+    public static GlobalBool Intro_gTail;
+    public static GlobalBool Intro_Tumfur;
+    public static GlobalInt Intro_LastWebsiteSelector;
 
-    public static GlobalInt IntroGround = new GlobalInt() { name = "IntroGround" };
-    public static GlobalInt ShibeIntro = new GlobalInt() { name = "ShibeIntro" };
-    public static GlobalInt ShibeTalk = new GlobalInt() { name = "ShibeTalk" };
+    public static GlobalInt IntroGround;
+    public static GlobalInt ShibeIntro;
+    public static GlobalInt ShibeTalk;
 
-    public static GlobalInt FlowerField = new GlobalInt() { name = "FlowerField" } ;
-    public static GlobalInt Silent_Treatment = new GlobalInt() { name = "Silent_Treatment" };
-    public static GlobalInt Cherry_Blossoms = new GlobalInt() { name = "Cherry_Blossoms" };
+    public static GlobalInt FlowerField;
+    public static GlobalInt Silent_Treatment;
+    public static GlobalInt Cherry_Blossoms;
+
+    void ResetVariables()
+    {
+        _activeLanguage = new GlobalInt(0);
+
+        ActiveBGM = new GlobalInt(-1);
+        ActiveBGMVolume = new GlobalFloat(1f);
+
+        PlayerPosX = new GlobalFloat();
+        PlayerPosY = new GlobalFloat();
+
+        ShibeInParty = new GlobalInt() { name = "ShibeInParty" };
+
+        Intro = new GlobalInt() { name = "Intro" };
+        Intro_Facewoof = new GlobalBool() { name = "Intro_FaceWoof" };
+        Intro_Reddig = new GlobalBool() { name = "Intro_Reddig" };
+        Intro_gTail = new GlobalBool() { name = "Intro_gTail" };
+        Intro_Tumfur = new GlobalBool() { name = "Intro_Tumfur" };
+        Intro_LastWebsiteSelector = new GlobalInt() { name = "Intro_LastWebsiteSelector" };
+
+        IntroGround = new GlobalInt() { name = "IntroGround" };
+        ShibeIntro = new GlobalInt() { name = "ShibeIntro" };
+        ShibeTalk = new GlobalInt() { name = "ShibeTalk" };
+
+        FlowerField = new GlobalInt() { name = "FlowerField" };
+        Silent_Treatment = new GlobalInt() { name = "Silent_Treatment" };
+        Cherry_Blossoms = new GlobalInt() { name = "Cherry_Blossoms" };
+}
 
     private void Start()
     {
+        ResetVariables();
+
         //starter pos
         PlayerPosX.value = Player.playerInstance.transform.position.x;
         PlayerPosY.value = Player.playerInstance.transform.position.y;
@@ -70,7 +101,7 @@ public class Global : MonoBehaviour {
 
     private void Update()
     {
-
+        if (!devMode) return;
         
         if(Input.GetKeyDown(KeyCode.BackQuote))
         {
@@ -82,6 +113,18 @@ public class Global : MonoBehaviour {
             Debug.Log("Setting language to: " + EventPage.supportedLanguageInitializers[_activeLanguage.value].TranslationName + " (" + _activeLanguage + ")");
         }
         
+        if(Input.GetKeyDown(KeyCode.F5))
+        {
+            ResetLevel();
+        }
+    }
+
+    public void ResetLevel()
+    {
+        EventPage.eventPages = new Dictionary<System.Guid, List<EventPage>>();
+        EventPage.supportedLanguageInitializers = new List<_BaseTR>();
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public class GlobalInt
