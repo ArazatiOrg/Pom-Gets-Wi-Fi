@@ -137,8 +137,6 @@ public class WorldspaceUI : MonoBehaviour {
 
             if (saveFiles[i] != null) validSaveFileCount++;
         }
-
-        Debug.Log("Loaded SaveSlot Info - " + validSaveFileCount + " valid save files.");
     }
 
     enum UIState

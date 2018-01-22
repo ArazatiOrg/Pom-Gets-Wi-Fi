@@ -75,10 +75,7 @@ public class Global : MonoBehaviour {
 
             saveTimestamp = DateTime.Now;
             PlayerSprite.value = Player.playerInstance.anim.spriteSetIndex;
-
-            Debug.Log("SAVING SAVEFILE: ShibeInParty - " + ShibeInParty.value);
-            Debug.Log("SAVING SAVEFILE: ShibeTalk - " + ShibeTalk.value);
-
+            
             PlayerPrefs.SetString(key, JsonUtility.ToJson(this));
             PlayerPrefs.Save();
         }
@@ -90,10 +87,7 @@ public class Global : MonoBehaviour {
             {
                 if (overwrite == null) overwrite = new SaveFile();
                 JsonUtility.FromJsonOverwrite(PlayerPrefs.GetString(key), overwrite);
-
-                Debug.Log("LOADED SAVEFILE: ShibeInParty - " + overwrite.ShibeInParty.value);
-                Debug.Log("LOADED SAVEFILE: ShibeTalk - " + overwrite.ShibeTalk.value);
-
+                
                 return overwrite;
             }
 
@@ -122,10 +116,7 @@ public class Global : MonoBehaviour {
         ShibeFollowLogic.instance.transform.position = new Vector3(-44.5f, -21f); //Field, he'll teleport once the player moves
 
         KeepCameraInBounds.instance.objectToFollow = Player.playerInstance.anim.gameObject;
-
-        Debug.Log("LOADED VARIABLES: ShibeInParty - " + ActiveSafefile.ShibeInParty.value);
-        Debug.Log("LOADED VARIABLES: ShibeTalk - " + ActiveSafefile.ShibeTalk.value);
-
+        
         Player.playerInstance.AllowMovement = true;
     }
 
