@@ -14,10 +14,10 @@ public class EventSetWebsiteSelector : _BaseLogicEvent {
 
     public override IEnumerator Execute()
     {
-        if (!Global.Intro_Facewoof.value) Global.Intro_LastWebsiteSelector.value = 0;
-        else if (!Global.Intro_Reddig.value) Global.Intro_LastWebsiteSelector.value = 1;
-        else if (!Global.Intro_gTail.value) Global.Intro_LastWebsiteSelector.value = 2;
-        else if (!Global.Intro_Tumfur.value) Global.Intro_LastWebsiteSelector.value = 3;
+        if (!Global.s.Intro_Facewoof.value) Global.s.Intro_LastWebsiteSelector.value = 0;
+        else if (!Global.s.Intro_Reddig.value) Global.s.Intro_LastWebsiteSelector.value = 1;
+        else if (!Global.s.Intro_gTail.value) Global.s.Intro_LastWebsiteSelector.value = 2;
+        else if (!Global.s.Intro_Tumfur.value) Global.s.Intro_LastWebsiteSelector.value = 3;
 
         yield return null;
     }

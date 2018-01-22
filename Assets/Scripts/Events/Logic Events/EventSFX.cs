@@ -27,5 +27,9 @@ public enum SFX
     fire8,
     earth08,
     Medium_Dog1,
-    Medium_Dog2
+    Medium_Dog2,
+    Cursor,
+    Choice,
+    Cancel,
+    Buzzer
 }

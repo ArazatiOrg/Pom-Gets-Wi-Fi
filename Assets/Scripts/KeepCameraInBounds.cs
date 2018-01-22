@@ -30,6 +30,8 @@ public class KeepCameraInBounds : MonoBehaviour {
 
 	void UpdateBounds()
 	{
+        if(objectToFollow == null) { bounds = null; return; }
+
 		var objectToFollowPos = objectToFollow.transform.position + new Vector3 (0f, -.5f, 0f);
 		for (int i = 0; i < BoundsList.transform.childCount; i++) {
 			var child = BoundsList.transform.GetChild (i);

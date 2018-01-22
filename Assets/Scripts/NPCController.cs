@@ -20,9 +20,7 @@ public class NPCController : MonoBehaviour {
 
     public bool standingStill = true;
 	public bool stoppedOnTile = false;
-
-    public List<TextboxFace> faces = new List<TextboxFace>();
-
+    
     public float movePercentage = 0f;
 
     float animClock = 0f;
@@ -228,12 +226,5 @@ public class NPCController : MonoBehaviour {
         standingStill = true;
         stoppedOnTile = true;
         movePercentage = 1f;
-    }
-
-    [System.Serializable]
-    public struct TextboxFace
-    {
-        public string name;
-        public Sprite face;
     }
 }

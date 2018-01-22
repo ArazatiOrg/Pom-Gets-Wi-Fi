@@ -19,6 +19,7 @@ public class AudioController : MonoBehaviour {
     {
         bgmSource.volume = volume;
         bgmSource.clip = music[index];
+        bgmSource.loop = true;
         bgmSource.Play();
     }
 

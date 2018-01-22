@@ -6,9 +6,7 @@ using UnityEngine.UI;
 
 public class TextEngine : MonoBehaviour {
     public static TextEngine instance;
-
-    Color windowColor = new Color(255f/255f, 67f/255f, 118f/255f);
-
+    
     Color[] colors = new Color[]
     {
         new Color(254f/255f, 254f/255f, 255f/255f),
@@ -212,11 +210,13 @@ public class TextEngine : MonoBehaviour {
             if (changeSelected)
             {
                 selectedSprite.transform.localPosition = selectedObjectOrigin += new Vector3(0f, -16f * selectedChoice);
+                AudioController.instance.PlaySFX((int)SFX.Cursor, 1f);
             }
 
             //TODO: Proper input for choice selection's input
             if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Z))
             {
+                AudioController.instance.PlaySFX((int)SFX.Choice, 1f);
                 waitingForChoice = false;
                 selectedSprite.transform.localPosition = selectedObjectOrigin;
                 selectedSprite.enabled = false;

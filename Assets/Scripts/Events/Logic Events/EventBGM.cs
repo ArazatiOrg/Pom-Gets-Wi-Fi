@@ -19,8 +19,8 @@ public class EventBGM : _BaseLogicEvent {
         }
         else AudioController.instance.PlayBGM((int)myBGM, myVolume);
 
-        Global.ActiveBGM.value = (int)myBGM;
-        Global.ActiveBGMVolume.value = myVolume;
+        Global.s.ActiveBGM.value = (int)myBGM;
+        Global.s.ActiveBGMVolume.value = myVolume;
 
         yield return null;
     }

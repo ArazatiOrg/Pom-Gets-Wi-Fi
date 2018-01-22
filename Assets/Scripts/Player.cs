@@ -91,12 +91,6 @@ public class Player : NPCController {
                 {
                     TryMove(moveDir.Value, true);
                 }
-                
-                if(!standingStill)
-                {
-                    Global.PlayerPosX.value = boxCollider.transform.localPosition.x;
-                    Global.PlayerPosY.value = boxCollider.transform.localPosition.y;
-                }
 			}
             else
             {
@@ -129,5 +123,9 @@ public class Player : NPCController {
 		base.UpdateMovement();
 
         moveSpeed = beforeSpeed;
+
+        Global.s.PlayerPosX.value = transform.position.x;
+        Global.s.PlayerPosY.value = transform.position.y;
+        Global.s.PlayerFacing.value = (int)facingDir;
     }
 }

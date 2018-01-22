@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -9,7 +10,7 @@ public class Global : MonoBehaviour {
     //TODO: set this to false for normal mode..
     public static bool devMode = true;
 
-    private static GlobalInt _activeLanguage; //english is 0
+    private static GlobalInt _activeLanguage = new GlobalInt(); //english is 0
     public static GlobalInt ActiveLanguage
     {
         get { return _activeLanguage; }
@@ -23,68 +24,120 @@ public class Global : MonoBehaviour {
 
                 Debug.Log("Setting language to: " + EventPage.supportedLanguageInitializers[value - (firstEnglish ? 0 : 1)].TranslationName + " (" + value + ")");
             }
+            PlayerPrefs.SetInt("ActiveLanguage", _activeLanguage.value);
+            PlayerPrefs.Save();
         }
     }
     
-    public static GlobalInt ActiveBGM;
-    public static GlobalFloat ActiveBGMVolume;
+    public static SaveFile s { get { return ActiveSafefile; } }
+    public static SaveFile ActiveSafefile = new SaveFile();
 
-    public static GlobalFloat PlayerPosX;
-    public static GlobalFloat PlayerPosY;
+    [Serializable]
+    public class SaveFile
+    {
+        [SerializeField] public DateTime saveTimestamp;
 
-    //Gamestate Variables
-    public static GlobalInt ShibeInParty;
+        [SerializeField] public GlobalInt ActiveBGM = new GlobalInt(-1);
+        [SerializeField] public GlobalFloat ActiveBGMVolume = new GlobalFloat(1f);
 
-    public static GlobalInt Intro;
-    public static GlobalBool Intro_Facewoof;
-    public static GlobalBool Intro_Reddig;
-    public static GlobalBool Intro_gTail;
-    public static GlobalBool Intro_Tumfur;
-    public static GlobalInt Intro_LastWebsiteSelector;
+        [SerializeField] public GlobalFloat PlayerPosX = new GlobalFloat(22.5f); //default position of left of dave pointer, just in case things go fucky
+        [SerializeField] public GlobalFloat PlayerPosY = new GlobalFloat(-23f);
+        [SerializeField] public GlobalInt PlayerFacing = new GlobalInt(2); //down
+        [SerializeField] public GlobalInt PlayerSprite = new GlobalInt(2); //Normal sprite
 
-    public static GlobalInt IntroGround;
-    public static GlobalInt ShibeIntro;
-    public static GlobalInt ShibeTalk;
+        //Gamestate Variables
+        [SerializeField] public GlobalInt ShibeInParty = new GlobalInt();
 
-    public static GlobalInt FlowerField;
-    public static GlobalInt Silent_Treatment;
-    public static GlobalInt Cherry_Blossoms;
+        [SerializeField] public GlobalInt Intro = new GlobalInt();
+        [SerializeField] public GlobalBool Intro_Facewoof = new GlobalBool();
+        [SerializeField] public GlobalBool Intro_Reddig = new GlobalBool();
+        [SerializeField] public GlobalBool Intro_gTail = new GlobalBool();
+        [SerializeField] public GlobalBool Intro_Tumfur = new GlobalBool();
+        [SerializeField] public GlobalInt Intro_LastWebsiteSelector = new GlobalInt();
+
+        [SerializeField] public GlobalInt IntroGround = new GlobalInt();
+        [SerializeField] public GlobalInt ShibeIntro = new GlobalInt();
+        [SerializeField] public GlobalInt ShibeTalk = new GlobalInt();
+
+        [SerializeField] public GlobalInt FlowerField = new GlobalInt();
+        [SerializeField] public GlobalInt Silent_Treatment = new GlobalInt();
+        [SerializeField] public GlobalInt Cherry_Blossoms = new GlobalInt();
+
+        void CopyToGlobal()
+        {
+            ActiveSafefile = this;
+        }
+
+        public void Save(int slot)
+        {
+            var key = "PGWF_Savefile" + slot;
+            if (PlayerPrefs.HasKey(key)) PlayerPrefs.DeleteKey(key);
+
+            saveTimestamp = DateTime.Now;
+            PlayerSprite.value = Player.playerInstance.anim.spriteSetIndex;
+
+            Debug.Log("SAVING SAVEFILE: ShibeInParty - " + ShibeInParty.value);
+            Debug.Log("SAVING SAVEFILE: ShibeTalk - " + ShibeTalk.value);
+
+            PlayerPrefs.SetString(key, JsonUtility.ToJson(this));
+            PlayerPrefs.Save();
+        }
+
+        public static SaveFile Load(int slot, SaveFile overwrite)
+        {
+            var key = "PGWF_Savefile" + slot;
+            if (PlayerPrefs.HasKey(key))
+            {
+                if (overwrite == null) overwrite = new SaveFile();
+                JsonUtility.FromJsonOverwrite(PlayerPrefs.GetString(key), overwrite);
+
+                Debug.Log("LOADED SAVEFILE: ShibeInParty - " + overwrite.ShibeInParty.value);
+                Debug.Log("LOADED SAVEFILE: ShibeTalk - " + overwrite.ShibeTalk.value);
+
+                return overwrite;
+            }
+
+            return null;
+        }
+    }
 
     void ResetVariables()
     {
-        _activeLanguage = new GlobalInt(0);
+        ActiveSafefile = new SaveFile();
+    }
 
-        ActiveBGM = new GlobalInt(-1);
-        ActiveBGMVolume = new GlobalFloat(1f);
+    public static void LoadVariables(int saveSlot)
+    {
+        if (saveSlot < 0 || saveSlot >= WorldspaceUI.instance.saveSlots) saveSlot = 0;
 
-        PlayerPosX = new GlobalFloat();
-        PlayerPosY = new GlobalFloat();
+        SaveFile.Load(saveSlot, ActiveSafefile);
+        //ActiveSafefile = WorldspaceUI.instance.saveFiles[saveSlot];
 
-        ShibeInParty = new GlobalInt() { name = "ShibeInParty" };
+        //world setup based on the new save slots
+        Player.playerInstance.transform.position = new Vector3(ActiveSafefile.PlayerPosX.value, ActiveSafefile.PlayerPosY.value);
+        Player.playerInstance.SetFacingDirection((SpriteDir)ActiveSafefile.PlayerFacing.value);
 
-        Intro = new GlobalInt() { name = "Intro" };
-        Intro_Facewoof = new GlobalBool() { name = "Intro_FaceWoof" };
-        Intro_Reddig = new GlobalBool() { name = "Intro_Reddig" };
-        Intro_gTail = new GlobalBool() { name = "Intro_gTail" };
-        Intro_Tumfur = new GlobalBool() { name = "Intro_Tumfur" };
-        Intro_LastWebsiteSelector = new GlobalInt() { name = "Intro_LastWebsiteSelector" };
+        Player.playerInstance.anim.spriteSetIndex = ActiveSafefile.PlayerSprite.value;
 
-        IntroGround = new GlobalInt() { name = "IntroGround" };
-        ShibeIntro = new GlobalInt() { name = "ShibeIntro" };
-        ShibeTalk = new GlobalInt() { name = "ShibeTalk" };
+        ShibeFollowLogic.instance.transform.position = new Vector3(-44.5f, -21f); //Field, he'll teleport once the player moves
 
-        FlowerField = new GlobalInt() { name = "FlowerField" };
-        Silent_Treatment = new GlobalInt() { name = "Silent_Treatment" };
-        Cherry_Blossoms = new GlobalInt() { name = "Cherry_Blossoms" };
-}
+        KeepCameraInBounds.instance.objectToFollow = Player.playerInstance.anim.gameObject;
+
+        Debug.Log("LOADED VARIABLES: ShibeInParty - " + ActiveSafefile.ShibeInParty.value);
+        Debug.Log("LOADED VARIABLES: ShibeTalk - " + ActiveSafefile.ShibeTalk.value);
+
+        Player.playerInstance.AllowMovement = true;
+    }
 
     private void Start()
     {
         ResetVariables();
 
         //starter pos
-        PlayerPosX.value = Player.playerInstance.transform.position.x;
-        PlayerPosY.value = Player.playerInstance.transform.position.y;
+        s.PlayerPosX.value = Player.playerInstance.transform.position.x;
+        s.PlayerPosY.value = Player.playerInstance.transform.position.y;
+
+        s.PlayerFacing.value = (int)Player.playerInstance.facingDir;
 
         Application.targetFrameRate = 60;
 
@@ -95,8 +148,6 @@ public class Global : MonoBehaviour {
         if (EventPage.supportedLanguageInitializers[0].GetType() == typeof(tr_English)) { EventPage.supportedLanguageInitializers[0].font = defaultFont; }
 
         if (TextEngine.instance != null) TextEngine.instance.UpdateLanguage();
-
-        //TODO: save/load stuff for globals
     }
 
     private void Update()
@@ -105,12 +156,12 @@ public class Global : MonoBehaviour {
         
         if(Input.GetKeyDown(KeyCode.BackQuote))
         {
-            _activeLanguage.value++;
+            var val = _activeLanguage.value + 1;
 
-            if (_activeLanguage.value == EventPage.supportedLanguageInitializers.Count)
-                _activeLanguage.value = 0;
+            if (val == EventPage.supportedLanguageInitializers.Count)
+                val = 0;
 
-            Debug.Log("Setting language to: " + EventPage.supportedLanguageInitializers[_activeLanguage.value].TranslationName + " (" + _activeLanguage + ")");
+            ActiveLanguage = new GlobalInt(val);
         }
         
         if(Input.GetKeyDown(KeyCode.F5))
@@ -121,16 +172,15 @@ public class Global : MonoBehaviour {
 
     public void ResetLevel()
     {
-        EventPage.eventPages = new Dictionary<System.Guid, List<EventPage>>();
+        EventPage.eventPages = new Dictionary<Guid, List<EventPage>>();
         EventPage.supportedLanguageInitializers = new List<_BaseTR>();
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public class GlobalInt
+    [Serializable] public class GlobalInt
     {
-        public int value;
-        public string name = "Unknown GlobalInt";
+        [SerializeField] public int value;
 
         public GlobalInt(int value = 0)
         {
@@ -146,16 +196,10 @@ public class Global : MonoBehaviour {
         {
             return value.ToString();
         }
-
-        public string Name
-        {
-            get { return name; }
-        }
     }
-    public class GlobalFloat
+    [Serializable] public class GlobalFloat
     {
-        public float value;
-        public string name = "Unknown GlobalFloat";
+        [SerializeField] public float value;
 
         public GlobalFloat(float value = 0f)
         {
@@ -171,16 +215,10 @@ public class Global : MonoBehaviour {
         {
             return value.ToString();
         }
-
-        public string Name
-        {
-            get { return name; }
-        }
     }
-    public class GlobalBool
+    [Serializable] public class GlobalBool
     {
-        public bool value;
-        public string name = "Unknown GlobalBool";
+        [SerializeField] public bool value;
 
         public GlobalBool(bool value = false)
         {
@@ -195,11 +233,6 @@ public class Global : MonoBehaviour {
         public override string ToString()
         {
             return value.ToString();
-        }
-
-        public string Name
-        {
-            get { return name; }
         }
     }
 }

@@ -43,6 +43,8 @@ public class tr_English : _BaseTR
     public override void Initialize()
     {
         base.Initialize();
+        var curLang = Global.ActiveLanguage.value;
+        Global.ActiveLanguage.value = langRegisterCode;
         EventPage tempEP;
         var allowWalkEP = new EventPage(); allowWalkEP.Add(EventPlayerMoveable.c(true));
 
@@ -66,7 +68,7 @@ public class tr_English : _BaseTR
             var introIs3 = new EventPage();
             var introIs4 = new EventPage();
 
-            e = EventPageSwitch.c(Global.Intro). AddEventPage(0, introIs0). AddEventPage(1, introIs1). AddEventPage(2, introIs2). AddEventPage(3, introIs3). AddEventPage(4, introIs4);
+            e = EventPageSwitch.c(Global.s.Intro). AddEventPage(0, introIs0). AddEventPage(1, introIs1). AddEventPage(2, introIs2). AddEventPage(3, introIs3). AddEventPage(4, introIs4);
             
             ep = introIs0;
             {
@@ -87,7 +89,7 @@ public class tr_English : _BaseTR
                 e = EventSFX.c(SFX.Pom_bark);
                 e = EventTextbox.c(Faces.Pom, @"...to spend on the internet");
                 e = EventTextboxClose.c;
-                e = EventSetGlobal.c(Global.Intro, 1);
+                e = EventSetGlobal.c(Global.s.Intro, 1);
                 e = EventPlayerMoveable.c(true);
             }
 
@@ -98,10 +100,10 @@ public class tr_English : _BaseTR
             var tumfur = new EventPage();
 
             var choice = EventTextboxChoice.c.
-                    AddChoice("Facewoof", facewoof, Global.Intro_Facewoof).
-                    AddChoice("Reddig", reddig, Global.Intro_Reddig).
-                    AddChoice("gTail", gTail, Global.Intro_gTail).
-                    AddChoice("Tumfur", tumfur, Global.Intro_Tumfur);
+                    AddChoice("Facewoof", facewoof, Global.s.Intro_Facewoof).
+                    AddChoice("Reddig", reddig, Global.s.Intro_Reddig).
+                    AddChoice("gTail", gTail, Global.s.Intro_gTail).
+                    AddChoice("Tumfur", tumfur, Global.s.Intro_Tumfur);
 
             //Facewoof events
             ep = facewoof;
@@ -131,7 +133,7 @@ public class tr_English : _BaseTR
                                                 anymore");
                 e = EventTextbox.c(Faces.Pom, @"flies into the sun");
                 e = EventSetBackground.c(Background.None);
-                e = EventSetGlobal.c(Global.Intro_Facewoof, true);
+                e = EventSetGlobal.c(Global.s.Intro_Facewoof, true);
             }
 
             //Reddig events
@@ -152,7 +154,7 @@ public class tr_English : _BaseTR
                                                 buried tho");
                 e = EventTextbox.c(Faces.Pom, @"lies down");
                 e = EventSetBackground.c(Background.None);
-                e = EventSetGlobal.c(Global.Intro_Reddig, true);
+                e = EventSetGlobal.c(Global.s.Intro_Reddig, true);
             }
 
             //gTail events
@@ -171,7 +173,7 @@ public class tr_English : _BaseTR
                 e = EventTextbox.c(Faces.Pom, @"delete");
                 e = EventTextbox.c(Faces.Pom, @"still not sure why i signed up for that");
                 e = EventSetBackground.c(Background.None);
-                e = EventSetGlobal.c(Global.Intro_gTail, true);
+                e = EventSetGlobal.c(Global.s.Intro_gTail, true);
             }
 
             //Tumfur events
@@ -190,7 +192,7 @@ public class tr_English : _BaseTR
                 e = EventTextbox.c(Faces.Pom, @"THIS ISNT POSSIBLE");
                 e = EventTextbox.c(Faces.Pom, @"LEAPS INTO AN ACTIVE VOLCANO");
                 e = EventSetBackground.c(Background.None);
-                e = EventSetGlobal.c(Global.Intro_Tumfur, true);
+                e = EventSetGlobal.c(Global.s.Intro_Tumfur, true);
             }
 
             #endregion
@@ -202,7 +204,7 @@ public class tr_English : _BaseTR
                 e = EventTextbox.c(Faces.Pom, @"first world problems");
                 e = choice;
                 e = EventTextboxClose.c;
-                e = EventSetGlobal.c(Global.Intro, 2);
+                e = EventSetGlobal.c(Global.s.Intro, 2);
                 e = EventPlayerMoveable.c(true);
             }
             
@@ -213,7 +215,7 @@ public class tr_English : _BaseTR
                 e = choice;
                 e = EventSetBackground.c(Background.IntroNight);
                 e = EventTextboxClose.c;
-                e = EventSetGlobal.c(Global.Intro, 3);
+                e = EventSetGlobal.c(Global.s.Intro, 3);
                 e = EventPlayerMoveable.c(true);
             }
             
@@ -225,7 +227,7 @@ public class tr_English : _BaseTR
                 e = EventBGM.c(BGM.burning, .6f);
                 e = EventSetBackground.c(Background.IntroFire1);
                 e = EventTextboxClose.c;
-                e = EventSetGlobal.c(Global.Intro, 4);
+                e = EventSetGlobal.c(Global.s.Intro, 4);
                 e = EventPlayerMoveable.c(true);
             }
 
@@ -300,7 +302,7 @@ public class tr_English : _BaseTR
                 e = EventFlashScreen.c(0f, Color.black);
                 e = EventWait.c(2f);
                 e = EventBGM.c(BGM.eternal);
-                e = EventSetGlobal.c(Global.Intro, 6);
+                e = EventSetGlobal.c(Global.s.Intro, 6);
                 e = EventChangeSprite.c(PlayerSprite.Normal);
                 e = EventTPPlayer.c(new Vector2(-69.5f, -21.5f)).instantTeleport;
                 e = EventFlashScreen.c(0f, new Color(0f, 0f, 0f, 0f));
@@ -326,7 +328,7 @@ public class tr_English : _BaseTR
                     facewoofLeft.Add(EventTextbox.c(Faces.Pom, @"now i can finally finish my daily
                                                                  rounds and check facewoof..."));
 
-                    e = EventPageSwitch.c(Global.Intro_LastWebsiteSelector).AddEventPage(0, facewoofLeft).AddEventPage(1, reddigLeft).AddEventPage(2, gTailLeft).AddEventPage(3, tumfurLeft);
+                    e = EventPageSwitch.c(Global.s.Intro_LastWebsiteSelector).AddEventPage(0, facewoofLeft).AddEventPage(1, reddigLeft).AddEventPage(2, gTailLeft).AddEventPage(3, tumfurLeft);
                 }
 
                 e = EventTextbox.c(Faces.Pom, @"...");
@@ -361,11 +363,11 @@ public class tr_English : _BaseTR
         //Talking to shibe when you first enter the field
         NewEP("5c0579a0-63db-4383-a307-188f4a0f6645");
         {
-            tempEP = new EventPage(); e = EventPageSwitch.c(Global.ShibeIntro).AddEventPage(1, tempEP); ep = tempEP;
+            tempEP = new EventPage(); e = EventPageSwitch.c(Global.s.ShibeIntro).AddEventPage(1, tempEP); ep = tempEP;
             e = EventPlayerMoveable.c(false);
-            e = EventSetGlobal.c(Global.IntroGround, 1);
-            e = EventSetGlobal.c(Global.ShibeIntro, 3);
-            e = EventSetGlobal.c(Global.ShibeTalk, 1);
+            e = EventSetGlobal.c(Global.s.IntroGround, 1);
+            e = EventSetGlobal.c(Global.s.ShibeIntro, 3);
+            e = EventSetGlobal.c(Global.s.ShibeTalk, 1);
             e = EventSFX.c(SFX.Medium_Dog1);
             e = EventTextbox.c(Faces.Shibe, @"Pom!");
             e = EventTextbox.c(Faces.Pom, @"poopy head!");
@@ -389,7 +391,7 @@ public class tr_English : _BaseTR
             e = EventTextbox.c(Faces.Pom, @"ur fukkin ded kiddo");
             e = EventTextboxClose.c;
             e = EventBattle.c(Battles.Shibe);
-            e = EventSetGlobal.c(Global.FlowerField, 1);
+            e = EventSetGlobal.c(Global.s.FlowerField, 1);
             e = EventTextbox.c(Faces.Pom, @"ok shibe");
             e = EventTextbox.c(Faces.Pom, @"from now on ur my manservant");
             e = EventTextbox.c(Faces.Pom, @"i can talk 2 u whenever i want by
@@ -398,7 +400,7 @@ public class tr_English : _BaseTR
                                             sebastian");
             e = EventTextbox.c(Faces.Shibe_annoyed, @"Why the hell am I ''Sebastian''?!");
             e = EventTextbox.c(Faces.None, @"Shibe has joined the party!").DontSlide;
-            e = EventSetGlobal.c(Global.ShibeInParty, 1);
+            e = EventSetGlobal.c(Global.s.ShibeInParty, 1);
             e = EventTextboxClose.c;
             e = EventPlayerMoveable.c(true);
         }
@@ -408,7 +410,7 @@ public class tr_English : _BaseTR
         {
             var shibeInParty = new EventPage();
             var shibeNotInparty = new EventPage();
-            e = EventPageSwitch.c(Global.ShibeInParty).AddEventPage(1, shibeInParty).AddEventPage(1, shibeNotInparty, SwitchComparator.NotEqual);
+            e = EventPageSwitch.c(Global.s.ShibeInParty).AddEventPage(1, shibeInParty).AddEventPage(1, shibeNotInparty, SwitchComparator.NotEqual);
 
             ep = shibeNotInparty;
             {
@@ -422,7 +424,7 @@ public class tr_English : _BaseTR
             {
                 var silentTreatment = new EventPage();
                 var notSilentTreatment = new EventPage();
-                e = EventPageSwitch.c(Global.Silent_Treatment).AddEventPage(0, silentTreatment, SwitchComparator.NotEqual)
+                e = EventPageSwitch.c(Global.s.Silent_Treatment).AddEventPage(0, silentTreatment, SwitchComparator.NotEqual)
                                                               .AddEventPage(0, notSilentTreatment);
 
                 ep = silentTreatment;
@@ -439,7 +441,7 @@ public class tr_English : _BaseTR
                 {
                     var cherryBlossomsSeen = new EventPage();
                     var cherryBlossomsNotSeen = new EventPage();
-                    e = EventPageSwitch.c(Global.Cherry_Blossoms).AddEventPage(0, cherryBlossomsNotSeen)
+                    e = EventPageSwitch.c(Global.s.Cherry_Blossoms).AddEventPage(0, cherryBlossomsNotSeen)
                                                                  .AddEventPage(0, cherryBlossomsSeen, SwitchComparator.NotEqual);
 
                     ep = cherryBlossomsNotSeen;
@@ -458,7 +460,7 @@ public class tr_English : _BaseTR
                         e = EventTextbox.c(Faces.Pom, @"try 2 say it in comic sans too");
                         e = EventTextbox.c(Faces.Shibe_annoyed, @"I have no idea what you're trying to
                                                                   tell me!");
-                        e = EventSetGlobal.c(Global.Cherry_Blossoms, 1);
+                        e = EventSetGlobal.c(Global.s.Cherry_Blossoms, 1);
                         e = EventTextboxClose.c;
                         e = EventPlayerMoveable.c(true);
                     }
@@ -487,7 +489,7 @@ public class tr_English : _BaseTR
             {
                 var shibeInParty = new EventPage();
                 var shibeNotInparty = new EventPage();
-                e = EventPageSwitch.c(Global.ShibeInParty).AddEventPage(1, shibeInParty).AddEventPage(1, shibeNotInparty, SwitchComparator.NotEqual);
+                e = EventPageSwitch.c(Global.s.ShibeInParty).AddEventPage(1, shibeInParty).AddEventPage(1, shibeNotInparty, SwitchComparator.NotEqual);
 
                 ep = shibeNotInparty;
                 {
@@ -501,7 +503,7 @@ public class tr_English : _BaseTR
                 {
                     var silentTreatment = new EventPage();
                     var notSilentTreatment = new EventPage();
-                    e = EventPageSwitch.c(Global.Silent_Treatment).AddEventPage(0, silentTreatment, SwitchComparator.NotEqual)
+                    e = EventPageSwitch.c(Global.s.Silent_Treatment).AddEventPage(0, silentTreatment, SwitchComparator.NotEqual)
                                                                   .AddEventPage(0, notSilentTreatment);
 
                     ep = silentTreatment;
@@ -536,7 +538,7 @@ public class tr_English : _BaseTR
                 {
                     var shibeInParty = new EventPage();
                     var shibeNotInparty = new EventPage();
-                    e = EventPageSwitch.c(Global.ShibeInParty).AddEventPage(1, shibeInParty).AddEventPage(1, shibeNotInparty, SwitchComparator.NotEqual);
+                    e = EventPageSwitch.c(Global.s.ShibeInParty).AddEventPage(1, shibeInParty).AddEventPage(1, shibeNotInparty, SwitchComparator.NotEqual);
 
                     ep = shibeNotInparty;
                     {
@@ -550,7 +552,7 @@ public class tr_English : _BaseTR
                     {
                         var silentTreatment = new EventPage();
                         var notSilentTreatment = new EventPage();
-                        e = EventPageSwitch.c(Global.Silent_Treatment).AddEventPage(0, silentTreatment, SwitchComparator.NotEqual)
+                        e = EventPageSwitch.c(Global.s.Silent_Treatment).AddEventPage(0, silentTreatment, SwitchComparator.NotEqual)
                                                                       .AddEventPage(0, notSilentTreatment);
 
                         ep = silentTreatment;
@@ -576,7 +578,7 @@ public class tr_English : _BaseTR
                 }
             }
         }
-
+        
         #endregion
 
 
@@ -610,7 +612,7 @@ public class tr_English : _BaseTR
             var shibeTalkIs24 = new EventPage();
             var shibeTalkIs25 = new EventPage();
 
-            e = EventPageSwitch.c(Global.ShibeTalk).AddEventPage(1, shibeTalkIs1).AddEventPage(3, shibeTalkIs3).AddEventPage(4, shibeTalkIs4)
+            e = EventPageSwitch.c(Global.s.ShibeTalk).AddEventPage(1, shibeTalkIs1).AddEventPage(3, shibeTalkIs3).AddEventPage(4, shibeTalkIs4)
                                                    .AddEventPage(5, shibeTalkIs5).AddEventPage(6, shibeTalkIs6).AddEventPage(7, shibeTalkIs7)
                                                    .AddEventPage(8, shibeTalkIs8).AddEventPage(9, shibeTalkIs9).AddEventPage(10, shibeTalkIs10)
                                                    .AddEventPage(11, shibeTalkIs11).AddEventPage(12, shibeTalkIs12).AddEventPage(13, shibeTalkIs13)
@@ -627,7 +629,7 @@ public class tr_English : _BaseTR
                 e = EventTextbox.c(Faces.Pom, @"i am a lapdog after all");
                 e = EventTextbox.c(Faces.Shibe_uh, @"I'm pretty sure that's not what the
                                                      term means.");
-                e = EventSetGlobal.c(Global.ShibeTalk, 3);
+                e = EventSetGlobal.c(Global.s.ShibeTalk, 3);
                 e = EventTextboxClose.c;
                 e = EventPlayerMoveable.c(true);
             }
@@ -886,7 +888,7 @@ public class tr_English : _BaseTR
                 e = EventTextbox.c(Faces.Shibe_blush, @"..................................");
                 e = EventTextbox.c(Faces.Pom, @"ur tail looks like poop too");
                 e = EventTextbox.c(Faces.Shibe_blush, @"..............................................................");
-                e = EventSetGlobal.c(Global.Silent_Treatment, 1);
+                e = EventSetGlobal.c(Global.s.Silent_Treatment, 1);
                 e = EventTextboxClose.c;
                 e = EventPlayerMoveable.c(true);
             }
@@ -949,6 +951,14 @@ public class tr_English : _BaseTR
             }
         }
 
+        //Dave Pointer in Flower Field Town
+        NewEP("2c6cfa07-9274-4894-8a77-faf92b4d6b47");
+        e = EventPlayerMoveable.c(false);
+        e = EventSaveScreen.c; //temp, just automatically saves to slot 0
+        e = EventTextbox.c(Faces.DavePointer, @"Automatically saved to slot 0.");
+        e = EventTextboxClose.c;
+        e = EventSetFacing.c(NPC.DavePointer, SpriteDir.Right);
+        e = EventPlayerMoveable.c(true);
 
 
         #endregion
@@ -976,7 +986,7 @@ public class tr_English : _BaseTR
 
         NewEP("74bb2385-60e2-4347-a5e8-f2bba5a6d98c"); //top
         {
-            tempEP = new EventPage(); e = EventPageSwitch.c(Global.IntroGround).AddEventPage(0, tempEP); ep = tempEP;
+            tempEP = new EventPage(); e = EventPageSwitch.c(Global.s.IntroGround).AddEventPage(0, tempEP); ep = tempEP;
             e = EventPlayerMoveable.c(false);
             e = EventMovePlayer.c(Right);
             e = EventWait.c(.33f);
@@ -986,13 +996,13 @@ public class tr_English : _BaseTR
             e = EventWait.c(.33f);
             e = EventMovePlayer.c(DownRight);
             e = EventWait.c(.33f);
-            e = EventSetGlobal.c(Global.ShibeIntro, 1);
+            e = EventSetGlobal.c(Global.s.ShibeIntro, 1);
             e = EventMovePlayer.c(Right);
         }
 
         NewEP("330be885-184e-4c81-bb03-58032f0797e9"); //above mid
         {
-            tempEP = new EventPage(); e = EventPageSwitch.c(Global.IntroGround).AddEventPage(0, tempEP); ep = tempEP;
+            tempEP = new EventPage(); e = EventPageSwitch.c(Global.s.IntroGround).AddEventPage(0, tempEP); ep = tempEP;
             e = EventPlayerMoveable.c(false);
             e = EventMovePlayer.c(Right);
             e = EventWait.c(.33f);
@@ -1002,13 +1012,13 @@ public class tr_English : _BaseTR
             e = EventWait.c(.33f);
             e = EventMovePlayer.c(Right);
             e = EventWait.c(.33f);
-            e = EventSetGlobal.c(Global.ShibeIntro, 1);
+            e = EventSetGlobal.c(Global.s.ShibeIntro, 1);
             e = EventMovePlayer.c(Right);
         }
 
         NewEP("a20c7976-0f55-464a-bc63-d598ca23e448"); //mid
         {
-            tempEP = new EventPage(); e = EventPageSwitch.c(Global.IntroGround).AddEventPage(0, tempEP); ep = tempEP;
+            tempEP = new EventPage(); e = EventPageSwitch.c(Global.s.IntroGround).AddEventPage(0, tempEP); ep = tempEP;
             e = EventPlayerMoveable.c(false);
             e = EventMovePlayer.c(Right);
             e = EventWait.c(.33f);
@@ -1018,13 +1028,13 @@ public class tr_English : _BaseTR
             e = EventWait.c(.33f);
             e = EventMovePlayer.c(Right);
             e = EventWait.c(.33f);
-            e = EventSetGlobal.c(Global.ShibeIntro, 1);
+            e = EventSetGlobal.c(Global.s.ShibeIntro, 1);
             e = EventMovePlayer.c(Right);
         }
 
         NewEP("647c580b-b0f2-41f8-b551-2d55ba4ee830"); //below mid
         {
-            tempEP = new EventPage(); e = EventPageSwitch.c(Global.IntroGround).AddEventPage(0, tempEP); ep = tempEP;
+            tempEP = new EventPage(); e = EventPageSwitch.c(Global.s.IntroGround).AddEventPage(0, tempEP); ep = tempEP;
             e = EventPlayerMoveable.c(false);
             e = EventMovePlayer.c(Right);
             e = EventWait.c(.33f);
@@ -1034,13 +1044,13 @@ public class tr_English : _BaseTR
             e = EventWait.c(.33f);
             e = EventMovePlayer.c(Right);
             e = EventWait.c(.33f);
-            e = EventSetGlobal.c(Global.ShibeIntro, 1);
+            e = EventSetGlobal.c(Global.s.ShibeIntro, 1);
             e = EventMovePlayer.c(Right);
         }
 
         NewEP("a5e1dea9-1a38-4bac-9e46-7b6d28575087"); //bottom
         {
-            tempEP = new EventPage(); e = EventPageSwitch.c(Global.IntroGround).AddEventPage(0, tempEP); ep = tempEP;
+            tempEP = new EventPage(); e = EventPageSwitch.c(Global.s.IntroGround).AddEventPage(0, tempEP); ep = tempEP;
             e = EventPlayerMoveable.c(false);
             e = EventMovePlayer.c(Right);
             e = EventWait.c(.33f);
@@ -1050,13 +1060,15 @@ public class tr_English : _BaseTR
             e = EventWait.c(.33f);
             e = EventMovePlayer.c(UpRight);
             e = EventWait.c(.33f);
-            e = EventSetGlobal.c(Global.ShibeIntro, 1);
+            e = EventSetGlobal.c(Global.s.ShibeIntro, 1);
             e = EventMovePlayer.c(Right);
         }
 
         #endregion
 
         #endregion
+        
+        Global.ActiveLanguage.value = curLang;
     }
 }
 

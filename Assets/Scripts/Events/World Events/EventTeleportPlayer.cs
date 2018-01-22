@@ -37,7 +37,7 @@ public class EventTeleportPlayer : _BaseEvent {
 		if(facingDirection != SpriteDir.None) Player.playerInstance.SetFacingDirection(facingDirection);
 		Camera.main.SendMessage ("UpdateBounds");
 
-        if(shibeTeleOffset.magnitude > 0 && Global.ShibeInParty > 0)
+        if(shibeTeleOffset.magnitude > 0 && Global.s.ShibeInParty > 0)
             ShibeFollowLogic.instance.TeleToPomWithOffset(shibeTeleOffset);
 
 		cameraFader.StartUnfading();

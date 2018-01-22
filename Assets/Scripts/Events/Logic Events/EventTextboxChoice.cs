@@ -14,7 +14,7 @@ public class EventTextboxChoice : _BaseLogicEvent {
             return new EventTextboxChoice();
         }
     }
-
+    
     public EventTextboxChoice AddChoice(string text, EventPage tiedEvent, Global.GlobalBool variableShown = null)
     {
         sets.Add(new ChoiceSet() { text = text, eventPage = tiedEvent, willShow = variableShown });
