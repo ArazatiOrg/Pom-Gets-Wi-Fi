@@ -36,7 +36,8 @@ public class Global : MonoBehaviour {
     [Serializable]
     public class SaveFile
     {
-        [SerializeField] public DateTime saveTimestamp;
+        [SerializeField] public long saveTimestamp; //UTC ticks
+        [SerializeField] public string saveVersion;
 
         [SerializeField] public GlobalInt ActiveBGM = new GlobalInt(-1);
         [SerializeField] public GlobalFloat ActiveBGMVolume = new GlobalFloat(1f);
@@ -89,7 +90,9 @@ public class Global : MonoBehaviour {
             var key = "PGWF_Savefile" + slot;
             if (PlayerPrefs.HasKey(key)) PlayerPrefs.DeleteKey(key);
 
-            saveTimestamp = DateTime.Now;
+            saveTimestamp = DateTime.UtcNow.Ticks;
+            saveVersion = "v" + Application.version + " - Last Built: " + BuildtimeInfo.DateTimeString();
+
             PlayerSprite.value = Player.playerInstance.anim.spriteSetIndex;
             
             PlayerPrefs.SetString(key, JsonUtility.ToJson(this));
@@ -160,6 +163,8 @@ public class Global : MonoBehaviour {
             
         }
 
+        AudioController.instance.PlayBGM((int)BGM.memories, .4f);
+
         ResetVariables();
 
         if (!loadedData)
@@ -191,6 +196,28 @@ public class Global : MonoBehaviour {
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.PageUp))
+        {
+            ActiveSavefile.saveTimestamp = DateTime.UtcNow.Ticks;
+            ActiveSavefile.saveVersion = "v" + Application.version + " - Last Built: " + BuildtimeInfo.DateTimeString();
+
+            var data = JsonUtility.ToJson(ActiveSavefile);
+
+            if (Application.platform == RuntimePlatform.WebGLPlayer)
+            {
+                DebugInfo.debugText = "Save Data: Setting text area to: " + data;
+
+
+                LoadArea_SetText(data);
+            }
+            else
+            {
+                DebugInfo.debugText = "Clipboard set to Save Data: " + data;
+                GUIUtility.systemCopyBuffer = data;
+            }
+        }
+
+        //rest require devMode to be enabled
         if (!devMode) return;
         
         if(Input.GetKeyDown(KeyCode.BackQuote))
@@ -208,25 +235,7 @@ public class Global : MonoBehaviour {
             ResetLevel();
         }
 
-        if(Input.GetKeyDown(KeyCode.PageUp))
-        {
-            var data = JsonUtility.ToJson(ActiveSavefile);
-            
-            if(Application.platform == RuntimePlatform.WebGLPlayer)
-            {
-                DebugInfo.debugText = "Save Data: Setting text area to: " + data;
-
-                
-                LoadArea_SetText(data);
-            }
-            else
-            {
-                DebugInfo.debugText = "Clipboard set to Save Data: " + data;
-                GUIUtility.systemCopyBuffer = data;
-            }
-        }
-
-        if(Input.GetKeyDown(KeyCode.PageDown) && Global.devMode)
+        if(Input.GetKeyDown(KeyCode.PageDown))
         {
             var s = Application.platform == RuntimePlatform.WebGLPlayer ? LoadArea_GetText() : GUIUtility.systemCopyBuffer;
             DebugInfo.debugText = "Attempting to load Save Data from Clipboard... ";

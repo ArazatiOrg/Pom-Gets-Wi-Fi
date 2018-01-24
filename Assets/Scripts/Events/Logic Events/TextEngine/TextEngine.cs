@@ -239,6 +239,8 @@ public class TextEngine : MonoBehaviour {
 
     public void Hide()
     {
+        bgImage.enabled = false;
+
         textboxElements.SetActive(false);
         SetFace(Faces.None);
     }

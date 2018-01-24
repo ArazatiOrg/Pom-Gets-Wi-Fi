@@ -9,11 +9,7 @@ public class EventTextboxOnlyBG : _BaseLogicEvent {
     {
         if(TextEngine.instance.bgImage.enabled)
         {
-            var bg = TextEngine.instance.bgImage.sprite;
-
-            TextEngine.instance.Clear();
-
-            TextEngine.instance.bgImage.sprite = bg;
+            TextEngine.instance.Hide();
             TextEngine.instance.bgImage.enabled = true;
         }
 
