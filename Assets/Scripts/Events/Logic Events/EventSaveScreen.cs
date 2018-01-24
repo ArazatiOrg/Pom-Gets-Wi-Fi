@@ -14,7 +14,7 @@ public class EventSaveScreen : _BaseLogicEvent {
 
     public override IEnumerator Execute()
     {
-        Global.ActiveSafefile.Save(0);
+        Global.ActiveSavefile.Save(0);
 
         yield return null;
     }

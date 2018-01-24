@@ -7,9 +7,12 @@ public class EventShake : _BaseLogicEvent {
     float strength = 8f;
     float speed = 5f;
 
-    public static EventShake c { get { return new EventShake(); } }
+    public static EventShake c(float time = .4f)
+    {
+        return new EventShake() { time = time };
+    }
 
-    public static EventShake C(float strength = 8f, float speed = 5f, float time = .4f)
+    public static EventShake c(float strength = 8f, float speed = 5f, float time = .4f)
     {
         return new EventShake() { strength = strength, time = time };
     }

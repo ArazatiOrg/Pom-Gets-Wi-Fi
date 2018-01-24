@@ -43,10 +43,11 @@ public class EventPageSwitch : _BaseLogicEvent
                 {
                     yield return item.page.events[i].Execute();
                 }
+
+                //don't check other conditions if this one is true
+                break;
             }
         }
-
-        yield return null;
     }
 
     class EP2

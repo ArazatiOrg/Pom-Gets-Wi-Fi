@@ -31,5 +31,6 @@ public enum SFX
     Cursor,
     Choice,
     Cancel,
-    Buzzer
+    Buzzer,
+    crunching1
 }

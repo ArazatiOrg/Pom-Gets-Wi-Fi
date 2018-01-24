@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="Build/TemplateData/style.css">
     <script src="Build/TemplateData/UnityProgress.js"></script>  
     <script src="Build/Build/UnityLoader.js"></script>
+    <style type="text/css">
+        #loadarea{height:50px; width:50px; display: none;}
+    </style>
     <script>
       var gameInstance = UnityLoader.instantiate("gameContainer", "Build/Build/Build.json", {onProgress: UnityProgress});
     </script>
@@ -20,6 +23,7 @@
         <div class="fullscreen" onclick="gameInstance.SetFullscreen(1)"></div>
         <div class="title">Pom Gets Wi-Fi</div>
       </div>
+      <div id="loadarea"><textarea id="loadtext"></textarea><br></div>
     </div>
   </body>
 </html>

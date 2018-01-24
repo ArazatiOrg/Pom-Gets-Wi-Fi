@@ -27,6 +27,13 @@ public class WorldspaceUI : MonoBehaviour {
 
         LoadSaveSlotInfo();
 
+        if (Global.loadedData)
+        {
+            validSaveFileCount = 1;
+            state = UIState.None;
+            Global.LoadVariables(0);
+        }
+
         //main menu
         //TODO: support for other languages? Probably needed.
         MainMenu_TitleText.text = (validSaveFileCount > 0 ? "New Game\nLoad Game\nQuit Game" : "New Game\n<color=#FFFFFF7F>Load Game</color>\nQuit Game");
