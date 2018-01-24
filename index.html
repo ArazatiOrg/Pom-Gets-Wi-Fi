@@ -12,7 +12,23 @@
         #loadarea{height:50px; width:50px; display: none;}
     </style>
     <script>
-      var gameInstance = UnityLoader.instantiate("gameContainer", "Build/Build/Build.json", {onProgress: UnityProgress});
+		var gameInstance = UnityLoader.instantiate("gameContainer", "Build/Build/Build.json", {onProgress: UnityProgress});
+	  
+		var gameReady = false;
+		
+		function FocusCanvas(focus) {
+			if(gameReady) {
+				gameInstance.SendMessage("Global", "WebGLConsumeInput", focus);
+			}
+		}
+		
+		document.addEventListener('click', function(e) {
+			if (e.target.id == "#canvas") {
+				FocusCanvas(1);
+			} else {
+				FocusCanvas(0);
+			}
+		});
     </script>
   </head>
   <body>

@@ -151,7 +151,14 @@ public class Global : MonoBehaviour {
 
     private void Start()
     {
-        WebGLConsumeInput(true);
+        try
+        {
+            GameControlReady();
+        }
+        catch (Exception e)
+        {
+            
+        }
 
         ResetVariables();
 
@@ -174,18 +181,12 @@ public class Global : MonoBehaviour {
 
         if (TextEngine.instance != null) TextEngine.instance.UpdateLanguage();
     }
-
-    private void OnApplicationFocus(bool focus)
-    {
-        WebGLConsumeInput(focus);
-        DebugInfo.debugText = "Window Focus: " + focus;
-    }
     
-    void WebGLConsumeInput(bool b)
+    public void WebGLConsumeInput(int p_focus)
     {
-        #if !UNITY_EDITOR && UNITY_WEBGL
-            UnityEngine.WebGLInput.captureAllKeyboardInput = b;
-        #endif
+#if !UNITY_EDITOR && UNITY_WEBGL
+            UnityEngine.WebGLInput.captureAllKeyboardInput = p_focus == 1;
+#endif
     }
 
     private void Update()
@@ -247,6 +248,9 @@ public class Global : MonoBehaviour {
 
     [DllImport("__Internal")]
     private static extern string LoadArea_GetText();
+
+    [DllImport("__Internal")]
+    private static extern void GameControlReady();
 
     public void ResetLevel()
     {

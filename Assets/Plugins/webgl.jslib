@@ -12,5 +12,8 @@ mergeInto(LibraryManager.library, {
 		stringToUTF8(loadstring, buffer, bufferSize);
 		return buffer;
     },
-
+	
+	GameControlReady: function() {
+		gameReady = true;
+    },
 });
