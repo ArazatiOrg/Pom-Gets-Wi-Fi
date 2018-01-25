@@ -45,6 +45,9 @@ public class AudioController : MonoBehaviour {
         bgmSource.clip = music[index];
         bgmSource.loop = true;
         bgmSource.Play();
+
+        //woo hacky stuff via code instead of clipping the actual audio file
+        if (index == (int)BGM.village2) bgmSource.time = 2.20f;
     }
 
     public void PlaySFX(int index, float volume)

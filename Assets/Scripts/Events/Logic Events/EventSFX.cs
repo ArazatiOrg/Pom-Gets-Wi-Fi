@@ -32,5 +32,6 @@ public enum SFX
     Choice,
     Cancel,
     Buzzer,
-    crunching1
+    crunching1,
+    Rimshot
 }

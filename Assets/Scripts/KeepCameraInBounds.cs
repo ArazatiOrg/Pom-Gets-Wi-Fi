@@ -17,7 +17,7 @@ public class KeepCameraInBounds : MonoBehaviour {
     float shakeTime = 0f;
     float shakeStrength = 0f;
     float shakeSpeed = 0f;
-    float curShakeStrength = 0f;
+    public float curShakeStrength = 0f;
 
     public GameObject UI;
 

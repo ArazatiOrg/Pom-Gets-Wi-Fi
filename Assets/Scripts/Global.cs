@@ -84,7 +84,17 @@ public class Global : MonoBehaviour {
         [SerializeField] public GlobalInt CorgKeys = new GlobalInt();
 
         [SerializeField] public GlobalInt MachineChecked = new GlobalInt();
-        
+
+        [SerializeField] public GlobalInt YorkTalk = new GlobalInt();
+
+        //Starpugs
+        [SerializeField] public GlobalInt UgTalk = new GlobalInt();
+        [SerializeField] public GlobalInt BernardTalk = new GlobalInt();
+        [SerializeField] public GlobalInt MaltyTalk = new GlobalInt();
+        [SerializeField] public GlobalInt CorgTalk = new GlobalInt();
+        [SerializeField] public GlobalInt BadEnd = new GlobalInt();
+        [SerializeField] public GlobalInt WittyFidoTalk = new GlobalInt();
+
         public void Save(int slot)
         {
             var key = "PGWF_Savefile" + slot;
@@ -244,11 +254,6 @@ public class Global : MonoBehaviour {
             ActiveSavefile = new SaveFile();
             JsonUtility.FromJsonOverwrite(s, ActiveSavefile);
             ResetLevel();
-        }
-
-        if(Input.GetKeyDown(KeyCode.P))
-        {
-            Debug.Log("Current Pos: " + ActiveSavefile.PlayerPosX);
         }
     }
 

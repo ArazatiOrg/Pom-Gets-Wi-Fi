@@ -7,6 +7,8 @@ public class EventShake : _BaseLogicEvent {
     float strength = 8f;
     float speed = 5f;
 
+    bool wait = false;
+
     public static EventShake c(float time = .4f)
     {
         return new EventShake() { time = time };
@@ -17,10 +19,13 @@ public class EventShake : _BaseLogicEvent {
         return new EventShake() { strength = strength, time = time };
     }
 
+    public EventShake Wait { get { wait = true; return this; } }
+
     public override IEnumerator Execute()
     {
         KeepCameraInBounds.instance.StartShake(strength / 8f, speed, time);
 
-        yield return null;
+        if(wait) yield return new WaitUntil(() => KeepCameraInBounds.instance.curShakeStrength == 0f);
+        else yield return null;
     }
 }
