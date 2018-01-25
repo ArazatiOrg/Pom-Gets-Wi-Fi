@@ -26,17 +26,17 @@ public class EventPageSwitch : _BaseLogicEvent
         foreach (var item in eps)
         {
             var b = false;
-
+            
             switch(item.comp)
             {
                 case SwitchComparator.Equal: { if (item.num == val) b = true; break; }
-                case SwitchComparator.Greater: { if (item.num > val) b = true; break; }
-                case SwitchComparator.GreaterOrEqual: { if (item.num >= val) b = true; break; }
-                case SwitchComparator.Less: { if (item.num < val) b = true; break; }
-                case SwitchComparator.LessOrEqual: { if (item.num <= val) b = true; break; }
+                case SwitchComparator.Greater: { if (val > item.num) b = true; break; }
+                case SwitchComparator.GreaterOrEqual: { if (val >= item.num) b = true; break; }
+                case SwitchComparator.Less: { if (val < item.num) b = true; break; }
+                case SwitchComparator.LessOrEqual: { if (val <= item.num) b = true; break; }
                 case SwitchComparator.NotEqual: { if (item.num != val) b = true; break; }
             }
-
+            
             if(b)
             {
                 for (int i = 0; i < item.page.events.Count; i++)

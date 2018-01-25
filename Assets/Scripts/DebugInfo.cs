@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DebugInfo : MonoBehaviour {
-    //string text = "Last Built: " + BuildtimeInfo.DateTimeString();
     string text = "";
     public static string debugText = "";
 

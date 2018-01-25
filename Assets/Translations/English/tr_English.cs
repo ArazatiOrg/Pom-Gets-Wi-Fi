@@ -1258,13 +1258,14 @@ public class tr_English : _BaseTR
                 ep = ugTalk1;
 
                 e = EventTextboxClose.c;
-                e = EventFade.c(2f);
-                e = EventTPPlayer.c(new Vector2(83.5f, -51.0f)).instantTeleport;
+                e = EventFade.c(.5f);
+                e = EventTPPlayer.c(new Vector2(83.5f, -51.5f)).instantTeleport;
                 e = EventMovePlayer.c(Left);
                 e = EventSetFacing.c(NPC.Pom, SpriteDir.Right);
+                e = EventSetFacing.c(NPC.Shibe, SpriteDir.Left);
                 e = EventSetGlobal.c(Global.s.ShibeTalk, 25);
                 e = EventSetGlobal.c(Global.s.MaltyTalk, 1);
-                e = EventFade.c(-2f);
+                e = EventFade.c(-.5f);
                 e = EventWait.c(1f);
                 e = EventTextbox.c(Faces.Pom, @"................");
                 e = EventTextbox.c(Faces.Pom, @"????????????");

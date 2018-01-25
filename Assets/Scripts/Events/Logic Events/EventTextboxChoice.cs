@@ -34,7 +34,7 @@ public class EventTextboxChoice : _BaseLogicEvent {
 
         foreach (var item in sets)
         {
-            if (!item.willShow.value)
+            if (item.willShow == null || !item.willShow.value)
             {
                 TextEngine.instance.text.text += "  " + item.text + "\n";
                 usedItems.Add(item);

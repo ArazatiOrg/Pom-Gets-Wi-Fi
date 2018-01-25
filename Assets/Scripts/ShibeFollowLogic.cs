@@ -25,8 +25,11 @@ public class ShibeFollowLogic : MonoBehaviour {
             {
                 //if (distance > 1f)
                 {
+                    var beforeFacing = controller.facingDir;
                     var dir = controller.DirFromVector(lastPomPos - transform.position);
                     controller.TryMove(dir, false);
+
+                    if (controller.standingStill) controller.SetFacingDirection(beforeFacing);
                 }
             }
             else

@@ -252,7 +252,14 @@ public class Global : MonoBehaviour {
 
             loadedData = true;
             ActiveSavefile = new SaveFile();
-            JsonUtility.FromJsonOverwrite(s, ActiveSavefile);
+            try
+            {
+                JsonUtility.FromJsonOverwrite(s, ActiveSavefile);
+            }
+            catch(Exception e)
+            {
+                DebugInfo.debugText = "Invalid Save Data.";
+            }
             ResetLevel();
         }
     }
