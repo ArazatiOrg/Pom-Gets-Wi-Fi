@@ -8,6 +8,7 @@ public class tr_English : _BaseTR
         TranslationName = "English";
         TranslationCredits = ""; //Your name and anyone who helped you here!
 
+        #region Character Names
         PomName = "Pom";
         ShibeName = "Shibe";
         AlmaName = "Alma";
@@ -25,11 +26,12 @@ public class tr_English : _BaseTR
         MaltaName = "Malta";
         PapiName = "Papi";
         PuddleName = "Puddle";
-        SharpeiiName = "Sharpei";
+        SharpeiName = "Sharpei";
         ShermanName = "Sherman";
         UgName = "Ug";
         WittyFidoName = "Witty Fido";
         YorkName = "York";
+        #endregion
 
         //the following variables have to be configured in the Global object in the scene editor
         //Font - the font used by text in this translation
@@ -54,6 +56,8 @@ public class tr_English : _BaseTR
         //-Each line can have 50 characters across, so count if you think you're using long lines, or test them ingame
         //-You can't use " inside of a string. Instead, you have to use two of ' so it's '',
         //      it gets automatically turned into a " in the textboxes so that's only one character
+
+        #region Areas
 
         #region Intro
 
@@ -1141,11 +1145,104 @@ public class tr_English : _BaseTR
 
         #endregion
 
+        #region Park
+
+
+
+        #endregion
+
         #region Observatory
 
         NewEP("bcd40acc-69a0-497e-b78e-99a998f9563e");
         {
-            //TODO: Observatory stuff
+            var shibeInParty = new EventPage();
+            var shibeNotInParty = new EventPage();
+
+            e = EventPageSwitch.c(Global.s.ShibeInParty).AddEventPage(0, shibeNotInParty).AddEventPage(1, shibeInParty);
+
+            ep = shibeNotInParty;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Pom, @"...");
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+
+            ep = shibeInParty;
+            {
+                var silentTreatment = new EventPage();
+                var notSilentTreatment = new EventPage();
+
+                e = EventPageSwitch.c(Global.s.Silent_Treatment).AddEventPage(0, notSilentTreatment).AddEventPage(1, silentTreatment);
+
+                ep = silentTreatment;
+                {
+                    e = EventPlayerMoveable.c(false);
+                    e = EventTextbox.c(Faces.Pom, @"hey shibe");
+                    e = EventTextbox.c(Faces.Shibe_uh, @"...");
+                    e = EventTextbox.c(Faces.Pom, @"...");
+                    e = EventTextboxClose.c;
+                    e = EventPlayerMoveable.c(true);
+                }
+
+                ep = notSilentTreatment;
+                {
+                    var observatory0 = new EventPage();
+                    var observatory1 = new EventPage();
+
+                    e = EventPageSwitch.c(Global.s.Observatory).AddEventPage(0, observatory0).AddEventPage(1, observatory1);
+
+                    ep = observatory0;
+                    {
+                        var lookThroughGlass = new EventPage();
+                        var dontLookThroughGlass = new EventPage(); ;
+
+                        e = EventPlayerMoveable.c(false);
+                        e = EventTextboxChoice.c.AddText("Look down through the glass?").
+                                                 AddChoice("Yes", lookThroughGlass).
+                                                 AddChoice("No", dontLookThroughGlass);
+
+                        ep = lookThroughGlass;
+                        {
+                            e = EventTextbox.c(Faces.Shibe_uh, @"...");
+                            e = EventTextbox.c(Faces.Shibe, @"It's Master!
+                                                              Thank goodness, she doesn't appear
+                                                              to be hurt at all!");
+                            e = EventTextbox.c(Faces.Pom, @"...");
+                            e = EventTextbox.c(Faces.Shibe, @"She's standing in grass in front of
+                                                              some rectangular rocks in the ground
+                                                              with flowers.");
+                            e = EventTextbox.c(Faces.Shibe_nervous, @"Oh, no!");
+                            e = EventTextbox.c(Faces.Shibe_nervous, @"Don't cry!");
+                            e = EventTextbox.c(Faces.Pom, @"u dum shibe she cant hear u");
+                            e = EventTextbox.c(Faces.Shibe_freaking_out, @"Please stop crying!");
+                            e = EventTextbox.c(Faces.Shibe_freaking_out, @"I miss you too!");
+                            e = EventTextbox.c(Faces.Pom, @"u idiot");
+                            e = EventTextbox.c(Faces.Pom, @"i already said she cant hear u");
+                            e = EventTextbox.c(Faces.Shibe_freaking_out, @"Uwaaaaaa!!! Master!!!");
+                            e = EventTextbox.c(Faces.Pom, @"jfc");
+                            e = EventSetGlobal.c(Global.s.Observatory, 1);
+                            e = EventTextboxClose.c;
+                            e = EventPlayerMoveable.c(true);
+                        }
+
+                        ep = dontLookThroughGlass;
+                        {
+                            e = EventTextboxClose.c;
+                            e = EventPlayerMoveable.c(true);
+                        }
+                    }
+
+                    ep = observatory1;
+                    {
+                        e = EventPlayerMoveable.c(false);
+                        e = EventTextbox.c(Faces.Pom, @"thats enough");
+                        e = EventTextbox.c(Faces.Pom, @"let's go");
+                        e = EventTextboxClose.c;
+                        e = EventPlayerMoveable.c(true);
+                    }
+                }
+            }
         }
 
         #endregion
@@ -1260,6 +1357,7 @@ public class tr_English : _BaseTR
                 e = EventTextboxClose.c;
                 e = EventFade.c(.5f);
                 e = EventTPPlayer.c(new Vector2(83.5f, -51.5f)).instantTeleport;
+                e = EventWait.c(0f);
                 e = EventMovePlayer.c(Left);
                 e = EventSetFacing.c(NPC.Pom, SpriteDir.Right);
                 e = EventSetFacing.c(NPC.Shibe, SpriteDir.Left);
@@ -1389,12 +1487,12 @@ public class tr_English : _BaseTR
                 e = EventPlayerMoveable.c(true);
             }
         }
-        
+
         #endregion
 
+#endregion
 
-
-
+        
         #region NPCs
 
         //Shibe
@@ -2347,6 +2445,795 @@ public class tr_English : _BaseTR
 
         #endregion
 
+
+        #region Battles
+
+        var pomAttack = new EventPage();
+        ep = pomAttack;
+        {
+            var taunt = new EventPage();
+            var yoMamaJoke = new EventPage();
+
+            e = EventTextboxChoice.c.AddChoice("Taunt", taunt)
+                                    .AddChoice("Tell a \"yo mama\" joke", yoMamaJoke);
+
+            ep = taunt;
+            {
+                //one of the following options is chosen at random
+
+                var taunt0 = new EventPage(); var taunt1 = new EventPage();
+                var taunt2 = new EventPage(); var taunt3 = new EventPage();
+                var taunt4 = new EventPage(); var taunt5 = new EventPage();
+                var taunt6 = new EventPage(); var taunt7 = new EventPage();
+
+                e = EventPageSwitch.c(BattleController.Taunt).AddEventPage(0, taunt0).AddEventPage(1, taunt1).AddEventPage(2, taunt2).AddEventPage(3, taunt3).AddEventPage(4, taunt4).AddEventPage(5, taunt5).AddEventPage(6, taunt6).AddEventPage(7, taunt7);
+
+                ep = taunt0;
+                {
+                    e = EventTextbox.c(Faces.Pom, @"no one likes u").DontSlide;
+                }
+
+                ep = taunt1;
+                {
+                    e = EventTextbox.c(Faces.Pom, @"senpai will never notice u").DontSlide;
+                }
+
+                ep = taunt2;
+                {
+                    e = EventTextbox.c(Faces.Pom, @"a rock has more of a life
+                                                    than u do").DontSlide;
+                }
+
+                ep = taunt3;
+                {
+                    e = EventTextbox.c(Faces.Pom, @"ur so ugly that hello kitty said
+                                                    goodbye 2 u").DontSlide;
+                }
+
+                ep = taunt4;
+                {
+                    e = EventTextbox.c(Faces.Pom, @"everyone who ever loved u was
+                                                    wrong").DontSlide;
+                }
+
+                //fun fact; none of the rest of the taunts happen in Puddle's fight
+
+                ep = taunt5;
+                {
+                    e = EventTextbox.c(Faces.Pom, @"ur wiener is so small that the vet
+                                                    couldnt tell whether u were neutered
+                                                    or not").DontSlide;
+                }
+
+                ep = taunt6;
+                {
+                    e = EventTextbox.c(Faces.Pom, @"no one will ever want 2 go out
+                                                    with u").DontSlide;
+                }
+
+                ep = taunt7;
+                {
+                    e = EventTextbox.c(Faces.Pom, @"is ur ass jealous of the amount of
+                                                    shit that just came out of ur mouth").DontSlide;
+                }
+
+                ep = taunt;
+                //TODO: show battle anim, punch a all
+                e = BattleController.EventDamage.c(Target.Enemy, .2f);
+                e = EventTextboxClose.c;
+                e = EventSetGlobal.c(BattleController.chargingUp, 1);
+            }
+
+            ep = yoMamaJoke;
+            {
+                //one of the following options is chosen at random
+
+                var yoMama00 = new EventPage();
+                var yoMama01 = new EventPage(); var yoMama02 = new EventPage();
+                var yoMama03 = new EventPage(); var yoMama04 = new EventPage();
+                var yoMama05 = new EventPage(); var yoMama06 = new EventPage();
+                var yoMama07 = new EventPage(); var yoMama08 = new EventPage();
+                var yoMama09 = new EventPage(); var yoMama10 = new EventPage();
+                var yoMama11 = new EventPage(); var yoMama12 = new EventPage();
+
+                e = EventPageSwitch.c(BattleController.YoMamaJoke).AddEventPage(0, yoMama00).AddEventPage(1, yoMama01).AddEventPage(2, yoMama02).AddEventPage(3, yoMama03).AddEventPage(4, yoMama04).AddEventPage(5, yoMama05).AddEventPage(6, yoMama06).AddEventPage(7, yoMama07).AddEventPage(8, yoMama08).AddEventPage(9, yoMama09).AddEventPage(10, yoMama10).AddEventPage(11, yoMama11).AddEventPage(12, yoMama12);
+
+                ep = yoMama00;
+                {
+                    e = EventTextbox.c(Faces.Pom, @"yo mama so fat").DontSlide;
+                    e = EventTextbox.c(Faces.Pom, @"when she went to the beach").DontSlide;
+                    e = EventTextbox.c(Faces.Pom, @"all da whales came up and sang
+                                                    ''we r family''").DontSlide;
+                }
+
+                ep = yoMama01;
+                {
+                    e = EventTextbox.c(Faces.Pom, @"yo mama so fat").DontSlide;
+                    e = EventTextbox.c(Faces.Pom, @"even dora couldnt explore her").DontSlide;
+                }
+
+                ep = yoMama02;
+                {
+                    e = EventTextbox.c(Faces.Pom, @"yo mama so ugly").DontSlide;
+                    e = EventTextbox.c(Faces.Pom, @"her pillow cries at night").DontSlide;
+                }
+
+                ep = yoMama03;
+                {
+                    e = EventTextbox.c(Faces.Pom, @"yo mama so ugly").DontSlide;
+                    e = EventTextbox.c(Faces.Pom, @"when she went 2 da haunted house
+                                                    she came out with a job application").DontSlide;
+                }
+
+                ep = yoMama04;
+                {
+                    e = EventTextbox.c(Faces.Pom, @"yo mama so ugly").DontSlide;
+                    e = EventTextbox.c(Faces.Pom, @"if she were a scarecrow
+                                                    the corn would run away").DontSlide;
+                }
+
+                ep = yoMama05;
+                {
+                    e = EventTextbox.c(Faces.Pom, @"yo mama's teeth so yellow").DontSlide;
+                    e = EventTextbox.c(Faces.Pom, @"i can't believe it's not butter!").DontSlide;
+                }
+
+                ep = yoMama06;
+                {
+                    e = EventTextbox.c(Faces.Pom, @"yo mama so fat").DontSlide;
+                    e = EventTextbox.c(Faces.Pom, @"when she jumped in the air
+                                                    she got stuck").DontSlide;
+                }
+
+                ep = yoMama07;
+                {
+                    e = EventTextbox.c(Faces.Pom, @"yo mama so fat").DontSlide;
+                    e = EventTextbox.c(Faces.Pom, @"when she wears yellow clothes
+                                                    people yell ''taxi''").DontSlide;
+                }
+
+                ep = yoMama08;
+                {
+                    e = EventTextbox.c(Faces.Pom, @"yo mama so fat").DontSlide;
+                    e = EventTextbox.c(Faces.Pom, @"when she sat on an iphone
+                                                    it turned into an ipad").DontSlide;
+                }
+
+                ep = yoMama09;
+                {
+                    e = EventTextbox.c(Faces.Pom, @"yo mama so fat").DontSlide;
+                    e = EventTextbox.c(Faces.Pom, @"the shadow of her butt weighs
+                                                    100 pounds").DontSlide;
+                }
+
+                ep = yoMama10;
+                {
+                    e = EventTextbox.c(Faces.Pom, @"yo mama so stupid").DontSlide;
+                    e = EventTextbox.c(Faces.Pom, @"she threw a rock at the ground
+                                                    and missed").DontSlide;
+                }
+
+                ep = yoMama11;
+                {
+                    e = EventTextbox.c(Faces.Pom, @"yo mama so stupid").DontSlide;
+                    e = EventTextbox.c(Faces.Pom, @"she climbed over a glass wall
+                                                    to see what was on the other
+                                                    side").DontSlide;
+                }
+
+                ep = yoMama12;
+                {
+                    e = EventTextbox.c(Faces.Pom, @"yo mama so stupid").DontSlide;
+                    e = EventTextbox.c(Faces.Pom, @"she stole free bread").DontSlide;
+                }
+
+                ep = yoMamaJoke;
+                //TODO: show battle anim, punch a all
+                e = BattleController.EventDamage.c(Target.Enemy, 10);
+                e = EventTextboxClose.c;
+                e = EventSetGlobal.c(BattleController.chargingUp, 1);
+            }
+        }
+
+        //Shibe
+        NewEP("2d22a536-343a-4910-a780-bf24656916c7");
+        {
+            var triggerStartBattle = new EventPage();
+            var triggerPomAttack = new EventPage();
+
+            e = EventPageSwitch.c(BattleController.battleTrigger)
+                .AddEventPage((int)BattleStates.StartBattle, triggerStartBattle)
+                .AddEventPage((int)BattleStates.PomAttack, triggerPomAttack);
+
+            ep = triggerStartBattle;
+            {
+                e = EventBGM.c(BGM.field4, .4f);
+                e = EventTextbox.c(Faces.Shibe, @"Wh-what's this?").DontSlide;
+                e = EventTextbox.c(Faces.Shibe, @"Pom, you're kind of scaring me...").DontSlide;
+                e = EventTextboxClose.c;
+            }
+
+            ep = triggerPomAttack;
+            {
+                //NOTE: you can replace this execute event by copying in the entire pomAttack
+                //      event contents at the start of this block if you need to have different
+                //      text based on who you're actually attacking.
+                e = EventPageExecute.c(pomAttack);
+                e = EventSetGlobal.c(BattleController.chargingUp, 0);
+
+
+
+                var pomTurn1 = new EventPage();
+                var pomTurn3 = new EventPage();
+                var pomTurn5 = new EventPage();
+
+                e = EventPageSwitch.c(BattleController.pomTurn)
+                    .AddEventPage(1, pomTurn1)
+                    .AddEventPage(3, pomTurn3)
+                    .AddEventPage(5, pomTurn5);
+
+                ep = pomTurn1;
+                {
+                    e = EventTextbox.c(Faces.Shibe, @"You're hurting me!").DontSlide;
+                    e = EventTextboxClose.c;
+                }
+
+                ep = pomTurn3;
+                {
+                    e = EventTextbox.c(Faces.Shibe, @"There's no need to get violent!").DontSlide;
+                    e = EventTextboxClose.c;
+                }
+
+                ep = pomTurn5;
+                {
+                    e = EventTextbox.c(Faces.Shibe, @"Fighting is bad!").DontSlide;
+                    e = EventTextboxClose.c;
+                }
+
+                ep = triggerPomAttack;
+                e = EventSetGlobal.c(BattleController.chargingUp, 1);
+            }
+        }
+
+        //Puddle
+        NewEP("2f18fef2-3ba5-4a18-b384-f096754bc8ce");
+        {
+            var triggerStartBattle = new EventPage();
+            var triggerEnemy1Attack = new EventPage();
+            var triggerPomAttack = new EventPage();
+            var triggerShibeAttack = new EventPage();
+
+            e = EventPageSwitch.c(BattleController.battleTrigger)
+                .AddEventPage((int)BattleStates.StartBattle, triggerStartBattle)
+                .AddEventPage((int)BattleStates.Enemy1Attack, triggerEnemy1Attack)
+                .AddEventPage((int)BattleStates.PomAttack, triggerPomAttack)
+                .AddEventPage((int)BattleStates.ShibeAttack, triggerShibeAttack);
+
+            ep = triggerStartBattle;
+            {
+                e = EventBGM.c(BGM.field4, .4f);
+            }
+
+            ep = triggerEnemy1Attack;
+            {
+                e = BattleController.EventDamage.c(Target.Ally, 10);
+                //TODO: 50/50 charge up or attack
+            }
+
+            ep = triggerPomAttack;
+            {
+                //NOTE: you can replace this execute event by copying in the entire pomAttack
+                //      event contents at the start of this block if you need to have different
+                //      text based on who you're actually attacking.
+                e = EventPageExecute.c(pomAttack);
+            }
+
+            ep = triggerShibeAttack;
+            {
+                var apologize = new EventPage();
+                var puppyEyes = new EventPage();
+                var playDead = new EventPage();
+
+                e = EventTextboxChoice.c.AddChoice("Apologize", apologize)
+                                        .AddChoice("Puppy Eyes", puppyEyes)
+                                        .AddChoice("Play Dead", playDead);
+
+                ep = apologize;
+                {
+                    e = EventTextbox.c(Faces.None, @"Shibe apologized profusely!").DontSlide;
+                    //TODO:ShowBattleAnim - Healing A, Enemy (wait)
+                    e = EventTextbox.c(Faces.None, @"Puddle looks more fired up than ever!").DontSlide;
+                }
+
+                ep = puppyEyes;
+                {
+                    e = EventTextbox.c(Faces.None, @"Shibe used Puppy Dog Eyes!").DontSlide;
+                    e = EventTextbox.c(Faces.None, @"It had no effect on Puddle...").DontSlide;
+                }
+
+                ep = playDead;
+                {
+                    e = EventTextbox.c(Faces.None, @"Shibe played dead!").DontSlide;
+                    e = EventTextbox.c(Faces.None, @"It had no effect on Puddle...").DontSlide;
+                }
+
+                ep = triggerShibeAttack;
+                e = EventTextboxClose.c;
+                e = EventSetGlobal.c(BattleController.chargingUp, 1);
+            }
+        }
+
+        //Bernard
+        NewEP("b1ecd61a-be10-4c29-b597-af72660aec37");
+        {
+            var triggerStartBattle = new EventPage();
+            var triggerEnemy1Attack = new EventPage();
+            var triggerPomAttack = new EventPage();
+            var triggerShibeAttack = new EventPage();
+            var triggerEnemyAboutToDie = new EventPage();
+
+            e = EventPageSwitch.c(BattleController.battleTrigger)
+                .AddEventPage((int)BattleStates.StartBattle, triggerStartBattle)
+                .AddEventPage((int)BattleStates.Enemy1Attack, triggerEnemy1Attack)
+                .AddEventPage((int)BattleStates.PomAttack, triggerPomAttack)
+                .AddEventPage((int)BattleStates.ShibeAttack, triggerShibeAttack)
+                .AddEventPage((int)BattleStates.EnemyAboutToDie, triggerEnemyAboutToDie);
+
+            ep = triggerStartBattle;
+            {
+                e = EventBGM.c(BGM.field4, .4f);
+            }
+
+            ep = triggerEnemy1Attack;
+            {
+                //TODO: normal attack
+                e = BattleController.EventDamage.c(Target.Ally, 10);
+            }
+
+            ep = triggerPomAttack;
+            {
+                //NOTE: you can replace this execute event by copying in the entire pomAttack
+                //      event contents at the start of this block if you need to have different
+                //      text based on who you're actually attacking.
+                e = EventPageExecute.c(pomAttack);
+            }
+
+            ep = triggerShibeAttack;
+            {
+                var sit = new EventPage();
+                var stay = new EventPage();
+                var rollOver = new EventPage();
+                var dig = new EventPage();
+
+                e = EventTextboxChoice.c.AddChoice("Sit", sit)
+                                        .AddChoice("Stay", stay)
+                                        .AddChoice("Roll Over", rollOver)
+                                        .AddChoice("Dig", dig);
+
+                ep = sit;
+                {
+                    e = EventTextbox.c(Faces.None, @"It had no effect on Bernard...").DontSlide;
+                }
+
+                ep = stay;
+                {
+                    e = EventTextbox.c(Faces.None, @"Shibe stayed!").DontSlide;
+                    e = EventTextbox.c(Faces.None, @"It had no effect on Bernard...").DontSlide;
+                }
+
+                ep = rollOver;
+                {
+                    e = EventTextbox.c(Faces.None, @"Shibe rolled over!").DontSlide;
+                    //TODO:ShowBattleAnim - Intellect Diminish, Shibe Ally (wait)
+                    e = EventTextbox.c(Faces.None, @"Shibe became more vulnerable to the
+                                                     enemy").DontSlide;
+                }
+
+                ep = dig;
+                {
+                    e = EventTextbox.c(Faces.None, @"Shibe dug an important hole!").DontSlide;
+                    e = EventTextbox.c(Faces.None, @"Not just any hole!").DontSlide;
+                }
+
+                ep = triggerShibeAttack;
+                e = EventTextboxClose.c;
+                e = EventSetGlobal.c(BattleController.chargingUp, 1);
+            }
+
+            ep = triggerEnemyAboutToDie;
+            {
+                e = EventSetGlobal.c(BattleController.chargingUp, 0);
+                e = EventTextbox.c(Faces.Bernard, @"Guh! You're a monster!").DontSlide;
+                e = EventSFX.c(SFX.Pom_bark);
+                e = EventTextbox.c(Faces.Pom, @"take back what u said").DontSlide;
+                e = EventTextbox.c(Faces.Pom, @"shibe doesnt have a thing 4 crest").DontSlide;
+                e = EventTextbox.c(Faces.Bernard, @"Okay, okay! He doesn't").DontSlide;
+                e = EventSFX.c(SFX.Pom_bark);
+                e = EventTextbox.c(Faces.Pom, @"now say ''i ship hus/shibe''").DontSlide;
+                e = EventSFX.c(SFX.Medium_Dog1);
+                e = EventTextbox.c(Faces.Shibe, @"Wha?!").DontSlide;
+                e = EventTextbox.c(Faces.Pom, @"say it").DontSlide;
+                e = EventTextbox.c(Faces.Bernard, @"I...ship Hus/Shibe!").DontSlide;
+                e = EventTextbox.c(Faces.Bernard, @"Are you happy now?").DontSlide;
+                e = EventTextbox.c(Faces.None, @"Bernard ran away while sobbing!").DontSlide;
+                e = EventSetGlobal.c(Global.s.BernardTalk, 5);
+                e = EventTextboxClose.c;
+                e = EventSetGlobal.c(BattleController.chargingUp, 1);
+            }
+        }
+
+        //Hus&Shibe
+        NewEP("20244fa8-22c7-409f-ae4a-f13e8a315c9a");
+        {
+            var triggerStartBattle = new EventPage();
+            var triggerEnemy1Attack = new EventPage();
+            var triggerEnemy2Attack = new EventPage();
+            var triggerPomAttack = new EventPage();
+
+            e = EventPageSwitch.c(BattleController.battleTrigger)
+                .AddEventPage((int)BattleStates.StartBattle, triggerStartBattle)
+                .AddEventPage((int)BattleStates.Enemy1Attack, triggerEnemy1Attack)
+                .AddEventPage((int)BattleStates.Enemy2Attack, triggerEnemy2Attack)
+                .AddEventPage((int)BattleStates.PomAttack, triggerPomAttack);
+
+            ep = triggerStartBattle;
+            {
+                e = EventBGM.c(BGM.field4, .4f);
+                e = EventSetGlobal.c(Global.s.StopPom, 2);
+                e = EventSFX.c(SFX.Medium_Dog1);
+                e = EventTextbox.c(Faces.Shibe, @"Wait, you two!").DontSlide;
+                e = EventTextbox.c(Faces.Shibe, @"Don't fight!").DontSlide;
+                e = EventSFX.c(SFX.Pom_bark);
+                e = EventTextbox.c(Faces.Pom, @"no fukkin way").DontSlide;
+                e = EventTextbox.c(Faces.Pom, @"u 2 r going down").DontSlide;
+                e = EventSFX.c(SFX.Medium_Dog1);
+                e = EventTextbox.c(Faces.Hus, @"Sorry, Shibe.").DontSlide;
+                e = EventTextbox.c(Faces.Hus, @"Looks like I have no choice.").DontSlide;
+                e = EventTextboxClose.c;
+            }
+
+            ep = triggerEnemy1Attack;
+            {
+                //TODO: normal attack
+                e = BattleController.EventDamage.c(Target.Ally, 10);
+            }
+
+            ep = triggerPomAttack;
+            {
+                //NOTE: you can replace this execute event by copying in the entire pomAttack
+                //      event contents at the start of this block if you need to have different
+                //      text based on who you're actually attacking.
+                e = EventPageExecute.c(pomAttack);
+            }
+
+            ep = triggerEnemy2Attack;
+            {
+                var turn1 = new EventPage();
+                var turn3 = new EventPage();
+                var turn4 = new EventPage();
+
+                e = EventPageSwitch.c(BattleController.enemy2Turn).AddEventPage(1, turn1).AddEventPage(3, turn3).AddEventPage(4, turn4);
+
+                ep = turn1;
+                {
+                    e = EventTextbox.c(Faces.None, @"Shibe dug an important hole!").DontSlide;
+                    e = EventTextbox.c(Faces.None, @"Not just any hole!").DontSlide;
+                }
+
+                ep = turn3;
+                {
+                    e = EventTextbox.c(Faces.None, @"Shibe used Puppy Dog Eyes!").DontSlide;
+                    e = EventTextbox.c(Faces.None, @"It had no effect on Pom...").DontSlide;
+                    e = EventTextbox.c(Faces.Hus, @"...").DontSlide;
+                    e = EventSFX.c(SFX.Medium_Dog1);
+                    e = EventTextbox.c(Faces.Hus, @"Shibe, stop that!").DontSlide;
+                    e = EventSFX.c(SFX.Medium_Dog1);
+                    e = EventTextbox.c(Faces.Shibe, @"H-huh?").DontSlide;
+                    e = EventSFX.c(SFX.Medium_Dog1);
+                    e = EventTextbox.c(Faces.Hus, @"It's distracting!").DontSlide;
+                    e = EventSFX.c(SFX.Medium_Dog1);
+                    e = EventTextbox.c(Faces.Shibe, @"O-okay!").DontSlide;
+                }
+
+                ep = turn4;
+                {
+                    e = EventTextbox.c(Faces.None, @"Shibe rolled over!").DontSlide;
+                    //TODO:ShowBattleAnim - Intellect Diminish, Shibe Ally (wait)
+                    e = EventTextbox.c(Faces.None, @"Shibe became more vulnerable to the
+                                                     enemy!").DontSlide;
+                }
+
+                ep = triggerEnemy2Attack;
+                e = EventTextboxClose.c;
+            }
+        }
+
+        //York
+        NewEP("afc7f890-5609-42c9-815e-e6d083816532");
+        {
+            var triggerStartBattle = new EventPage();
+            var triggerPomAttack = new EventPage();
+
+            e = EventPageSwitch.c(BattleController.battleTrigger)
+                .AddEventPage((int)BattleStates.StartBattle, triggerStartBattle)
+                .AddEventPage((int)BattleStates.PomAttack, triggerPomAttack);
+
+            ep = triggerStartBattle;
+            {
+                e = EventBGM.c(BGM.field4, .4f);
+            }
+
+            ep = triggerPomAttack;
+            {
+                e = EventTextbox.c(Faces.Pom, @"suck").DontSlide;
+                e = EventTextbox.c(Faces.Pom, @"on").DontSlide;
+                e = EventTextbox.c(Faces.Pom, @"my").DontSlide;
+                e = EventTextbox.c(Faces.Pom, @"misSILE PUNCH!!!").DontSlide;
+                //TODO:ShowBattleAnim - Non-elemental S 1, Enemy (wait)
+                e = BattleController.EventDamage.c(Target.Enemy, 100);
+                e = EventTextbox.c(Faces.York, @"Gnnrk...!").DontSlide;
+                e = EventSetGlobal.c(BattleController.chargingUp, 1);
+                e = BattleController.EventEndBattle.c;
+            }
+        }
+
+        //Dog
+        NewEP("f3f9bf44-4dab-42ac-99f2-abeeb497dceb");
+        {
+            var triggerStartBattle = new EventPage();
+            var triggerEnemy1Attack = new EventPage();
+            var triggerPomAttack = new EventPage();
+
+            e = EventPageSwitch.c(BattleController.battleTrigger)
+                .AddEventPage((int)BattleStates.StartBattle, triggerStartBattle)
+                .AddEventPage((int)BattleStates.Enemy1Attack, triggerEnemy1Attack)
+                .AddEventPage((int)BattleStates.PomAttack, triggerPomAttack);
+
+            ep = triggerStartBattle;
+            {
+                e = EventBGM.c(BGM.mystery3, .4f);
+            }
+
+            ep = triggerEnemy1Attack;
+            {
+                e = EventTextbox.c(Faces.None, @"You cannot grasp the true form of Dog's attack!").DontSlide;
+                e = EventFlashScreen.c(.5f, new Color(.121f, .121f, .121f, .121f));
+                e = EventWait.c(.5f);
+                //TODO:ShowBattleAnim - Punch C, Pom
+                e = BattleController.EventDamage.c(Target.Ally, 100);
+                e = EventTextboxClose.c;
+            }
+
+            ep = triggerPomAttack;
+            {
+                var attack0 = new EventPage();
+                var attack1 = new EventPage();
+                var attack2 = new EventPage();
+                var attack3 = new EventPage();
+                var attack4 = new EventPage();
+
+                e = EventPageSwitch.c(BattleController.pomTurn).AddEventPage(0, attack0).AddEventPage(1, attack1).AddEventPage(2, attack2).AddEventPage(3, attack3).AddEventPage(4, attack4);
+
+                ep = attack0;
+                {
+                    e = EventTextbox.c(Faces.Pom, @"im in da zone").DontSlide;
+                    e = EventTextbox.c(Faces.Pom, @"autozone").DontSlide;
+                }
+
+                ep = attack1;
+                {
+                    e = EventTextbox.c(Faces.Pom, @"kawoshin? no. more like kawobunga").DontSlide;
+                    e = EventTextbox.c(Faces.Pom, @"surf's up shinji kun").DontSlide;
+                }
+
+                ep = attack2;
+                {
+                    e = EventTextbox.c(Faces.Pom, @"[weird edgeworth noises]").DontSlide;
+                }
+
+                ep = attack3;
+                {
+                    e = EventTextbox.c(Faces.Pom, @"i fukkin cant believe the 12th doctor
+                                                    is mitt romney").DontSlide;
+                }
+
+                ep = attack4;
+                {
+                    e = EventTextbox.c(Faces.Pom, @"sorry but i think we should break up").DontSlide;
+                    e = EventTextbox.c(Faces.Pom, @"it's not you it's-a-me mario").DontSlide;
+                }
+
+                ep = triggerPomAttack;
+                e = EventTextboxClose.c;
+                //TODO:ShowBattleAnim - Fire Magic S 2, Enemy (Wait)
+                e = BattleController.EventDamage.c(Target.Enemy, 999);
+                e = EventSetGlobal.c(BattleController.chargingUp, 1);
+            }
+        }
+
+        //Shibe Final
+        NewEP("5d814f08-7eaa-4c77-9ef6-e28e0e523108");
+        {
+            var triggerStartBattle = new EventPage();
+            var triggerEnemy1Attack = new EventPage();
+            var triggerPomAttack = new EventPage();
+
+            e = EventPageSwitch.c(BattleController.battleTrigger)
+                .AddEventPage((int)BattleStates.StartBattle, triggerStartBattle)
+                .AddEventPage((int)BattleStates.Enemy1Attack, triggerEnemy1Attack)
+                .AddEventPage((int)BattleStates.PomAttack, triggerPomAttack);
+
+            ep = triggerStartBattle;
+            {
+                e = EventBGM.c(BGM.EricSkiff_UnderStars, .4f);
+            }
+
+            ep = triggerEnemy1Attack;
+            {
+                var shibeTurn00 = new EventPage();
+                var shibeTurn01 = new EventPage(); var shibeTurn02 = new EventPage();
+                var shibeTurn03 = new EventPage(); var shibeTurn04 = new EventPage();
+                var shibeTurn05 = new EventPage(); var shibeTurn06 = new EventPage();
+                var shibeTurn07 = new EventPage(); var shibeTurn08 = new EventPage();
+                var shibeTurn09 = new EventPage(); var shibeTurn10 = new EventPage();
+                var shibeTurn11 = new EventPage(); var shibeTurn12 = new EventPage();
+                var shibeTurn13 = new EventPage(); var shibeTurn14 = new EventPage();
+                var shibeTurn15 = new EventPage(); var shibeTurn16 = new EventPage();
+
+                e = EventPageSwitch.c(BattleController.enemy1Turn).AddEventPage(0, shibeTurn00).AddEventPage(1, shibeTurn01).AddEventPage(2, shibeTurn02).AddEventPage(3, shibeTurn03).AddEventPage(4, shibeTurn04).AddEventPage(5, shibeTurn05).AddEventPage(6, shibeTurn06).AddEventPage(7, shibeTurn07).AddEventPage(8, shibeTurn08).AddEventPage(9, shibeTurn09).AddEventPage(10, shibeTurn10).AddEventPage(11, shibeTurn11).AddEventPage(12, shibeTurn12).AddEventPage(13, shibeTurn13).AddEventPage(14, shibeTurn14).AddEventPage(15, shibeTurn15).AddEventPage(16, shibeTurn16);
+
+                ep = shibeTurn00;
+                {
+                    e = EventSFX.c(SFX.Medium_Dog1);
+                    e = EventTextbox.c(Faces.Shibe, @"I know wi-fi is important to you!").DontSlide;
+                    e = EventTextbox.c(Faces.Shibe, @"But it doesn't have to be this way!").DontSlide;
+                }
+
+                ep = shibeTurn01;
+                {
+                    e = EventTextbox.c(Faces.Pom, @"u dont understand").DontSlide;
+                    e = EventTextbox.c(Faces.Pom, @"i need wi-fi like i need air").DontSlide;
+                }
+
+                ep = shibeTurn02;
+                {
+                    e = EventTextbox.c(Faces.Pom, @"i dont need anything else").DontSlide;
+                    e = EventTextbox.c(Faces.Pom, @"the internet is the essence of my
+                                                    entire existance").DontSlide;
+                }
+
+                ep = shibeTurn03;
+                {
+                    e = EventTextbox.c(Faces.Shibe, @"You don't have to be like this!").DontSlide;
+                }
+
+                ep = shibeTurn04;
+                {
+                    e = EventSFX.c(SFX.Medium_Dog1);
+                    e = EventTextbox.c(Faces.Shibe, @"You're Dog!").DontSlide;
+                    e = EventTextbox.c(Faces.Shibe, @"You have the power to do anything right now!").DontSlide;
+                    e = EventTextbox.c(Faces.Shibe, @"Literally anything!").DontSlide;
+                }
+
+                ep = shibeTurn05;
+                {
+                    e = EventTextbox.c(Faces.Shibe, @"There are so many things that only you can do!").DontSlide;
+                }
+
+                ep = shibeTurn06;
+                {
+                    e = EventTextbox.c(Faces.Shibe, @"Just think about it!").DontSlide;
+                    e = EventTextbox.c(Faces.Shibe, @"You can make the frisbee machine so
+                                                      that it never breaks!").DontSlide;
+                    e = EventTextbox.c(Faces.Shibe, @"You can erase every spider in the
+                                                      world!").DontSlide;
+                    e = EventTextbox.c(Faces.Shibe, @"You can eliminate violence and
+                                                      fighting!").DontSlide;
+                    e = EventTextbox.c(Faces.Shibe, @"You can make it so that dogs like
+                                                      Bernard can't creep on others!").DontSlide;
+                }
+
+                ep = shibeTurn07;
+                {
+                    e = EventTextbox.c(Faces.Shibe, @"You can fix so many things that are
+                                                      wrong here...").DontSlide;
+                    e = EventTextbox.c(Faces.Shibe, @"If you'll just get up and actually make
+                                                      an effort to change them!").DontSlide;
+                    e = EventTextbox.c(Faces.Shibe, @"If you don't do it, no one will!").DontSlide;
+                    e = EventTextbox.c(Faces.Shibe, @"No one else can!").DontSlide;
+                    e = EventTextbox.c(Faces.Shibe, @"...").DontSlide;
+                }
+
+                ep = shibeTurn08;
+                {
+                    e = EventTextbox.c(Faces.Shibe, @"Please don't just sit here surfing the
+                                                      web while the world falls apart around
+                                                      you...").DontSlide;
+                }
+
+                ep = shibeTurn09;
+                {
+                    e = EventTextbox.c(Faces.Pom, @"but thats all i know how 2 do").DontSlide;
+                    e = EventTextbox.c(Faces.Pom, @"all i know how 2 do is sit in front of
+                                                      a computer").DontSlide;
+                }
+
+                ep = shibeTurn10;
+                {
+                    e = EventTextbox.c(Faces.Pom, @"it's 2 late").DontSlide;
+                    e = EventTextbox.c(Faces.Pom, @"i've never done anything useful in my
+                                                      entire life").DontSlide;
+                }
+
+                ep = shibeTurn11;
+                {
+                    e = EventTextbox.c(Faces.Shibe, @"It's never too late to start!").DontSlide;
+                    e = EventSFX.c(SFX.Medium_Dog1);
+                    e = EventTextbox.c(Faces.Shibe, @"Not for this, not for anything!").DontSlide;
+                }
+
+                ep = shibeTurn12;
+                {
+                    e = EventTextbox.c(Faces.Shibe, @"You can't change your past, but you
+                                                      can change your future!").DontSlide;
+                }
+
+                ep = shibeTurn13;
+                {
+                    e = EventTextbox.c(Faces.Shibe, @"And if we keep looking, I'm sure we'll
+                                                      find another way to get wi-fi!").DontSlide;
+                    e = EventTextbox.c(Faces.Shibe, @"We'll figure something out!").DontSlide;
+                }
+
+                ep = shibeTurn14;
+                {
+                    e = EventTextbox.c(Faces.Shibe, @"So please...").DontSlide;
+                    e = EventTextbox.c(Faces.Shibe, @"Don't give everything up!").DontSlide;
+                    e = EventTextbox.c(Faces.Shibe, @"You need to save the world right now!").DontSlide;
+                }
+
+                ep = shibeTurn15;
+                {
+                    e = EventTextbox.c(Faces.Shibe, @"I believe in you, Pom!").DontSlide;
+                    e = EventTextbox.c(Faces.Shibe, @"You can do it!").DontSlide;
+                    e = EventTextbox.c(Faces.Shibe, @"You don't need to be afraid of
+                                                      anything!").DontSlide;
+                }
+
+                ep = shibeTurn16;
+                {
+                    e = EventTextbox.c(Faces.Shibe, @"I know it's hard, and but...please...").DontSlide;
+                    e = EventTextbox.c(Faces.Shibe, @"Do something...").DontSlide;
+                    e = EventTextbox.c(Faces.None, @"Shibe is crying really hard.").DontSlide;
+                    e = EventTextbox.c(Faces.Pom, @".............").DontSlide;
+                    e = EventWait.c(2f);
+
+                    var end = new EventPage();
+
+                    e = EventPageSwitch.c(Global.s.BadEnd).AddEventPage(1, triggerPomAttack).AddEventPage(0, end);
+
+                    ep = end;
+                    e = EventSetGlobal.c(BattleController.chargingUp, 1);
+                    e = BattleController.EventEndBattle.c;
+                }
+
+                ep = triggerEnemy1Attack;
+                e = EventTextboxClose.c;
+            }
+
+            ep = triggerPomAttack;
+            {
+                e = EventTextbox.c(Faces.Pom, @"goodbye shibe").DontSlide;
+                e = EventSetGlobal.c(Global.s.BadEnd, 1);
+                //TODO:ShowBattleAnim - Fire Magic S 2, Enemy (Wait)
+                e = BattleController.EventDamage.c(Target.Enemy, 9999);
+                e = EventTextboxClose.c;
+                e = EventSetGlobal.c(BattleController.chargingUp, 1);
+                e = BattleController.EventEndBattle.c;
+            }
+        }
+
+        #endregion
 
         //.. You're done! That's it. The rest of the events are all the pure logic event pages. No more translations that need to be done. :)
 

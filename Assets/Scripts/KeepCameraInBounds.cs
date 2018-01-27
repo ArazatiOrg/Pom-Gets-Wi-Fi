@@ -131,7 +131,7 @@ public class KeepCameraInBounds : MonoBehaviour {
 
             transform.position = new Vector3(((int)((dumbHackyPosition.x + shakeOffset) * 16) / 16f), ((int)(dumbHackyPosition.y * 16) / 16f), z);
             
-            UI.transform.localPosition = new Vector3(-shakeOffset, 0f, 10f);
+            UI.transform.localPosition = new Vector3(-shakeOffset, UI.transform.localPosition.y, 10f);
 		}
 	}
 

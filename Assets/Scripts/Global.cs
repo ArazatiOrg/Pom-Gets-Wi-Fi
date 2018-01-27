@@ -87,6 +87,12 @@ public class Global : MonoBehaviour {
 
         [SerializeField] public GlobalInt YorkTalk = new GlobalInt();
 
+        //Park
+
+
+        //Observatory
+        [SerializeField] public GlobalInt Observatory = new GlobalInt();
+
         //Starpugs
         [SerializeField] public GlobalInt UgTalk = new GlobalInt();
         [SerializeField] public GlobalInt BernardTalk = new GlobalInt();
@@ -94,6 +100,8 @@ public class Global : MonoBehaviour {
         [SerializeField] public GlobalInt CorgTalk = new GlobalInt();
         [SerializeField] public GlobalInt BadEnd = new GlobalInt();
         [SerializeField] public GlobalInt WittyFidoTalk = new GlobalInt();
+
+        [SerializeField] public GlobalInt StopPom = new GlobalInt();
 
         public void Save(int slot)
         {
@@ -164,16 +172,16 @@ public class Global : MonoBehaviour {
 
     private void Start()
     {
-        try
-        {
-            GameControlReady();
-        }
-        catch (Exception e)
-        {
-            
-        }
+        #if !UNITY_EDITOR && UNITY_WEBGL
+            try
+            {
+                GameControlReady();
+            }
+            catch (Exception e) { Debug.Log("GameCanvas Error: " + e.Message); }
+        #endif
 
-        AudioController.instance.PlayBGM((int)BGM.memories, .4f);
+        if (AudioController.instance.bgmSource.clip == null && !loadedData)
+            AudioController.instance.PlayBGM((int)BGM.memories, .4f);
 
         ResetVariables();
 

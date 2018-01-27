@@ -16,6 +16,9 @@ public class AudioController : MonoBehaviour {
         { 000.000f, 000.000f }, //Burning
         { 034.732f, 033.757f }, //memories
         { 151.244f, 149.941f }, //eternal
+        { 105.971f, 105.971f }, //field4
+        { 266.394f, 228.364f }, //EricSkiff_UnderStars
+        { 096.007f, 084.008f }, //mystery3
     };
 
     float loopAtTime = 0f;
@@ -36,6 +39,18 @@ public class AudioController : MonoBehaviour {
 
     public void PlayBGM(int index, float volume)
     {
+        if (Global.ActiveSavefile != null)
+        {
+            Global.s.ActiveBGM.value = index;
+            Global.s.ActiveBGMVolume.value = volume;
+        }
+
+        if (index == (int)BGM.none)
+        {
+            bgmSource.Stop();
+            return;
+        }
+
         loopAtTime = loopTimes[index, 0];
         rewindTime = loopTimes[index, 1];
 

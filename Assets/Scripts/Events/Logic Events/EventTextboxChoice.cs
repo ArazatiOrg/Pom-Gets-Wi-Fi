@@ -15,6 +15,12 @@ public class EventTextboxChoice : _BaseLogicEvent {
         }
     }
     
+    public EventTextboxChoice AddText(string text)
+    {
+        sets.Add(new ChoiceSet() { text = text });
+        return this;
+    }
+
     public EventTextboxChoice AddChoice(string text, EventPage tiedEvent, Global.GlobalBool variableShown = null)
     {
         sets.Add(new ChoiceSet() { text = text, eventPage = tiedEvent, willShow = variableShown });
@@ -24,11 +30,8 @@ public class EventTextboxChoice : _BaseLogicEvent {
 
     public override IEnumerator Execute()
     {
-        var before = Player.playerInstance.AllowMovement;
-
-        Player.playerInstance.AllowMovement = false;
-
         TextEngine.instance.text.text = "";
+        TextEngine.instance.choiceHasText = false;
 
         var usedItems = new List<ChoiceSet>();
 
@@ -36,8 +39,16 @@ public class EventTextboxChoice : _BaseLogicEvent {
         {
             if (item.willShow == null || !item.willShow.value)
             {
-                TextEngine.instance.text.text += "  " + item.text + "\n";
-                usedItems.Add(item);
+                if (item.eventPage == null)
+                {
+                    TextEngine.instance.text.text += item.text + "\n";
+                    TextEngine.instance.choiceHasText = true;
+                }
+                else
+                {
+                    TextEngine.instance.text.text += "  " + item.text + "\n";
+                    usedItems.Add(item);
+                }
             }
         }
         
@@ -48,6 +59,7 @@ public class EventTextboxChoice : _BaseLogicEvent {
         TextEngine.instance.waitingForChoice = true;
         TextEngine.instance.waitingForInput = false;
         TextEngine.instance.finishedTextbox = false;
+        TextEngine.instance.textboxElements.SetActive(true);
         TextEngine.instance.UpdateCursorState();
 
         yield return new WaitUntil(() => !TextEngine.instance.waitingForChoice);
@@ -60,9 +72,7 @@ public class EventTextboxChoice : _BaseLogicEvent {
                 yield return ep[i].Execute();
             }
         }
-
-        Player.playerInstance.AllowMovement = before;
-
+        
         yield return null;
     }
 

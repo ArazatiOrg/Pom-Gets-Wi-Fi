@@ -58,6 +58,7 @@ public class TextEngine : MonoBehaviour {
     [HideInInspector] public int selectedChoice = 0;
     [HideInInspector] public int maxChoices = 0;
     [HideInInspector] public bool waitingForChoice = false;
+    public bool choiceHasText = false;
 
     [HideInInspector] public bool waitingForInput = false;
     [HideInInspector] public bool finishedTextbox = false;
@@ -126,13 +127,7 @@ public class TextEngine : MonoBehaviour {
 
                 while (true)
                 {
-                    if(textIndex > text.text.Length)
-                    {
-                        Debug.LogError("Text Length of Zero: " + text.text);
-                        break;
-                    }
-
-                    var c = text.text[textIndex];
+                    var c = textIndex >= text.text.Length ? ' ' : text.text[textIndex];
                     if (c == '\n')
                     {
                         lineIndex++;
@@ -182,7 +177,10 @@ public class TextEngine : MonoBehaviour {
             var selectedObjectOrigin = new Vector3(-0.127f, -55.83619f); //ignore this demon
             selectedAnimTimeLeft -= Time.smoothDeltaTime;
 
-            if(selectedAnimTimeLeft <= 0f)
+            if(choiceHasText && selectedSprite.transform.localPosition == selectedObjectOrigin)
+                selectedSprite.transform.localPosition = selectedObjectOrigin += new Vector3(0f, -16f * 1);
+
+            if (selectedAnimTimeLeft <= 0f)
             {
                 selectedAnimTimeLeft += selectedAnimTimeToChange;
                 
@@ -209,7 +207,7 @@ public class TextEngine : MonoBehaviour {
             //move selected choice around
             if (changeSelected)
             {
-                selectedSprite.transform.localPosition = selectedObjectOrigin += new Vector3(0f, -16f * selectedChoice);
+                selectedSprite.transform.localPosition = selectedObjectOrigin += new Vector3(0f, -16f * (selectedChoice + (choiceHasText ? 1 : 0)));
                 AudioController.instance.PlaySFX((int)SFX.Cursor, 1f);
             }
 
@@ -281,7 +279,7 @@ public class TextEngine : MonoBehaviour {
         face.rectTransform.localScale = new Vector3(x, face.rectTransform.localScale.y, face.rectTransform.localScale.z);
     }
 
-    public void InitializeNew(Faces shownFace, string text, bool fromRight)
+    public void InitializeNew(Faces shownFace, string text, bool fromRight = true)
     {
         //SetFace(faceString);
         SetFace(shownFace);
@@ -346,7 +344,7 @@ public class TextEngine : MonoBehaviour {
 
         UpdateCursorState();
 
-        Player.playerInstance.AllowMovement = false;
+        //Player.playerInstance.AllowMovement = false;
     }
 
     public void ShowLines(int lines)

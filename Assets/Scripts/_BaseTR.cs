@@ -19,33 +19,36 @@ public class _BaseTR : MonoBehaviour {
     [HideInInspector] public string TranslationName;
     [HideInInspector] public string TranslationCredits;
 
-    public string PomName =         "Pom";
-    public string ShibeName =       "Shibe";
-    public string AlmaName =        "Alma";
-    public string BernardName =     "Bernard";
-    public string BoldName =        "Bold";
-    public string ChiName =         "Chi";
-    public string CorgName =        "Corg";
-    public string CrestName =       "Crest";
-    public string DavePointerName = "Dave Pointer";
-    public string DogName =         "Dog";
-    public string GlishName =       "Glish";
-    public string GoldieName =      "Goldie";
-    public string HusName =         "Hus";
-    public string LabraName =       "Labra";
-    public string MaltaName =       "Malta";
-    public string PapiName =        "Papi";
-    public string PuddleName =      "Puddle";
-    public string SharpeiiName =    "Sharpeii";
-    public string ShermanName =     "Sherman";
-    public string UgName =          "Ug";
-    public string WittyFidoName =   "Witty Fido";
-    public string YorkName =        "York";
+    [HideInInspector] public string PomName =         "Pom";
+    [HideInInspector] public string ShibeName =       "Shibe";
+    [HideInInspector] public string AlmaName =        "Alma";
+    [HideInInspector] public string BernardName =     "Bernard";
+    [HideInInspector] public string BoldName =        "Bold";
+    [HideInInspector] public string ChiName =         "Chi";
+    [HideInInspector] public string CorgName =        "Corg";
+    [HideInInspector] public string CrestName =       "Crest";
+    [HideInInspector] public string DavePointerName = "Dave Pointer";
+    [HideInInspector] public string DogName =         "Dog";
+    [HideInInspector] public string GlishName =       "Glish";
+    [HideInInspector] public string GoldieName =      "Goldie";
+    [HideInInspector] public string HusName =         "Hus";
+    [HideInInspector] public string LabraName =       "Labra";
+    [HideInInspector] public string MaltaName =       "Malta";
+    [HideInInspector] public string PapiName =        "Papi";
+    [HideInInspector] public string PuddleName =      "Puddle";
+    [HideInInspector] public string SharpeiName =    "Sharpei";
+    [HideInInspector] public string ShermanName =     "Sherman";
+    [HideInInspector] public string UgName =          "Ug";
+    [HideInInspector] public string WittyFidoName =   "Witty Fido";
+    [HideInInspector] public string YorkName =        "York";
 
     public Font font;
 
     public virtual void Initialize()
     {
+        if(Application.isEditor && font != null && font.material != null && font.material.mainTexture != null)
+            font.material.mainTexture.filterMode = FilterMode.Point;
+
         if (langRegisterCode == -1) { Debug.LogError("Translation never registered! Why is this being called.."); return; }
     }
 

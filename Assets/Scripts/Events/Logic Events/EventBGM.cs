@@ -19,9 +19,6 @@ public class EventBGM : _BaseLogicEvent {
         }
         else AudioController.instance.PlayBGM((int)myBGM, myVolume);
 
-        Global.s.ActiveBGM.value = (int)myBGM;
-        Global.s.ActiveBGMVolume.value = myVolume;
-
         yield return null;
     }
 }
@@ -32,5 +29,8 @@ public enum BGM
     village2 = 0,
     burning,
     memories,
-    eternal
+    eternal,
+    field4,
+    EricSkiff_UnderStars,
+    mystery3,
 }

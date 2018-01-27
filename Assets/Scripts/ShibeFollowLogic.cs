@@ -29,7 +29,7 @@ public class ShibeFollowLogic : MonoBehaviour {
                     var dir = controller.DirFromVector(lastPomPos - transform.position);
                     controller.TryMove(dir, false);
 
-                    if (controller.standingStill) controller.SetFacingDirection(beforeFacing);
+                    if (controller.standingStill || Player.playerInstance.standingStill) controller.SetFacingDirection(beforeFacing);
                 }
             }
             else

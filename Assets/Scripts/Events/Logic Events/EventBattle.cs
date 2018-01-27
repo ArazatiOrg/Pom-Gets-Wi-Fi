@@ -10,11 +10,27 @@ public class EventBattle : _BaseLogicEvent {
         return new EventBattle() { battle = battle };
     }
 
+    int oldMusic = -1;
+    float oldVolume = 0f;
     public override IEnumerator Execute()
     {
-        //TODO: Battle scene stuff
-        yield return EventFlashScreen.c(.2f).Execute();
-        yield return EventTextbox.c(Faces.None, "TODO: Battle scene - " + battle).DontSlide.Execute();
+        yield return EventFlashScreen.c(.15f).Execute();
+        yield return EventFlashScreen.c(.15f).Execute();
+        oldMusic = Global.s.ActiveBGM;
+        oldVolume = Global.s.ActiveBGMVolume;
+        AudioController.instance.PlayBGM((int)BGM.none, .4f);
+        yield return EventBlinds.c.Execute();
+        BattleController.instance.InitBattle(battle);
+        yield return EventWait.c(1f).Execute();
+        yield return EventFade.c(-1f, Color.black).NoYield.Execute();
+        CameraBlinds.instance.HideBlinds();
+        yield return EventWait.c(1f).Execute();
+        BattleController.instance.StartBattle();
+        yield return new WaitUntil(() => BattleController.instance.curBattle == Battles.None);
+        yield return EventFade.c(1f).Execute();
+        BattleController.instance.FinishedBattle();
+        yield return EventFade.c(-1f).Execute();
+        AudioController.instance.PlayBGM(oldMusic, oldVolume);
     }
 }
 
@@ -27,5 +43,6 @@ public enum Battles
     York,
     Dog,
     Shibe_final,
-    Hus_and_Shibe_Test
+    Hus_and_Shibe_Test,
+    None
 }

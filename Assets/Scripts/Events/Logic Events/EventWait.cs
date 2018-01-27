@@ -13,7 +13,10 @@ public class EventWait : _BaseLogicEvent {
 
     public override IEnumerator Execute()
     {
-        yield return new WaitForSeconds(timeToWait);
+        if (timeToWait > 0f)
+            yield return new WaitForSeconds(timeToWait);
+        else
+            yield return null;
     }
 
 }

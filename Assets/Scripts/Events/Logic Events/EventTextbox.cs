@@ -99,7 +99,7 @@ public class EventTextbox : _BaseLogicEvent {
                 case Faces.Puddle_angry:
                     namePrefix = @"\C[1]" + curLanguage.PuddleName + "\\C[0]\n"; break;
                 case Faces.Sharpeii:
-                    namePrefix = @"\C[1]" + curLanguage.SharpeiiName + "\\C[0]\n"; break;
+                    namePrefix = @"\C[1]" + curLanguage.SharpeiName + "\\C[0]\n"; break;
                 case Faces.Sherman:
                     namePrefix = @"\C[1]" + curLanguage.ShermanName + "\\C[0]\n"; break;
                 case Faces.Shibe:
