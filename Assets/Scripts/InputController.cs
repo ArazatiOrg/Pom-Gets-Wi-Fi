@@ -126,11 +126,13 @@ public class InputController : MonoBehaviour {
                 case Action.Cancel:
                     curDown = Input.GetKey(KeyCode.Escape) ||
                               Input.GetKey(KeyCode.X) ||
+                              Input.GetKey(KeyCode.Backspace) ||
                               (curMousePressed && !lastMousePressed && curMouse.x > 0 && curMouse.y > 0);
                     break;
                 case Action.Confirm:
                     curDown = Input.GetKey(KeyCode.Return) ||
                               Input.GetKey(KeyCode.Z) ||
+                              Input.GetKey(KeyCode.Space) ||
                               (curMousePressed && !lastMousePressed && curMouse.x>0 && curMouse.y < 0);
                     break;
                 case Action.Up:

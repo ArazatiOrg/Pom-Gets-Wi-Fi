@@ -177,8 +177,8 @@ public class TextEngine : MonoBehaviour {
             var selectedObjectOrigin = new Vector3(-0.127f, -55.83619f); //ignore this demon
             selectedAnimTimeLeft -= Time.smoothDeltaTime;
 
-            if(choiceHasText && selectedSprite.transform.localPosition == selectedObjectOrigin)
-                selectedSprite.transform.localPosition = selectedObjectOrigin += new Vector3(0f, -16f * 1);
+            if(choiceHasText && selectedSprite.transform.localPosition.y > selectedObjectOrigin.y - 15f)
+                selectedSprite.transform.localPosition = selectedObjectOrigin + new Vector3(0f, -16f);
 
             if (selectedAnimTimeLeft <= 0f)
             {
@@ -207,7 +207,7 @@ public class TextEngine : MonoBehaviour {
             //move selected choice around
             if (changeSelected)
             {
-                selectedSprite.transform.localPosition = selectedObjectOrigin += new Vector3(0f, -16f * (selectedChoice + (choiceHasText ? 1 : 0)));
+                selectedSprite.transform.localPosition = selectedObjectOrigin + new Vector3(0f, -16f * (selectedChoice + (choiceHasText ? 1 : 0)));
                 AudioController.instance.PlaySFX((int)SFX.Cursor, 1f);
             }
             

@@ -246,6 +246,17 @@ public class BattleController : MonoBehaviour {
 
             pomFillBar.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, pomCharge * 25f);
             shibeFillBar.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, shibeCharge * 25f);
+
+            //pom.font.material.mainTexture.filterMode = FilterMode.Point;
+            //shibeStatusText.font.material.mainTexture.filterMode = FilterMode.Point;
+
+            pomStatusText.font.material.mainTexture.filterMode = FilterMode.Point;
+            shibeStatusText.font.material.mainTexture.filterMode = FilterMode.Point;
+
+            pomHPText.font.material.mainTexture.filterMode = FilterMode.Point;
+            shibeHPText.font.material.mainTexture.filterMode = FilterMode.Point;
+
+            pomAttacksText.font.material.mainTexture.filterMode = FilterMode.Point;
         }
         
         PomHPChangedCheck();
