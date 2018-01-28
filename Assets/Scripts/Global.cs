@@ -49,6 +49,7 @@ public class Global : MonoBehaviour {
 
         //Gamestate Variables
         [SerializeField] public GlobalInt ShibeInParty = new GlobalInt();
+        [SerializeField] public GlobalInt ShibeAbleToFollow = new GlobalInt(1);
 
         [SerializeField] public GlobalInt Intro = new GlobalInt();
         [SerializeField] public GlobalBool Intro_Facewoof = new GlobalBool();
@@ -88,7 +89,21 @@ public class Global : MonoBehaviour {
         [SerializeField] public GlobalInt YorkTalk = new GlobalInt();
 
         //Park
+        [SerializeField] public GlobalInt ChiTalk = new GlobalInt();
+        [SerializeField] public GlobalInt StoneBlockSearch = new GlobalInt();
+        [SerializeField] public GlobalInt ParkFixed = new GlobalInt();
+        [SerializeField] public GlobalInt ExtraParkPartyMember = new GlobalInt(); //0 = none, 1 = hus, 2 = chi
+        [SerializeField] public GlobalInt LabraAlmaTalk = new GlobalInt();
+        [SerializeField] public GlobalInt PuddleTalk = new GlobalInt();
+        [SerializeField] public GlobalInt CrestTalk = new GlobalInt();
 
+        [SerializeField] public GlobalInt HasDolphie = new GlobalInt();
+        [SerializeField] public GlobalInt HasFamicom = new GlobalInt();
+        [SerializeField] public GlobalInt Blessing = new GlobalInt();
+
+        //Frisbee Machine
+        [SerializeField] public GlobalInt DustBunny = new GlobalInt();
+        [SerializeField] public GlobalInt CityEscape = new GlobalInt();
 
         //Observatory
         [SerializeField] public GlobalInt Observatory = new GlobalInt();
@@ -147,6 +162,7 @@ public class Global : MonoBehaviour {
         //ActiveSafefile = WorldspaceUI.instance.saveFiles[saveSlot];
 
         //world setup based on the new save slots
+        if(ActiveSavefile.PlayerPosX >= -23f && ActiveSavefile.PlayerPosX <= -17f && ActiveSavefile.PlayerPosY >= -3f && ActiveSavefile.PlayerPosY <= 5f) { ActiveSavefile.PlayerPosX.value = 22.5f; ActiveSavefile.PlayerPosY.value = -23f; }
         Player.playerInstance.transform.position = new Vector3(ActiveSavefile.PlayerPosX.value, ActiveSavefile.PlayerPosY.value);
         Player.playerInstance.SetFacingDirection((SpriteDir)ActiveSavefile.PlayerFacing.value);
 
@@ -161,9 +177,8 @@ public class Global : MonoBehaviour {
             AudioController.instance.bgmSource.Stop();
         }
         else AudioController.instance.PlayBGM(ActiveSavefile.ActiveBGM, ActiveSavefile.ActiveBGMVolume);
-
-        //TODO: Move Sharpei over when this value is first set to 3 too, not just on load
-        if (ActiveSavefile.SharpeiTalk.value == 3) NPCList.GetNPC(NPC.Sharpeii).transform.position = new Vector3(18.5f, -55f);
+        
+        EventPositioner.CheckPositions();
 
         Player.playerInstance.AllowMovement = true;
 
@@ -181,7 +196,7 @@ public class Global : MonoBehaviour {
         #endif
 
         if (AudioController.instance.bgmSource.clip == null && !loadedData)
-            AudioController.instance.PlayBGM((int)BGM.memories, .4f);
+            AudioController.instance.PlayBGM((int)BGM.Memories, .4f);
 
         ResetVariables();
 
@@ -212,6 +227,7 @@ public class Global : MonoBehaviour {
 #endif
     }
 
+    public static bool changedVariables = false;
     private void Update()
     {
         if (InputController.JustPressed(Action.DEBUG_SaveState))
@@ -233,6 +249,12 @@ public class Global : MonoBehaviour {
                 DebugInfo.debugText = "Clipboard set to Save Data: " + data;
                 GUIUtility.systemCopyBuffer = data;
             }
+        }
+
+        if(changedVariables)
+        {
+            EventPositioner.CheckPositions();
+            changedVariables = false;
         }
 
         //rest require devMode to be enabled

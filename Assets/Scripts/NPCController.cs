@@ -35,9 +35,6 @@ public class NPCController : MonoBehaviour {
     public void InitController() {
         anim = GetComponentInChildren<CharaAnim>();
         boxCollider = GetComponentInChildren<BoxCollider2D>();
-
-        if(anim == null) Debug.LogWarning("[" + name + "] has a missing CharaAnim component in children.", this);
-        if(boxCollider == null) Debug.LogWarning("[" + name + "] has a missing BoxCollider2D component in children.", this);
     }
 
 	int standingStillForXFrames = 0;

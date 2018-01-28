@@ -19,6 +19,15 @@ public class AudioController : MonoBehaviour {
         { 105.971f, 105.971f }, //field4
         { 266.394f, 228.364f }, //EricSkiff_UnderStars
         { 096.007f, 084.008f }, //mystery3
+        { 087.864f, 087.864f }, //castle3
+        { 131.315f, 131.315f }, //ending3
+        { 098.628f, 096.068f }, //interlude
+        { 119.457f, 115.852f }, //mechaBase
+        { 133.606f, 117.537f }, //sadness
+        { 029.162f, 027.825f }, //shop3
+        { 048.613f, 048.111f }, //solace3
+        { 000.000f, 000.000f }, //gymnopedieNo1
+        { 261.384f, 257.973f }, //forgiveMeGreatSpirit
     };
 
     float loopAtTime = 0f;
@@ -45,7 +54,7 @@ public class AudioController : MonoBehaviour {
             Global.s.ActiveBGMVolume.value = volume;
         }
 
-        if (index == (int)BGM.none)
+        if (index == (int)BGM.NONE)
         {
             bgmSource.Stop();
             return;
@@ -62,7 +71,7 @@ public class AudioController : MonoBehaviour {
         bgmSource.Play();
 
         //woo hacky stuff via code instead of clipping the actual audio file
-        if (index == (int)BGM.village2) bgmSource.time = 2.20f;
+        if (index == (int)BGM.Village2) bgmSource.time = 2.20f;
     }
 
     public void PlaySFX(int index, float volume)

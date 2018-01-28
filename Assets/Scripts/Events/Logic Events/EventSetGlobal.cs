@@ -31,7 +31,7 @@ public class EventSetGlobal : _BaseLogicEvent {
             globalBool.value = setToBool;
         }
 
-
+        Global.changedVariables = true;
 
         yield return null;
     }

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: b3f721b2b39d05f4ba073a8a1c58f7e7
-timeCreated: 1514029901
+timeCreated: 1517131129
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -76,6 +76,7 @@ TextureImporter:
     21300138: Pom and Shibe_90
     21300140: Pom and Shibe_91
     21300142: Pom and Shibe_92
+    21300144: none
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -831,6 +832,20 @@ TextureImporter:
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: none
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 96
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

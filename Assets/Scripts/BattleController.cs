@@ -128,7 +128,7 @@ public class BattleController : MonoBehaviour {
         pomHP = Global.s.PlayerSprite.value == (int)PlayerSprite.OnFire ? 999 : 100;
         if (Global.s.ShibeInParty == 1) shibeHP = 100;
 
-        var song = BGM.field4;
+        var song = BGM.Field4;
 
         switch (battle)
         {
@@ -163,7 +163,7 @@ public class BattleController : MonoBehaviour {
                 guid = new Guid("afc7f890-5609-42c9-815e-e6d083816532");
                 break;
             case Battles.Dog:
-                song = BGM.mystery3;
+                song = BGM.Mystery3;
                 enemy1HP = 4995;
                 pomMaxHP = 999;
                 bgImage.sprite = battleImages[(int)BattleBGs.Final];

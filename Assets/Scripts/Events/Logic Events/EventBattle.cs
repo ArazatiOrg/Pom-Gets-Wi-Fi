@@ -18,7 +18,7 @@ public class EventBattle : _BaseLogicEvent {
         yield return EventFlashScreen.c(.15f).Execute();
         oldMusic = Global.s.ActiveBGM;
         oldVolume = Global.s.ActiveBGMVolume;
-        AudioController.instance.PlayBGM((int)BGM.none, .4f);
+        AudioController.instance.PlayBGM((int)BGM.NONE, .4f);
         yield return EventBlinds.c.Execute();
         BattleController.instance.InitBattle(battle);
         yield return EventWait.c(1f).Execute();

@@ -77,7 +77,7 @@ public class tr_English : _BaseTR
             ep = introIs0;
             {
                 e = EventPlayerMoveable.c(false);
-                e = EventBGM.c(BGM.village2, .4f);
+                e = EventBGM.c(BGM.Village2, .4f);
                 e = EventSFX.c(SFX.Pom_bark);
                 e = EventTextbox.c(Faces.Pom_no_laptop, @"the sun is shining");
                 e = EventTextboxClearText.c;
@@ -228,7 +228,7 @@ public class tr_English : _BaseTR
                 e = EventPlayerMoveable.c(false);
                 e = EventTextbox.c(Faces.Pom, @"next...");
                 e = choice;
-                e = EventBGM.c(BGM.burning, .6f);
+                e = EventBGM.c(BGM.Burning, .6f);
                 e = EventSetBackground.c(Background.IntroFire1);
                 e = EventTextboxClose.c;
                 e = EventSetGlobal.c(Global.s.Intro, 4);
@@ -305,7 +305,7 @@ public class tr_English : _BaseTR
                 e = EventPixelize.c;
                 e = EventFlashScreen.c(0f, Color.black);
                 e = EventWait.c(2f);
-                e = EventBGM.c(BGM.eternal);
+                e = EventBGM.c(BGM.Eeternal);
                 e = EventSetGlobal.c(Global.s.Intro, 6);
                 e = EventChangeSprite.c(PlayerSprite.Normal);
                 e = EventTPPlayer.c(new Vector2(-69.5f, -21.5f)).instantTeleport;
@@ -1147,7 +1147,569 @@ public class tr_English : _BaseTR
 
         #region Park
 
+        //Stone Block
+        NewEP("b29aa692-3b2f-4849-9656-a851e2409842");
+        {
+            var parkNotFixed = new EventPage();
+            var parkFixed = new EventPage();
 
+            e = EventPageSwitch.c(Global.s.ParkFixed).AddEventPage(0, parkNotFixed).AddEventPage(1, parkFixed);
+
+            ep = parkNotFixed;
+            {
+                var sbs0 = new EventPage();
+                var sbs3 = new EventPage(); var sbs5 = new EventPage();
+                var sbs6 = new EventPage(); var sbs7 = new EventPage();
+                var sbs8 = new EventPage(); var sbs9 = new EventPage();
+
+                e = EventPageSwitch.c(Global.s.StoneBlockSearch).AddEventPage(0, sbs0).AddEventPage(3, sbs3).AddEventPage(5, sbs5).AddEventPage(6, sbs6).AddEventPage(7, sbs7).AddEventPage(8, sbs8).AddEventPage(9, sbs9);
+
+                ep = sbs0;
+                {
+                    e = EventPlayerMoveable.c(false);
+                    e = EventTextbox.c(Faces.Pom, @"a rock thing");
+                    e = EventTextbox.c(Faces.Shibe, @"There's some text carved onto it.");
+                    e = EventTextbox.c(Faces.Shibe, @"It says ''Park.''");
+                    e = EventTextboxClose.c;
+                    e = EventPlayerMoveable.c(true);
+                }
+
+                ep = sbs3;
+                {
+                    e = EventPlayerMoveable.c(false);
+                    e = EventTextbox.c(Faces.Shibe_uh, @"...?");
+                    e = EventTextbox.c(Faces.Pom, @"what is it u dum shibe");
+                    e = EventTextbox.c(Faces.Shibe_uh, @"What if we used this rock thing as
+                                                         leverage to climb over the fence?");
+                    e = EventTextbox.c(Faces.Shibe_uh, @"Then we could get into the park and see
+                                                         what the problem in there is.");
+                    e = EventTextbox.c(Faces.Pom, @"the fence looks too high to climb even
+                                                    standing on top of the rock tho");
+                    e = EventTextbox.c(Faces.Pom, @"it would be great if they'd made this
+                                                    rock taller");
+                    e = EventTextbox.c(Faces.Shibe_uh, @"...That's it!");
+                    e = EventTextbox.c(Faces.Shibe, @"We should make it taller!");
+                    e = EventTextbox.c(Faces.Pom, @"???");
+                    e = EventTextbox.c(Faces.Shibe, @"We have these books, right?");
+                    e = EventSetGlobal.c(Global.s.StoneBlockSearch, 4);
+                    e = EventTextboxClose.c;
+                    e = EventWait.c(1f);
+                    e = EventTextbox.c(Faces.Shibe, @"See, if we stack them on the rock, it's
+                                                      a little taller.");
+                    e = EventTextbox.c(Faces.Pom, @"still not tall enough tho");
+                    e = EventTextbox.c(Faces.Shibe_uh, @"Yeah...looks like we'll have to get more
+                                                         stuff to stack on it.");
+                    e = EventSetGlobal.c(Global.s.ChiTalk, 2);
+                    e = EventSetGlobal.c(Global.s.LabraAlmaTalk, 2);
+                    e = EventSetGlobal.c(Global.s.GoldieTalk, 2);
+                    e = EventSetGlobal.c(Global.s.CrestTalk, 2);
+                    e = EventSetGlobal.c(Global.s.PuddleTalk, 2);
+                    e = EventSetGlobal.c(Global.s.SharpeiTalk, 2);
+                    e = EventSetGlobal.c(Global.s.YorkTalk, 2);
+                    e = EventSetGlobal.c(Global.s.StoneBlockSearch, 5);
+                    e = EventSetGlobal.c(Global.s.ShibeTalk, 7);
+                    e = EventTextboxClose.c;
+                    e = EventPlayerMoveable.c(true);
+                }
+                
+                ep = sbs5;
+                {
+                    var hasDolphie = new EventPage();
+                    var notHasDolphie = new EventPage();
+
+                    e = EventPageSwitch.c(Global.s.HasDolphie).AddEventPage(0, notHasDolphie).AddEventPage(1, hasDolphie);
+
+                    ep = hasDolphie;
+                    {
+                        e = EventPlayerMoveable.c(false);
+                        e = EventTextbox.c(Faces.None, @"You stacked the large inflatable
+                                                         dolphin onto the rock thing.");
+                        e = EventSetGlobal.c(Global.s.StoneBlockSearch, 6);
+                        e = EventSetGlobal.c(Global.s.HasDolphie, 0);
+
+                        var blessing2 = new EventPage();
+                        e = EventPageSwitch.c(Global.s.Blessing).AddEventPage(2, blessing2);
+
+                        ep = blessing2;
+                        {
+                            e = EventTextbox.c(Faces.None, @"You stacked the Famicom onto
+                                                             the rock thing.");
+                            e = EventSetGlobal.c(Global.s.HasFamicom, 0);
+                            e = EventSetGlobal.c(Global.s.ShibeTalk, 11);
+                            e = EventSetGlobal.c(Global.s.StoneBlockSearch, 7);
+                        }
+
+                        ep = hasDolphie;
+                        e = EventTextboxClose.c;
+                        e = EventPlayerMoveable.c(true);
+                    }
+
+                    ep = notHasDolphie;
+                    {
+                        var blessing0 = new EventPage();
+                        var blessing1 = new EventPage();
+                        var blessing2 = new EventPage();
+
+                        e = EventPageSwitch.c(Global.s.Blessing).AddEventPage(0, blessing0).AddEventPage(1, blessing1).AddEventPage(2, blessing2);
+
+                        ep = blessing0;
+                        {
+                            e = EventPlayerMoveable.c(false);
+                            e = EventTextbox.c(Faces.Shibe_uh, @"We don't have anything we can stack
+                                                                 on there right now.");
+
+                            var hasFamicom = new EventPage();
+                            e = EventPageSwitch.c(Global.s.HasFamicom).AddEventPage(1, hasFamicom);
+
+                            ep = hasFamicom;
+                            {
+                                e = EventSetGlobal.c(Global.s.Blessing, 1);
+                            }
+
+                            ep = blessing0;
+                            e = EventTextboxClose.c;
+                            e = EventPlayerMoveable.c(true);
+                        }
+
+                        ep = blessing1;
+                        {
+                            e = EventPlayerMoveable.c(false);
+                            e = EventTextbox.c(Faces.Shibe_uh, @"We don't have anything we can stack
+                                                                 on there right now.");
+                            e = EventSFX.c(SFX.Pom_bark);
+                            e = EventTextbox.c(Faces.Pom, @"ding dong that is wrong");
+                            e = EventTextbox.c(Faces.Pom, @"we have this famicom");
+                            e = EventTextbox.c(Faces.Shibe_uh, @"But that's not ours!");
+                            e = EventTextbox.c(Faces.Shibe_uh, @"We're supposed to give that to Goldie.");
+                            e = EventTextbox.c(Faces.None, @"You stacked the Famicom onto the
+                                                             rock thing.");
+                            e = EventSetGlobal.c(Global.s.GoldieTalk, 6);
+                            e = EventSetGlobal.c(Global.s.StoneBlockSearch, 8);
+                            e = EventSetGlobal.c(Global.s.BadEnd, 1);
+                            e = EventSetGlobal.c(Global.s.ShibeTalk, 7);
+                            e = EventSetGlobal.c(Global.s.HasFamicom, 0);
+                            e = EventTextboxClose.c;
+                            e = EventPlayerMoveable.c(true);
+                        }
+
+                        ep = blessing2;
+                        {
+                            e = EventPlayerMoveable.c(false);
+                            e = EventTextbox.c(Faces.None, @"You stacked the Famicom onto the
+                                                             rock thing.");
+                            e = EventSetGlobal.c(Global.s.StoneBlockSearch, 8);
+                            e = EventSetGlobal.c(Global.s.HasFamicom, 0);
+                            e = EventTextboxClose.c;
+                            e = EventPlayerMoveable.c(true);
+                        }
+                    }
+                }
+
+                ep = sbs6;
+                {
+                    var blessing0 = new EventPage();
+                    var blessing1 = new EventPage();
+                    var blessing2 = new EventPage();
+
+                    e = EventPageSwitch.c(Global.s.Blessing).AddEventPage(0, blessing0).AddEventPage(1, blessing1).AddEventPage(2, blessing2);
+
+                    ep = blessing0;
+                    {
+                        e = EventPlayerMoveable.c(false);
+                        e = EventTextbox.c(Faces.Shibe_uh, @"We don't have anything we can stack
+                                                                 on there right now.");
+
+                        var hasFamicom = new EventPage();
+                        e = EventPageSwitch.c(Global.s.HasFamicom).AddEventPage(1, hasFamicom);
+
+                        ep = hasFamicom;
+                        {
+                            e = EventSetGlobal.c(Global.s.Blessing, 1);
+                        }
+
+                        ep = blessing0;
+                        e = EventTextboxClose.c;
+                        e = EventPlayerMoveable.c(true);
+                    }
+
+                    ep = blessing1;
+                    {
+                        e = EventPlayerMoveable.c(false);
+                        e = EventTextbox.c(Faces.Shibe_uh, @"We don't have anything we can stack
+                                                                 on there right now.");
+                        e = EventSFX.c(SFX.Pom_bark);
+                        e = EventTextbox.c(Faces.Pom, @"ding dong that is wrong");
+                        e = EventTextbox.c(Faces.Pom, @"we have this famicom");
+                        e = EventTextbox.c(Faces.Shibe_uh, @"But that's not ours!");
+                        e = EventTextbox.c(Faces.Shibe_uh, @"We're supposed to give that to Goldie.");
+                        e = EventTextbox.c(Faces.None, @"You stacked the Famicom onto the
+                                                             rock thing.");
+                        e = EventSetGlobal.c(Global.s.GoldieTalk, 6);
+                        e = EventSetGlobal.c(Global.s.StoneBlockSearch, 7);
+                        e = EventSetGlobal.c(Global.s.BadEnd, 1);
+                        e = EventSetGlobal.c(Global.s.ShibeTalk, 11);
+                        e = EventSetGlobal.c(Global.s.HasFamicom, 0);
+                        e = EventTextboxClose.c;
+                        e = EventPlayerMoveable.c(true);
+                    }
+
+                    ep = blessing2;
+                    {
+                        e = EventPlayerMoveable.c(false);
+                        e = EventTextbox.c(Faces.None, @"You stacked the Famicom onto the
+                                                             rock thing.");
+                        e = EventSetGlobal.c(Global.s.StoneBlockSearch, 7);
+                        e = EventSetGlobal.c(Global.s.HasFamicom, 0);
+                        e = EventSetGlobal.c(Global.s.ShibeTalk, 11);
+                        e = EventTextboxClose.c;
+                        e = EventPlayerMoveable.c(true);
+                    }
+                }
+
+                ep = sbs7;
+                {
+                    var husInParty = new EventPage();
+                    var chiInParty = new EventPage();
+                    var nobodyInPartyYet = new EventPage();
+
+                    e = EventPageSwitch.c(Global.s.ExtraParkPartyMember).AddEventPage(0, nobodyInPartyYet).AddEventPage(1, husInParty).AddEventPage(2, chiInParty);
+
+                    ep = nobodyInPartyYet;
+                    {
+                        e = EventPlayerMoveable.c(false);
+                        e = EventTextbox.c(Faces.Shibe, @"Alright, let's--").SwitchSides;
+                        e = EventShake.c(5, 5, .2f).Wait;
+                        e = EventSFX.c(SFX.fire8);
+                        e = EventTextbox.c(Faces.Sherman, @"You two over there!");
+                        e = EventShake.c(5, 5, .2f).Wait;
+                        e = EventSFX.c(SFX.Medium_Dog1);
+                        e = EventTextbox.c(Faces.Shibe_nervous, @"Ahhh!!!").SwitchSides;
+                        e = EventSFX.c(SFX.Pom_bark);
+                        e = EventShake.c(5, 5, .2f).Wait;
+                        e = EventTextbox.c(Faces.Pom, @"fuk da popo");
+                        e = EventTextbox.c(Faces.Pom, @"cant tell me what 2 do");
+                        e = EventTextbox.c(Faces.Pom, @"z - snap");
+                        e = EventShake.c(5, 5, .2f).Wait;
+                        e = EventSFX.c(SFX.fire8);
+                        e = EventTextbox.c(Faces.Sherman, @"Stop!");
+                        e = EventSFX.c(SFX.Pom_bark);
+                        e = EventTextbox.c(Faces.Pom, @"adios bitches");
+                        e = EventSetGlobal.c(Global.s.ShibeTalk, 12);
+                        e = EventFade.c(.4f);
+                        e = EventTPPlayer.c(new Vector2(49.5f, -13.5f)).instantTeleport;
+                        e = EventMovePlayer.c(Up);
+                        e = EventSetFacing.c(NPC.Shibe, SpriteDir.Up);
+                        e = EventFade.c(-.4f);
+                        e = EventTextboxClose.c;
+                        e = EventPlayerMoveable.c(true);
+                    }
+
+                    ep = husInParty;
+                    {
+                        e = EventPlayerMoveable.c(false);
+                        e = EventTextbox.c(Faces.Hus, @"Come to think of it...");
+                        e = EventTextbox.c(Faces.Hus, @"Pom, how did you manage to climb
+                                                        over the fence while holding your
+                                                        laptop like that?");
+                        e = EventTextbox.c(Faces.Pom, @"i didnt");
+                        e = EventTextbox.c(Faces.Pom, @"shibe lifted me by the scruff of da
+                                                        neck with his mouth and climbed over");
+                        e = EventTextbox.c(Faces.Shibe_annoyed, @"I thought my jaw was going to snap
+                                                                  off!");
+                        e = EventTextbox.c(Faces.Hus, @"Though since this is heaven, even if
+                                                        it did snap off, you'd probably be fine.");
+                        e = EventTextbox.c(Faces.Shibe_nervous, @"Please don't say things like that...");
+                        e = EventTextboxClose.c;
+                        e = EventPlayerMoveable.c(true);
+                    }
+
+                    ep = chiInParty;
+                    {
+                        e = EventPlayerMoveable.c(false);
+                        e = EventTextbox.c(Faces.Shibe_uh, @"Thank goodness we don't have to
+                                                             climb in like that again...");
+                        e = EventTextboxClose.c;
+                        e = EventPlayerMoveable.c(true);
+                    }
+                }
+
+                ep = sbs8;
+                {
+                    var hasDolphie = new EventPage();
+                    var notHasDolphie = new EventPage();
+
+                    e = EventPageSwitch.c(Global.s.HasDolphie).AddEventPage(0, notHasDolphie).AddEventPage(1, hasDolphie);
+
+                    ep = hasDolphie;
+                    {
+                        e = EventPlayerMoveable.c(false);
+                        e = EventSetGlobal.c(Global.s.StoneBlockSearch, 9);
+                        e = EventTextbox.c(Faces.None, @"You stacked the large inflatable
+                                                         dolphin onto the rock thing.");
+                        e = EventSetGlobal.c(Global.s.ShibeTalk, 11);
+                        e = EventSetGlobal.c(Global.s.HasDolphie, 0);
+                        e = EventTextboxClose.c;
+                        e = EventPlayerMoveable.c(true);
+                    }
+
+                    ep = notHasDolphie;
+                    {
+                        e = EventPlayerMoveable.c(false);
+                        e = EventTextbox.c(Faces.Shibe, @"We don't have anything we can stack
+                                                          on there right now.");
+                        e = EventTextboxClose.c;
+                        e = EventPlayerMoveable.c(true);
+                    }
+                }
+
+                ep = sbs9;
+                {
+                    e = EventPageExecute.c(sbs7);
+                }
+            }
+
+            ep = parkFixed;
+            {
+                var shibeInParty = new EventPage();
+                var shibeNotInParty = new EventPage();
+
+                e = EventPageSwitch.c(Global.s.ShibeInParty).AddEventPage(0, shibeNotInParty).AddEventPage(1, shibeInParty);
+
+                ep = shibeNotInParty;
+                {
+                    e = EventPlayerMoveable.c(false);
+                    e = EventTextbox.c(Faces.Pom, @"...");
+                    e = EventTextboxClose.c;
+                    e = EventPlayerMoveable.c(true);
+                }
+
+                ep = shibeInParty;
+                {
+                    var silentTreatment = new EventPage();
+                    var notSilentTreatment = new EventPage();
+
+                    e = EventPageSwitch.c(Global.s.Silent_Treatment).AddEventPage(0, notSilentTreatment).AddEventPage(1, silentTreatment);
+
+                    ep = silentTreatment;
+                    {
+                        e = EventPlayerMoveable.c(false);
+                        e = EventTextbox.c(Faces.Pom, @"hey shibe");
+                        e = EventTextbox.c(Faces.Shibe_uh, @"...");
+                        e = EventTextbox.c(Faces.Pom, @"...");
+                        e = EventTextboxClose.c;
+                        e = EventPlayerMoveable.c(true);
+                    }
+
+                    ep = notSilentTreatment;
+                    {
+                        e = EventPlayerMoveable.c(false);
+                        e = EventTextbox.c(Faces.Shibe_uh, @"Thank goodness we don't have to
+                                                             climb in like that again...");
+                        e = EventTextboxClose.c;
+                        e = EventPlayerMoveable.c(true);
+                    }
+                }
+            }
+        }
+
+
+
+        #endregion
+
+        #region Frisbee Machine
+
+        //Dust Tunnel
+        NewEP("2a326601-4daf-49f0-a5fe-1b1b5ba9db21");
+        {
+            var machineChecked = new EventPage();
+            var machineNotChecked = new EventPage();
+
+            e = EventPageSwitch.c(Global.s.MachineChecked).AddEventPage(0, machineNotChecked).AddEventPage(1, machineChecked);
+
+            ep = machineNotChecked;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Pom, @"holy shi-tzu");
+                e = EventTextbox.c(Faces.Pom, @"this dust is so old that it's solidified");
+                e = EventTextbox.c(Faces.Pom, @"im not small enough 2 worm my way
+                                            through");
+                e = EventTextbox.c(Faces.Pom, @"theres a control panel looking thingy
+                                            over there");
+                e = EventTextbox.c(Faces.Pom, @"guess theres nothing 2 do but turn
+                                            back 4 now");
+                e = EventSetGlobal.c(Global.s.SharpeiTalk, 3);
+                e = EventSetGlobal.c(Global.s.MachineChecked, 1);
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+
+            ep = machineChecked;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Pom, @"i should report back 2 hus and shibe");
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+        }
+
+        //Dust Bunny
+        NewEP("27e8f9f6-b528-441c-816a-6969d6a03c79");
+        {
+            var notSeenDustBunny = new EventPage();
+
+            e = EventPageSwitch.c(Global.s.DustBunny).AddEventPage(0, notSeenDustBunny);
+
+            ep = notSeenDustBunny;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Pom, @"it's a dust bunny");
+                e = EventTextbox.c(Faces.Pom, @"looks more like a dust turd");
+                e = EventTextbox.c(Faces.Pom, @"speaking of turd");
+                e = EventTextbox.c(Faces.Pom, @"don't u think shibe's tail is shaped a
+                                                lot like one");
+                e = EventShake.c(5, 5, .2f).Wait;
+                e = EventSFX.c(SFX.Pom_bark);
+                e = EventSFX.c(SFX.fire8);
+                e = EventTextbox.c(Faces.Pom, @"ACHOO");
+                e = EventSetGlobal.c(Global.s.DustBunny, 1);
+                e = EventTextboxClose.c;
+                e = EventWait.c(1.5f);
+                e = EventTextbox.c(Faces.Pom, @"bless me");
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+        }
+
+        //Exit
+        NewEP("e49703ca-6e05-4b52-9eea-9c2db2c60239");
+        {
+            var machineChecked = new EventPage();
+            var machineNotChecked = new EventPage();
+
+            e = EventPageSwitch.c(Global.s.MachineChecked).AddEventPage(0, machineNotChecked).AddEventPage(1, machineChecked);
+
+            ep = machineNotChecked;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Pom, @"wait a minute");
+                e = EventTextbox.c(Faces.Pom, @"im not done investigating here yet");
+                e = EventTextbox.c(Faces.Pom, @"unlike miles edgeworth im not going 2
+                                                b stopped by anything");
+                e = EventTextbox.c(Faces.Pom, @"not even north american localization");
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+
+            ep = machineChecked;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventFade.c(.5f);
+                e = EventChangeSprite.c(PlayerSprite.None);
+                e = EventSetGlobal.c(Global.s.ShibeAbleToFollow, 1);
+                e = EventTPPlayer.c(new Vector2(41.5f, 13.5f), SpriteDir.Down).instantTeleport;
+                e = EventMovePlayer.c(Left);
+                e = EventMovePlayer.c(Left);
+                e = EventMovePlayer.c(Left);
+                e = EventFade.c(-.5f);
+
+                e = EventTextbox.c(Faces.Pom, @"DRR...");
+                e = EventTextbox.c(Faces.Pom, @"DRR...");
+                e = EventTextbox.c(Faces.Pom, @"DRR...");
+                e = EventTextbox.c(Faces.Shibe_uh, @"Why are you making weird noises?");
+                e = EventChangeSprite.c(PlayerSprite.Normal);
+                e = EventTextbox.c(Faces.Pom, @"i was trying 2 scare u");
+                e = EventTextbox.c(Faces.Shibe_uh, @"You always scare me...");
+                e = EventTextbox.c(Faces.Pom, @"wow im all gross and dusty now");
+                e = EventSFX.c(SFX.Medium_Dog1);
+                e = EventShake.c(5, 5, .2f);
+                e = EventTextbox.c(Faces.Shibe_annoyed, @"Don't wipe your filthy paws on me!");
+                e = EventSFX.c(SFX.Medium_Dog1);
+                e = EventTextbox.c(Faces.Hus, @"So, did you find anything?");
+                e = EventTextbox.c(Faces.Pom, @"there was a control panel in there but
+                                                i couldnt reach it");
+                e = EventTextbox.c(Faces.Pom, @"it would take a hella tiny doge 2 fit in
+                                                there");
+                e = EventTextbox.c(Faces.Hus, @"Hm...Let's try to find a dog who fits
+                                                the bill, then.");
+                e = EventTextbox.c(Faces.Shibe_uh, @"But, we can't climb back out of the
+                                                     park the way we came in ...");
+                e = EventTextbox.c(Faces.Shibe_uh, @"How are we getting out of here?");
+                e = EventTextbox.c(Faces.Hus, @"Through the front door, of course!");
+                e = EventTextbox.c(Faces.Hus, @"Sherman will let you guys through
+                                                once he sees that you're with me.");
+                e = EventTextbox.c(Faces.Shibe_uh, @"Oh, yeah...
+                                                     I forgot you were on such good terms
+                                                     with everyone here.");
+                e = EventTextbox.c(Faces.Hus, @"You will be too, soon enough.");
+                e = EventSetGlobal.c(Global.s.ChiTalk, 3);
+
+                var goldieTalk5 = new EventPage();
+                var goldieTalk6 = new EventPage();
+
+                e = EventPageSwitch.c(Global.s.GoldieTalk).AddEventPage(5, goldieTalk5).AddEventPage(6, goldieTalk6);
+                ep = goldieTalk5; { e = EventSetGlobal.c(Global.s.GoldieTalk, 8); }
+                ep = goldieTalk6; { e = EventSetGlobal.c(Global.s.GoldieTalk, 7); }
+                
+                ep = machineChecked;
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+        }
+
+        //City Escape
+        NewEP("5057f240-3e59-4d36-b33e-45da68bb8b76");
+        {
+            var cityEscape0 = new EventPage();
+            var cityEscape1 = new EventPage();
+            var cityEscape2 = new EventPage();
+            var cityEscape3 = new EventPage();
+
+            e = EventPageSwitch.c(Global.s.CityEscape).AddEventPage(0, cityEscape0).AddEventPage(1, cityEscape1).AddEventPage(2, cityEscape2).AddEventPage(3, cityEscape3);
+
+            ep = cityEscape0;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Pom, @"this is where da frisbees r coming
+                                                from");
+                e = EventTextbox.c(Faces.Pom, @"so fast
+                                                sonic would b jealous");
+                e = EventSetGlobal.c(Global.s.CityEscape, 1);
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+
+            ep = cityEscape1;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Pom, @"rolling around at da speed of sound");
+                e = EventTextbox.c(Faces.Pom, @"got places to go
+                                                gotTA FOLLOW MY RAINBOW");
+                e = EventSetGlobal.c(Global.s.CityEscape, 2);
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+
+            ep = cityEscape2;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Pom, @"FOLLOW ME");
+                e = EventTextbox.c(Faces.Pom, @"SET ME FREE");
+                e = EventTextbox.c(Faces.Pom, @"TRUST ME AND WE WILL ESCAPE
+                                                FROM DA CITY");
+                e = EventSetGlobal.c(Global.s.CityEscape, 3);
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+
+            ep = cityEscape3;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Pom, @"i should sing that song on
+                                                americanine idol");
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+        }
 
         #endregion
 
@@ -1490,7 +2052,7 @@ public class tr_English : _BaseTR
 
         #endregion
 
-#endregion
+        #endregion
 
         
         #region NPCs
@@ -1909,7 +2471,7 @@ public class tr_English : _BaseTR
         }
 
         //Papi
-        NewEP("d9b54a6e-a4a1-4ad8-b021-7206e17d01d3");
+        NewEP("26cb3587-4495-421c-b6ab-bcba7e90d932");
         {
             var shibeInParty = new EventPage();
             var shibeNotInParty = new EventPage();
@@ -2177,10 +2739,11 @@ public class tr_English : _BaseTR
                     ep = brokeStuff;
                     {
                         e = EventPlayerMoveable.c(false);
-                        e = EventTextbox.c(Faces.York, @"");
-                        e = EventTextbox.c(Faces.Pom, @"");
-                        e = EventTextbox.c(Faces.York, @"");
-                        e = EventTextbox.c(Faces.Shibe_nervous, @"").SwitchSides;
+                        e = EventTextbox.c(Faces.York, @"Someone broke my model of the
+                                                         Gigantic!");
+                        e = EventTextbox.c(Faces.Pom, @"oh so it wasnt the titanic");
+                        e = EventTextbox.c(Faces.York, @"Huh?");
+                        e = EventTextbox.c(Faces.Shibe_nervous, @"Nothing! You heard nothing!").SwitchSides;
                         e = EventTextboxClose.c;
                         e = EventPlayerMoveable.c(true);
                     }
@@ -2647,7 +3210,7 @@ public class tr_English : _BaseTR
 
             ep = triggerStartBattle;
             {
-                e = EventBGM.c(BGM.field4, .4f);
+                e = EventBGM.c(BGM.Field4, .4f);
                 e = EventTextbox.c(Faces.Shibe, @"Wh-what's this?").DontSlide;
                 e = EventTextbox.c(Faces.Shibe, @"Pom, you're kind of scaring me...").DontSlide;
                 e = EventTextboxClose.c;
@@ -2711,7 +3274,7 @@ public class tr_English : _BaseTR
 
             ep = triggerStartBattle;
             {
-                e = EventBGM.c(BGM.field4, .4f);
+                e = EventBGM.c(BGM.Field4, .4f);
             }
 
             ep = triggerEnemy1Attack;
@@ -2781,7 +3344,7 @@ public class tr_English : _BaseTR
 
             ep = triggerStartBattle;
             {
-                e = EventBGM.c(BGM.field4, .4f);
+                e = EventBGM.c(BGM.Field4, .4f);
             }
 
             ep = triggerEnemy1Attack;
@@ -2878,7 +3441,7 @@ public class tr_English : _BaseTR
 
             ep = triggerStartBattle;
             {
-                e = EventBGM.c(BGM.field4, .4f);
+                e = EventBGM.c(BGM.Field4, .4f);
                 e = EventSetGlobal.c(Global.s.StopPom, 2);
                 e = EventSFX.c(SFX.Medium_Dog1);
                 e = EventTextbox.c(Faces.Shibe, @"Wait, you two!").DontSlide;
@@ -2960,7 +3523,7 @@ public class tr_English : _BaseTR
 
             ep = triggerStartBattle;
             {
-                e = EventBGM.c(BGM.field4, .4f);
+                e = EventBGM.c(BGM.Field4, .4f);
             }
 
             ep = triggerPomAttack;
@@ -2991,7 +3554,7 @@ public class tr_English : _BaseTR
 
             ep = triggerStartBattle;
             {
-                e = EventBGM.c(BGM.mystery3, .4f);
+                e = EventBGM.c(BGM.Mystery3, .4f);
             }
 
             ep = triggerEnemy1Attack;
@@ -3336,6 +3899,16 @@ public class tr_English : _BaseTR
         }
 
         #endregion
+
+        //null
+        NewEP("96841974-fc70-4598-831e-d954b22adfc5");
+        {
+            e = EventPlayerMoveable.c(false);
+            e = EventTPPlayer.c(new Vector2(-44.5f, -21.5f), SpriteDir.Down).instantTeleport;
+            e = EventTextbox.c(Faces.Pom, @"Stop that, hacker.");
+            e = EventTextboxClose.c;
+            e = EventPlayerMoveable.c(true);
+        }
 
         #endregion
         

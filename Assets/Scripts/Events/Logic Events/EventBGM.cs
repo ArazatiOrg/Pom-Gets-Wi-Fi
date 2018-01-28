@@ -13,7 +13,7 @@ public class EventBGM : _BaseLogicEvent {
 
     public override IEnumerator Execute()
     {
-        if(myBGM == BGM.none)
+        if(myBGM == BGM.NONE)
         {
             AudioController.instance.bgmSource.Stop();
         }
@@ -25,12 +25,21 @@ public class EventBGM : _BaseLogicEvent {
 
 public enum BGM
 {
-    none = -1,
-    village2 = 0,
-    burning,
-    memories,
-    eternal,
-    field4,
+    NONE = -1,
+    Village2 = 0,
+    Burning,
+    Memories,
+    Eeternal,
+    Field4,
     EricSkiff_UnderStars,
-    mystery3,
+    Mystery3,
+    Castle3,
+    Ending3,
+    Interlude,
+    MechaBase,
+    Sadness,
+    SHop3,
+    Solace3,
+    GymnopedieNo1,
+    ForgiveMeGreatSpirit
 }

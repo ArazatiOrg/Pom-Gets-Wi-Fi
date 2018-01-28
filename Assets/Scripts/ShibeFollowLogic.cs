@@ -19,7 +19,7 @@ public class ShibeFollowLogic : MonoBehaviour {
 
 	void Update () {
         var distance = Vector2.Distance(transform.position, Player.playerInstance.transform.position);
-        if (Global.s.ShibeInParty > 0 && controller.standingStill)
+        if (Global.s.ShibeInParty > 0 && Global.s.ShibeAbleToFollow > 0 && controller.standingStill)
         {
             if(distance < 5)
             {
@@ -43,7 +43,7 @@ public class ShibeFollowLogic : MonoBehaviour {
             }
         }
 
-        if(Global.s.ShibeInParty > 0 && (!Player.playerInstance.standingStill || !lastStandingStill) && distance <= 2.1f)
+        if(Global.s.ShibeInParty > 0 && Global.s.ShibeAbleToFollow > 0 && (!Player.playerInstance.standingStill || !lastStandingStill) && distance <= 2.1f)
         {
             var movePercentage = Player.playerInstance.movePercentage;
 

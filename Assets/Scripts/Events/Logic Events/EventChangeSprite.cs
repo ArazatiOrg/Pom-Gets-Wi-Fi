@@ -26,5 +26,6 @@ public enum PlayerSprite
     PillowAndLaptop,
     Normal,
     Small,
-    OnFire
+    OnFire,
+    None
 }
