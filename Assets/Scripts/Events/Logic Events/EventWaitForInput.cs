@@ -11,8 +11,7 @@ public class EventWaitForInput : _BaseLogicEvent {
     {
         while(true)
         {
-            //TODO: Proper input this event too
-            if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Z))
+            if (InputController.JustPressed(Action.Confirm))
             {
                 break;
             }

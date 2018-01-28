@@ -19,10 +19,10 @@ public class Player : NPCController {
         {
 			SpriteDir? moveDir = null;
 
-			var pressingRight = Input.GetButton("Right");
-			var pressingLeft = Input.GetButton("Left");
-			var pressingUp = Input.GetButton("Up");
-			var pressingDown = Input.GetButton("Down");
+			var pressingRight = InputController.IsDown(Action.Right);
+			var pressingLeft = InputController.IsDown(Action.Left);
+			var pressingUp = InputController.IsDown(Action.Up);
+			var pressingDown = InputController.IsDown(Action.Down);
 
 			var dirsPressed = new List<SpriteDir>();
 			if (pressingRight) dirsPressed.Add(SpriteDir.Right);
@@ -31,7 +31,7 @@ public class Player : NPCController {
 			if (pressingDown) dirsPressed.Add(SpriteDir.Down);
 
 			#region Mobile Touch and Mouse
-			List<Vector2> touchPos = new List<Vector2>();
+			/*List<Vector2> touchPos = new List<Vector2>();
 			
 			if(Input.GetMouseButton(0))
 			{
@@ -64,7 +64,7 @@ public class Player : NPCController {
 					if(percentages.y > 0f) dirsPressed.Add(SpriteDir.Up);
 					else dirsPressed.Add(SpriteDir.Down);
 				}
-			}
+			}*/
 			#endregion
 
 			if (dirsPressed.Count == 0) {
@@ -95,12 +95,7 @@ public class Player : NPCController {
             else
             {
                 //not moving, let's check for Activated
-                var activated = false;
-
-                //check for Enter or Z to be pressed
-                //TODO: mouse only/touch only activation
-                if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Z)) activated = true;
-
+                var activated = InputController.JustPressed(Action.Confirm);
                 if (activated)
                 {
                     var rayHit = CanMoveRayhit(facingDir);

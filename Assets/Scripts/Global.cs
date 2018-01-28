@@ -214,7 +214,7 @@ public class Global : MonoBehaviour {
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.PageUp))
+        if (InputController.JustPressed(Action.DEBUG_SaveState))
         {
             ActiveSavefile.saveTimestamp = DateTime.UtcNow.Ticks;
             ActiveSavefile.saveVersion = "v" + Application.version + " - Last Built: " + BuildtimeInfo.DateTimeString();

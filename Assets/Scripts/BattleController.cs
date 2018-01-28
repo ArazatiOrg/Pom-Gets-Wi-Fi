@@ -518,7 +518,7 @@ public class BattleController : MonoBehaviour {
         {
             var attacker = attackers[0];
             
-            if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Z))
+            if (InputController.JustPressed(Action.Confirm))
             {
                 AudioController.instance.PlaySFX((int)SFX.Choice, 1f);
 

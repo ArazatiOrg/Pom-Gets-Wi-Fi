@@ -48,14 +48,14 @@ public class WorldspaceUI : MonoBehaviour {
             case UIState.MainMenu:
                 {
                     var changeSelected = false;
-                    if (Input.GetKeyDown(KeyCode.UpArrow))
+                    if (InputController.JustPressed(Action.Up))
                     {
                         changeSelected = true;
                         selectedSlot--;
 
                         if (selectedSlot <= -1) selectedSlot = 2;
                     }
-                    if (Input.GetKeyDown(KeyCode.DownArrow))
+                    if (InputController.JustPressed(Action.Down))
                     {
                         changeSelected = true;
                         selectedSlot++;
@@ -63,7 +63,7 @@ public class WorldspaceUI : MonoBehaviour {
                         if (selectedSlot >= 3) selectedSlot = 0;
                     }
 
-                    if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Z))
+                    if (InputController.JustPressed(Action.Confirm))
                     {
                         switch(selectedSlot)
                         {

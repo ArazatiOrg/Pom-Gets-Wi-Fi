@@ -164,7 +164,7 @@ public class TextEngine : MonoBehaviour {
             }
         }
             
-        if(waitingForInput && (Input.anyKeyDown || (Global.devMode && Input.GetKey(KeyCode.Backslash))) && timeSinceOpened + .05f < Time.realtimeSinceStartup)
+        if(waitingForInput && (InputController.JustPressed(Action.Any) || (Global.devMode && Input.GetKey(KeyCode.Backslash))) && timeSinceOpened + .05f < Time.realtimeSinceStartup)
         {
             waitingForInput = false;
             finishedTextbox = true;
@@ -188,14 +188,14 @@ public class TextEngine : MonoBehaviour {
             }
 
             var changeSelected = false;
-            if (Input.GetKeyDown(KeyCode.UpArrow))
+            if (InputController.JustPressed(Action.Up))
             {
                 changeSelected = true;
                 selectedChoice--;
 
                 if (selectedChoice <= -1) selectedChoice = maxChoices - 1;
             }
-            if (Input.GetKeyDown(KeyCode.DownArrow))
+            if (InputController.JustPressed(Action.Down))
             {
                 changeSelected = true;
                 selectedChoice++;
@@ -210,9 +210,8 @@ public class TextEngine : MonoBehaviour {
                 selectedSprite.transform.localPosition = selectedObjectOrigin += new Vector3(0f, -16f * (selectedChoice + (choiceHasText ? 1 : 0)));
                 AudioController.instance.PlaySFX((int)SFX.Cursor, 1f);
             }
-
-            //TODO: Proper input for choice selection's input
-            if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Z))
+            
+            if (InputController.JustPressed(Action.Confirm))
             {
                 AudioController.instance.PlaySFX((int)SFX.Choice, 1f);
                 waitingForChoice = false;
