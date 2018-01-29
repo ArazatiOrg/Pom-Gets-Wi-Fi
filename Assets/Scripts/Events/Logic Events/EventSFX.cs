@@ -33,5 +33,7 @@ public enum SFX
     Cancel,
     Buzzer,
     crunching1,
-    Rimshot
+    Rimshot,
+    damage1,
+    close1
 }

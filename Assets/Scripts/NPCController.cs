@@ -7,7 +7,7 @@ public class NPCController : MonoBehaviour {
     public bool ConstantlyWalk = false;
 
     public bool AllowMovement = true;
-    public float moveSpeed = 1f;
+    public float moveSpeed = 8f;
 
     public float animSpeed = 1f;
 
@@ -223,5 +223,18 @@ public class NPCController : MonoBehaviour {
         standingStill = true;
         stoppedOnTile = true;
         movePercentage = 1f;
+    }
+
+    public void SetSpeed(Speed speed)
+    {
+        switch (speed)
+        {
+            case Speed.OneEighthNormal: moveSpeed = 1f; break;
+            case Speed.OneFourthNormal: moveSpeed = 2f; break;
+            case Speed.HalfNormal: moveSpeed = 4f; break;
+            case Speed.Normal: moveSpeed = 8f; break;
+            case Speed.TwiceNormal: moveSpeed = 16f; break;
+            case Speed.FourTimesNormal: moveSpeed = 64f; break;
+        }
     }
 }

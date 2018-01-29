@@ -1,12 +1,12 @@
 fileFormatVersion: 2
 guid: 7ea1370ea0012c2498edbe91d91b9fc7
-timeCreated: 1514035392
+timeCreated: 1517213796
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: NPCs set3_0
+    21300000: spiderBigger
     21300002: NPCs set3_1
-    21300004: NPCs set3_2
+    21300004: spiderSmall
     21300006: NPCs set3_3
     21300008: NPCs set3_4
     21300010: NPCs set3_5
@@ -955,6 +955,34 @@ TextureImporter:
         - {x: 11, y: -8}
         - {x: 9, y: -1}
         - {x: -1, y: 1}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spiderBigger
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 96
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spiderSmall
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 96
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
       tessellationDetail: 0
     outline: []
     physicsShape: []

@@ -10,6 +10,8 @@ public class EventSetGlobal : _BaseLogicEvent {
     Global.GlobalBool globalBool;
     bool setToBool;
 
+    Operation op = Operation.Set;
+
     public static EventSetGlobal c(Global.GlobalInt globalVariable, int setTo)
     {
         return new EventSetGlobal() { setToInt = setTo, globalInt = globalVariable };
@@ -20,11 +22,29 @@ public class EventSetGlobal : _BaseLogicEvent {
         return new EventSetGlobal() { setToBool = setTo, globalBool = globalVariable };
     }
 
+    public EventSetGlobal Add
+    {
+        get
+        {
+            op = Operation.Add;
+            return this;
+        }
+    }
+
     public override IEnumerator Execute()
     {
         if (globalInt != null)
         {
-            globalInt.value = setToInt;
+            switch (op)
+            {
+                default:
+                case Operation.Set:
+                    globalInt.value = setToInt;
+                    break;
+                case Operation.Add:
+                    globalInt.value += setToInt;
+                    break;
+            }
         }
         if (globalBool != null)
         {
@@ -36,4 +56,9 @@ public class EventSetGlobal : _BaseLogicEvent {
         yield return null;
     }
 
+    enum Operation
+    {
+        Set,
+        Add
+    }
 }

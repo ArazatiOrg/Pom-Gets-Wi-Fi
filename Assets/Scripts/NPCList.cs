@@ -5,6 +5,8 @@ using UnityEngine;
 public class NPCList : MonoBehaviour {
     public static NPCController GetNPC(NPC npc)
     {
+        if (npc == NPC.NONE) return null;
+
         return instance.npcs[(int)npc];
     }
 
@@ -40,5 +42,7 @@ public enum NPC
     Sherman,
     Ug,
     WittyFido,
-    York
+    York,
+    Spider,
+    NONE = -1
 }

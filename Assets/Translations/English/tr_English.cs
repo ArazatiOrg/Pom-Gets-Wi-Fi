@@ -583,6 +583,7 @@ public class tr_English : _BaseTR
             }
         }
 
+        var enteredCrestAndPuddlesHouse = new EventPage();
         //Crest and Puddle's House teleport door.
         NewEP("393fae68-8399-49bd-9973-37a04aff48ec");
         {
@@ -598,6 +599,7 @@ public class tr_English : _BaseTR
             {
                 e = EventPlayerMoveable.c(false);
                 e = EventTPPlayer.c(new Vector2(-10.5f, -53.5f), SpriteDir.Up);
+                e = EventPageExecute.c(enteredCrestAndPuddlesHouse);
                 e = EventPlayerMoveable.c(true);
             }
 
@@ -1143,6 +1145,165 @@ public class tr_English : _BaseTR
             }
         }
 
+        //Trigger when you enter the house
+        ep = enteredCrestAndPuddlesHouse;
+        {
+            var crestTalk2 = new EventPage();
+
+            e = EventPageSwitch.c(Global.s.CrestTalk).AddEventPage(2, crestTalk2);
+
+            ep = crestTalk2;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventMovePlayer.c(Up);
+                e = EventSetFacing.c(NPC.Shibe, SpriteDir.Up);
+                e = EventWait.c(1f);
+                e = EventSFX.c(SFX.Pom_bark);
+                e = EventShake.c(5, 5, .2f).Wait;
+                e = EventTextbox.c(Faces.Crest_crying, @"HELP!");
+                e = EventTextbox.c(Faces.Crest_crying, @"I'M TRAPPED!");
+                e = EventTextbox.c(Faces.Pom, @"u ok");
+                e = EventTextbox.c(Faces.Crest_crying, @"Don't you see?
+                                                         There's a spider over there!");
+                e = EventTextboxClose.c;
+                e = EventWait.c(.1f);
+                e = EventMovePlayer.c(Left, NPC.Spider, Speed.HalfNormal);
+                e = EventMovePlayer.c(Right, NPC.Spider, Speed.HalfNormal);
+                e = EventWait.c(1f);
+                e = EventTextbox.c(Faces.Shibe_annoyed, @"That black speck?!").SwitchSides;
+                e = EventTextbox.c(Faces.Shibe_annoyed, @"It's tiny!").SwitchSides;
+                e = EventTextbox.c(Faces.Crest_crying, @"Normally Puddle takes care of the
+                                                         spiders, but she's not home...");
+                e = EventTextbox.c(Faces.Pom, @"y dont u just go kill it with a
+                                                tissue");
+                e = EventTextbox.c(Faces.Crest_crying, @"What if I try to get it...and it dodges?!");
+                e = EventTextbox.c(Faces.Crest_crying, @"And then crawls onto my paw?!");
+                e = EventTextbox.c(Faces.Shibe_annoyed, @"Oh, come on!
+                                                          What's going to happen if it crawls on you?").SwitchSides;
+                e = EventSFX.c(SFX.Pom_bark);
+                e = EventSFX.c(SFX.fire8);
+                e = EventShake.c(5, 5, .2f).Wait;
+                e = EventTextbox.c(Faces.Crest_crying, @"I'LL DIE!");
+                e = EventTextbox.c(Faces.Shibe_annoyed, @"That's impossible!").SwitchSides;
+                e = EventSetGlobal.c(Global.s.ShibeTalk, 10);
+                e = EventSetGlobal.c(Global.s.CrestTalk, 4);
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+        }
+
+        //spider
+        NewEP("0c7de9b0-5a00-466d-9dd9-ef31f819c14c");
+        {
+            var crestTalk4 = new EventPage();
+
+            e = EventPageSwitch.c(Global.s.CrestTalk).AddEventPage(4, crestTalk4);
+
+            ep = crestTalk4;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Pom, @"greetings spider");
+                e = EventTextbox.c(Faces.Pom, @"today u meet ur doom");
+                e = EventTextbox.c(Faces.Shibe_uh, @"Can't we just coax it outside?");
+                e = EventTextbox.c(Faces.Shibe_uh, @"There's no real need to kill it.");
+                e = EventSFX.c(SFX.Pom_bark);
+                e = EventShake.c(5, 5, .2f).Wait;
+                e = EventTextbox.c(Faces.Crest, @"No! Then it might make more
+                                                  spiders!");
+                e = EventTextbox.c(Faces.Crest, @"You have to kill it!");
+                e = EventTextbox.c(Faces.Pom, @"fufufu");
+                e = EventTextboxClose.c;
+                e = EventWait.c(1f);
+                e = EventSFX.c(SFX.damage1);
+                e = EventSetGlobal.c(Global.s.CrestTalk, 5);
+                e = EventWait.c(1f);
+                e = EventTextbox.c(Faces.Pom, @"it hath been slain");
+                e = EventSFX.c(SFX.Pom_bark);
+                e = EventTextbox.c(Faces.Crest, @"THANK YOU THANK YOU
+                                                  THANK YOU!!!");
+                e = EventTextboxClose.c;
+                e = EventSetFacing.c(NPC.Crest, SpriteDir.Left);
+                e = EventMovePlayer.c(Left, NPC.Crest, Speed.HalfNormal);
+                e = EventMovePlayer.c(Left, NPC.Crest, Speed.HalfNormal);
+                e = EventMovePlayer.c(Left, NPC.Crest, Speed.HalfNormal);
+                e = EventMovePlayer.c(Left, NPC.Crest, Speed.HalfNormal);
+                e = EventMovePlayer.c(Left, NPC.Crest, Speed.HalfNormal);
+                e = EventMovePlayer.c(Left, NPC.Crest, Speed.HalfNormal);
+                e = EventMovePlayer.c(Left, NPC.Crest, Speed.HalfNormal);
+                e = EventMovePlayer.c(Left, NPC.Crest, Speed.HalfNormal);
+                e = EventMovePlayer.c(Left, NPC.Crest, Speed.HalfNormal);
+                e = EventMovePlayer.c(Left, NPC.Crest, Speed.HalfNormal);
+                e = EventTextbox.c(Faces.Shibe_uh, @"You don't have to shout!").SwitchSides;
+                e = EventTextboxClose.c;
+                e = EventSetGlobal.c(Global.s.CrestTalk, 7);
+                e = EventSetGlobal.c(Global.s.PuddleTalk, 2);
+                e = EventSFX.c(SFX.close1);
+                e = EventTPPlayer.c(new Vector2(-11.5f, -53.5f), SpriteDir.Up, NPC.Puddle).instantTeleport;
+                e = EventTPPlayer.c(new Vector2(-6.5f, -50.5f), SpriteDir.Left, NPC.Crest).instantTeleport;
+                e = EventMovePlayer.c(Up, NPC.Puddle, Speed.HalfNormal);
+                e = EventSetFacing.c(NPC.Puddle, SpriteDir.Left);
+                e = EventWait.c(.2f);
+                e = EventSetFacing.c(NPC.Puddle, SpriteDir.Right);
+                e = EventWait.c(.2f);
+                e = EventSetFacing.c(NPC.Puddle, SpriteDir.Up);
+                e = EventWait.c(.2f);
+                e = EventTextbox.c(Faces.Puddle, @"Huh?
+                                                   What's all this commotion?");
+                e = EventTextbox.c(Faces.Crest, @"These two just saved my life!");
+                e = EventTextbox.c(Faces.Shibe_uh, @"Not really...").SwitchSides;
+                e = EventTextbox.c(Faces.Puddle, @"I should be thanking you, then.");
+                e = EventTextbox.c(Faces.Puddle, @"Here, have this. For saving Crest's
+                                                   life.");
+                e = EventTextbox.c(Faces.None, @"You received a large inflatable
+                                                 dolphin.");
+                e = EventTextbox.c(Faces.Shibe_uh, @"Thanks, I guess...").SwitchSides;
+                e = EventSetGlobal.c(Global.s.HasDolphie, 1);
+
+                var goldieTalk5plus = new EventPage();
+                var goldieTalk4less = new EventPage();
+
+                e = EventPageSwitch.c(Global.s.GoldieTalk).AddEventPage(5, goldieTalk5plus, SwitchComparator.GreaterOrEqual).AddEventPage(4, goldieTalk4less, SwitchComparator.LessOrEqual);
+
+                ep = goldieTalk5plus;
+                {
+                    e = EventSetGlobal.c(Global.s.ShibeTalk, 11);
+                }
+
+                ep = goldieTalk4less;
+                {
+                    var hasFamicom = new EventPage();
+                    var dontHaveFamicom = new EventPage();
+
+                    e = EventPageSwitch.c(Global.s.HasFamicom).AddEventPage(1, hasFamicom).AddEventPage(0, dontHaveFamicom);
+                    ep = hasFamicom; { e = EventSetGlobal.c(Global.s.ShibeTalk, 9); }
+
+                    ep = dontHaveFamicom;
+                    {
+                        var goldieTalk3 = new EventPage();
+                        var goldieTalkNot3 = new EventPage();
+
+                        e = EventPageSwitch.c(Global.s.GoldieTalk).AddEventPage(3, goldieTalk3).AddEventPage(3, goldieTalkNot3, SwitchComparator.Less).AddEventPage(3, goldieTalkNot3, SwitchComparator.Greater);
+                        ep = goldieTalk3; { e = EventSetGlobal.c(Global.s.ShibeTalk, 8); }
+                        ep = goldieTalkNot3; { e = EventSetGlobal.c(Global.s.ShibeTalk, 7); }
+                    }
+                }
+
+                ep = crestTalk4;
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+                e = EventSetGlobal.c(Global.s.PuddleTalk, 3);
+            }
+        }
+
+        //Trying to leave crest with the spider, you monster
+        NewEP("5c1be82e-c640-45f7-945c-9507489f2e59");
+        {
+            e = EventPlayerMoveable.c(false);
+            e = EventTextbox.c(Faces.Shibe_uh, @"I think we should help Crest...");
+            e = EventTextboxClose.c;
+            e = EventPlayerMoveable.c(true);
+        }
+        
         #endregion
 
         #region Park
@@ -1153,7 +1314,7 @@ public class tr_English : _BaseTR
             var parkNotFixed = new EventPage();
             var parkFixed = new EventPage();
 
-            e = EventPageSwitch.c(Global.s.ParkFixed).AddEventPage(0, parkNotFixed).AddEventPage(1, parkFixed);
+            e = EventPageSwitch.c(Global.s.ParkState).AddEventPage(1, parkNotFixed, SwitchComparator.LessOrEqual).AddEventPage(2, parkFixed);
 
             ep = parkNotFixed;
             {
@@ -1162,7 +1323,7 @@ public class tr_English : _BaseTR
                 var sbs6 = new EventPage(); var sbs7 = new EventPage();
                 var sbs8 = new EventPage(); var sbs9 = new EventPage();
 
-                e = EventPageSwitch.c(Global.s.StoneBlockSearch).AddEventPage(0, sbs0).AddEventPage(3, sbs3).AddEventPage(5, sbs5).AddEventPage(6, sbs6).AddEventPage(7, sbs7).AddEventPage(8, sbs8).AddEventPage(9, sbs9);
+                e = EventPageSwitch.c(Global.s.StoneBlockSearch).AddEventPage(2, sbs0, SwitchComparator.LessOrEqual).AddEventPage(3, sbs3).AddEventPage(5, sbs5).AddEventPage(6, sbs6).AddEventPage(7, sbs7).AddEventPage(8, sbs8).AddEventPage(9, sbs9);
 
                 ep = sbs0;
                 {
@@ -1398,6 +1559,7 @@ public class tr_English : _BaseTR
                         e = EventFade.c(.4f);
                         e = EventTPPlayer.c(new Vector2(49.5f, -13.5f)).instantTeleport;
                         e = EventMovePlayer.c(Up);
+                        e = EventSetFacing.c(NPC.Pom, SpriteDir.Up);
                         e = EventSetFacing.c(NPC.Shibe, SpriteDir.Up);
                         e = EventFade.c(-.4f);
                         e = EventTextboxClose.c;
@@ -1512,7 +1674,159 @@ public class tr_English : _BaseTR
             }
         }
 
+        //Fence
+        NewEP("f465274e-a559-487a-9322-e3d4c4900899");
+        {
+            var sneaking = new EventPage();
 
+            e = EventPageSwitch.c(Global.s.ParkState).AddEventPage(0, sneaking);
+
+            ep = sneaking;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Shibe_uh, @"We shouldn't let Sherman see us...");
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+        }
+
+        //ShermanBlock
+        NewEP("044111d1-401e-4169-89ed-72c1e55b573f");
+        {
+            e = EventPlayerMoveable.c(false);
+            e = EventTextbox.c(Faces.Sherman, @"It's dangerous in there!
+                                                You can't go in.");
+            e = EventTextboxClose.c;
+            e = EventPlayerMoveable.c(true);
+        }
+
+        //Too close to sherman
+        NewEP("397b4952-b0e6-4f75-8778-fad83eabfc57");
+        {
+            e = EventPlayerMoveable.c(false);
+            e = EventTextbox.c(Faces.Shibe, @"We shouldn't let Sherman see us...");
+            e = EventTextboxClose.c;
+            e = EventPlayerMoveable.c(true);
+        }
+
+        //ExitParkTrigger
+        NewEP("e9b15aa0-1c6e-43dd-bd0e-595bfce4484c");
+        {
+            var shermanTalk0 = new EventPage();
+
+            e = EventPageSwitch.c(Global.s.ShermanTalk).AddEventPage(0, shermanTalk0);
+
+            ep = shermanTalk0;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Sherman, @"It's you two troublemakers from
+                                                    earlier!");
+                e = EventTextbox.c(Faces.Pom, @"yea we rebels");
+                e = EventTextbox.c(Faces.Pom, @"wanna join our gang");
+                e = EventTextbox.c(Faces.Hus, @"We're a gang now?");
+                e = EventTextbox.c(Faces.Sherman, @"Hey, Hus! You're with them?");
+                e = EventTextbox.c(Faces.Hus, @"Yup. We're helping each other out a
+                                                bit.");
+                e = EventTextbox.c(Faces.Sherman, @"So even these delinquents are good
+                                                    for something, huh?");
+                e = EventTextbox.c(Faces.Sherman, @"Alright, come on through then.");
+                e = EventSetGlobal.c(Global.s.ShibeTalk, 16);
+                e = EventSetGlobal.c(Global.s.ShermanTalk, 1);
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+        }
+
+        //Disallow Leaving to Town
+        NewEP("acb59846-a506-4f2d-97cf-ad5ec0c0913c");
+        {
+            var hasHus = new EventPage();
+            var hasChi = new EventPage();
+
+            e = EventPageSwitch.c(Global.s.ExtraParkPartyMember).AddEventPage(1, hasHus).AddEventPage(2, hasChi);
+
+            ep = hasHus;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Pom, @"r u an old man?????");
+                e = EventTextbox.c(Faces.Pom, @"did u already furget that we're looking
+                                                4 da smallest doge");
+                e = EventTextbox.c(Faces.Pom, @"that would b chi if u need it spelled
+                                                out 4 u");
+                e = EventSFX.c(SFX.Medium_Dog1);
+                e = EventShake.c(5, 5, .2f).Wait;
+                e = EventTextbox.c(Faces.Shibe, @"Wasn't it your idea to go this way in
+                                                  the first place?!");
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+
+            ep = hasChi;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventSFX.c(SFX.Pom_bark);
+                e = EventTextbox.c(Faces.Pom, @"where r we going???");
+                e = EventTextbox.c(Faces.Pom, @"da park isnt that way!!!");
+                e = EventSFX.c(SFX.Medium_Dog1);
+                e = EventTextbox.c(Faces.Shibe_annoyed, @"I'm following you!");
+                e = EventTextbox.c(Faces.Shibe_annoyed, @"Stop trying to blame your bad sense
+                                                          of direction on me!!!");
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+        }
+
+        //Disallow Leaving to Observatory
+        NewEP("1cf09f7c-b763-43d5-92d3-6e3476aafb6b");
+        {
+            var hasHus = new EventPage();
+            var hasChi = new EventPage();
+
+            e = EventPageSwitch.c(Global.s.ExtraParkPartyMember).AddEventPage(1, hasHus).AddEventPage(2, hasChi);
+
+            ep = hasHus;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Hus, @"Hey, where are you headed?");
+                e = EventTextbox.c(Faces.Shibe_uh, @"Oh...I just thought I'd go watch Master
+                                                     for a little bit.").SwitchSides;
+                e = EventTextbox.c(Faces.Hus, @"''Master''?");
+                e = EventTextbox.c(Faces.Pom, @"that's what he calls our owner");
+                e = EventTextbox.c(Faces.Pom, @"I swear 2 dog
+                                                shibe is such a goody 2 shoes");
+                e = EventTextbox.c(Faces.Hus, @"You must really love that ''master'' of
+                                                yours, huh?");
+                e = EventTextbox.c(Faces.Hus, @"I'm a little jealous.");
+                e = EventTextbox.c(Faces.Shibe_uh, @"J-j-jealous...?").SwitchSides;
+                e = EventTextbox.c(Faces.Pom, @"gay");
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+
+            ep = hasChi;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventSFX.c(SFX.Pom_bark);
+                e = EventTextbox.c(Faces.Pom, @"where r we going???");
+                e = EventTextbox.c(Faces.Pom, @"da park isnt that way!!!");
+                e = EventSFX.c(SFX.Medium_Dog1);
+                e = EventTextbox.c(Faces.Shibe_annoyed, @"I'm following you!");
+                e = EventTextbox.c(Faces.Shibe_annoyed, @"Stop trying to blame your bad sense
+                                                          of direction on me!!!");
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+        }
+
+        //FinishedParkTrigger
+        NewEP("ee13f56a-5333-4780-a1d0-7ed3746698f1");
+        {
+            e = EventPlayerMoveable.c(false);
+            e = EventTextbox.c(Faces.Pom, @"theres a time and place 4 everything");
+            e = EventTextbox.c(Faces.Pom, @"but not now");
+            e = EventTextboxClose.c;
+            e = EventPlayerMoveable.c(true);
+        }
 
         #endregion
 
@@ -2060,30 +2374,18 @@ public class tr_English : _BaseTR
         //Shibe
         NewEP("f125b5c1-a3e4-4128-8dbc-f2e06d2091bc");
         {
-            var shibeTalkIs1 = new EventPage();
-            var shibeTalkIs3 = new EventPage();
-            var shibeTalkIs4 = new EventPage();
-            var shibeTalkIs5 = new EventPage();
-            var shibeTalkIs6 = new EventPage();
-            var shibeTalkIs7 = new EventPage();
-            var shibeTalkIs8 = new EventPage();
-            var shibeTalkIs9 = new EventPage();
-            var shibeTalkIs10 = new EventPage();
-            var shibeTalkIs11 = new EventPage();
-            var shibeTalkIs12 = new EventPage();
-            var shibeTalkIs13 = new EventPage();
-            var shibeTalkIs14 = new EventPage();
-            var shibeTalkIs15 = new EventPage();
-            var shibeTalkIs16 = new EventPage();
-            var shibeTalkIs17 = new EventPage();
-            var shibeTalkIs18 = new EventPage();
-            var shibeTalkIs19 = new EventPage();
-            var shibeTalkIs20 = new EventPage();
-            var shibeTalkIs21 = new EventPage();
-            var shibeTalkIs22 = new EventPage();
-            var shibeTalkIs23 = new EventPage();
-            var shibeTalkIs24 = new EventPage();
-            var shibeTalkIs25 = new EventPage();
+            var shibeTalkIs1 = new EventPage(); var shibeTalkIs3 = new EventPage();
+            var shibeTalkIs4 = new EventPage(); var shibeTalkIs5 = new EventPage();
+            var shibeTalkIs6 = new EventPage(); var shibeTalkIs7 = new EventPage();
+            var shibeTalkIs8 = new EventPage(); var shibeTalkIs9 = new EventPage();
+            var shibeTalkIs10 = new EventPage(); var shibeTalkIs11 = new EventPage();
+            var shibeTalkIs12 = new EventPage(); var shibeTalkIs13 = new EventPage();
+            var shibeTalkIs14 = new EventPage(); var shibeTalkIs15 = new EventPage();
+            var shibeTalkIs16 = new EventPage(); var shibeTalkIs17 = new EventPage();
+            var shibeTalkIs18 = new EventPage(); var shibeTalkIs19 = new EventPage();
+            var shibeTalkIs20 = new EventPage(); var shibeTalkIs21 = new EventPage();
+            var shibeTalkIs22 = new EventPage(); var shibeTalkIs23 = new EventPage();
+            var shibeTalkIs24 = new EventPage(); var shibeTalkIs25 = new EventPage();
 
             e = EventPageSwitch.c(Global.s.ShibeTalk).AddEventPage(1, shibeTalkIs1).AddEventPage(3, shibeTalkIs3).AddEventPage(4, shibeTalkIs4)
                                                    .AddEventPage(5, shibeTalkIs5).AddEventPage(6, shibeTalkIs6).AddEventPage(7, shibeTalkIs7)
@@ -2554,7 +2856,7 @@ public class tr_English : _BaseTR
                     e = EventTextbox.c(Faces.None, @"You received a Famicom.");
                     e = EventTextbox.c(Faces.Shibe_uh, @"I guess we'll have to take this back
                                                          to Goldie and explain what happened.").SwitchSides;
-                    e = EventSetGlobal.c(Global.s.Famicom, 1);
+                    e = EventSetGlobal.c(Global.s.HasFamicom, 1);
                     e = EventSetGlobal.c(Global.s.PapiTalk, 3);
                     e = EventSetGlobal.c(Global.s.ShibeTalk, 9);
                     e = EventSetGlobal.c(Global.s.GoldieTalk, 4);
@@ -3001,6 +3303,549 @@ public class tr_English : _BaseTR
                 e = EventPlayerMoveable.c(false);
                 e = EventTextbox.c(Faces.WittyFido, @"That's all I have for today.");
                 e = EventTextbox.c(Faces.WittyFido, @"Come back tomorrow for more jokes!");
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+        }
+
+        //Chi
+        NewEP("3e289b6f-9e2d-41a1-8c65-c2232c349ab4");
+        {
+            var chiTalk0 = new EventPage();
+            var chiTalk1 = new EventPage();
+            var chiTalk2 = new EventPage();
+            var chiTalk3 = new EventPage();
+
+            e = EventPageSwitch.c(Global.s.ChiTalk).AddEventPage(0, chiTalk0).AddEventPage(1, chiTalk1).AddEventPage(2, chiTalk2).AddEventPage(3, chiTalk3);
+
+            ep = chiTalk0;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Chi, @"I can't wait to go to the park!");
+                e = EventTextbox.c(Faces.Chi, @"I'm going to train hard and become
+                                                stronger.");
+                e = EventTextbox.c(Faces.Pom, @"good luck with that");
+                e = EventSetGlobal.c(Global.s.StoneBlockSearch, 1).Add;
+                e = EventSetGlobal.c(Global.s.ChiTalk, 1);
+                e = EventTextboxClose.c;
+                e = EventSetFacing.c(NPC.Chi, SpriteDir.Up);
+                e = EventPlayerMoveable.c(true);
+            }
+
+            ep = chiTalk1;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Chi, @"I can't wait to go to the park!");
+                e = EventTextbox.c(Faces.Chi, @"I'm going to train hard and become
+                                                stronger.");
+                e = EventTextbox.c(Faces.Pom, @"good luck with that");
+                e = EventTextboxClose.c;
+                e = EventSetFacing.c(NPC.Chi, SpriteDir.Up);
+                e = EventPlayerMoveable.c(true);
+            }
+
+            ep = chiTalk2;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Shibe, @"Have anything we might be able to
+                                                  borrow?").SwitchSides;
+                e = EventTextbox.c(Faces.Chi_nervous, @"No...I'm sorry...");
+                e = EventTextbox.c(Faces.Shibe_uh, @"You don't need to apologize!").SwitchSides;
+                e = EventTextboxClose.c;
+                e = EventSetFacing.c(NPC.Chi, SpriteDir.Up);
+                e = EventPlayerMoveable.c(true);
+            }
+
+            ep = chiTalk3;
+            {
+                //TODO: chiTalk3 - Park Copy
+            }
+        }
+
+        //Alma and Labra
+        NewEP("736075f7-3c6a-4887-b68b-b851873d74bd");
+        {
+            var labraAlmaTalk0 = new EventPage();
+            var labraAlmaTalk1 = new EventPage();
+            var labraAlmaTalk2 = new EventPage();
+
+            e = EventPageSwitch.c(Global.s.LabraAlmaTalk).AddEventPage(0, labraAlmaTalk0).AddEventPage(1, labraAlmaTalk1).AddEventPage(2, labraAlmaTalk2);
+
+            ep = labraAlmaTalk0;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventSetFacing.c(NPC.Labra, SpriteDir.Up);
+                e = EventSetFacing.c(NPC.Alma, SpriteDir.Up);
+                e = EventTextbox.c(Faces.Shibe, @"Do you mind moving aside a little?").SwitchSides;
+                e = EventTextbox.c(Faces.Shibe, @"We're trying to cross that bridge
+                                                  behind you.").SwitchSides;
+                e = EventTextbox.c(Faces.Labra, @"No can do.");
+                e = EventTextbox.c(Faces.Alma, @"We've been in this line for an awful
+                                                 long time now, and it'd be simply
+                                                 terrierable if we lost our place.");
+                e = EventTextbox.c(Faces.Labra, @"Here, you can have these old Barron's
+                                                  SAT books as our apology.");
+                e = EventTextbox.c(Faces.Shibe_uh, @"Wait, we don't want these.").SwitchSides;
+                e = EventTextbox.c(Faces.Labra, @"Alma, isn't the weather today
+                                                  splendid?");
+                e = EventTextbox.c(Faces.Alma, @"Not a cloud in the sky, as usual!");
+                e = EventTextbox.c(Faces.Alma, @"Discounting the one we're standing
+                                                 on, of course.");
+                e = EventTextbox.c(Faces.Pom, @"theyre ignoring u");
+                e = EventTextbox.c(Faces.Shibe_annoyed, @"They just unloaded a bunch of crap
+                                                          they don't want on us...").SwitchSides;
+                e = EventSetGlobal.c(Global.s.StoneBlockSearch, 1).Add;
+                e = EventSetGlobal.c(Global.s.LabraAlmaTalk, 1);
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+
+            ep = labraAlmaTalk1;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventSetFacing.c(NPC.Labra, SpriteDir.Up);
+                e = EventSetFacing.c(NPC.Alma, SpriteDir.Up);
+                e = EventTextbox.c(Faces.Shibe_uh, @"Here, you can have your books back.").SwitchSides;
+                e = EventTextbox.c(Faces.Alma, @"What's this?");
+                e = EventTextbox.c(Faces.Alma, @"Labra, I cannot hear anything!");
+                e = EventTextbox.c(Faces.Labra, @"Oh, no! The rapid onset of old age
+                                                  must be taking its toll!");
+                e = EventTextbox.c(Faces.Shibe_annoyed, @"Hey!").SwitchSides;
+                e = EventTextbox.c(Faces.Alma, @"I hear a faint buzzing noise in my
+                                                 left ear!");
+                e = EventTextbox.c(Faces.Shibe_annoyed, @"RRRGH!").SwitchSides;
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+
+            ep = labraAlmaTalk2;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventSetFacing.c(NPC.Labra, SpriteDir.Up);
+                e = EventSetFacing.c(NPC.Alma, SpriteDir.Up);
+                e = EventTextbox.c(Faces.Shibe_uh, @"Hey...").SwitchSides;
+                e = EventTextbox.c(Faces.Alma, @"Labra, I simply cannot wait to catch
+                                                 frisbees in the park!");
+                e = EventTextbox.c(Faces.Labra, @"Me neither! That feeling of absolute bliss
+                                                  when you make a jumping catch...");
+                e = EventTextbox.c(Faces.Labra, @"It makes waiting in line so worth it!");
+                e = EventTextbox.c(Faces.Shibe_annoyed, @"For some reason, they're still
+                                                          ignoring me...").SwitchSides;
+                e = EventTextbox.c(Faces.Pom, @"maybe they think u came 2 return the
+                                                books 2 them");
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+        }
+
+        //Goldie
+        NewEP("a0d2b46a-4e98-474c-b5d1-e01a8cdf9ef9");
+        {
+            var goldieTalk0 = new EventPage();
+            var goldieTalk1 = new EventPage(); var goldieTalk2 = new EventPage();
+            var goldieTalk3 = new EventPage(); var goldieTalk4 = new EventPage();
+            var goldieTalk5 = new EventPage(); var goldieTalk6 = new EventPage();
+            var goldieTalk7 = new EventPage(); var goldieTalk8 = new EventPage();
+
+            e = EventPageSwitch.c(Global.s.GoldieTalk).AddEventPage(0, goldieTalk0).AddEventPage(1, goldieTalk1).AddEventPage(2, goldieTalk2).AddEventPage(3, goldieTalk3).AddEventPage(4, goldieTalk4).AddEventPage(5, goldieTalk5).AddEventPage(6, goldieTalk6).AddEventPage(7, goldieTalk7).AddEventPage(8, goldieTalk8);
+
+            ep = goldieTalk0;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Goldie, @"This line to the park is moving a lot
+                                                   more slowly than usual.");
+                e = EventTextbox.c(Faces.Shibe_uh, @"To be more precise, it's moving so
+                                                     slowly that it's not moving at all.").SwitchSides;
+                e = EventSetGlobal.c(Global.s.StoneBlockSearch, 1).Add;
+                e = EventSetGlobal.c(Global.s.GoldieTalk, 1);
+                e = EventSetFacing.c(NPC.Goldie, SpriteDir.Up);
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+
+            ep = goldieTalk1;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Goldie, @"This line to the park is moving a lot
+                                                   more slowly than usual.");
+                e = EventTextbox.c(Faces.Shibe_uh, @"To be more precise, it's moving so
+                                                     slowly that it's not moving at all.").SwitchSides;
+                e = EventSetFacing.c(NPC.Goldie, SpriteDir.Up);
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+
+            ep = goldieTalk2;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Shibe, @"Do you have anything we might be
+                                                  able to borrow?").SwitchSides;
+                e = EventTextbox.c(Faces.Goldie, @"Actually...
+                                                   I happen to have this giant potted
+                                                   cactus on me right now!");
+                e = EventTextbox.c(Faces.Shibe_uh, @"How do yo just ''happen'' to have
+                                                     something like that with you?!").SwitchSides;
+                e = EventTextbox.c(Faces.Shibe_uh, @"And it's so spiky...").SwitchSides;
+                e = EventTextbox.c(Faces.Pom, @"thats ok");
+                e = EventTextbox.c(Faces.Pom, @"hand it over");
+                e = EventTextbox.c(Faces.Shibe_annoyed, @"Pom!").SwitchSides;
+                e = EventTextbox.c(Faces.Pom, @"...pls");
+                e = EventTextbox.c(Faces.Goldie, @"You're strangers, though...");
+                e = EventTextbox.c(Faces.Goldie, @"How do I know if I can trust you two
+                                                   with it?");
+                e = EventTextbox.c(Faces.Shibe_uh, @"Doesn't the fact that we're in heaven
+                                                     prove that we're good dogs?").SwitchSides;
+                e = EventTextbox.c(Faces.Goldie, @"There's no such thing as a bad dog,
+                                                   only bad owners and bad upbringings.");
+                e = EventTextbox.c(Faces.Goldie, @"So, every dog ends up here,
+                                                   regardless of whether they turned out
+                                                   to be trustworthy or not.");
+                e = EventTextbox.c(Faces.Pom, @"how do we get u 2 trust us then");
+                e = EventTextbox.c(Faces.Goldie, @"How about you run an errand for me?");
+                e = EventTextbox.c(Faces.Goldie, @"Do you know Papi?
+                                                   She owes me a few dog treats.");
+                e = EventTextbox.c(Faces.Goldie, @"Can you ask her for them for me?");
+                e = EventTextbox.c(Faces.Shibe, @"We'll do our best!").SwitchSides;
+                e = EventSetGlobal.c(Global.s.ShibeTalk, 8);
+                e = EventSetGlobal.c(Global.s.GoldieTalk, 3);
+                e = EventSetGlobal.c(Global.s.PapiTalk, 2);
+                e = EventSetFacing.c(NPC.Goldie, SpriteDir.Up);
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+
+            ep = goldieTalk3;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Goldie, @"Have you asked Papi about the treats
+                                                   yet?");
+                e = EventTextbox.c(Faces.Pom, @"nope");
+                e = EventTextbox.c(Faces.Goldie, @"If you keep going west the way you
+                                                   came for a while, you should see her.");
+                e = EventSetFacing.c(NPC.Goldie, SpriteDir.Up);
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+
+            ep = goldieTalk4;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Goldie, @"You're back!");
+                e = EventTextbox.c(Faces.Goldie, @"Where are the treats?");
+                e = EventTextbox.c(Faces.Shibe_uh, @"About that...").SwitchSides;
+                e = EventTextbox.c(Faces.Shibe_uh, @"Papi told us she'd eaten them all.").SwitchSides;
+                e = EventTextbox.c(Faces.Shibe_uh, @"She gave us this thing instead.").SwitchSides;
+                e = EventTextbox.c(Faces.None, @"You gave Goldie the Famicom.");
+                e = EventSFX.c(SFX.Pom_bark);
+                e = EventShake.c(5, 5, .2f).Wait;
+                e = EventTextbox.c(Faces.Pom, @"ITS NOT OUR FAULT HONEST 2 DOG");
+                e = EventTextbox.c(Faces.Pom, @"TASUKETE PLS GIVE US THE GIANT
+                                                CACTUS");
+                e = EventTextbox.c(Faces.Goldie, @"Calm down.");
+                e = EventTextbox.c(Faces.Goldie, @"I was testing you two, and you passed
+                                                   with flying colors.");
+                e = EventTextbox.c(Faces.Shibe_uh, @"We did?").SwitchSides;
+                e = EventTextbox.c(Faces.Goldie, @"Knowing Papi, it would have been
+                                                   strange if you really did come back
+                                                   with dog treats.");
+                e = EventTextbox.c(Faces.Shibe_uh, @"But what kind of test is that?").SwitchSides;
+                e = EventTextbox.c(Faces.Shibe_uh, @"There's no way we could have.").SwitchSides;
+                e = EventTextbox.c(Faces.Goldie, @"No, of course not.");
+                e = EventTextbox.c(Faces.Goldie, @"The test was about whether you'd
+                                                   come back to me with the Famicom.");
+                e = EventTextbox.c(Faces.Shibe_uh, @"Eh?").SwitchSides;
+                e = EventTextbox.c(Faces.Goldie, @"I can see you two stacking stuff on
+                                                   that rock thing over there, you know.");
+                e = EventTextbox.c(Faces.Goldie, @"That's why you want my potted
+                                                   cactus, correct?");
+                e = EventTextbox.c(Faces.Shibe_uh, @"That's right.").SwitchSides;
+                e = EventTextbox.c(Faces.Goldie, @"But why didn't you just use the
+                                                   Famicom?");
+                e = EventTextbox.c(Faces.Goldie, @"The bottom is pretty flat and way
+                                                   better for stacking than a cactus is.");
+                e = EventTextbox.c(Faces.Shibe_uh, @"...!").SwitchSides;
+                e = EventTextbox.c(Faces.Shibe_uh, @"I didn't even think about using it...").SwitchSides;
+                e = EventTextbox.c(Faces.Goldie, @"You were so determined to make me
+                                                   trust you that you were totally
+                                                   distracted from your original goal.");
+                e = EventTextbox.c(Faces.Goldie, @"Honestly, that's kind of adorable.");
+                e = EventTextbox.c(Faces.Pom, @"oh stahp it u");
+                e = EventTextbox.c(Faces.Goldie, @"Here, you can have the Famicom.");
+                e = EventTextbox.c(Faces.None, @"You received a Famicom.");
+                e = EventTextbox.c(Faces.Goldie, @"Now that I think about it, you would
+                                                   have ended up with the Famicom
+                                                   either way.");
+                e = EventTextbox.c(Faces.Goldie, @"But this method has the extra bonus
+                                                   of me trusting you.");
+                e = EventTextbox.c(Faces.Goldie, @"I like to think that counts for
+                                                   something.");
+                e = EventTextbox.c(Faces.Shibe, @"It does! Thanks.").SwitchSides;
+                e = EventSetGlobal.c(Global.s.GoldieTalk, 5);
+                e = EventSetGlobal.c(Global.s.Blessing, 2);
+
+                var sbs6 = new EventPage();
+                var notSbs6 = new EventPage();
+
+                e = EventPageSwitch.c(Global.s.StoneBlockSearch).AddEventPage(6, sbs6).AddEventPage(6, notSbs6, SwitchComparator.Less).AddEventPage(6, notSbs6, SwitchComparator.Greater);
+                ep = sbs6; { e = EventSetGlobal.c(Global.s.ShibeTalk, 11); }
+
+                ep = notSbs6;
+                {
+                    var dolphiePossessed = new EventPage();
+                    var notDolphiePossessed = new EventPage();
+
+                    e = EventPageSwitch.c(Global.s.HasDolphie).AddEventPage(0, notDolphiePossessed).AddEventPage(1, dolphiePossessed);
+
+                    ep = dolphiePossessed; { e = EventSetGlobal.c(Global.s.ShibeTalk, 11); }
+                    ep = notDolphiePossessed; { e = EventSetGlobal.c(Global.s.ShibeTalk, 7); }
+                }
+
+                ep = goldieTalk4;
+                e = EventSetFacing.c(NPC.Goldie, SpriteDir.Up);
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+
+            ep = goldieTalk5;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Goldie, @"Good luck getting in.");
+                e = EventSetFacing.c(NPC.Goldie, SpriteDir.Up);
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+
+            ep = goldieTalk6;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventSetFacing.c(NPC.Goldie, SpriteDir.Up);
+                e = EventTextbox.c(Faces.Pom, @"we're back");
+                e = EventTextbox.c(Faces.Goldie, @"I don't really want to talk to you.");
+                e = EventTextbox.c(Faces.Pom, @"wow whats her problem");
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+
+            ep = goldieTalk7;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventSetFacing.c(NPC.Goldie, SpriteDir.Up);
+                e = EventTextbox.c(Faces.Goldie, @"I don't really want to talk to you.");
+                e = EventTextbox.c(Faces.Pom, @"wow whats her problem");
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+
+            ep = goldieTalk8;
+            {
+                var husInParty = new EventPage();
+                var chiInParty = new EventPage();
+
+                e = EventPageSwitch.c(Global.s.ExtraParkPartyMember).AddEventPage(1, husInParty).AddEventPage(2, chiInParty);
+
+                ep = husInParty;
+                {
+                    e = EventPlayerMoveable.c(false);
+                    e = EventTextbox.c(Faces.Hus, @"I don't know if you've seen yet, but
+                                                    those blue and white flowers you
+                                                    planted...");
+                    e = EventTextbox.c(Faces.Goldie, @"Uh huh, go on...");
+                    e = EventTextbox.c(Faces.Hus, @"Two of them are getting pretty ridiculous.");
+                    e = EventTextbox.c(Faces.Hus, @"At the rate they're growing, they might
+                                                    end up poking up through the clouds
+                                                    in human heaven.");
+                    e = EventTextbox.c(Faces.Goldie, @"Aw, shucks!");
+                    e = EventTextbox.c(Faces.Goldie, @"They were just seedlings last time I
+                                                       checked...");
+                    e = EventTextbox.c(Faces.Shibe_uh, @"Just how long have you been in this line?!").SwitchSides;
+                    e = EventSetFacing.c(NPC.Goldie, SpriteDir.Up);
+                    e = EventTextboxClose.c;
+                    e = EventPlayerMoveable.c(true);
+                }
+
+                ep = chiInParty;
+                {
+                    e = EventPlayerMoveable.c(false);
+                    e = EventTextbox.c(Faces.Goldie, @"Good luck fixing the machine.");
+                    e = EventSetFacing.c(NPC.Goldie, SpriteDir.Up);
+                    e = EventTextboxClose.c;
+                    e = EventPlayerMoveable.c(true);
+                }
+            }
+        }
+
+        //Puddle
+        NewEP("c39932ac-a091-4893-b80f-da523fcdc67f");
+        {
+            var puddleTalk0 = new EventPage();
+            var puddleTalk3 = new EventPage();
+            var puddleTalk4 = new EventPage();
+
+            e = EventPageSwitch.c(Global.s.PuddleTalk).AddEventPage(0, puddleTalk0).AddEventPage(3, puddleTalk3).AddEventPage(4, puddleTalk4);
+
+            ep = puddleTalk0;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Puddle, @"You're still wearing your collar, even
+                                                   up here in heaven!");
+                e = EventTextbox.c(Faces.Shibe_uh, @"Why wouldn't I be wearing it?").SwitchSides;
+                e = EventTextbox.c(Faces.Shibe, @"It's like a badge of honor!").SwitchSides;
+                e = EventTextbox.c(Faces.Puddle, @"You're really loyal to your owner, huh?");
+                e = EventTextbox.c(Faces.Puddle, @"What a namby-pamby goody-goody!");
+                e = EventTextbox.c(Faces.Shibe_annoyed, @"A what?!").SwitchSides;
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+
+            ep = puddleTalk3;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Puddle, @"It's name is Dolphie.");
+                e = EventTextbox.c(Faces.Pom, @"so lame");
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+
+            ep = puddleTalk4;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Puddle, @"When I was alive, I always wondered
+                                                   how the kitchen cupboard would never
+                                                   run out of dog food.");
+                e = EventTextbox.c(Faces.Shibe, @"Yeah, me too!");
+                e = EventTextbox.c(Faces.Puddle, @"It's like magic, isn't it?");
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+        }
+
+        //Crest
+        NewEP("6cf35a57-afd0-4efa-9931-d6dc3c406a4e");
+        {
+            var crestTalk0 = new EventPage();
+            var crestTalk1 = new EventPage();
+            var crestTalk345 = new EventPage();
+            var crestTalk7 = new EventPage();
+            var crestTalk8 = new EventPage();
+            var crestTalk9 = new EventPage();
+
+            e = EventPageSwitch.c(Global.s.CrestTalk).AddEventPage(0, crestTalk0).AddEventPage(1, crestTalk1).AddEventPage(3, crestTalk345).AddEventPage(4, crestTalk345).AddEventPage(5, crestTalk345).AddEventPage(7, crestTalk7).AddEventPage(8, crestTalk8).AddEventPage(9, crestTalk9);
+
+            ep = crestTalk0;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Shibe, @"Do you know where we can find
+                                                  wi-fi?").SwitchSides;
+                e = EventTextbox.c(Faces.Crest, @"Puddle might know.");
+                e = EventTextbox.c(Faces.Crest, @"She's upstairs.");
+                e = EventTextbox.c(Faces.Shibe, @"Okay, we'll go ask--").SwitchSides;
+                e = EventSFX.c(SFX.Pom_bark);
+                e = EventShake.c(5, 5, .2f).Wait;
+                e = EventTextbox.c(Faces.Crest, @"PUDDLE!");
+                e = EventSFX.c(SFX.Pom_bark);
+                e = EventShake.c(5, 5, .2f).Wait;
+                e = EventTextbox.c(Faces.Crest, @"DO YOU KNOW WHERE TO GET
+                                                  WI-FI?");
+                e = EventTextboxClose.c;
+                e = EventSFX.c(SFX.Medium_Dog1);
+                e = EventShake.c(5, 5, .2f).Wait;
+                e = EventTextbox.c(Faces.None, @"\C[1]" + PuddleName + @"\C[0]
+                                                 WHAT? I CAN'T HEAR YOU!");
+                e = EventSFX.c(SFX.Pom_bark);
+                e = EventShake.c(5, 5, .2f).Wait;
+                e = EventTextbox.c(Faces.Crest, @"DO YOU KNOW WHERE TO GET
+                                                  WI-FI?");
+                e = EventTextboxClose.c;
+                e = EventSFX.c(SFX.Medium_Dog1);
+                e = EventShake.c(5, 5, .2f).Wait;
+                e = EventTextbox.c(Faces.None, @"\C[1]" + PuddleName + @"\C[0]
+                                                 WHAT?");
+                e = EventTextbox.c(Faces.Shibe_annoyed, @"How long is this going to go on?!
+                                                          We'll just go up and ask--").SwitchSides;
+                e = EventSFX.c(SFX.Pom_bark);
+                e = EventShake.c(5, 5, .2f).Wait;
+                e = EventTextbox.c(Faces.Crest, @"WHERE! DO! YOU! FIND! WI-FI!");
+                e = EventTextboxClose.c;
+                e = EventSFX.c(SFX.Medium_Dog1);
+                e = EventShake.c(5, 5, .2f).Wait;
+                e = EventTextbox.c(Faces.None, @"\C[1]" + PuddleName + @"\C[0]
+                                                 WI-FI?");
+                e = EventSFX.c(SFX.Pom_bark);
+                e = EventShake.c(5, 5, .2f).Wait;
+                e = EventTextbox.c(Faces.Crest, @"YEAH!");
+                e = EventTextboxClose.c;
+                e = EventSFX.c(SFX.Medium_Dog1);
+                e = EventShake.c(5, 5, .2f).Wait;
+                e = EventTextbox.c(Faces.None, @"\C[1]" + PuddleName + @"\C[0]
+                                                 I DUNNO!");
+                e = EventTextbox.c(Faces.Crest, @"She doesn't know.");
+                e = EventTextbox.c(Faces.Shibe_uh, @"We heard that loud and clear...").SwitchSides;
+                e = EventTextbox.c(Faces.Crest, @"See?
+                                                  Saved you the trouble of going up
+                                                  and asking her yourself.");
+                e = EventTextbox.c(Faces.Shibe_uh, @"Thanks, I guess...").SwitchSides;
+                e = EventTextbox.c(Faces.Pom, @"tho of course we're still going up 2
+                                                talk 2 her anyway");
+                e = EventSetGlobal.c(Global.s.CrestTalk, 1);
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+
+            ep = crestTalk1;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Crest, @"Puddle is a pretty lazy dog.");
+                e = EventTextbox.c(Faces.Crest, @"We communicate a lot like this.");
+                e = EventTextbox.c(Faces.Shibe_uh, @"Doesn't that mean you're pretty lazy,
+                                                     too?").SwitchSides;
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+
+            ep = crestTalk345;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventSFX.c(SFX.Pom_bark);
+                e = EventTextbox.c(Faces.Crest, @"Help!");
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+
+            ep = crestTalk7;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Crest, @"Whenever Puddle squashes a spider,
+                                                  she always says the same thing:");
+                e = EventTextbox.c(Faces.Crest, @"''I won't forgive you for making Crest
+                                                  cry. I'll kill you!''");
+                e = EventTextbox.c(Faces.Crest, @"And then she squashes it.");
+                e = EventTextbox.c(Faces.Crest, @"Isn't she so cool?");
+                e = EventTextbox.c(Faces.Shibe_annoyed, @"You seriously cry every single time
+                                                          you see a spider?!").SwitchSides;
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+
+            ep = crestTalk8;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Crest, @"I'm baking dog treats right now.");
+                e = EventTextbox.c(Faces.Shibe_uh, @"I'm pretty sure you don't need to wait
+                                                     there in front of the oven drooling the
+                                                     entire time...").SwitchSides;
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+
+            ep = crestTalk9;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Crest, @"My owner would never give me treats
+                                                  when I was alive.");
+                e = EventTextbox.c(Faces.Crest, @"I was always so jealous when I saw
+                                                  other dogs getting treats.");
+                e = EventTextbox.c(Faces.Pom, @"and here's me
+                                                playing the worlds tiniest violin");
                 e = EventTextboxClose.c;
                 e = EventPlayerMoveable.c(true);
             }

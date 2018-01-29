@@ -71,7 +71,7 @@ public class Global : MonoBehaviour {
         [SerializeField] public GlobalInt CrestStalkFest = new GlobalInt();
         [SerializeField] public GlobalInt PapiTalk = new GlobalInt();
 
-        [SerializeField] public GlobalInt Famicom = new GlobalInt();
+        [SerializeField] public GlobalInt HasFamicom = new GlobalInt();
         [SerializeField] public GlobalInt GoldieTalk = new GlobalInt();
 
         //Sharpei's House
@@ -91,14 +91,14 @@ public class Global : MonoBehaviour {
         //Park
         [SerializeField] public GlobalInt ChiTalk = new GlobalInt();
         [SerializeField] public GlobalInt StoneBlockSearch = new GlobalInt();
-        [SerializeField] public GlobalInt ParkFixed = new GlobalInt();
+        [SerializeField] public GlobalInt ParkState = new GlobalInt(); //0 = none, 1 = coming back from grass, 2 = fixed
         [SerializeField] public GlobalInt ExtraParkPartyMember = new GlobalInt(); //0 = none, 1 = hus, 2 = chi
         [SerializeField] public GlobalInt LabraAlmaTalk = new GlobalInt();
         [SerializeField] public GlobalInt PuddleTalk = new GlobalInt();
         [SerializeField] public GlobalInt CrestTalk = new GlobalInt();
+        [SerializeField] public GlobalInt ShermanTalk = new GlobalInt();
 
         [SerializeField] public GlobalInt HasDolphie = new GlobalInt();
-        [SerializeField] public GlobalInt HasFamicom = new GlobalInt();
         [SerializeField] public GlobalInt Blessing = new GlobalInt();
 
         //Frisbee Machine
