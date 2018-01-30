@@ -101,6 +101,9 @@ public class Global : MonoBehaviour {
         [SerializeField] public GlobalInt HasDolphie = new GlobalInt();
         [SerializeField] public GlobalInt Blessing = new GlobalInt();
 
+        [SerializeField] public GlobalInt HitByFrisbee = new GlobalInt();
+        [SerializeField] public GlobalInt FrisbeeTrap = new GlobalInt();
+
         //Frisbee Machine
         [SerializeField] public GlobalInt DustBunny = new GlobalInt();
         [SerializeField] public GlobalInt CityEscape = new GlobalInt();

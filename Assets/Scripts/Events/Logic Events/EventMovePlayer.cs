@@ -36,6 +36,7 @@ public class EventMovePlayer : _BaseLogicEvent {
 
         //controller.moveSpeed = (float)speed;
         controller.AllowMovement = true;
+        controller.SetFacingDirection(controller.DirFromVector(directDir));
         controller.ForceMove(directDir);
         controller.AllowMovement = false;
 

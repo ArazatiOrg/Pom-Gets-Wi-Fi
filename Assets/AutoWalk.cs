@@ -26,8 +26,12 @@ public class AutoWalk : MonoBehaviour {
 
     List<MovePattern> spider = new List<MovePattern>() { MovePattern.MoveLeft, MovePattern.MoveRight };
 
+    List<MovePattern> frisbee = new List<MovePattern>() { MovePattern.MoveRight, MovePattern.MoveRight, MovePattern.MoveRight, MovePattern.MoveRight, MovePattern.MoveRight, MovePattern.MoveRight, MovePattern.MoveRight, MovePattern.MoveRight, MovePattern.MoveRight, MovePattern.MoveRight, MovePattern.MoveRight, MovePattern.MoveRight, MovePattern.MoveRight, MovePattern.MoveRight, MovePattern.MoveRight, MovePattern.MoveRight, MovePattern.MoveRight, MovePattern.MoveRight, MovePattern.MoveRight, MovePattern.MoveRight, MovePattern.MoveRight, MovePattern.MoveRight, MovePattern.MoveRight, MovePattern.MoveRight, MovePattern.MoveRight, MovePattern.MoveRight, MovePattern.MoveRight, MovePattern.NONE,
+                                                           MovePattern.MoveLeft,  MovePattern.MoveLeft,  MovePattern.MoveLeft,  MovePattern.MoveLeft,  MovePattern.MoveLeft,  MovePattern.MoveLeft,  MovePattern.MoveLeft,  MovePattern.MoveLeft,  MovePattern.MoveLeft,  MovePattern.MoveLeft,  MovePattern.MoveLeft,  MovePattern.MoveLeft,  MovePattern.MoveLeft,  MovePattern.MoveLeft,  MovePattern.MoveLeft,  MovePattern.MoveLeft,  MovePattern.MoveLeft,  MovePattern.MoveLeft,  MovePattern.MoveLeft,  MovePattern.MoveLeft,  MovePattern.MoveLeft,  MovePattern.MoveLeft,  MovePattern.MoveLeft,  MovePattern.MoveLeft,  MovePattern.MoveLeft,  MovePattern.MoveLeft,  MovePattern.MoveLeft };
+
     // Update is called once per frame
     bool doMoveTimeout = true;
+    bool ignoreIllegalMoves = false;
     void Update () {
 		if(controller.AllowMovement && controller.standingStill && controller.moveTimeout <= 0f && Player.playerInstance.AllowMovement)
         {
@@ -38,21 +42,26 @@ public class AutoWalk : MonoBehaviour {
 
             var movePattern = movements[index];
             if (movePattern == MovePattern.RandomMoveOrLook) movePattern = (Random.Range(0, 10) < 9 ? MovePattern.RandomMove : MovePattern.RandomLook);
+            var wasAMove = false;
+
+            var bump = curNPC == NPC.Frisbee;
 
             switch (movePattern)
             {
-                case MovePattern.NONE: controller.moveTimeout = 1f / controller.moveSpeed; break;
+                case MovePattern.NONE: controller.moveTimeout = 1f / controller.moveSpeed; index++; break;
 
                 case MovePattern.MoveUp:
                 case MovePattern.MoveRight:
                 case MovePattern.MoveDown:
                 case MovePattern.MoveLeft:
-                    controller.TryMove((SpriteDir)movements[index], false);
+                    controller.TryMove((SpriteDir)movements[index], bump);
                     if(doMoveTimeout) controller.moveTimeout = 2f / (controller.moveSpeed);
+                    wasAMove = true;
                     break;
                 case MovePattern.RandomMove:
-                    controller.TryMove((SpriteDir)Random.Range(0, 4), false);
+                    controller.TryMove((SpriteDir)Random.Range(0, 4), bump);
                     if (doMoveTimeout) controller.moveTimeout = 2f / (controller.moveSpeed);
+                    wasAMove = true;
                     break;
                 case MovePattern.LookUp:
                 case MovePattern.LookRight:
@@ -75,7 +84,7 @@ public class AutoWalk : MonoBehaviour {
                 case MovePattern.SpeedFourTimesNormal: controller.moveSpeed = 64f; index++; break;
             }
             
-            if (!controller.standingStill)
+            if (!controller.standingStill || (controller.standingStill && ignoreIllegalMoves && wasAMove))
             {
                 index++;
             }
@@ -104,7 +113,7 @@ public class AutoWalk : MonoBehaviour {
 
                     if (s == 0) movements = puddle0;
                     else if (s == 3) movements = puddle3;
-                    else if (s == 4) movements = puddle4;
+                    else if (s == 4 || s == 5) movements = puddle4;
                     else movements = empty;
                 }
                 break;
@@ -114,6 +123,26 @@ public class AutoWalk : MonoBehaviour {
 
                     if (s == 4) movements = spider;
                     else movements = empty;
+                }
+                break;
+            case NPC.Frisbee:
+                {
+                    var s = Global.s.ParkState;
+
+                    if (s == 0 || s == 1)
+                    {
+                        controller.moveSpeed = 31f;
+                        doMoveTimeout = false;
+                    }
+                    else
+                    {
+                        controller.moveSpeed = 4f;
+                        doMoveTimeout = true;
+                    }
+
+
+                    movements = frisbee;
+                    ignoreIllegalMoves = true;
                 }
                 break;
         }

@@ -35,5 +35,6 @@ public enum SFX
     crunching1,
     Rimshot,
     damage1,
-    close1
+    close1,
+    punch6
 }

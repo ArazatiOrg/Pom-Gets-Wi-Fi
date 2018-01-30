@@ -139,7 +139,18 @@ public class NPCController : MonoBehaviour {
 
 		SetFacingDirection(direction);
 		if (rayHit.collider != null) {
-            if(alertHitOfBump) rayHit.collider.gameObject.SendMessage ("Bumped", gameObject, SendMessageOptions.DontRequireReceiver);
+            if (alertHitOfBump)
+            {
+                if(gameObject != Player.playerInstance.gameObject )
+                {
+                    if(rayHit.collider.transform.parent.gameObject == Player.playerInstance.gameObject)
+                    {
+                        //send message to self if we're not the player and we just bumped into the player
+                        gameObject.SendMessage("Bumped", Player.playerInstance.gameObject, SendMessageOptions.DontRequireReceiver);
+                    }
+                }
+                else rayHit.collider.gameObject.SendMessage("Bumped", gameObject, SendMessageOptions.DontRequireReceiver);
+            }
             
             //I forget why I added this, but it was breaking bump events so..
             //StallMovement ();
@@ -200,7 +211,7 @@ public class NPCController : MonoBehaviour {
 
 		if (movePercentage == 0) {
 			standingStill = true;
-			boxCollider.transform.localPosition = transform.position;
+			boxCollider.transform.position = transform.position;
 		}
 	}
 
@@ -211,7 +222,7 @@ public class NPCController : MonoBehaviour {
         if (movePercentage == 0)
         {
             standingStill = true;
-            boxCollider.transform.localPosition = transform.position;
+            boxCollider.transform.position = transform.position;
         }
     }
 

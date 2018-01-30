@@ -41,9 +41,12 @@ public class EventTPPlayer : _BaseLogicEvent {
         var telePos = (Vector3)TeleportPosition;
 
         controller.transform.position = telePos + new Vector3(0f, .5f, 0f);
-        Player.playerInstance.StallMovement();
+        controller.StallMovement();
         if (facingDirection != SpriteDir.None) controller.SetFacingDirection(facingDirection);
-        Camera.main.SendMessage("UpdateBounds");
+        controller.boxCollider.transform.localPosition = Vector3.zero;
+
+        if(KeepCameraInBounds.instance.objectToFollow == controller.gameObject)
+            Camera.main.SendMessage("UpdateBounds");
 
         if (!instantTP)
         {
@@ -52,6 +55,7 @@ public class EventTPPlayer : _BaseLogicEvent {
             yield return new WaitUntil(() => cameraFader.finishedFading);
         }
 
+        controller.boxCollider.transform.localPosition = Vector3.zero;
         Player.playerInstance.AllowMovement = before;
 
         yield return null;

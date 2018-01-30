@@ -26,8 +26,22 @@ public class EventPositioner : MonoBehaviour {
     public NPCController chiController;
     public GameObject spider;
 
+    public GameObject FastFrisbees;
+    public GameObject SlowFrisbees;
+    public GameObject SuperFrisbee;
+
+    public GameObject FrisbeeTrap;
+    public GameObject FrisbeeTrapTrigger;
+    public GameObject MachineCheckedTrigger;
+
     int oldCrestTalk = -1;
     int oldPuddleTalk = -1;
+    int oldParkState = -1;
+    int oldFrisbeeTrap = -1;
+
+    int oldExtraParty = -1;
+
+    public static Vector3 nullPos = new Vector3(-20, 0, 0);
 
     void Start () {
         instance = this;
@@ -41,7 +55,6 @@ public class EventPositioner : MonoBehaviour {
     void check()
     {
         var s = Global.ActiveSavefile;
-        var nullPos = new Vector3(-20, 0, 0);
         var up = (Vector3)Vector2.up;
         var right = (Vector3)Vector2.right;
         var down = (Vector3)Vector2.down;
@@ -50,7 +63,7 @@ public class EventPositioner : MonoBehaviour {
         if (s.SharpeiTalk.value == 3) NPCList.GetNPC(NPC.Sharpeii).transform.position = new Vector3(18.5f, -55f);
         else NPCList.GetNPC(NPC.Sharpeii).transform.position = new Vector3(21.5f, -56f);
 
-        if (s.DustBunny == 0) dustBunny.transform.position = new Vector3(63f, 56f);
+        if (s.DustBunny == 0) dustBunny.transform.position = new Vector3(63.5f, 56.5f);
         else dustBunny.transform.position = nullPos;
         
         switch (Global.s.StoneBlockSearch)
@@ -128,9 +141,55 @@ public class EventPositioner : MonoBehaviour {
                 case 0: case 4: puddle.transform.position = defaultPos; break;
                 case 2: puddle.transform.position = defaultPos + (down * 12) + (left * 1); puddle.SetFacingDirection(SpriteDir.Up); break;
                 case 3: puddle.transform.position = defaultPos + (down * 11) + (left * 1); break;
+                case 5: puddle.transform.position = new Vector3(-0.5f, -50f); break;
             }
 
             oldPuddleTalk = s.PuddleTalk;
+        }
+
+        if(oldParkState != s.ParkState)
+        {
+            FastFrisbees.SetActive(s.ParkState == 0 || s.ParkState == 1);
+            SlowFrisbees.SetActive(s.ParkState == 2);
+
+            if (oldParkState != 2 && s.ParkState == 2)
+            {
+                NPCList.GetNPC(NPC.Goldie).transform.position = nullPos;
+                NPCList.GetNPC(NPC.Labra).transform.position = nullPos;
+                NPCList.GetNPC(NPC.Sherman).transform.position = nullPos;
+                NPCList.GetNPC(NPC.Chi).transform.position = nullPos;
+                NPCList.GetNPC(NPC.Alma).transform.position = new Vector2(44.5f, -4.5f);
+            }
+
+            oldParkState = s.ParkState;
+        }
+
+        if(oldFrisbeeTrap != s.FrisbeeTrap)
+        {
+            SuperFrisbee.SetActive(s.FrisbeeTrap == 1);
+            FrisbeeTrap.SetActive(s.FrisbeeTrap == 1);
+            FrisbeeTrapTrigger.SetActive(s.FrisbeeTrap <= 1);
+
+            oldFrisbeeTrap = s.FrisbeeTrap;
+        }
+
+        MachineCheckedTrigger.SetActive(Global.s.MachineChecked < 1 && Global.s.ParkState == 1);
+
+        if(oldExtraParty != 2 && s.ExtraParkPartyMember == 2)
+        {
+            oldExtraParty = 2;
+
+            var hus = NPCList.GetNPC(NPC.Hus);
+            var chi = NPCList.GetNPC(NPC.Chi);
+
+            var oldHusPos = hus.transform.position;
+            var oldHusLook = hus.facingDir;
+
+            hus.transform.position = chi.transform.position;
+            hus.SetFacingDirection(SpriteDir.Up);
+
+            chi.transform.position = oldHusPos;
+            chi.SetFacingDirection(oldHusLook);
         }
     }
 }

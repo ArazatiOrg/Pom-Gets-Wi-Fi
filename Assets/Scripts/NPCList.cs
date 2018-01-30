@@ -44,5 +44,6 @@ public enum NPC
     WittyFido,
     York,
     Spider,
-    NONE = -1
+    Frisbee,
+    NONE = -1,
 }
