@@ -34,12 +34,18 @@ public class EventPositioner : MonoBehaviour {
     public GameObject FrisbeeTrapTrigger;
     public GameObject MachineCheckedTrigger;
 
+    public GameObject Gate_Open;
+    public GameObject Gate_Closed;
+    public GameObject Gate_ShibeAndHusPile;
+
     int oldCrestTalk = -1;
     int oldPuddleTalk = -1;
     int oldParkState = -1;
     int oldFrisbeeTrap = -1;
 
     int oldExtraParty = -1;
+
+    int oldCrestStalk = -1;
 
     public static Vector3 nullPos = new Vector3(-20, 0, 0);
 
@@ -59,6 +65,8 @@ public class EventPositioner : MonoBehaviour {
         var right = (Vector3)Vector2.right;
         var down = (Vector3)Vector2.down;
         var left = (Vector3)Vector2.left;
+        var hus = NPCList.GetNPC(NPC.Hus);
+        var chi = NPCList.GetNPC(NPC.Chi);
 
         if (s.SharpeiTalk.value == 3) NPCList.GetNPC(NPC.Sharpeii).transform.position = new Vector3(18.5f, -55f);
         else NPCList.GetNPC(NPC.Sharpeii).transform.position = new Vector3(21.5f, -56f);
@@ -158,7 +166,7 @@ public class EventPositioner : MonoBehaviour {
                 NPCList.GetNPC(NPC.Labra).transform.position = nullPos;
                 NPCList.GetNPC(NPC.Sherman).transform.position = nullPos;
                 NPCList.GetNPC(NPC.Chi).transform.position = nullPos;
-                NPCList.GetNPC(NPC.Alma).transform.position = new Vector2(44.5f, -4.5f);
+                NPCList.GetNPC(NPC.Alma).transform.position = new Vector2(44.5f, -4f);
             }
 
             oldParkState = s.ParkState;
@@ -178,10 +186,7 @@ public class EventPositioner : MonoBehaviour {
         if(oldExtraParty != 2 && s.ExtraParkPartyMember == 2)
         {
             oldExtraParty = 2;
-
-            var hus = NPCList.GetNPC(NPC.Hus);
-            var chi = NPCList.GetNPC(NPC.Chi);
-
+            
             var oldHusPos = hus.transform.position;
             var oldHusLook = hus.facingDir;
 
@@ -190,6 +195,70 @@ public class EventPositioner : MonoBehaviour {
 
             chi.transform.position = oldHusPos;
             chi.SetFacingDirection(oldHusLook);
+        }
+
+        var malty = NPCList.GetNPC(NPC.Malty);
+        switch (s.MaltyTalk)
+        {
+            case 1: case 2:
+                if (s.ShibeInParty > 0) { malty.transform.position = new Vector3(96.5f, -51f); malty.SetFacingDirection(s.MaltyTalk == 1 ? SpriteDir.Left : SpriteDir.Right); }
+                else NPCList.GetNPC(NPC.Malty).transform.position = nullPos;
+                break;
+            case 6:
+                malty.transform.position = new Vector3(96.5f, -51f); malty.SetFacingDirection(SpriteDir.Right);
+                break;
+            default:
+                NPCList.GetNPC(NPC.Malty).transform.position = nullPos;
+                break;
+        }
+
+        var bernard = NPCList.GetNPC(NPC.Bernard);
+        switch(s.BernardTalk)
+        {
+            case 1: case 2: case 3: case 4:
+                bernard.transform.position = new Vector3(85.5f, -24f);
+                break;
+            default:
+                bernard.transform.position = nullPos;
+                break;
+        }
+        
+        if (oldCrestStalk != s.CrestStalkFest)
+        {
+            switch (s.CrestStalkFest)
+            {
+                case 1:
+                    crest.transform.position = new Vector3(9.5f, -19f);
+                    crest.SetFacingDirection(SpriteDir.Down);
+                    break;
+                case 2:
+                    crest.transform.position = new Vector3(-2.5f, -17f);
+                    crest.SetFacingDirection(SpriteDir.Right);
+                    break;
+                case 4:
+                    crest.transform.position = new Vector3(21.5f, -23f);
+                    crest.SetFacingDirection(SpriteDir.Right);
+                    break;
+                case 6:
+                    crest.transform.position = new Vector3(47.5f, -20f);
+                    crest.SetFacingDirection(SpriteDir.Right);
+                    
+                    hus.transform.position = new Vector3(47.5f, -21f);
+                    hus.SetFacingDirection(SpriteDir.Up);
+                    
+                    chi.transform.position = new Vector3(48.5f, -20f);
+                    chi.SetFacingDirection(SpriteDir.Left);
+                    break;
+                case 7:
+                    hus.transform.position = nullPos;
+                    hus.SetFacingDirection(SpriteDir.Up);
+                    
+                    chi.transform.position = nullPos;
+                    chi.SetFacingDirection(SpriteDir.Left);
+                    break;
+            }
+
+            oldCrestStalk = s.CrestStalkFest;
         }
     }
 }

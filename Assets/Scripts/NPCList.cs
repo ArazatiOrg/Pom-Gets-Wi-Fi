@@ -35,7 +35,7 @@ public enum NPC
     Goldie,
     Hus,
     Labra,
-    Malti,
+    Malty,
     Papi,
     Puddle,
     Sharpeii,

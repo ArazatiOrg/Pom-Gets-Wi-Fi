@@ -24,13 +24,14 @@ public class EventBattle : _BaseLogicEvent {
         yield return EventWait.c(1f).Execute();
         yield return EventFade.c(-1f, Color.black).NoYield.Execute();
         CameraBlinds.instance.HideBlinds();
+        yield return EventTextboxClose.c.Execute();
         yield return EventWait.c(1f).Execute();
         BattleController.instance.StartBattle();
         yield return new WaitUntil(() => BattleController.instance.curBattle == Battles.None);
         yield return EventFade.c(1f).Execute();
         BattleController.instance.FinishedBattle();
-        yield return EventFade.c(-1f).Execute();
         AudioController.instance.PlayBGM(oldMusic, oldVolume);
+        yield return EventFade.c(-1f).Execute();
     }
 }
 

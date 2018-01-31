@@ -144,6 +144,22 @@ public class TextEngine : MonoBehaviour {
                         } while (textIndex < text.text.Length && text.text[textIndex] != '>');
                         textIndex++;
                     }
+                    else if(c == ' ')
+                    {
+                        cursorIndex++;
+                        textIndex++;
+
+                        if (text.text.Length <= textIndex)
+                        {
+                            lineIndex = 5;
+                            waitingForInput = true;
+                            UpdateCursorState();
+
+                            timeSinceOpened = Time.realtimeSinceStartup;
+
+                            break;
+                        }
+                    }
                     else
                     {
                         ShowCharacters(++cursorIndex);

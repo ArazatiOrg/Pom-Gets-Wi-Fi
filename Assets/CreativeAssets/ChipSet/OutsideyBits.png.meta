@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: fcf7845658c5fc242b6c368b4e92e117
-timeCreated: 1517133414
+timeCreated: 1517317382
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -402,6 +402,8 @@ TextureImporter:
     21300790: OutsideyBits_395
     21300792: stoneBlockSearch_45
     21300794: stoneBlockSearch_df
+    21300796: RainbowSlice
+    21300798: RainbowSlice_Bottom
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -5581,6 +5583,34 @@ TextureImporter:
         height: 48
       alignment: 7
       pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RainbowSlice
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 160
+        width: 144
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RainbowSlice_Bottom
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 144
+        width: 144
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

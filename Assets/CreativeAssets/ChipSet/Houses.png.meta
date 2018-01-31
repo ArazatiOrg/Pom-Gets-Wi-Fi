@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: bb43334de85f03e409ccb7db98cb4b78
-timeCreated: 1517129684
+timeCreated: 1517376181
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -333,6 +333,7 @@ TextureImporter:
     21300652: Houses_326
     21300654: Houses_327
     21300656: Houses_328
+    21300658: ShibeAndHus
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -4257,20 +4258,6 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Houses_272
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
       name: Houses_273
       rect:
         serializedVersion: 2
@@ -5050,6 +5037,20 @@ TextureImporter:
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ShibeAndHus
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 32
+        width: 48
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

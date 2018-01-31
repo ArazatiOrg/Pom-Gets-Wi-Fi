@@ -29,7 +29,7 @@ public enum BGM
     Village2 = 0,
     Burning,
     Memories,
-    Eeternal,
+    Eternal,
     Field4,
     EricSkiff_UnderStars,
     Mystery3,
@@ -38,7 +38,7 @@ public enum BGM
     Interlude,
     MechaBase,
     Sadness,
-    SHop3,
+    Shop3,
     Solace3,
     GymnopedieNo1,
     ForgiveMeGreatSpirit

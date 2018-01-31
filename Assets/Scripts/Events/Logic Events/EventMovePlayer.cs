@@ -6,6 +6,7 @@ public class EventMovePlayer : _BaseLogicEvent {
     private Vector2 directDir;
     NPC npc = NPC.Pom;
     Speed speed = Speed.Normal;
+    int times = 1;
 
     public EventMovePlayer(Vector2 directDirection, NPC npc = NPC.Pom)
     {
@@ -13,9 +14,9 @@ public class EventMovePlayer : _BaseLogicEvent {
         this.npc = npc;
     }
 
-    public static EventMovePlayer c(Vector2 directDirection, NPC npc = NPC.Pom, Speed speed = Speed.Normal)
+    public static EventMovePlayer c(Vector2 directDirection, NPC npc = NPC.Pom, Speed speed = Speed.Normal, int times = 1)
     {
-        return new EventMovePlayer(directDirection, npc) { speed = speed };
+        return new EventMovePlayer(directDirection, npc) { speed = speed, times = times };
     }
 
     public override IEnumerator Execute()
@@ -33,14 +34,17 @@ public class EventMovePlayer : _BaseLogicEvent {
             case Speed.TwiceNormal: controller.moveSpeed = 16f; break;
             case Speed.FourTimesNormal: controller.moveSpeed = 32f; break;
         }
+        
+        for (int i = 0; i < times; i++)
+        {
+            controller.AllowMovement = true;
+            controller.SetFacingDirection(controller.DirFromVector(directDir));
+            controller.ForceMove(directDir);
+            controller.AllowMovement = false;
 
-        //controller.moveSpeed = (float)speed;
-        controller.AllowMovement = true;
-        controller.SetFacingDirection(controller.DirFromVector(directDir));
-        controller.ForceMove(directDir);
-        controller.AllowMovement = false;
-
-        yield return new WaitUntil(() => controller.stoppedOnTile);
+            yield return new WaitUntil(() => controller.stoppedOnTile);
+        }
+        
 
         controller.moveSpeed = beforeSpeed;
         controller.AllowMovement = before;

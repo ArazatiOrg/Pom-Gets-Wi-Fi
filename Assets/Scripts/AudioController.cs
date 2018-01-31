@@ -40,38 +40,79 @@ public class AudioController : MonoBehaviour {
 
     private void Update()
     {
+        if(desiredBGM >= -1 && percentage < 1f)
+        {
+            percentage -= Time.smoothDeltaTime * bgmTransitionSpeed;
+
+            if(percentage <= 0f)
+            {
+                if (desiredBGM == (int)BGM.NONE)
+                {
+                    bgmSource.Stop();
+                }
+                else
+                {
+                    loopAtTime = loopTimes[desiredBGM, 0];
+                    rewindTime = loopTimes[desiredBGM, 1];
+
+                    bgmSource.time = 0f;
+
+                    //bgmSource.volume = desiredBGM;
+                    bgmSource.clip = music[desiredBGM];
+                    bgmSource.loop = true;
+                    bgmSource.Play();
+
+                    //woo hacky stuff via code instead of clipping the actual audio file
+                    if (desiredBGM == (int)BGM.Village2) bgmSource.time = 2.20f;
+                }
+
+                desiredBGM = -2;
+                percentage = 0f;
+            }
+
+            bgmSource.volume = percentage * oldVolume;
+        }
+        
+        if(desiredBGM == -2 && percentage < 1f)
+        {
+            percentage += Time.smoothDeltaTime * bgmTransitionSpeed;
+
+            if(percentage >= 1f)
+            {
+                percentage = 1f;
+                bgmSource.volume = desiredVolume;
+                desiredVolume = -1f;
+                oldVolume = -1f;
+            }
+            else bgmSource.volume = percentage * desiredVolume;
+        }
+
         if (loopAtTime > 0f && bgmSource.time > loopAtTime)
         {
             bgmSource.time -= rewindTime;
         }
     }
 
-    public void PlayBGM(int index, float volume)
+    int desiredBGM = -2;
+    float desiredVolume = -1;
+    float oldVolume = -1;
+    float percentage = 0f;
+    float bgmTransitionSpeed = 8f;
+
+    public void PlayBGM(int index, float volume, bool restartIfSame = true)
     {
+        if (!restartIfSame && bgmSource.clip == music[index]) return;
+
         if (Global.ActiveSavefile != null)
         {
             Global.s.ActiveBGM.value = index;
             Global.s.ActiveBGMVolume.value = volume;
         }
 
-        if (index == (int)BGM.NONE)
-        {
-            bgmSource.Stop();
-            return;
-        }
-
-        loopAtTime = loopTimes[index, 0];
-        rewindTime = loopTimes[index, 1];
-
-        bgmSource.time = 0f;
-
-        bgmSource.volume = volume;
-        bgmSource.clip = music[index];
-        bgmSource.loop = true;
-        bgmSource.Play();
-
-        //woo hacky stuff via code instead of clipping the actual audio file
-        if (index == (int)BGM.Village2) bgmSource.time = 2.20f;
+        desiredBGM = index;
+        desiredVolume = volume;
+        oldVolume = bgmSource.volume;
+        percentage = .99f;
     }
 
     public void PlaySFX(int index, float volume)

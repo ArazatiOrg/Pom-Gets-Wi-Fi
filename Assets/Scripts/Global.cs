@@ -119,6 +119,9 @@ public class Global : MonoBehaviour {
         [SerializeField] public GlobalInt BadEnd = new GlobalInt();
         [SerializeField] public GlobalInt WittyFidoTalk = new GlobalInt();
 
+        [SerializeField] public GlobalInt Camera = new GlobalInt();
+        [SerializeField] public GlobalInt PictureTaken = new GlobalInt();
+
         [SerializeField] public GlobalInt StopPom = new GlobalInt();
 
         public void Save(int slot)

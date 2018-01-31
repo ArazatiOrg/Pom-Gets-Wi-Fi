@@ -36,5 +36,7 @@ public enum SFX
     Rimshot,
     damage1,
     close1,
-    punch6
+    punch6,
+    punch1,
+    cameraShutter
 }

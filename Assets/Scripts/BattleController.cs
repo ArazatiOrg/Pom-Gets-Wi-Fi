@@ -624,8 +624,14 @@ public class BattleController : MonoBehaviour {
             {
                 if (target == Target.Ally)
                 {
-                    if (instance.pomHP > 0) instance.Damage(Attacker.Pom, (int)(instance.pomHP * damage));
-                    if (instance.shibeHP > 0) instance.Damage(Attacker.Shibe, (int)(instance.shibeHP * damage));
+                    if (instance.pomHP > 0 && instance.shibeHP <= 0) instance.Damage(Attacker.Pom, (int)(instance.pomHP * damage));
+                    else if (instance.shibeHP > 0 && instance.pomHP <= 0) instance.Damage(Attacker.Shibe, (int)(instance.shibeHP * damage));
+                    else
+                    {
+                        var rand = UnityEngine.Random.Range(0, 2);
+
+                        instance.Damage(rand == 0 ? Attacker.Pom : Attacker.Shibe, (int)((rand == 0 ? instance.pomHP : instance.shibeHP) * damage));
+                    }
                 }
                 else
                 {
@@ -637,8 +643,14 @@ public class BattleController : MonoBehaviour {
             {
                 if(target == Target.Ally)
                 {
-                    if (instance.pomHP > 0) instance.Damage(Attacker.Pom, (int)damage);
-                    if (instance.shibeHP > 0) instance.Damage(Attacker.Shibe, (int)damage);
+                    if (instance.pomHP > 0 && instance.shibeHP <= 0) instance.Damage(Attacker.Pom, (int)(damage));
+                    else if (instance.shibeHP > 0 && instance.pomHP <= 0) instance.Damage(Attacker.Shibe, (int)(damage));
+                    else
+                    {
+                        var rand = UnityEngine.Random.Range(0, 2);
+
+                        instance.Damage(rand == 0 ? Attacker.Pom : Attacker.Shibe, (int)damage);
+                    }
                 }
                 else
                 {

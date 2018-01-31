@@ -41,8 +41,8 @@ public class EventTextbox : _BaseLogicEvent {
                 //extra space, oops
                 i++;
             }
-
-            if(text[i] == '\'' && text[i+1] == '\'')
+            
+            if(text[i] == '\'' && i+1 < text.Length && text[i+1] == '\'')
             {
                 i++;
                 stringBuilder.Append("\"");
