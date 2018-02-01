@@ -97,6 +97,8 @@ public class AutoWalk : MonoBehaviour {
         {
             case NPC.Crest:
                 {
+                    if (Global.s.PictureTaken > 0 || Global.s.CrestStalkFest > 0) { movements = empty; break; }
+
                     var s = Global.s.CrestTalk.value;
 
                     switch (s)
@@ -109,6 +111,8 @@ public class AutoWalk : MonoBehaviour {
                 break;
             case NPC.Puddle:
                 {
+                    if (Global.s.PictureTaken > 0) { movements = empty; break; }
+
                     var s = Global.s.PuddleTalk.value;
 
                     if (s == 0) movements = puddle0;

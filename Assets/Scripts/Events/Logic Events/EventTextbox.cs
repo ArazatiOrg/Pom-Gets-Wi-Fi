@@ -126,8 +126,10 @@ public class EventTextbox : _BaseLogicEvent {
     public override IEnumerator Execute()
     {
         var before = Player.playerInstance.AllowMovement;
-        
-        TextEngine.instance.InitializeNewSlidein(shownFace, text, fromRight, timeToSlide);
+
+        var face = shownFace;
+        if (face == Faces.Pom && Global.s.PlayerSprite == (int)PlayerSprite.OnFire) face = Faces.Pom_fire;
+        TextEngine.instance.InitializeNewSlidein(face, text, fromRight, timeToSlide);
 
         yield return new WaitUntil(() =>  TextEngine.instance.finishedTextbox);
 

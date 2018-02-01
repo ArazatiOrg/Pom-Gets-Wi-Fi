@@ -44,6 +44,7 @@ public class EventTeleportPlayer : _BaseEvent {
 
 		yield return new WaitUntil(() => cameraFader.finishedFading);
 
-		Player.playerInstance.AllowMovement = true;
+        if(Player.playerInstance.triggerOverride == 0)
+		    Player.playerInstance.AllowMovement = true;
 	}
 }

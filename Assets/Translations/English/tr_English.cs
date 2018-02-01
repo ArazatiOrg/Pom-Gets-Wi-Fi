@@ -64,6 +64,11 @@ public class tr_English : _BaseTR
         //This is actually the longest event chain in the game, so it's a bit more complicated than most.
         //For the most part, each event page is done in order, with 4 potential sub events on 1, 2, and 3, which lets the player choose one of 4 websites.
 
+        var facewoof = new EventPage();
+        var reddig = new EventPage();
+        var gTail = new EventPage();
+        var tumfur = new EventPage();
+
         NewEP("67B10BC2-FCEF-4722-B7D7-B8BCB24B3F70");
         {
             var introIs0 = new EventPage();
@@ -98,11 +103,6 @@ public class tr_English : _BaseTR
             }
 
             #region Websites
-            var facewoof = new EventPage();
-            var reddig = new EventPage();
-            var gTail = new EventPage();
-            var tumfur = new EventPage();
-
             var choice = EventTextboxChoice.c.
                     AddChoice("Facewoof", facewoof, Global.s.Intro_Facewoof).
                     AddChoice("Reddig", reddig, Global.s.Intro_Reddig).
@@ -830,8 +830,9 @@ public class tr_English : _BaseTR
                     e = EventTextbox.c(Faces.Shibe_nervous, @"She ran away...");
                     e = EventTextbox.c(Faces.Pom, @"i guess we're done here");
                     e = EventSetGlobal.c(Global.s.BernardTalk, 3);
-                    e = EventTextboxClose.c;
+                    e = EventTPPlayer.c(EventPositioner.nullPos, SpriteDir.None, NPC.Crest).instantTeleport;
                     e = EventSetGlobal.c(Global.s.CrestStalkFest, 9);
+                    e = EventTextboxClose.c;
                 }
 
                 ep = noPicturesTaken;
@@ -865,6 +866,7 @@ public class tr_English : _BaseTR
                     e = EventSetGlobal.c(Global.s.BernardTalk, 3);
                     e = EventSetGlobal.c(Global.s.CrestStalkFest, 0);
                     e = EventSetGlobal.c(Global.s.PuddleTalk, 5);
+                    e = EventTPPlayer.c(EventPositioner.nullPos, SpriteDir.None, NPC.Crest).instantTeleport;
                     e = EventSetGlobal.c(Global.s.CrestTalk, 9);
                     e = EventFade.c(-.4f);
                 }
@@ -1221,7 +1223,6 @@ public class tr_English : _BaseTR
                                                         root beer float from starpugs");
                         e = EventSFX.c(SFX.fire8);
                         e = EventShake.c(5, 5, .2f);
-                        e = EventTextbox.c(Faces.York, "");
                         e = EventTextboxClearText.c;
                         e = EventWait.c(.2f);
                         e = EventTextbox.c(Faces.York, @"You have a root beer float?!");
@@ -2528,8 +2529,9 @@ manservant?!").SwitchSides;
                 e = EventPlayerMoveable.c(false);
                 e = EventFade.c(.5f);
                 e = EventChangeSprite.c(PlayerSprite.None);
-                e = EventSetGlobal.c(Global.s.ShibeAbleToFollow, 1);
                 e = EventTPPlayer.c(new Vector2(38.5f, 12.5f), SpriteDir.Down).instantTeleport;
+                e = EventTPPlayer.c(new Vector2(38.5f, 10.5f), SpriteDir.Up, NPC.Shibe).instantTeleport;
+                e = EventTPPlayer.c(new Vector2(39.5f, 10.5f), SpriteDir.Up, NPC.Hus).instantTeleport;
                 e = EventBGM.c(BGM.Ending3);
                 e = EventFade.c(-.5f);
 
@@ -2562,7 +2564,9 @@ manservant?!").SwitchSides;
                                                      I forgot you were on such good terms
                                                      with everyone here.");
                 e = EventTextbox.c(Faces.Hus, @"You will be too, soon enough.");
+                e = EventMovePlayer.c(Down);
                 e = EventSetGlobal.c(Global.s.ChiTalk, 3);
+                e = EventSetGlobal.c(Global.s.ShibeAbleToFollow, 1);
 
                 var goldieTalk5 = new EventPage();
                 var goldieTalk6 = new EventPage();
@@ -2778,6 +2782,127 @@ manservant?!").SwitchSides;
             }
         }
 
+        //puddle mad at you for taking a picture at crest after leaving starpugs
+        NewEP("29445a7c-f0da-408d-8b7b-070b76801e92");
+        {
+            var ugTalk2 = new EventPage();
+
+            e = EventPageSwitch.c(Global.s.UgTalk).AddEventPage(2, ugTalk2);
+
+            ep = ugTalk2;
+            {
+                var pictureTaken = new EventPage();
+
+                e = EventPageSwitch.c(Global.s.PictureTaken).AddEventPage(1, pictureTaken);
+
+                ep = pictureTaken;
+                {
+                    e = EventPlayerMoveable.c(false);
+                    e = EventSetGlobal.c(Player.playerInstance.triggerOverride, 1);
+                    e = EventPlayerMoveable.c(false);
+                    e = EventWait.c(1f);
+                    e = EventSFX.c(SFX.Pom_bark);
+                    e = EventShake.c(5, 5, .2f).Wait;
+                    e = EventTextbox.c(Faces.Crest_crying, @"They're here!");
+                    e = EventTextbox.c(Faces.Crest_crying, @"They're the ones who were following
+                                                             me!");
+                    e = EventSFX.c(SFX.Pom_bark);
+                    e = EventShake.c(5, 5, .2f).Wait;
+                    e = EventTextbox.c(Faces.Pom, @"huh????????? she noticed us?????");
+                    e = EventSFX.c(SFX.Medium_Dog1);
+                    e = EventTextbox.c(Faces.Puddle, @"It's you two?! But...!");
+                    e = EventSFX.c(SFX.Pom_bark);
+                    e = EventTextbox.c(Faces.Crest_crying, @"I didn't want to believe it either, after
+                                                             they were so nice to us...");
+                    e = EventTextbox.c(Faces.Crest_crying, @"But I saw them with my own eyes!");
+                    e = EventSFX.c(SFX.Medium_Dog1);
+                    e = EventShake.c(5, 5, .2f).Wait;
+                    e = EventTextbox.c(Faces.Puddle, @"I won't forgive you for making Crest
+                                                       cry.");
+                    e = EventTextbox.c(Faces.Puddle, @"I'll kill you!");
+                    e = EventTextboxClose.c;
+                    e = EventBattle.c(Battles.Puddle);
+                    e = EventTextboxClose.c;
+                    e = EventWait.c(1f);
+                    e = EventSFX.c(SFX.Pom_bark);
+                    e = EventTextbox.c(Faces.Crest_crying, @"Puddle!");
+                    e = EventSFX.c(SFX.Medium_Dog1);
+                    e = EventTextbox.c(Faces.Puddle_angry, @"Ugh...!");
+                    e = EventTextbox.c(Faces.Pom, @"c");
+                    e = EventTextbox.c(Faces.Pom, @"das what happens when u challenge
+                                                    my gang");
+                    e = EventSFX.c(SFX.Pom_bark);
+                    e = EventTextbox.c(Faces.Crest_crying, @"Puddle, we have to run away!");
+                    e = EventTextboxClose.c;
+                    e = EventSetFacing.c(NPC.Crest, SpriteDir.Right);
+                    e = EventMovePlayer.c(Right, NPC.Crest, Speed.Normal, 5);
+                    e = EventSetFacing.c(NPC.Puddle, SpriteDir.Right);
+                    e = EventMovePlayer.c(Right, NPC.Puddle, Speed.Normal, 6);
+                    e = EventSetGlobal.c(Global.s.UgTalk, 3);
+                    e = EventSetGlobal.c(Global.s.MaltyTalk, 5);
+                    e = EventWait.c(1f);
+                    e = EventTextbox.c(Faces.Pom, @"shibe lets go");
+                    e = EventTextbox.c(Faces.Shibe_freaking_out, @"...No!");
+                    e = EventSetFacing.c(NPC.Pom, SpriteDir.Left);
+                    e = EventSFX.c(SFX.Pom_bark);
+                    e = EventTextbox.c(Faces.Pom, @"NANI???????????????");
+                    e = EventTextbox.c(Faces.Pom, @"COME ON SHIBE");
+                    e = EventTextbox.c(Faces.Pom, @"SEBASTIAN");
+                    e = EventSFX.c(SFX.Medium_Dog1);
+                    e = EventShake.c(5, 5, .2f).Wait;
+                    e = EventTextbox.c(Faces.Shibe_freaking_out, @"I'm not coming with you!");
+                    e = EventTextbox.c(Faces.Shibe_freaking_out, @"I've had enough of this!");
+                    e = EventSFX.c(SFX.Pom_bark);
+                    e = EventShake.c(5, 5, .2f).Wait;
+                    e = EventTextbox.c(Faces.Pom, @"I'LL SHOW U WHAT HAPPENS WHEN
+                                                    U DEFY ME");
+                    e = EventSFX.c(SFX.Medium_Dog1);
+                    e = EventShake.c(5, 5, .2f).Wait;
+                    e = EventTextbox.c(Faces.Shibe_freaking_out, @"AIEEEEEEEEEEEEEEE!!!!!");
+                    e = EventTextbox.c(Faces.None, @"\C[1]???\C[0]
+                                                     I won't let you touch him!");
+                    e = EventTextbox.c(Faces.Pom, @"lol whats happening hoo dis");
+                    e = EventTextboxClose.c;
+                    e = EventFlashScreen.c(.5f);
+                    e = EventFade.c(.4f);
+                    e = EventSetGlobal.c(Global.s.ShibeAbleToFollow, 0);
+                    e = EventMovePlayer.c(Right);
+                    e = EventSetFacing.c(NPC.Pom, SpriteDir.Left);
+                    e = EventSetGlobal.c(Global.s.HusTalk, 5);
+                    e = EventSetGlobal.c(Global.s.MaltyTalk, 6);
+                    e = EventFade.c(-.4f);
+                    e = EventSFX.c(SFX.Medium_Dog1);
+                    e = EventTextbox.c(Faces.Shibe_nervous, @"Hus?!");
+                    e = EventSFX.c(SFX.Medium_Dog1);
+                    e = EventTextbox.c(Faces.Hus_angry, @"Shibe, get back!");
+                    e = EventSFX.c(SFX.Pom_bark);
+                    e = EventShake.c(5, 5, .2f).Wait;
+                    e = EventTextbox.c(Faces.Pom, @"OMFGGGGGGG GAY BOYFRIEND 2
+                                                    DA RESCUE");
+                    e = EventTextbox.c(Faces.Pom, @"I CANT HANDLE THIS");
+                    e = EventSFX.c(SFX.Medium_Dog1);
+                    e = EventTextbox.c(Faces.Hus_angry, @"Quit bullying him.");
+                    e = EventSFX.c(SFX.Pom_bark);
+                    e = EventTextbox.c(Faces.Pom, @"fin e u can take him");
+                    e = EventTextbox.c(Faces.Pom, @"im a strong independent pom pom 
+                                                    doge who don't need no shibe");
+                    e = EventTextbox.c(Faces.None, @"Shibe has left the party!");
+                    e = EventTextboxClose.c;
+                    e = EventFade.c(.4f);
+                    e = EventSetGlobal.c(Global.s.ShibeInParty, 0);
+                    e = EventSetGlobal.c(Global.s.CrestTalk, 9);
+                    e = EventSetGlobal.c(Global.s.HusTalk, 6);
+                    e = EventFade.c(-.4f);
+                    e = EventTextbox.c(Faces.Pom, @"...");
+                    e = EventTextbox.c(Faces.Pom, @"that dum shibe");
+                    e = EventSetGlobal.c(Global.s.HusTalk, 9);
+                    e = EventSetGlobal.c(Player.playerInstance.triggerOverride, 0);
+                    e = EventTextboxClose.c;
+                    e = EventPlayerMoveable.c(true);
+                }
+            }
+        }
+
         #endregion
         
         #region Starpugs Interior
@@ -2985,16 +3110,137 @@ manservant?!").SwitchSides;
 
         #region The Gate
 
+        var openGateWithCorgKeys = new EventPage();
+
         // .. the gate itself
         NewEP("2b6da05f-eb97-43ec-91e1-1136c9a941dc");
         {
+            var hasCorgKeys = new EventPage();
+            var dontHaveCorgKeys = new EventPage();
 
+            e = EventPageSwitch.c(Global.s.CorgKeys).AddEventPage(0, dontHaveCorgKeys).AddEventPage(1, hasCorgKeys);
+
+            ep = dontHaveCorgKeys;
+            {
+                var shibeInParty = new EventPage();
+                var shibeNotInParty = new EventPage();
+
+                e = EventPageSwitch.c(Global.s.ShibeInParty).AddEventPage(0, shibeNotInParty).AddEventPage(1, shibeInParty);
+
+                ep = shibeNotInParty;
+                {
+                    e = EventPlayerMoveable.c(false);
+                    e = EventTextbox.c(Faces.Pom, @"...");
+                    e = EventTextboxClose.c;
+                    e = EventPlayerMoveable.c(true);
+                }
+
+                ep = shibeInParty;
+                {
+                    var silentTreatment = new EventPage();
+                    var notSilentTreatment = new EventPage();
+
+                    e = EventPageSwitch.c(Global.s.Silent_Treatment).AddEventPage(0, notSilentTreatment).AddEventPage(1, silentTreatment);
+
+                    ep = silentTreatment;
+                    {
+                        e = EventPlayerMoveable.c(false);
+                        e = EventTextbox.c(Faces.Pom, @"hey shibe");
+                        e = EventTextbox.c(Faces.Shibe_uh, @"...");
+                        e = EventTextbox.c(Faces.Pom, @"...");
+                        e = EventTextboxClose.c;
+                        e = EventPlayerMoveable.c(true);
+                    }
+
+                    ep = notSilentTreatment;
+                    {
+                        e = EventPlayerMoveable.c(false);
+                        e = EventTextbox.c(Faces.Shibe, @"What an enormous gate!");
+                        e = EventTextbox.c(Faces.Shibe, @"I wonder what it leads to.");
+                        e = EventTextboxClose.c;
+                        e = EventPlayerMoveable.c(true);
+                    }
+                }
+            }
+
+            ep = hasCorgKeys;
+            {
+                e = EventPageExecute.c(openGateWithCorgKeys);
+            }
+        }
+
+        //Opening the gate
+        ep = openGateWithCorgKeys;
+        {
+            e = EventPlayerMoveable.c(false);
+            e = EventTextbox.c(Faces.Pom, @"found da corg-keys");
+            e = EventTextbox.c(Faces.Pom, @"time 2 open da gate and defeat dog");
+            e = EventTextbox.c(Faces.Corg, @"Wait! Give the Corg-Keys to me!");
+            e = EventTextbox.c(Faces.Pom, @"no");
+            e = EventTextbox.c(Faces.Pom, @"the pun is too bad");
+            e = EventTextbox.c(Faces.Corg, @"You can't see Dog without his
+                                             permission!");
+            e = EventTextbox.c(Faces.Pom, @"were u even listening 2 obama");
+            e = EventSFX.c(SFX.Pom_bark);
+            e = EventTextbox.c(Faces.Pom, @"yes we can");
+            e = EventTextboxClose.c;
+            e = EventFlashScreen.c(.5f);
+            e = EventShake.c(5, 5, .2f).Wait;
+            e = EventFade.c(.4f);
+            e = EventSetGlobal.c(Global.s.CorgKeys, 0);
+            e = EventSetGlobal.c(Global.s.GateOpened, 1);
+            e = EventTPPlayer.c(new Vector2(122.5f, -19.5f), SpriteDir.Up).instantTeleport;
+            e = EventFade.c(-.4f);
+            e = EventMovePlayer.c(Up, NPC.Pom, Speed.Normal, 6);
+            e = EventSetGlobal.c(Global.s.StopPom, 1);
+            e = EventWait.c(1f);
+            e = EventSFX.c(SFX.Medium_Dog1);
+            e = EventShake.c(5, 5, .2f).Wait;
+            e = EventTextbox.c(Faces.Hus_angry, @"Stop!");
+            e = EventTPPlayer.c(new Vector2(122.5f, -20.5f), SpriteDir.Up, NPC.Hus).instantTeleport;
+            e = EventTPPlayer.c(new Vector2(122.5f, -21.5f), SpriteDir.Up, NPC.Shibe).instantTeleport;
+            e = EventTextboxClose.c;
+            e = EventSetFacing.c(NPC.Pom, SpriteDir.Down);
+            e = EventMovePlayer.c(Up, NPC.Hus).NoWait; //not super happy with how ugly this is..
+            e = EventMovePlayer.c(Up, NPC.Shibe);
+            e = EventMovePlayer.c(Up, NPC.Hus).NoWait;
+            e = EventMovePlayer.c(Up, NPC.Shibe);
+            e = EventMovePlayer.c(Up, NPC.Hus).NoWait;
+            e = EventMovePlayer.c(Up, NPC.Shibe);
+            e = EventMovePlayer.c(Up, NPC.Hus).NoWait;
+            e = EventMovePlayer.c(Up, NPC.Shibe);
+            e = EventMovePlayer.c(Up, NPC.Hus).NoWait;
+            e = EventMovePlayer.c(Up, NPC.Shibe);
+            e = EventMovePlayer.c(Up, NPC.Hus).NoWait;
+            e = EventMovePlayer.c(Up, NPC.Shibe);
+            e = EventTextbox.c(Faces.Shibe_nervous, @"Pom, you can't fight Dog!");
+            e = EventTextbox.c(Faces.Pom, @"objection");
+            e = EventTextbox.c(Faces.Pom, @"go away");
+            e = EventTextboxClose.c;
+            e = EventBattle.c(Battles.Hus_and_Shibe);
+            e = EventSetGlobal.c(Global.s.StopPom, 3);
+            e = EventTextbox.c(Faces.Pom, @"...");
+            e = EventTextbox.c(Faces.Pom, @"they're both knocked out now");
+            e = EventTextboxClose.c;
+            e = EventPlayerMoveable.c(true);
         }
 
         //Shibe and Hus defeated bodies
         NewEP("9246280a-39b6-4308-a954-755265e1bf44");
         {
-
+            e = EventPlayerMoveable.c(false);
+            e = EventTextbox.c(Faces.Pom, @"I could kick them into place so they're
+                                            lying in yin yang formation");
+            e = EventTextbox.c(Faces.Pom, @"*kick*");
+            e = EventSFX.c(SFX.bump1);
+            e = EventTextbox.c(Faces.Pom, @"*kick*");
+            e = EventSFX.c(SFX.bump1);
+            e = EventTextboxClose.c;
+            e = EventWait.c(1f);
+            e = EventTextbox.c(Faces.Pom, @"darn it's no use");
+            e = EventTextbox.c(Faces.Pom, @"they're too heavy");
+            e = EventTextboxClose.c;
+            e = EventPlayerMoveable.c(true);
         }
 
         #endregion
@@ -3359,46 +3605,66 @@ manservant?!").SwitchSides;
             }
         }
 
-        //Dave Pointer in Flower Field Town
+        //Dave Pointer
         NewEP("2c6cfa07-9274-4894-8a77-faf92b4d6b47");
         {
-            var davePointer0 = new EventPage();
-            var davePointer1 = new EventPage();
-            var davePointer2 = new EventPage();
+            var endgame = new EventPage();
+            var notEndgame = new EventPage();
 
-            e = EventPageSwitch.c(Global.s.DavePointer).AddEventPage(0, davePointer0).AddEventPage(1, davePointer1).AddEventPage(2, davePointer2);
+            e = EventPageSwitch.c(Global.s.StopPom).AddEventPage(0, notEndgame).AddEventPage(1, endgame, SwitchComparator.GreaterOrEqual);
 
-            ep = davePointer0;
+            ep = notEndgame;
             {
-                e = EventPlayerMoveable.c(false);
-                e = EventTextbox.c(Faces.DavePointer, "Save?");
-                e = EventTextbox.c(Faces.Shibe, "...").SwitchSides;
-                e = EventTextbox.c(Faces.Shibe_uh, "......?").SwitchSides;
-                e = EventTextbox.c(Faces.Shibe_uh, "Save what?").SwitchSides;
-                e = EventTextbox.c(Faces.Shibe_uh, "The rainforest? The manatees?").SwitchSides;
-                e = EventTextbox.c(Faces.Pom, "ive been waiting for this!");
-                e = EventSetGlobal.c(Global.s.DavePointer, 1);
-                e = EventSaveScreen.c; //temp, just automatically saves to slot 0
-                e = EventTextbox.c(Faces.None, @"Automatically saved to slot 0.");
-                e = EventTextboxClose.c;
-                e = EventPlayerMoveable.c(true);
+                var davePointer0 = new EventPage();
+                var davePointer1 = new EventPage();
+                var davePointer2 = new EventPage();
+
+                e = EventPageSwitch.c(Global.s.DavePointer).AddEventPage(0, davePointer0).AddEventPage(1, davePointer1).AddEventPage(2, davePointer2);
+
+                ep = davePointer0;
+                {
+                    e = EventPlayerMoveable.c(false);
+                    e = EventTextbox.c(Faces.DavePointer, @"Save?");
+                    e = EventTextbox.c(Faces.Shibe, @"...").SwitchSides;
+                    e = EventTextbox.c(Faces.Shibe_uh, @"......?").SwitchSides;
+                    e = EventTextbox.c(Faces.Shibe_uh, @"Save what?").SwitchSides;
+                    e = EventTextbox.c(Faces.Shibe_uh, @"The rainforest? The manatees?").SwitchSides;
+                    e = EventTextbox.c(Faces.Pom, @"ive been waiting for this!");
+                    e = EventSetGlobal.c(Global.s.DavePointer, 1);
+                    e = EventSaveScreen.c;
+                    e = EventTextbox.c(Faces.None, @"Automatically saved to slot 0.");
+                    e = EventTextboxClose.c;
+                    e = EventPlayerMoveable.c(true);
+                }
+
+                ep = davePointer1;
+                {
+                    e = EventPlayerMoveable.c(false);
+                    e = EventTextbox.c(Faces.DavePointer, @"Save?");
+                    e = EventSaveScreen.c;
+                    e = EventTextbox.c(Faces.None, @"Automatically saved to slot 0.");
+                    e = EventTextboxClose.c;
+                    e = EventPlayerMoveable.c(true);
+                }
+
+                ep = davePointer2;
+                {
+                    e = EventPlayerMoveable.c(false);
+                    e = EventTextbox.c(Faces.DavePointer, @"Say V?");
+                    e = EventSaveScreen.c;
+                    e = EventTextbox.c(Faces.None, @"Automatically saved to slot 0.");
+                    e = EventTextboxClose.c;
+                    e = EventPlayerMoveable.c(true);
+                }
             }
 
-            ep = davePointer1;
+            ep = endgame;
             {
                 e = EventPlayerMoveable.c(false);
-                e = EventTextbox.c(Faces.DavePointer, "Save?");
-                e = EventSaveScreen.c; //temp, just automatically saves to slot 0
-                e = EventTextbox.c(Faces.None, @"Automatically saved to slot 0.");
-                e = EventTextboxClose.c;
-                e = EventPlayerMoveable.c(true);
-            }
-
-            ep = davePointer2;
-            {
-                e = EventPlayerMoveable.c(false);
-                e = EventTextbox.c(Faces.DavePointer, "Say V?");
-                e = EventSaveScreen.c; //temp, just automatically saves to slot 0
+                e = EventTextbox.c(Faces.DavePointer, @"Say V?");
+                e = EventTextbox.c(Faces.Pom, @"im not even going 2 question how u
+                                                        got here");
+                e = EventSaveScreen.c;
                 e = EventTextbox.c(Faces.None, @"Automatically saved to slot 0.");
                 e = EventTextboxClose.c;
                 e = EventPlayerMoveable.c(true);
@@ -4832,7 +5098,7 @@ manservant?!").SwitchSides;
                         e = EventTextbox.c(Faces.Pom, @"NOW U FUKKED UP");
                         e = EventTextbox.c(Faces.Pom, @"NOW U HAVE FUKKED UP");
                         e = EventSetGlobal.c(Global.s.UgTalk, 1);
-                        //e = EventTextboxClose.c;
+                        e = EventTextboxClose.c;
                         e = EventBattle.c(Battles.Bernard);
                         e = EventSFX.c(SFX.Pom_bark);
                         e = EventTextbox.c(Faces.Pom, @"LIKE A BOSS...ton terrier");
@@ -4884,13 +5150,384 @@ manservant?!").SwitchSides;
         //Corg
         NewEP("1e2777dd-36dd-4e2d-94b6-b33207194b72");
         {
+            var hasCorgKeys = new EventPage();
+            var doesntHaveCorgKeys = new EventPage();
 
+            e = EventPageSwitch.c(Global.s.CorgKeys).AddEventPage(0, doesntHaveCorgKeys).AddEventPage(1, hasCorgKeys);
+
+            ep = hasCorgKeys;
+            {
+                e = EventPageExecute.c(openGateWithCorgKeys);
+            }
+
+            ep = doesntHaveCorgKeys;
+            {
+                var corgTalk1 = new EventPage();
+                var corgTalk2 = new EventPage();
+                var corgTalk3 = new EventPage();
+
+                e = EventPageSwitch.c(Global.s.CorgTalk).AddEventPage(1, corgTalk1).AddEventPage(2, corgTalk2).AddEventPage(3, corgTalk3);
+
+                ep = corgTalk1;
+                {
+                    e = EventPlayerMoveable.c(false);
+                    e = EventTextbox.c(Faces.Corg, @"I've lost my Corg-Keys!");
+                    e = EventTextbox.c(Faces.Shibe_uh, @"The pun is really bad!").SwitchSides;
+                    e = EventTextbox.c(Faces.Pom, @"r the keys important");
+                    e = EventTextbox.c(Faces.Corg, @"I need them to open the gate to Dog's
+                                                     throne.");
+                    e = EventSFX.c(SFX.Pom_bark);
+                    e = EventTextbox.c(Faces.Pom, @"WOW how convenient");
+                    e = EventTextbox.c(Faces.Pom, @"we'll find ur corg-keys");
+                    e = EventTextbox.c(Faces.Pom, @"where did u last see them");
+                    e = EventTextbox.c(Faces.Corg, @"I think I might have dropped them in
+                                                     the trash.");
+                    e = EventTextbox.c(Faces.Pom, @"da fuq");
+                    e = EventTextbox.c(Faces.Corg, @"Ugh, I've got to find them!");
+                    e = EventTextboxClose.c;
+                    e = EventFade.c(.4f);
+                    e = EventSetGlobal.c(Global.s.JunkPile, 1);
+                    e = EventSetGlobal.c(Global.s.MaltyTalk, 6);
+                    e = EventSetGlobal.c(Global.s.CorgTalk, 2);
+                    e = EventFade.c(-.4f);
+                    e = EventTextbox.c(Faces.Shibe_uh, @"He left...");
+                    e = EventSFX.c(SFX.Pom_bark);
+                    e = EventTextbox.c(Faces.Pom, @"we should find those keys and use
+                                                    them");
+                    e = EventSFX.c(SFX.Medium_Dog1);
+                    e = EventTextbox.c(Faces.Shibe_nervous, @"Wait wait wait!");
+                    e = EventTextbox.c(Faces.Shibe_nervous, @"Pom, are you really planning to fight
+                                                              Dog?");
+                    e = EventSFX.c(SFX.Medium_Dog1);
+                    e = EventTextbox.c(Faces.Shibe_nervous, @"You can't do that!");
+                    e = EventTextbox.c(Faces.Shibe_nervous, @"I'm not coming with you!");
+                    e = EventSFX.c(SFX.Pom_bark);
+                    e = EventTextbox.c(Faces.Pom, @"NANI???????????????");
+                    e = EventTextbox.c(Faces.Pom, @"COME ON SHIBE");
+                    e = EventTextbox.c(Faces.Pom, @"SEBASTIAN");
+                    e = EventSFX.c(SFX.Medium_Dog1);
+                    e = EventShake.c(5, 5, .2f).Wait;
+                    e = EventTextbox.c(Faces.Shibe_freaking_out, @"No!");
+                    e = EventTextbox.c(Faces.Shibe_freaking_out, @"I've had enough of this!");
+                    e = EventSFX.c(SFX.Pom_bark);
+                    e = EventShake.c(5, 5, .2f).Wait;
+                    e = EventTextbox.c(Faces.Pom, @"I'LL SHOW U WHAT HAPPENS WHEN
+                                                    U DEFY ME");
+                    e = EventSFX.c(SFX.Medium_Dog1);
+                    e = EventShake.c(5, 5, .2f).Wait;
+                    e = EventTextbox.c(Faces.Shibe_freaking_out, @"AIEEEEEEEEEEEEEEE!!!!");
+                    e = EventSFX.c(SFX.Medium_Dog1);
+                    e = EventTextbox.c(Faces.None, @"\C[1]???\C[0]
+                                                     I won't let you touch him!");
+                    e = EventTextbox.c(Faces.Pom, @"lol whats happening hoo dis");
+                    e = EventFlashScreen.c(.5f);
+                    e = EventSetGlobal.c(Global.s.MaltyTalk, 6);
+                    e = EventSetGlobal.c(Global.s.CorgTalk, 4);
+                    e = EventSetGlobal.c(Global.s.HusTalk, 5);
+                    e = EventTextboxClose.c;
+                    e = EventSFX.c(SFX.Medium_Dog1);
+                    e = EventTextbox.c(Faces.Shibe_nervous, @"Hus?!");
+                    e = EventSFX.c(SFX.Medium_Dog1);
+                    e = EventTextbox.c(Faces.Hus_angry, @"Shibe, get back!");
+                    e = EventSFX.c(SFX.Pom_bark);
+                    e = EventShake.c(5, 5, .2f).Wait;
+                    e = EventTextbox.c(Faces.Pom, @"OMFGGGGGGG GAY BOYFRIEND 2
+                                                    DA RESCUE");
+                    e = EventTextbox.c(Faces.Pom, @"I CANT HANDLE THIS");
+                    e = EventSFX.c(SFX.Medium_Dog1);
+                    e = EventTextbox.c(Faces.Hus_angry, @"Quit bullying him.");
+                    e = EventSFX.c(SFX.Pom_bark);
+                    e = EventTextbox.c(Faces.Pom, @"fin e u can take him");
+                    e = EventTextbox.c(Faces.Pom, @"im a strong independent pom pom 
+                                                    doge who don't need no shibe");
+                    e = EventTextbox.c(Faces.None, @"Shibe has left the party!");
+                    e = EventTextboxClose.c;
+                    e = EventFade.c(.4f);
+                    e = EventSetGlobal.c(Global.s.CrestTalk, 9);
+                    e = EventSetGlobal.c(Global.s.ShibeInParty, 0);
+                    e = EventSetGlobal.c(Global.s.PuddleTalk, 5);
+                    e = EventSetGlobal.c(Global.s.HusTalk, 7);
+                    e = EventFade.c(-.4f);
+                    e = EventTextbox.c(Faces.Pom, @"...");
+                    e = EventTextbox.c(Faces.Pom, @"that dum shibe");
+                    e = EventSetGlobal.c(Global.s.MaltyTalk, 6);
+                    e = EventSetGlobal.c(Global.s.HusTalk, 8);
+                    e = EventTextboxClose.c;
+                    e = EventPlayerMoveable.c(true);
+                }
+
+                ep = corgTalk3;
+                {
+                    e = EventPlayerMoveable.c(false);
+                    e = EventTextbox.c(Faces.Corg, @"I've lost my Corg-Keys!");
+                    e = EventTextbox.c(Faces.Pom, @"r the keys important");
+                    e = EventTextbox.c(Faces.Corg, @"I need them to open the gate to Dog's
+                                                     throne.");
+                    e = EventSFX.c(SFX.Pom_bark);
+                    e = EventTextbox.c(Faces.Pom, @"WOW how convenient");
+                    e = EventTextbox.c(Faces.Pom, @"i'll find them");
+                    e = EventTextbox.c(Faces.Pom, @"where did u last see them");
+                    e = EventTextbox.c(Faces.Corg, @"I think I might have dropped them in
+                                                    the trash.");
+                    e = EventTextbox.c(Faces.Pom, @"da fuq");
+                    e = EventSetGlobal.c(Global.s.JunkPile, 1);
+                    e = EventSetGlobal.c(Global.s.MaltyTalk, 6);
+                    e = EventTextboxClose.c;
+                    e = EventPlayerMoveable.c(true);
+                }
+            }
         }
 
         //Dog
         NewEP("b66944b4-037f-4f2f-8d01-7cce3003765b");
         {
+            e = EventPlayerMoveable.c(false);
+            e = EventTextbox.c(Faces.Dog, @"Who dares show herself to me?");
+            e = EventSFX.c(SFX.Pom_bark);
+            e = EventTextbox.c(Faces.Pom, @"it is i");
+            e = EventTextbox.c(Faces.Pom, @"the one who's about 2 kick ur ass");
+            e = EventTextbox.c(Faces.Dog, @"Impudent mortal!");
+            e = EventTextbox.c(Faces.Dog, @"You think you can defeat me, the
+                                            almighty?");
+            e = EventTextbox.c(Faces.Pom, @"wowza im so scared");
+            e = EventTextbox.c(Faces.Pom, @"wat r u going 2 do");
+            e = EventTextbox.c(Faces.Pom, @"shoot me with a gun that looks like a
+                                            paint roller?");
+            e = EventSFX.c(SFX.Pom_bark);
+            e = EventTextbox.c(Faces.Pom, @"let me show u my real power");
+            e = EventTextboxClose.c;
+            e = EventChangeSprite.c(PlayerSprite.OnFire);
+            e = EventWait.c(.5f);
+            e = EventSFX.c(SFX.breath);
+            e = EventSFX.c(SFX.Pom_bark);
+            e = EventShake.c(5, 5, .2f).Wait;
+            e = EventTextbox.c(Faces.Pom_fire, @"dIS GIRL IS ON FIYAAAAHHHHH");
+            e = EventTextbox.c(Faces.Dog, @"This isn't even my final form!");
+            e = EventTextboxClose.c;
+            e = EventBattle.c(Battles.Dog);
 
+            e = EventWait.c(1f);
+            e = EventTextbox.c(Faces.Dog, @"Fool!");
+            e = EventTextbox.c(Faces.Dog, @"Without me, this place's existence will 
+                                            crumble...");
+            e = EventTextbox.c(Faces.Dog, @"and fall into the world of the living...");
+            e = EventTextbox.c(Faces.Dog, @"The only one who can prevent that 
+                                            from happening is you...");
+            e = EventTextbox.c(Faces.Dog, @"The new Dog...");
+            e = EventTextbox.c(Faces.Pom_fire, @"cool story bro");
+            e = EventTextboxClose.c;
+            e = EventWait.c(1f);
+            e = EventFlashScreen.c(.5f);
+            e = EventSetGlobal.c(Global.s.RedSpace, 1);
+            e = EventSFX.c(SFX.vanish);
+            e = EventTPPlayer.c(EventPositioner.nullPos, SpriteDir.None, NPC.Dog).instantTeleport;
+            e = EventSetGlobal.c(Global.s.DogTalk, 1);
+            e = EventWait.c(1f);
+            e = EventTextbox.c(Faces.Pom_fire, @"wow he's rly gone");
+            e = EventTextbox.c(Faces.Pom_fire, @"I guess now that im dog I can erase 
+                                                 doges 4 real ");
+            e = EventTextbox.c(Faces.Pom_fire, @"[muffled rap music plays in the
+                                                 distance]");
+            e = EventTextbox.c(Faces.Shibe_nervous, @"Pom!");
+            e = EventTPPlayer.c(new Vector2(122.5f, 87.5f), SpriteDir.Up, NPC.Shibe).instantTeleport;
+            e = EventSetFacing.c(NPC.Pom, SpriteDir.Down);
+            e = EventTextboxClose.c;
+            e = EventSetGlobal.c(Global.s.DogTalk, 2);
+            e = EventMovePlayer.c(Up, NPC.Shibe, Speed.Normal, 11);
+            e = EventTextbox.c(Faces.Shibe_nervous, @"Are you okay?! You're on fire!");
+            e = EventSFX.c(SFX.Pom_bark);
+            e = EventTextbox.c(Faces.Pom_fire, @"im better than ok");
+            e = EventTextbox.c(Faces.Pom_fire, @"im dog");
+            e = EventTextbox.c(Faces.Pom_fire, @"all I have 2 do now is wait 4 dis place
+                                                 2 fall apart enough 4 da wi-fi 2 show
+                                                 up");
+            e = EventTextbox.c(Faces.Shibe_nervous, @"F-fall apart?");
+            e = EventTextbox.c(Faces.Shibe_nervous, @"We can't let that happen!");
+            e = EventTextbox.c(Faces.Pom_fire, @"jfc shibe");
+            e = EventTextbox.c(Faces.Pom_fire, @"im getting real tired of ur bullshit");
+            e = EventTextbox.c(Faces.Pom_fire, @"lets end this once and 4 all");
+            e = EventTextboxClose.c;
+            e = EventBGM.c(BGM.NONE);
+            e = EventBattle.c(Battles.Shibe_final);
+
+            var badEnd = new EventPage();
+            var goodEnd = new EventPage();
+
+            e = EventPageSwitch.c(Global.s.BadEnd).AddEventPage(0, goodEnd).AddEventPage(1, badEnd);
+
+            ep = badEnd;
+            {
+                e = EventWait.c(1f);
+                e = EventTextbox.c(Faces.Shibe_freaking_out, @"I failed...");
+                e = EventTextbox.c(Faces.Shibe_freaking_out, @"I'm sorry, everyone...");
+                e = EventTextboxClose.c;
+                e = EventWait.c(2f);
+                e = EventFlashScreen.c(.5f);
+                e = EventSFX.c(SFX.vanish);
+                e = EventTPPlayer.c(EventPositioner.nullPos, SpriteDir.None, NPC.Shibe).instantTeleport;
+                e = EventSetGlobal.c(Global.s.RedSpace, 2);
+                e = EventWait.c(2f);
+                e = EventFlashScreen.c(.5f);
+                e = EventSFX.c(SFX.quake2);
+                e = EventShake.c(9, 5, 3f).Wait;
+                e = EventBGM.c(BGM.Rain);
+                e = EventTextbox.c(Faces.Pom_fire, @"my wi-fi is back");
+
+                //more of this
+                {
+                    var tumfurLeft = new EventPage();
+                    var reddigLeft = new EventPage();
+                    var gTailLeft = new EventPage();
+                    var facewoofLeft = new EventPage();
+
+                    tumfurLeft.Add(EventTextbox.c(Faces.Pom_fire, @"at last i can check tumfur"));
+                    tumfurLeft.Add(EventPageExecute.c(tumfur));
+
+                    reddigLeft.Add(EventTextbox.c(Faces.Pom_fire, @"at last i can check reddig"));
+                    reddigLeft.Add(EventPageExecute.c(reddig));
+
+                    gTailLeft.Add(EventTextbox.c(Faces.Pom_fire, @"at last i can check gTail"));
+                    gTailLeft.Add(EventPageExecute.c(gTail));
+
+                    facewoofLeft.Add(EventTextbox.c(Faces.Pom_fire, @"at last i can check facewoof"));
+                    facewoofLeft.Add(EventPageExecute.c(facewoof));
+
+                    e = EventPageSwitch.c(Global.s.Intro_LastWebsiteSelector).AddEventPage(0, facewoofLeft).AddEventPage(1, reddigLeft).AddEventPage(2, gTailLeft).AddEventPage(3, tumfurLeft);
+                }
+
+                e = EventTextboxClose.c;
+                e = EventWait.c(2f);
+                e = EventTextbox.c(Faces.Pom_fire, @"........");
+                e = EventTextbox.c(Faces.Pom_fire, @"i don't need anyone");
+                e = EventTextbox.c(Faces.Pom_fire, @"i don't even feel bad");
+                e = EventTextboxClose.c;
+                e = EventWait.c(2f);
+                e = EventTextbox.c(Faces.Pom_fire, @"regret nothing");
+                e = EventSFX.c(SFX.Pom_bark);
+                e = EventTextbox.c(Faces.Pom_fire, @"happy end");
+                e = EventTextboxClose.c;
+                e = EventSetGlobal.c(Global.s.RedSpace, 3);
+                e = EventSFX.c(SFX.quake2);
+                e = EventShake.c(5, 5, 3f).Wait;
+                e = EventBGM.c(BGM.NONE);
+                e = EventPlayCredits.c;
+            }
+
+            ep = goodEnd;
+            {
+                e = EventBGM.c(BGM.Sadness);
+                e = EventTextbox.c(Faces.Pom_fire, @"...u rly think i can do anything");
+                e = EventTextbox.c(Faces.Shibe, @"You're dog!");
+                e = EventTextbox.c(Faces.Shibe, @"Of course you can!");
+                e = EventSFX.c(SFX.Pom_bark);
+                e = EventTextbox.c(Faces.Pom_fire, @"i can will a sequel of the world ends
+                                                     with u into existence");
+                e = EventTextbox.c(Faces.Pom_fire, @"i can make watching baccano
+                                                     mandatory for doges who want to
+                                                     exist");
+                e = EventSFX.c(SFX.Pom_bark);
+                e = EventTextbox.c(Faces.Pom_fire, @"i can haVE THE STAFF OF THE 
+                                                     NABARI NO OU ANIME EXECUTED");
+                e = EventTextbox.c(Faces.Pom_fire, @"HHHHHOLY SSHSITTTT");
+                e = EventTextbox.c(Faces.Shibe_uh, @"Uh...but before you get around to all
+                                                     that...");
+                e = EventTextbox.c(Faces.Pom_fire, @"right");
+                e = EventTextbox.c(Faces.Pom_fire, @"i need 2 do the thing");
+                e = EventTextbox.c(Faces.Shibe_uh, @"Stopping doggy heaven from falling
+                                                     apart?");
+                e = EventTextbox.c(Faces.Pom_fire, @"yeha that");
+                e = EventTextboxClose.c;
+                e = EventFlashScreen.c(.5f);
+                e = EventSFX.c(SFX.quake2);
+                e = EventShake.c(2, 5, 2f).Wait;
+                e = EventTextbox.c(Faces.Pom_fire, @"how do i do the thing");
+                e = EventSFX.c(SFX.Medium_Dog1);
+                e = EventTextbox.c(Faces.Shibe_nervous, @"You don't know?!");
+                e = EventSFX.c(SFX.Pom_bark);
+                e = EventShake.c(5, 5, .2f).Wait;
+                e = EventTextbox.c(Faces.Pom_fire, @"ffFFUUK WHAT DO I DO ");
+                e = EventTextbox.c(Faces.Pom_fire, @"FUKKIN GET AHOLD OF URSELF U 
+                                                     STUPID ASS DOGE HEAVEN");
+                e = EventTextbox.c(Faces.Pom_fire, @"OR ILL FUKKIN PISS ON U");
+                e = EventTextboxClose.c;
+                e = EventFlashScreen.c(.5f);
+                e = EventShake.c(1f, 5f, .5f).Wait;
+                e = EventSetGlobal.c(Global.s.RedSpace, 4);
+                e = EventSFX.c(SFX.flash2);
+                e = EventWait.c(2f);
+                e = EventTextbox.c(Faces.Shibe_uh, @"It worked!");
+                e = EventSFX.c(SFX.Pom_bark);
+                e = EventTextbox.c(Faces.Pom_fire, @"im a hero");
+                e = EventSFX.c(SFX.Medium_Dog1);
+                e = EventTextbox.c(Faces.None, @"\C[1]???\C[0]
+                                                 Shibe!");
+                e = EventTextboxClose.c;
+                e = EventSetGlobal.c(Global.s.GoodEnd, 1);
+                e = EventSetFacing.c(NPC.Shibe, SpriteDir.Down);
+                e = EventTPPlayer.c(new Vector2(122.5f, 88.5f), SpriteDir.Up, NPC.Hus).instantTeleport;
+                e = EventMovePlayer.c(Up, NPC.Hus, Speed.Normal, 9);
+                e = EventTextbox.c(Faces.Hus, @"Shibe, are you okay?");
+                e = EventTextbox.c(Faces.Shibe_uh, @"I'm fine, I'm fine!");
+                e = EventTextbox.c(Faces.Hus, @"Don't just disappear on me like that!");
+                e = EventTextbox.c(Faces.Hus, @"I was really worried something bad
+                                                happened to you!");
+                e = EventTextbox.c(Faces.Shibe, @"Sorry! I'll try to not do that again.");
+                e = EventTextboxClose.c;
+                e = EventTPPlayer.c(new Vector2(123.5f, 91.5f), SpriteDir.Up, NPC.Crest).instantTeleport;
+                e = EventMovePlayer.c(Up, NPC.Crest, Speed.Normal, 5);
+                e = EventSFX.c(SFX.Pom_bark);
+                e = EventTextbox.c(Faces.Crest, @"Whoa, Pom!");
+                e = EventTextbox.c(Faces.Crest, @"What happened to you?");
+                e = EventTextboxClose.c;
+                e = EventTPPlayer.c(new Vector2(124.5f, 91.5f), SpriteDir.Up, NPC.Puddle).instantTeleport;
+                e = EventMovePlayer.c(Up, NPC.Puddle, Speed.Normal, 5);
+                e = EventTextbox.c(Faces.Puddle, @"Yeah! You look kind of different.");
+                e = EventTextboxClose.c;
+                e = EventTPPlayer.c(new Vector2(121.5f, 90.5f), SpriteDir.Up, NPC.Goldie).instantTeleport;
+                e = EventMovePlayer.c(Up, NPC.Goldie, Speed.Normal, 6);
+                e = EventTextbox.c(Faces.Pom_fire, @"i uh");
+                e = EventTextbox.c(Faces.Pom_fire, @"killed dog");
+                e = EventTextbox.c(Faces.Pom_fire, @"so im dog now");
+                e = EventTextboxClose.c;
+                e = EventTPPlayer.c(new Vector2(120.5f, 91.5f), SpriteDir.Up, NPC.Chi).instantTeleport;
+                e = EventMovePlayer.c(Up, NPC.Chi, Speed.Normal, 5);
+                e = EventTextbox.c(Faces.Puddle, @"Oh. Okay then.");
+                e = EventTextbox.c(Faces.Pom_fire, @"wait");
+                e = EventTextbox.c(Faces.Pom_fire, @"u guys r ok with that");
+                e = EventTextbox.c(Faces.Goldie, @"Why wouldn't we be?");
+                e = EventTextbox.c(Faces.Goldie, @"All that old Dog ever did was sit 
+                                                   around here and act like he was better 
+                                                   than us.");
+                e = EventTextbox.c(Faces.Chi, @"He never bothered to talk to us or
+                                                anything!");
+                e = EventTextbox.c(Faces.Shibe_uh, @"We tried to stop you because we 
+                                                     were worried about you!");
+                e = EventTextbox.c(Faces.Hus, @"Though, we were wrong.");
+                e = EventTextbox.c(Faces.Hus, @"You didn't need saving.");
+                e = EventTextbox.c(Faces.Goldie, @"You're different from that old Dog, 
+                                                   Pom.");
+                e = EventTextbox.c(Faces.Goldie, @"We can trust you.");
+                e = EventTextbox.c(Faces.Pom_fire, @"wtf is this all coming from ");
+                e = EventTextbox.c(Faces.Pom_fire, @"what did I even do 2 deserve this");
+                e = EventTextbox.c(Faces.Crest, @"Isn't it obvious?");
+                e = EventSFX.c(SFX.Pom_bark);
+                e = EventTextbox.c(Faces.Crest, @"You're our friend!");
+                e = EventTextbox.c(Faces.Pom_fire, @"thats great and all but");
+                e = EventTextbox.c(Faces.Pom_fire, @"i still dont have wi-fi");
+                e = EventTextbox.c(Faces.Chi, @"I'm sure that if we all work together, 
+                                                we'll find a way somehow!");
+                e = EventTextbox.c(Faces.Shibe_uh, @"At least, a way better than crashing 
+                                                     this whole place down on Earth...");
+                e = EventTextbox.c(Faces.Pom_fire, @"ok i guess that was a bad idea");
+                e = EventTextbox.c(Faces.Shibe_uh, @"Talk about an understatement...");
+                e = EventTextbox.c(Faces.Pom_fire, @"now what should i do first");
+                e = EventTextbox.c(Faces.Pom_fire, @"theres so much 2 b done");
+                e = EventTextbox.c(Faces.Pom_fire, @"being meguca is sufferin");
+                e = EventTextboxClose.c;
+                e = EventWait.c(2f);
+                e = EventBGM.c(BGM.NONE);
+                e = EventPlayCredits.c;
+            }
         }
 
         #endregion
@@ -5803,8 +6440,71 @@ manservant?!").SwitchSides;
             e = EventPlayerMoveable.c(true);
         }
 
+        //gate to smallbridge left
+        NewEP("e5150398-a171-44bf-b385-78b803281027");
+        {
+            e = EventPlayerMoveable.c(false);
+            e = EventFade.c(.4f);
+            e = EventTPPlayer.c(new Vector2(121.5f, 35.5f)).instantTeleport;
+            e = EventChangeSprite.c(PlayerSprite.Small);
+            e = EventFade.c(-.4f);
+            e = EventPlayerMoveable.c(true);
+        }
+        //gate to smallbridge right
+        NewEP("b887d387-fb68-43b9-82f1-140381ed5346");
+        {
+            e = EventPlayerMoveable.c(false);
+            e = EventFade.c(.4f);
+            e = EventTPPlayer.c(new Vector2(122.5f, 35.5f)).instantTeleport;
+            e = EventChangeSprite.c(PlayerSprite.Small);
+            e = EventFade.c(-.4f);
+            e = EventPlayerMoveable.c(true);
+        }
+
+        //smallbridge to gate
+        NewEP("778cee5c-afca-446a-acfe-1addc874c6d1");
+        {
+            e = EventPlayerMoveable.c(false);
+            e = EventFade.c(.4f);
+            e = EventTPPlayer.c(new Vector2(122.5f, 30.5f)).instantTeleport;
+            e = EventChangeSprite.c(PlayerSprite.Normal);
+            e = EventFade.c(-.4f);
+            e = EventPlayerMoveable.c(true);
+        }
+        //smallbridge to dog
+        NewEP("97208184-a6fd-4cd9-8b53-df7964c686ed");
+        {
+            e = EventPlayerMoveable.c(false);
+            e = EventFade.c(.4f);
+            e = EventTPPlayer.c(new Vector2(122.5f, 67.5f)).instantTeleport;
+            e = EventChangeSprite.c(PlayerSprite.Normal);
+            e = EventFade.c(-.4f);
+            e = EventPlayerMoveable.c(true);
+        }
+
+        //dog to smallbridge left
+        NewEP("46cd6739-9695-4000-b9af-b36ef0360835");
+        {
+            e = EventPlayerMoveable.c(false);
+            e = EventFade.c(.4f);
+            e = EventTPPlayer.c(new Vector2(121.5f, 62.5f)).instantTeleport;
+            e = EventChangeSprite.c(PlayerSprite.Small);
+            e = EventFade.c(-.4f);
+            e = EventPlayerMoveable.c(true);
+        }
+        //dog to smallbridge right
+        NewEP("3e22d784-c0cd-4b83-bd58-9026a65d7a6e");
+        {
+            e = EventPlayerMoveable.c(false);
+            e = EventFade.c(.4f);
+            e = EventTPPlayer.c(new Vector2(122.5f, 62.5f)).instantTeleport;
+            e = EventChangeSprite.c(PlayerSprite.Small);
+            e = EventFade.c(-.4f);
+            e = EventPlayerMoveable.c(true);
+        }
+
         #endregion
-        
+
         Global.ActiveLanguage.value = curLang;
     }
 }

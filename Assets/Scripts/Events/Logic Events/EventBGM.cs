@@ -41,5 +41,6 @@ public enum BGM
     Shop3,
     Solace3,
     GymnopedieNo1,
-    ForgiveMeGreatSpirit
+    ForgiveMeGreatSpirit,
+    Rain
 }

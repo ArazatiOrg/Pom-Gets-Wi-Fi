@@ -122,7 +122,15 @@ public class Global : MonoBehaviour {
         [SerializeField] public GlobalInt Camera = new GlobalInt();
         [SerializeField] public GlobalInt PictureTaken = new GlobalInt();
 
+        [SerializeField] public GlobalInt HusTalk = new GlobalInt();
+
+        [SerializeField] public GlobalInt GateOpened = new GlobalInt();
         [SerializeField] public GlobalInt StopPom = new GlobalInt();
+
+        [SerializeField] public GlobalInt RedSpace = new GlobalInt();
+
+        [SerializeField] public GlobalInt DogTalk = new GlobalInt();
+        [SerializeField] public GlobalInt GoodEnd = new GlobalInt();
 
         public void Save(int slot)
         {
@@ -309,7 +317,7 @@ public class Global : MonoBehaviour {
     [DllImport("__Internal")]
     private static extern void GameControlReady();
 
-    public void ResetLevel()
+    public static void ResetLevel()
     {
         EventPage.eventPages = new Dictionary<Guid, List<EventPage>>();
         EventPage.supportedLanguageInitializers = new List<_BaseTR>();

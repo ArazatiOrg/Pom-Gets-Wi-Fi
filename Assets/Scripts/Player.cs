@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Player : NPCController {
 	public static Player playerInstance;
-	
+
+    public Global.GlobalInt triggerOverride = new Global.GlobalInt(0);
+
 	// Use this for initialization
 	void Start () {
         base.InitController();

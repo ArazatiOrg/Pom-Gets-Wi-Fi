@@ -38,5 +38,9 @@ public enum SFX
     close1,
     punch6,
     punch1,
-    cameraShutter
+    cameraShutter,
+    breath,
+    vanish,
+    quake2,
+    flash2
 }

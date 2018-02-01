@@ -28,6 +28,7 @@ public class AudioController : MonoBehaviour {
         { 048.613f, 048.111f }, //solace3
         { 000.000f, 000.000f }, //gymnopedieNo1
         { 261.384f, 257.973f }, //forgiveMeGreatSpirit
+        { 0f, 0f } //rain
     };
 
     float loopAtTime = 0f;
@@ -97,7 +98,7 @@ public class AudioController : MonoBehaviour {
     float desiredVolume = -1;
     float oldVolume = -1;
     float percentage = 0f;
-    float bgmTransitionSpeed = 8f;
+    float bgmTransitionSpeed = 16f;
 
     public void PlayBGM(int index, float volume, bool restartIfSame = true)
     {
@@ -113,6 +114,8 @@ public class AudioController : MonoBehaviour {
         desiredVolume = volume;
         oldVolume = bgmSource.volume;
         percentage = .99f;
+
+        if (!bgmSource.isPlaying) percentage = 0f;
     }
 
     public void PlaySFX(int index, float volume)

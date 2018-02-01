@@ -141,7 +141,7 @@ public class KeepCameraInBounds : MonoBehaviour {
         shakeStrength = strength;
         shakeSpeed = speed;
 
-        curShakeStrength = 0f;
+        curShakeStrength = float.Epsilon;
     }
 
 	void OnDrawGizmosSelected() {

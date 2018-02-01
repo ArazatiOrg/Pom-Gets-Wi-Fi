@@ -7,6 +7,7 @@ public class EventMovePlayer : _BaseLogicEvent {
     NPC npc = NPC.Pom;
     Speed speed = Speed.Normal;
     int times = 1;
+    bool noWait = false;
 
     public EventMovePlayer(Vector2 directDirection, NPC npc = NPC.Pom)
     {
@@ -17,6 +18,15 @@ public class EventMovePlayer : _BaseLogicEvent {
     public static EventMovePlayer c(Vector2 directDirection, NPC npc = NPC.Pom, Speed speed = Speed.Normal, int times = 1)
     {
         return new EventMovePlayer(directDirection, npc) { speed = speed, times = times };
+    }
+
+    public EventMovePlayer NoWait
+    {
+        get
+        {
+            noWait = true;
+            return this;
+        }
     }
 
     public override IEnumerator Execute()
@@ -42,12 +52,14 @@ public class EventMovePlayer : _BaseLogicEvent {
             controller.ForceMove(directDir);
             controller.AllowMovement = false;
 
-            yield return new WaitUntil(() => controller.stoppedOnTile);
+            if(!noWait) yield return new WaitUntil(() => controller.stoppedOnTile);
         }
-        
 
-        controller.moveSpeed = beforeSpeed;
-        controller.AllowMovement = before;
+        if (!noWait)
+        {
+            controller.moveSpeed = beforeSpeed;
+            controller.AllowMovement = before;
+        }
 
         yield return null;
     }

@@ -38,6 +38,12 @@ public class EventPositioner : MonoBehaviour {
     public GameObject Gate_Closed;
     public GameObject Gate_ShibeAndHusPile;
 
+    public SpriteRenderer purpleSpace;
+    public ContinuousPan purpleSpacePan;
+
+    public Sprite redSpaceSprite;
+    public Sprite purpleSpaceSprite;
+
     int oldCrestTalk = -1;
     int oldPuddleTalk = -1;
     int oldParkState = -1;
@@ -67,6 +73,27 @@ public class EventPositioner : MonoBehaviour {
         var left = (Vector3)Vector2.left;
         var hus = NPCList.GetNPC(NPC.Hus);
         var chi = NPCList.GetNPC(NPC.Chi);
+
+        if(Global.s.DogTalk > 0)
+        {
+            //yooooo just gonna override all the other stuff so I don't have to worry about figuring out what needs to be moved where
+
+            if (s.RedSpace == 2)
+            {
+                purpleSpacePan.speed = .5f;
+            }
+            else if (s.RedSpace == 3)
+            {
+                purpleSpacePan.speed = 4f;
+            }
+            else if (s.RedSpace == 4)
+            {
+                purpleSpace.sprite = purpleSpaceSprite;
+                purpleSpacePan.speed = 8f;
+            }
+
+            return;
+        }
 
         if (s.SharpeiTalk.value == 3) NPCList.GetNPC(NPC.Sharpeii).transform.position = new Vector3(18.5f, -55f);
         else NPCList.GetNPC(NPC.Sharpeii).transform.position = new Vector3(21.5f, -56f);
@@ -206,6 +233,7 @@ public class EventPositioner : MonoBehaviour {
                 break;
             case 6:
                 malty.transform.position = new Vector3(96.5f, -51f); malty.SetFacingDirection(SpriteDir.Right);
+                chi.transform.position = new Vector3(52.5f, -20f); chi.SetFacingDirection(SpriteDir.Left);
                 break;
             default:
                 NPCList.GetNPC(NPC.Malty).transform.position = nullPos;
@@ -259,6 +287,77 @@ public class EventPositioner : MonoBehaviour {
             }
 
             oldCrestStalk = s.CrestStalkFest;
+        }
+
+        if(s.UgTalk == 2 && s.MaltyTalk < 3 && s.PictureTaken > 0)
+        {
+            puddle.transform.position = new Vector3(98.5f, -20f);
+            puddle.SetFacingDirection(SpriteDir.Left);
+
+            crest.transform.position = new Vector3(99.5f, -20f);
+            crest.SetFacingDirection(SpriteDir.Left);
+        }
+
+        if(s.HusTalk == 5)
+        {
+            hus.transform.position = new Vector3(92.5f, -20f);
+            hus.SetFacingDirection(SpriteDir.Right);
+        }
+
+        if(s.HusTalk == 6 || s.HusTalk == 9)
+        {
+            hus.transform.position = nullPos;
+            NPCList.GetNPC(NPC.Shibe).transform.position = nullPos;
+        }
+
+        if(s.StopPom > 0)
+        {
+            NPCList.GetNPC(NPC.DavePointer).transform.position = new Vector3(122.5f, 27f);
+        }
+
+        var corg = NPCList.GetNPC(NPC.Corg);
+        if (s.GateOpened == 0)
+        {
+            if (s.CorgTalk == 1)
+            {
+                corg.transform.position = new Vector3(123.5f, -20f);
+            }
+            else if ((s.CorgTalk == 3 || (s.ShibeInParty == 0 && s.CorgKeys == 1)))
+            {
+                corg.transform.position = new Vector3(135.5f, -20f);
+            }
+            else
+            {
+                corg.transform.position = nullPos;
+            }
+        }
+        else
+        {
+            corg.transform.position = nullPos;
+        }
+
+        var gateClosed = s.GateOpened == 0;
+        Gate_Closed.SetActive(gateClosed);
+        Gate_Open.SetActive(!gateClosed);
+
+        Gate_ShibeAndHusPile.SetActive(s.StopPom >= 2);
+
+        if(s.HusTalk == 5)
+        {
+            hus.transform.position = new Vector3(119.5f, -20f);
+            hus.SetFacingDirection(SpriteDir.Right);
+        }
+
+        if(s.HusTalk == 7 || s.HusTalk == 8)
+        {
+            hus.transform.position = nullPos;
+            NPCList.GetNPC(NPC.Shibe).transform.position = nullPos;
+        }
+
+        if(s.RedSpace == 1)
+        {
+            purpleSpace.sprite = redSpaceSprite;
+            purpleSpacePan.speed = .3f;
         }
     }
 }

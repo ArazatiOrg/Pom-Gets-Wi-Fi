@@ -67,7 +67,8 @@ public class BattleController : MonoBehaviour {
     {
         sky,
         sharpeisHouse,
-        Final
+        Final,
+        white
     }
 
     int pomHP = 100;
@@ -166,7 +167,7 @@ public class BattleController : MonoBehaviour {
                 song = BGM.Mystery3;
                 enemy1HP = 4995;
                 pomMaxHP = 999;
-                bgImage.sprite = battleImages[(int)BattleBGs.Final];
+                bgImage.sprite = battleImages[(int)BattleBGs.white];
                 Enemy1Sprite.sprite = enemySprites[(int)EnemySprites.Dog];
                 guid = new Guid("f3f9bf44-4dab-42ac-99f2-abeeb497dceb");
                 break;
@@ -409,6 +410,7 @@ public class BattleController : MonoBehaviour {
         obj.InitText(damage > 0 ? damage.ToString() : "lmao");
     }
 
+    int alreadyDoingTrigger = 0;
     void Trigger(BattleStates state)
     {
         battleTrigger.value = (int)state;
@@ -417,6 +419,7 @@ public class BattleController : MonoBehaviour {
     List<EventPage> eventPages;
     public IEnumerator TriggeredEvent()
     {
+        alreadyDoingTrigger++;
         if (eventPages != null)
         {
             chargingUp.value = 0;
@@ -428,18 +431,17 @@ public class BattleController : MonoBehaviour {
             }
             else
             {
-                for (int i = 0; i < eventPage.events.Count; i++)
-                {
-                    yield return eventPage.events[i].Execute();
-                }
+                yield return EventPageExecute.c(eventPage).Execute();
             }
             
             chargingUp.value = 1;
         }
         else
         {
+            chargingUp.value = 1;
             Debug.LogError("Object's events never registered.", gameObject);
         }
+        alreadyDoingTrigger--;
     }
 
     float pomChargeSpeed = 1f / 2f; //2 seconds to charge
@@ -570,16 +572,16 @@ public class BattleController : MonoBehaviour {
 
         if(enemy1HP <= 0 && enemy2HP <= 0)
         {
+            if (alreadyDoingTrigger > 0) chargingUp.value = 0;
+
             if(!enemiesDiedYet)
             {
                 enemiesDiedYet = true;
 
+                chargingUp.value = 0;
                 Trigger(BattleStates.EnemyAboutToDie);
-
-                if (chargingUp.value == 1)
-                    curBattle = Battles.None;
             }
-            else
+            else if(chargingUp.value == 1)
             {
                 curBattle = Battles.None;
             }

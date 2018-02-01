@@ -15,6 +15,7 @@ public class EventChangeSprite : _BaseLogicEvent
     public override IEnumerator Execute()
     {
         Player.playerInstance.anim.spriteSetIndex = (int)spriteIndex;
+        Global.s.PlayerSprite.value = (int)spriteIndex;
 
         yield return null;
     }
