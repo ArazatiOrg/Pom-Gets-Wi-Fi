@@ -23,7 +23,7 @@ public class DebugInfo : MonoBehaviour {
             offset = 23;
         }
 
-        DrawText(new Vector2(3, 3 + offset), debugText);
+        //DrawText(new Vector2(3, 3 + offset), debugText);
     }
 
     void DrawText(Vector2 pos, string text)

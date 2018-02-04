@@ -5,15 +5,16 @@ using UnityEngine;
 public class EventSFX : _BaseLogicEvent {
     SFX mySFX;
     float myVolume = 1f;
+    float pitch = 1f;
 
-    public static EventSFX c(SFX sfx, float volume = 1f)
+    public static EventSFX c(SFX sfx, float volume = 1f, float pitch = 1f)
     {
-        return new EventSFX() { mySFX = sfx, myVolume = volume };
+        return new EventSFX() { mySFX = sfx, myVolume = volume, pitch = pitch };
     }
 
     public override IEnumerator Execute()
     {
-        AudioController.instance.PlaySFX((int)mySFX, myVolume);
+        AudioController.instance.PlaySFX((int)mySFX, myVolume, pitch);
 
         yield return null;
     }

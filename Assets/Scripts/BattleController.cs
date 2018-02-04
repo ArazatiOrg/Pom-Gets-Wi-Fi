@@ -408,8 +408,17 @@ public class BattleController : MonoBehaviour {
 
         var obj = Instantiate(damageNumPrefab, pos, Quaternion.identity, damageCollection.transform).GetComponent<FallingNumber>();
         obj.InitText(damage > 0 ? damage.ToString() : "lmao");
+
+
+        if(pomHP <= 0 && shibeHP <= 0)
+        {
+            gameOver = true;
+            UpdateVisuals();
+            GameOver.StartPlaying();
+        }
     }
 
+    bool gameOver = false;
     int alreadyDoingTrigger = 0;
     void Trigger(BattleStates state)
     {
@@ -449,7 +458,7 @@ public class BattleController : MonoBehaviour {
     float enemyChargeSpeed = 1f / 7f; //7 seconds to charge
     List<Attacker> attackers = new List<Attacker>();
     void Update () {
-        if (curBattle == Battles.None) return;
+        if (curBattle == Battles.None || gameOver) return;
         
         if(chargingUp.value == 0)
         {

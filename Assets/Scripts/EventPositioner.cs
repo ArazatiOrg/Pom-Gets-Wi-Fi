@@ -77,25 +77,32 @@ public class EventPositioner : MonoBehaviour {
         if(Global.s.DogTalk > 0)
         {
             //yooooo just gonna override all the other stuff so I don't have to worry about figuring out what needs to be moved where
+            //not going to be teleporting NPCs around based on variables
 
             if (s.RedSpace == 2)
             {
-                purpleSpacePan.speed = .5f;
+                purpleSpacePan.speed = 3f;
             }
             else if (s.RedSpace == 3)
             {
-                purpleSpacePan.speed = 4f;
+                purpleSpacePan.speed = 6f;
             }
             else if (s.RedSpace == 4)
             {
                 purpleSpace.sprite = purpleSpaceSprite;
-                purpleSpacePan.speed = 8f;
+                purpleSpacePan.speed = 0f;
             }
 
             return;
         }
 
-        if (s.SharpeiTalk.value == 3) NPCList.GetNPC(NPC.Sharpeii).transform.position = new Vector3(18.5f, -55f);
+        if (s.SharpeiTalk.value == 3)
+        {
+            if(s.ShibeInParty > 0)
+                NPCList.GetNPC(NPC.Sharpeii).transform.position = new Vector3(18.5f, -55f);
+            else
+                NPCList.GetNPC(NPC.Sharpeii).transform.position = nullPos;
+        }
         else NPCList.GetNPC(NPC.Sharpeii).transform.position = new Vector3(21.5f, -56f);
 
         if (s.DustBunny == 0) dustBunny.transform.position = new Vector3(63.5f, 56.5f);
@@ -103,7 +110,7 @@ public class EventPositioner : MonoBehaviour {
         
         switch (Global.s.StoneBlockSearch)
         {
-            case 0: case 1: case 2: case 3: stoneBlock.sprite = stoneBlockSprites[0]; break;
+            case 0: case 1: case 2: case 3: stoneBlock.sprite = null; break;
             case 4: case 5: stoneBlock.sprite = stoneBlockSprites[1]; break;
             case 6: stoneBlock.sprite = stoneBlockSprites[2]; break;
             case 7: stoneBlock.sprite = stoneBlockSprites[3]; break;

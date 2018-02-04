@@ -128,6 +128,7 @@ public class TextEngine : MonoBehaviour {
                 while (true)
                 {
                     var c = textIndex >= text.text.Length ? ' ' : text.text[textIndex];
+                    var cPlusOne = textIndex+1 >= text.text.Length ? ' ' : text.text[textIndex+1];
                     if (c == '\n')
                     {
                         lineIndex++;
@@ -136,7 +137,7 @@ public class TextEngine : MonoBehaviour {
 
                         ShowLines(lineIndex);
                     }
-                    else if (c == '<')
+                    else if (c == '<' && cPlusOne != ';') //TODO: This is messy. Maybe look into parsing only valid codes here?
                     {
                         do
                         {
@@ -451,7 +452,7 @@ public enum Faces
     Hus_angry,
     Hus,
     Labra,
-    Malti,
+    Malty,
     Papi,
     Pom,
     Pom_fire,

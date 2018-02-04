@@ -23,7 +23,7 @@ public class tr_English : _BaseTR
         GoldieName = "Goldie";
         HusName = "Hus";
         LabraName = "Labra";
-        MaltaName = "Malta";
+        Malty = "Malty";
         PapiName = "Papi";
         PuddleName = "Puddle";
         SharpeiName = "Sharpei";
@@ -338,7 +338,7 @@ public class tr_English : _BaseTR
                 e = EventTextbox.c(Faces.Pom, @"...");
                 e = EventTextbox.c(Faces.Pom, @"EH????????");
                 e = EventSFX.c(SFX.Pom_bark);
-                e = EventShake.c(.4f);
+                e = EventShake.c(.2f);
                 e = EventTextbox.c(Faces.Pom, @"THERES NO WI-FI");
                 e = EventTextbox.c(Faces.Pom, @"JUST KILL ME NOW");
                 e = EventTextbox.c(Faces.Pom, @"WAT DID I EVER DO 2 DESERVE
@@ -347,7 +347,7 @@ public class tr_English : _BaseTR
                 e = EventTextbox.c(Faces.Pom, @"GROSS SOBBING");
                 e = EventTextbox.c(Faces.Pom, @"sniff");
                 e = EventTextbox.c(Faces.Pom, @"sniff");
-                e = EventTextbox.c(Faces.Pom, @"sniff");
+                e = EventTextbox.c(Faces.Pom, @"sniff...");
                 e = EventTextbox.c(Faces.Pom, @"...");
                 e = EventTextbox.c(Faces.Pom, @"nows not the time 2 b wallowing
                                                 in self pity");
@@ -374,9 +374,9 @@ public class tr_English : _BaseTR
             e = EventSetGlobal.c(Global.s.ShibeTalk, 1);
             e = EventSFX.c(SFX.Medium_Dog1);
             e = EventTextbox.c(Faces.Shibe, @"Pom!");
-            e = EventTextbox.c(Faces.Pom, @"poopy head!");
+            e = EventTextbox.c(Faces.Pom, @"poopy head");
             e = EventTextbox.c(Faces.Shibe, @"I'm glad you didn't get hurt in
-                                              the fire!!");
+                                              the fire!");
             e = EventTextbox.c(Faces.Shibe, @"Do you know where we are?");
             e = EventTextbox.c(Faces.Shibe, @"I was waiting outside your room
                                               when--");
@@ -840,7 +840,7 @@ public class tr_English : _BaseTR
                     e = EventSFX.c(SFX.Pom_bark);
                     e = EventTextbox.c(Faces.Crest, @"Oh! Hi there, Pom!");
                     e = EventSFX.c(SFX.Pom_bark);
-                    e = EventShake.c(5, 5, .4f).Wait;
+                    e = EventShake.c(5, 5, .2f).Wait;
                     e = EventTextbox.c(Faces.Pom, @"SHIT");
                     e = EventTextbox.c(Faces.Crest, @"You and Shibe have been following 
                                                       me around, haven't you?");
@@ -1790,7 +1790,9 @@ public class tr_English : _BaseTR
                         e = EventSFX.c(SFX.fire8);
                         e = EventTextbox.c(Faces.Sherman, @"You two over there!");
                         e = EventShake.c(5, 5, .2f).Wait;
+                        e = EventTextbox.c(Faces.Sherman, @"What do you think you're doing?!");
                         e = EventSFX.c(SFX.Medium_Dog1);
+                        e = EventShake.c(5, 5, .2f).Wait;
                         e = EventTextbox.c(Faces.Shibe_nervous, @"Ahhh!!!").SwitchSides;
                         e = EventSFX.c(SFX.Pom_bark);
                         e = EventShake.c(5, 5, .2f).Wait;
@@ -3341,7 +3343,7 @@ manservant?!").SwitchSides;
                 e = EventTextbox.c(Faces.Pom, @"why is life so suck");
                 e = EventTextbox.c(Faces.Shibe_uh, @"Maybe if we could get into the park,
                                                      we could figure out why they're not
-                                                     lettign anyone in.");
+                                                     letting anyone in.");
                 e = EventTextbox.c(Faces.Shibe_uh, @"Sherman is blocking the entrance,
                                                      though");
                 e = EventTextbox.c(Faces.Pom, @"lets kill him");
@@ -3438,6 +3440,7 @@ manservant?!").SwitchSides;
                 e = EventTextbox.c(Faces.Shibe_uh, @"...So you're not a ghost..?").SwitchSides;
                 e = EventTextbox.c(Faces.Hus, @"Is that what you were thinking all
                                                 this time?!");
+                e = EventSetGlobal.c(Global.s.ShibeTalk, 15);
                 e = EventTextboxClose.c;
                 e = EventPlayerMoveable.c(true);
             }
@@ -3578,10 +3581,11 @@ manservant?!").SwitchSides;
                 e = EventTextbox.c(Faces.Pom, @"shibe have u at last realized how
                                                 vital wi-fi is 2 ur well being");
                 e = EventTextbox.c(Faces.Shibe_uh, @"No, that's not it.");
-                e = EventTextbox.c(Faces.Shibe_uh, @"Since this is heaven I'm not hungry or
-                                                     anything, but it's still really difficult
-                                                     to restrain myself from eating these
-                                                     treats while holding them.");
+                e = EventTextbox.c(Faces.Shibe_uh, @"Since this is heaven I'm not hungry or 
+                                                     anything... ");
+                e = EventTextbox.c(Faces.Shibe_uh, @"But it's still really difficult to restrain 
+                                                     myself from eating these treats while
+                                                     holding them.");
                 e = EventTextbox.c(Faces.Shibe_uh, @"I can see why they're used as currency.
                                                      They're a measure of the holder's
                                                      self-control.");
@@ -3833,7 +3837,7 @@ manservant?!").SwitchSides;
                     e = EventPlayerMoveable.c(false);
                     e = EventTextbox.c(Faces.Shibe, @"Uh, excuse me, sir!").SwitchSides;
                     e = EventTextbox.c(Faces.Shibe, @"Would you happen to know where we
-                                                      might be able to findwi-fi?").SwitchSides;
+                                                      might be able to find wi-fi?").SwitchSides;
                     e = EventTextbox.c(Faces.Sharpeii, @"''Why Phi?''
                                                          What the heck are you talking about?");
                     e = EventTextbox.c(Faces.Pom, @"stares into the distance");
@@ -4622,8 +4626,9 @@ manservant?!").SwitchSides;
             var puddleTalk0 = new EventPage();
             var puddleTalk3 = new EventPage();
             var puddleTalk4 = new EventPage();
+            var puddleTalk5 = new EventPage();
 
-            e = EventPageSwitch.c(Global.s.PuddleTalk).AddEventPage(0, puddleTalk0).AddEventPage(3, puddleTalk3).AddEventPage(4, puddleTalk4);
+            e = EventPageSwitch.c(Global.s.PuddleTalk).AddEventPage(0, puddleTalk0).AddEventPage(3, puddleTalk3).AddEventPage(4, puddleTalk4).AddEventPage(5, puddleTalk5);
 
             ep = puddleTalk0;
             {
@@ -4642,7 +4647,7 @@ manservant?!").SwitchSides;
             ep = puddleTalk3;
             {
                 e = EventPlayerMoveable.c(false);
-                e = EventTextbox.c(Faces.Puddle, @"It's name is Dolphie.");
+                e = EventTextbox.c(Faces.Puddle, @"Its name is Dolphie.");
                 e = EventTextbox.c(Faces.Pom, @"so lame");
                 e = EventTextboxClose.c;
                 e = EventPlayerMoveable.c(true);
@@ -4656,6 +4661,16 @@ manservant?!").SwitchSides;
                                                    run out of dog food.");
                 e = EventTextbox.c(Faces.Shibe, @"Yeah, me too!");
                 e = EventTextbox.c(Faces.Puddle, @"It's like magic, isn't it?");
+                e = EventTextboxClose.c;
+                e = EventPlayerMoveable.c(true);
+            }
+
+            ep = puddleTalk5;
+            {
+                e = EventPlayerMoveable.c(false);
+                e = EventTextbox.c(Faces.Puddle, @"In heaven, you can eat as many 
+                                                   treats as you want... ");
+                e = EventTextbox.c(Faces.Puddle, @"And you still won't get fat!");
                 e = EventTextboxClose.c;
                 e = EventPlayerMoveable.c(true);
             }
@@ -4858,59 +4873,59 @@ manservant?!").SwitchSides;
                 {
                     e = EventPlayerMoveable.c(false);
                     e = EventTextbox.c(Faces.Shibe, @"What's up?").SwitchSides;
-                    e = EventTextbox.c(Faces.Malti, @"I need to go to the bathroom");
+                    e = EventTextbox.c(Faces.Malty, @"I need to go to the bathroom");
                     e = EventTextbox.c(Faces.Shibe_annoyed, @".................").SwitchSides;
-                    e = EventTextbox.c(Faces.Malti, @"That was a joke BAKA!!!!!!!");
-                    e = EventTextbox.c(Faces.Malti, @"No one ever needs to go to the 
+                    e = EventTextbox.c(Faces.Malty, @"That was a joke BAKA!!!!!!!");
+                    e = EventTextbox.c(Faces.Malty, @"No one ever needs to go to the 
                                                       bathroom in heaven =^-^=");
-                    e = EventTextbox.c(Faces.Malti, @"*Subarashii* isn't it uwu");
+                    e = EventTextbox.c(Faces.Malty, @"*Subarashii* isn't it uwu");
                     e = EventTextbox.c(Faces.Pom, @"that speaking style...it cant b!!!");
                     e = EventSFX.c(SFX.Pom_bark);
                     e = EventTextbox.c(Faces.Pom, @"ur...
                                                     tumblr user sugoi-neko-chan-desu??? ");
-                    e = EventTextbox.c(Faces.Malti, @"OMG o_o");
-                    e = EventTextbox.c(Faces.Malti, @"Tumblr user Yaoi-hands?????? o:");
-                    e = EventTextbox.c(Faces.Malti, @"To think that we'd meet in *hontou* 
+                    e = EventTextbox.c(Faces.Malty, @"OMG o_o");
+                    e = EventTextbox.c(Faces.Malty, @"Tumblr user Yaoi-hands?????? o:");
+                    e = EventTextbox.c(Faces.Malty, @"To think that we'd meet in *hontou* 
                                                       life was beyond my wildest yumes!");
                     e = EventTextbox.c(Faces.Shibe_uh, @"I can't follow this conversation at all...").SwitchSides;
                     e = EventTextbox.c(Faces.Shibe_uh, @"Can someone please explain to me 
                                                          what's going on?").SwitchSides;
                     e = EventTextbox.c(Faces.Pom, @"sugoi-neko i mean malty and i have
                                                     been in a mutual follow 4 a long time");
-                    e = EventTextbox.c(Faces.Malti, @"basically we r internet tomodachis");
+                    e = EventTextbox.c(Faces.Malty, @"basically we r internet tomodachis");
                     e = EventTextbox.c(Faces.Pom, @"friends 5ever");
                     e = EventTextbox.c(Faces.Pom, @"speaking of the internet!!");
                     e = EventTextbox.c(Faces.Pom, @"do u know where 2 get wi-fi here??");
-                    e = EventTextbox.c(Faces.Malti, @"Oh...about that... :c");
-                    e = EventTextbox.c(Faces.Malti, @"It's so hidoi but there isn't any wi-fi 
+                    e = EventTextbox.c(Faces.Malty, @"Oh...about that... :c");
+                    e = EventTextbox.c(Faces.Malty, @"It's so hidoi but there isn't any wi-fi 
                                                       in *inu* heaven >_<;;");
-                    e = EventTextbox.c(Faces.Malti, @"I'm so gomen orz");
+                    e = EventTextbox.c(Faces.Malty, @"I'm so gomen orz");
                     e = EventSFX.c(SFX.Pom_bark);
                     e = EventShake.c(5, 5, .2f).Wait;
                     e = EventTextbox.c(Faces.Pom, @"DOUSHITEEEEEEEEEEEEEEEEEE");
                     e = EventTextbox.c(Faces.Pom, @"IM GONNA COMMIT SUDOKU");
-                    e = EventTextbox.c(Faces.Malti, @"At first I was super kanashii after 
+                    e = EventTextbox.c(Faces.Malty, @"At first I was super kanashii after 
                                                       finding out!");
-                    e = EventTextbox.c(Faces.Malti, @"The namidas kept falling down my face! 
+                    e = EventTextbox.c(Faces.Malty, @"The namidas kept falling down my face! 
                                                       ;_;");
-                    e = EventTextbox.c(Faces.Malti, @"Since heaven is on a higher plane of
+                    e = EventTextbox.c(Faces.Malty, @"Since heaven is on a higher plane of
                                                       existence than the world of the living,
                                                       though, shikata ga nai T_T");
-                    e = EventTextbox.c(Faces.Malti, @"I'm so gomen orz");
+                    e = EventTextbox.c(Faces.Malty, @"I'm so gomen orz");
                     e = EventTextbox.c(Faces.Shibe_uh, @"So in other words...").SwitchSides;
                     e = EventTextbox.c(Faces.Shibe_uh, @"It's impossible to to connect to the 
                                                          internet here in doggy heaven?").SwitchSides;
                     e = EventTextbox.c(Faces.Pom, @"is there really nothing that can b 
                                                     done??");
-                    e = EventTextbox.c(Faces.Malti, @"Not unless ur willing 2 overthrow 
+                    e = EventTextbox.c(Faces.Malty, @"Not unless ur willing 2 overthrow 
                                                       Kami-sama himself D;");
                     e = EventTextbox.c(Faces.Pom, @"overthrow kami-sama?? 
                                                     u mean...dog????");
-                    e = EventTextbox.c(Faces.Malti, @"Dog is like a magic balloon holding 
+                    e = EventTextbox.c(Faces.Malty, @"Dog is like a magic balloon holding 
                                                       doggy heaven up! ");
-                    e = EventTextbox.c(Faces.Malti, @"If Dog is defeated, this place's 
+                    e = EventTextbox.c(Faces.Malty, @"If Dog is defeated, this place's 
                                                       existence will be in jeopardy x_x");
-                    e = EventTextbox.c(Faces.Malti, @"Then it'll fall to a state where it might 
+                    e = EventTextbox.c(Faces.Malty, @"Then it'll fall to a state where it might 
                                                       be possible to access wi-fi :3");
                     e = EventSFX.c(SFX.Medium_Dog1);
                     e = EventTextbox.c(Faces.Shibe_uh, @"But overthrow Dog?!").SwitchSides;
@@ -4928,15 +4943,15 @@ manservant?!").SwitchSides;
                     e = EventTextbox.c(Faces.Pom, @"how have u survived so long without
                                                     internet access");
                     e = EventTextbox.c(Faces.Pom, @"i cant believe it");
-                    e = EventTextbox.c(Faces.Malti, @"It's not actually as bad as it sounds
+                    e = EventTextbox.c(Faces.Malty, @"It's not actually as bad as it sounds
                                                       n_n");
-                    e = EventTextbox.c(Faces.Malti, @"The latest volumes of all my favorite
+                    e = EventTextbox.c(Faces.Malty, @"The latest volumes of all my favorite
                                                       manga magically appear in my room, so
                                                       I'm still updated for everything!");
-                    e = EventTextbox.c(Faces.Malti, @"Blu-ray DVDs of anime I like appear
+                    e = EventTextbox.c(Faces.Malty, @"Blu-ray DVDs of anime I like appear
                                                       periodically, too.");
                     e = EventTextbox.c(Faces.Shibe_uh, @"Seriously? Wow...").SwitchSides;
-                    e = EventTextbox.c(Faces.Malti, @"This is heaven, after all u v u");
+                    e = EventTextbox.c(Faces.Malty, @"This is heaven, after all u v u");
                     e = EventTextboxClose.c;
                     e = EventPlayerMoveable.c(true);
                 }
@@ -4951,7 +4966,7 @@ manservant?!").SwitchSides;
                 ep = maltyTalk6;
                 {
                     e = EventPlayerMoveable.c(false);
-                    e = EventTextbox.c(Faces.Malti, @"Where's that kawaii shiba inu who
+                    e = EventTextbox.c(Faces.Malty, @"Where's that kawaii shiba inu who
                                                       was with you? -u-");
                     e = EventTextbox.c(Faces.Pom, @"how should i kno");
                     e = EventTextbox.c(Faces.Pom, @"it's not like i care or anything");
@@ -4995,7 +5010,7 @@ manservant?!").SwitchSides;
                                                     knowledge.");
                 e = EventTextbox.c(Faces.Shibe_nervous, @"That sounds awfully shady!").SwitchSides;
                 e = EventTextbox.c(Faces.Bernard, @"Will you do it?");
-                e = EventTextbox.c(Faces.Shibe_annoyed, @"You already know our anser!").SwitchSides;
+                e = EventTextbox.c(Faces.Shibe_annoyed, @"You already know our answer!").SwitchSides;
                 e = EventTextbox.c(Faces.Shibe_annoyed, @"Hell n--").SwitchSides;
                 e = EventSFX.c(SFX.Pom_bark);
                 e = EventShake.c(5, 5, .2f).Wait;
@@ -6153,6 +6168,11 @@ manservant?!").SwitchSides;
             ep = triggerStartBattle;
             {
                 e = EventBGM.c(BGM.EricSkiff_UnderStars, .4f);
+                
+                e = EventTextbox.c(Faces.Shibe, @"Pom, listen to me!");
+                e = EventSFX.c(SFX.Medium_Dog1, 1f, shibeBarkPitch);
+                e = EventTextbox.c(Faces.Shibe, @"There's got to be a better way than this!");
+                e = EventTextboxClose.c;
             }
 
             ep = triggerEnemy1Attack;
@@ -6186,7 +6206,7 @@ manservant?!").SwitchSides;
                 {
                     e = EventTextbox.c(Faces.Pom, @"i dont need anything else").DontSlide;
                     e = EventTextbox.c(Faces.Pom, @"the internet is the essence of my
-                                                    entire existance").DontSlide;
+                                                    entire existence").DontSlide;
                 }
 
                 ep = shibeTurn03;
@@ -6503,6 +6523,14 @@ manservant?!").SwitchSides;
             e = EventPlayerMoveable.c(true);
         }
 
+
+        //secret debug dog
+        NewEP("672104b4-0cc6-4ebf-a324-50f9e3d0d8b0");
+        {
+            e = EventPlayerMoveable.c(false);
+            e = EventBGM.c(BGM.NONE);
+            e = EventPlayCredits.c;
+        }
         #endregion
 
         Global.ActiveLanguage.value = curLang;

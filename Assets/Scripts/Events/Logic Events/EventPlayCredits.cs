@@ -22,8 +22,8 @@ public class EventPlayCredits : _BaseLogicEvent
 
         yield return new WaitUntil(() => Credits.Finished);
 
-        Global.ResetLevel();
+        yield return EventWait.c(1f).Execute();
 
-        yield return new WaitForEndOfFrame();
+        Global.ResetLevel();
     }
 }

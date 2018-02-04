@@ -11,6 +11,8 @@ public class Global : MonoBehaviour {
     //TODO: set this to false for normal mode..
     public static bool devMode = true;
 
+    public static Global instance;
+
     private static GlobalInt _activeLanguage = new GlobalInt(); //english is 0
     public static GlobalInt ActiveLanguage
     {
@@ -184,23 +186,41 @@ public class Global : MonoBehaviour {
 
         ShibeFollowLogic.instance.transform.position = new Vector3(-44.5f, -21f); //Field, he'll teleport once the player moves
 
-        KeepCameraInBounds.instance.objectToFollow = Player.playerInstance.anim.gameObject;
+        //KeepCameraInBounds.instance.objectToFollow = Player.playerInstance.anim.gameObject;
 
         if (ActiveSavefile.ActiveBGM == -1) //none
         {
             AudioController.instance.bgmSource.Stop();
         }
-        else AudioController.instance.PlayBGM(ActiveSavefile.ActiveBGM, ActiveSavefile.ActiveBGMVolume);
+        else
+        {
+            AudioController.instance.PlayBGM(ActiveSavefile.ActiveBGM, ActiveSavefile.ActiveBGMVolume);
+        }
         
         EventPositioner.CheckPositions();
 
-        Player.playerInstance.AllowMovement = true;
+        //Player.playerInstance.AllowMovement = true;
+
+        instance.StartCoroutine(instance.FadeToGame());
 
         loadedData = false;
+    }
+    
+    public IEnumerator FadeToGame()
+    {
+        yield return EventFade.c(.4f).Execute();
+
+        KeepCameraInBounds.instance.objectToFollow = Player.playerInstance.anim.gameObject;
+
+        yield return EventFade.c(-.4f).Execute();
+
+        Player.playerInstance.AllowMovement = true;
     }
 
     private void Start()
     {
+        instance = this;
+
         #if !UNITY_EDITOR && UNITY_WEBGL
             try
             {

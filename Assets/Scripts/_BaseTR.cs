@@ -33,7 +33,7 @@ public class _BaseTR : MonoBehaviour {
     [HideInInspector] public string GoldieName =      "Goldie";
     [HideInInspector] public string HusName =         "Hus";
     [HideInInspector] public string LabraName =       "Labra";
-    [HideInInspector] public string MaltaName =       "Malta";
+    [HideInInspector] public string Malty =       "Malta";
     [HideInInspector] public string PapiName =        "Papi";
     [HideInInspector] public string PuddleName =      "Puddle";
     [HideInInspector] public string SharpeiName =    "Sharpei";
@@ -41,6 +41,8 @@ public class _BaseTR : MonoBehaviour {
     [HideInInspector] public string UgName =          "Ug";
     [HideInInspector] public string WittyFidoName =   "Witty Fido";
     [HideInInspector] public string YorkName =        "York";
+
+    [HideInInspector] public float shibeBarkPitch = 1.2f;
 
     public Font font;
 

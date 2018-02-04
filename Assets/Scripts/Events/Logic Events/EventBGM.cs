@@ -13,11 +13,11 @@ public class EventBGM : _BaseLogicEvent {
 
     public override IEnumerator Execute()
     {
-        if(myBGM == BGM.NONE)
+        /*if(myBGM == BGM.NONE)
         {
             AudioController.instance.bgmSource.Stop();
         }
-        else AudioController.instance.PlayBGM((int)myBGM, myVolume);
+        else*/ AudioController.instance.PlayBGM((int)myBGM, myVolume);
 
         yield return null;
     }
@@ -42,5 +42,7 @@ public enum BGM
     Solace3,
     GymnopedieNo1,
     ForgiveMeGreatSpirit,
-    Rain
+    Rain,
+    Credits,
+    GameOver
 }

@@ -19,7 +19,7 @@ public class AudioController : MonoBehaviour {
         { 105.971f, 105.971f }, //field4
         { 266.394f, 228.364f }, //EricSkiff_UnderStars
         { 096.007f, 084.008f }, //mystery3
-        { 087.864f, 087.864f }, //castle3
+        { 091.632f, 091.632f }, //castle3
         { 131.315f, 131.315f }, //ending3
         { 098.628f, 096.068f }, //interlude
         { 119.457f, 115.852f }, //mechaBase
@@ -28,7 +28,9 @@ public class AudioController : MonoBehaviour {
         { 048.613f, 048.111f }, //solace3
         { 000.000f, 000.000f }, //gymnopedieNo1
         { 261.384f, 257.973f }, //forgiveMeGreatSpirit
-        { 0f, 0f } //rain
+        { 0f, 0f }, //rain
+        { 0f, 0f }, //credits
+        { 059.206f, 054.862f }, //gameOver
     };
 
     float loopAtTime = 0f;
@@ -60,9 +62,9 @@ public class AudioController : MonoBehaviour {
 
                     //bgmSource.volume = desiredBGM;
                     bgmSource.clip = music[desiredBGM];
-                    bgmSource.loop = true;
+                    bgmSource.loop = desiredBGM != (int)BGM.Credits;
                     bgmSource.Play();
-
+                    
                     //woo hacky stuff via code instead of clipping the actual audio file
                     if (desiredBGM == (int)BGM.Village2) bgmSource.time = 2.20f;
                 }
@@ -118,8 +120,11 @@ public class AudioController : MonoBehaviour {
         if (!bgmSource.isPlaying) percentage = 0f;
     }
 
-    public void PlaySFX(int index, float volume)
+    public void PlaySFX(int index, float volume, float pitch = 1f)
     {
+        var oldPitch = sfxSource.pitch;
+        sfxSource.pitch = pitch;
         sfxSource.PlayOneShot(sfx[index],volume);
+        sfxSource.pitch = oldPitch;
     }
 }

@@ -38,8 +38,22 @@ public class WorldspaceUI : MonoBehaviour {
         //TODO: support for other languages? Probably needed.
         MainMenu_TitleText.text = (validSaveFileCount > 0 ? "New Game\nLoad Game\nQuit Game" : "New Game\n<color=#FFFFFF7F>Load Game</color>\nQuit Game");
 	}
-	
+
+    UIState oldState = UIState.None;
 	void Update () {
+        if(oldState != state)
+        {
+            selectedSlot = 0;
+
+            if (state == UIState.MainMenu)
+            {
+                var selectedObjectOrigin = new Vector3(-0.6f, -44.1f);
+                MainMenu_Selected.transform.localPosition = selectedObjectOrigin += new Vector3(0f, -16f * selectedSlot);
+            }
+
+            oldState = state;
+        }
+
         switch (state)
         {
             default:
@@ -72,8 +86,9 @@ public class WorldspaceUI : MonoBehaviour {
                                     AudioController.instance.PlaySFX((int)SFX.Choice, 1f);
                                     state = UIState.None;
                                     AudioController.instance.bgmSource.Stop();
-                                    KeepCameraInBounds.instance.objectToFollow = Player.playerInstance.anim.gameObject;
-                                    Player.playerInstance.AllowMovement = true;
+                                    //KeepCameraInBounds.instance.objectToFollow = Player.playerInstance.anim.gameObject;
+                                    //Player.playerInstance.AllowMovement = true;
+                                    Global.instance.StartCoroutine(Global.instance.FadeToGame());
                                 } break;
                             case 1: //Load Game
                                 {
@@ -85,8 +100,8 @@ public class WorldspaceUI : MonoBehaviour {
                                         {
                                             Global.LoadVariables(0);
                                             state = UIState.None;
-                                            selectedSlot = 0;
-                                            changeSelected = true;
+                                            //selectedSlot = 0;
+                                            //changeSelected = true;
                                         }
 
 

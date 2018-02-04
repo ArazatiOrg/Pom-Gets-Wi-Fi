@@ -87,8 +87,8 @@ public class EventTextbox : _BaseLogicEvent {
                     namePrefix = @"\C[1]" + curLanguage.HusName + "\\C[0]\n"; break;
                 case Faces.Labra:
                     namePrefix = @"\C[1]" + curLanguage.LabraName + "\\C[0]\n"; break;
-                case Faces.Malti:
-                    namePrefix = @"\C[1]" + curLanguage.MaltaName + "\\C[0]\n"; break;
+                case Faces.Malty:
+                    namePrefix = @"\C[1]" + curLanguage.Malty + "\\C[0]\n"; break;
                 case Faces.Papi:
                     namePrefix = @"\C[1]" + curLanguage.PapiName + "\\C[0]\n"; break;
                 case Faces.Pom:
