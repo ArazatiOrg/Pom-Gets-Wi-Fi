@@ -43,5 +43,11 @@ public enum SFX
     breath,
     vanish,
     quake2,
-    flash2
+    flash2,
+    punch3,
+    decrease,
+    fire2,
+    fire3,
+    explode1,
+    heal4
 }

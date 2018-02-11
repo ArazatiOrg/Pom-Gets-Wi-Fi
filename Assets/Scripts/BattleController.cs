@@ -70,13 +70,21 @@ public class BattleController : MonoBehaviour {
         Final,
         white
     }
+    
+    [Serializable] public class SpriteBlock { public string Name; public List<Sprite> sprites; }
+    public List<SpriteBlock> battleAnims = new List<SpriteBlock>();
 
-    int pomHP = 100;
+    [HideInInspector] public int battleAnimIndex = 0;
+    public List<Image> battleAnimSlots = new List<Image>();
+    [HideInInspector] public Vector3 battleAnimNullPos;
+
+
+    [HideInInspector] public int pomHP = 100;
     int pomMaxHP = 100;
 
-    int shibeHP = 0;
-    int enemy1HP = 0;
-    int enemy2HP = 0;
+    [HideInInspector] public int shibeHP = 0;
+    [HideInInspector] public int enemy1HP = 0;
+    [HideInInspector] public int enemy2HP = 0;
 
     float pomCharge = 0f;
     float shibeCharge = 0f;
@@ -90,7 +98,8 @@ public class BattleController : MonoBehaviour {
 
 	void Start () {
         instance = this;
-	}
+        battleAnimNullPos = battleAnimSlots[0].transform.position;
+    }
 
     GameObject oldFocus;
     Guid guid;
@@ -379,9 +388,6 @@ public class BattleController : MonoBehaviour {
 
     public void Damage(Attacker target, int damage)
     {
-        //TODO: damage fx and stuff and things
-        Debug.Log("Dealing " + damage + " damage to " + target + ".");
-
         Vector3 pos = Vector2.zero;
         switch (target)
         {
@@ -615,6 +621,8 @@ public class BattleController : MonoBehaviour {
 
     public class EventDamage : _BaseLogicEvent
     {
+        public static int lastRand;
+
         Target target;
         DamageType damageType;
         float damage;
@@ -635,11 +643,20 @@ public class BattleController : MonoBehaviour {
             {
                 if (target == Target.Ally)
                 {
-                    if (instance.pomHP > 0 && instance.shibeHP <= 0) instance.Damage(Attacker.Pom, (int)(instance.pomHP * damage));
-                    else if (instance.shibeHP > 0 && instance.pomHP <= 0) instance.Damage(Attacker.Shibe, (int)(instance.shibeHP * damage));
+                    if (instance.pomHP > 0 && instance.shibeHP <= 0)
+                    {
+                        lastRand = 0;
+                        instance.Damage(Attacker.Pom, (int)(instance.pomHP * damage));
+                    }
+                    else if (instance.shibeHP > 0 && instance.pomHP <= 0)
+                    {
+                        lastRand = 1;
+                        instance.Damage(Attacker.Shibe, (int)(instance.shibeHP * damage));
+                    }
                     else
                     {
                         var rand = UnityEngine.Random.Range(0, 2);
+                        lastRand = rand;
 
                         instance.Damage(rand == 0 ? Attacker.Pom : Attacker.Shibe, (int)((rand == 0 ? instance.pomHP : instance.shibeHP) * damage));
                     }
@@ -654,11 +671,20 @@ public class BattleController : MonoBehaviour {
             {
                 if(target == Target.Ally)
                 {
-                    if (instance.pomHP > 0 && instance.shibeHP <= 0) instance.Damage(Attacker.Pom, (int)(damage));
-                    else if (instance.shibeHP > 0 && instance.pomHP <= 0) instance.Damage(Attacker.Shibe, (int)(damage));
+                    if (instance.pomHP > 0 && instance.shibeHP <= 0)
+                    {
+                        lastRand = 0;
+                        instance.Damage(Attacker.Pom, (int)(damage));
+                    }
+                    else if (instance.shibeHP > 0 && instance.pomHP <= 0)
+                    {
+                        lastRand = 1;
+                        instance.Damage(Attacker.Shibe, (int)(damage));
+                    }
                     else
                     {
                         var rand = UnityEngine.Random.Range(0, 2);
+                        lastRand = rand;
 
                         instance.Damage(rand == 0 ? Attacker.Pom : Attacker.Shibe, (int)damage);
                     }

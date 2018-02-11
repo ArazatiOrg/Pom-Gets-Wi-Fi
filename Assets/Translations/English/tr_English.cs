@@ -3096,7 +3096,6 @@ manservant?!").SwitchSides;
 
             ep = notWatchedShow;
             {
-                //TODO: Should this event be solid? So you can't get to the left side of the shop?
                 e = EventPlayerMoveable.c(false);
                 e = EventSFX.c(SFX.fire8);
                 e = EventShake.c(5, 5, .2f).Wait;
@@ -5620,8 +5619,8 @@ manservant?!").SwitchSides;
                 }
 
                 ep = taunt;
-                //TODO: show battle anim, punch a all
                 e = BattleController.EventDamage.c(Target.Enemy, .2f);
+                e = EventBattleAnim.c(Target.Enemy, Anim.PunchA);
                 e = EventTextboxClose.c;
                 e = EventSetGlobal.c(BattleController.chargingUp, 1);
             }
@@ -5730,8 +5729,8 @@ manservant?!").SwitchSides;
                 }
 
                 ep = yoMamaJoke;
-                //TODO: show battle anim, punch a all
                 e = BattleController.EventDamage.c(Target.Enemy, 10);
+                e = EventBattleAnim.c(Target.Enemy, Anim.PunchA);
                 e = EventTextboxClose.c;
                 e = EventSetGlobal.c(BattleController.chargingUp, 1);
             }
@@ -5789,6 +5788,7 @@ manservant?!").SwitchSides;
                 ep = pomTurn5;
                 {
                     e = EventTextbox.c(Faces.Shibe, @"Fighting is bad!").DontSlide;
+                    e = BattleController.EventDamage.c(Target.Enemy, 2);
                     e = EventTextboxClose.c;
                 }
 
@@ -5819,6 +5819,8 @@ manservant?!").SwitchSides;
             ep = triggerEnemy1Attack;
             {
                 e = BattleController.EventDamage.c(Target.Ally, 10);
+                e = EventBattleAnim.c(Target.Ally, Anim.PunchA);
+
                 //TODO: 50/50 charge up or attack
             }
 
@@ -5843,7 +5845,7 @@ manservant?!").SwitchSides;
                 ep = apologize;
                 {
                     e = EventTextbox.c(Faces.None, @"Shibe apologized profusely!").DontSlide;
-                    //TODO:ShowBattleAnim - Healing A, Enemy (wait)
+                    e = EventBattleAnim.c(Target.Enemy, Anim.StatusHealingA);
                     e = EventTextbox.c(Faces.None, @"Puddle looks more fired up than ever!").DontSlide;
                 }
 
@@ -5888,8 +5890,8 @@ manservant?!").SwitchSides;
 
             ep = triggerEnemy1Attack;
             {
-                //TODO: normal attack
                 e = BattleController.EventDamage.c(Target.Ally, 10);
+                e = EventBattleAnim.c(Target.Ally, Anim.PunchA);
             }
 
             ep = triggerPomAttack;
@@ -5926,7 +5928,7 @@ manservant?!").SwitchSides;
                 ep = rollOver;
                 {
                     e = EventTextbox.c(Faces.None, @"Shibe rolled over!").DontSlide;
-                    //TODO:ShowBattleAnim - Intellect Diminish, Shibe Ally (wait)
+                    e = EventBattleAnim.c(Target.Ally, Anim.IntellectDiminish);
                     e = EventTextbox.c(Faces.None, @"Shibe became more vulnerable to the
                                                      enemy").DontSlide;
                 }
@@ -5996,8 +5998,8 @@ manservant?!").SwitchSides;
 
             ep = triggerEnemy1Attack;
             {
-                //TODO: normal attack
                 e = BattleController.EventDamage.c(Target.Ally, 10);
+                e = EventBattleAnim.c(Target.Ally, Anim.PunchA);
             }
 
             ep = triggerPomAttack;
@@ -6040,7 +6042,7 @@ manservant?!").SwitchSides;
                 ep = turn4;
                 {
                     e = EventTextbox.c(Faces.None, @"Shibe rolled over!").DontSlide;
-                    //TODO:ShowBattleAnim - Intellect Diminish, Shibe Ally (wait)
+                    e = EventBattleAnim.c(Target.Ally, Anim.IntellectDiminish);
                     e = EventTextbox.c(Faces.None, @"Shibe became more vulnerable to the
                                                      enemy!").DontSlide;
                 }
@@ -6071,8 +6073,8 @@ manservant?!").SwitchSides;
                 e = EventTextbox.c(Faces.Pom, @"on").DontSlide;
                 e = EventTextbox.c(Faces.Pom, @"my").DontSlide;
                 e = EventTextbox.c(Faces.Pom, @"misSILE PUNCH!!!").DontSlide;
-                //TODO:ShowBattleAnim - Non-elemental S 1, Enemy (wait)
                 e = BattleController.EventDamage.c(Target.Enemy, 100);
+                e = EventBattleAnim.c(Target.Enemy, Anim.NonElementalS1);
                 e = EventTextbox.c(Faces.York, @"Gnnrk...!").DontSlide;
                 e = EventSetGlobal.c(BattleController.chargingUp, 1);
                 e = BattleController.EventEndBattle.c;
@@ -6101,8 +6103,8 @@ manservant?!").SwitchSides;
                 e = EventTextbox.c(Faces.None, @"You cannot grasp the true form of Dog's attack!").DontSlide;
                 e = EventFlashScreen.c(.5f, new Color(.121f, .121f, .121f, .121f));
                 e = EventWait.c(.5f);
-                //TODO:ShowBattleAnim - Punch C, Pom
                 e = BattleController.EventDamage.c(Target.Ally, 100);
+                e = EventBattleAnim.c(Target.Ally, Anim.PunchC);
                 e = EventTextboxClose.c;
             }
 
@@ -6147,8 +6149,8 @@ manservant?!").SwitchSides;
 
                 ep = triggerPomAttack;
                 e = EventTextboxClose.c;
-                //TODO:ShowBattleAnim - Fire Magic S 2, Enemy (Wait)
                 e = BattleController.EventDamage.c(Target.Enemy, 999);
+                e = EventBattleAnim.c(Target.Enemy, Anim.FireMagicS2);
                 e = EventSetGlobal.c(BattleController.chargingUp, 1);
             }
         }
@@ -6332,8 +6334,8 @@ manservant?!").SwitchSides;
             {
                 e = EventTextbox.c(Faces.Pom, @"goodbye shibe").DontSlide;
                 e = EventSetGlobal.c(Global.s.BadEnd, 1);
-                //TODO:ShowBattleAnim - Fire Magic S 2, Enemy (Wait)
                 e = BattleController.EventDamage.c(Target.Enemy, 9999);
+                e = EventBattleAnim.c(Target.Enemy, Anim.FireMagicS2);
                 e = EventTextboxClose.c;
                 e = EventSetGlobal.c(BattleController.chargingUp, 1);
                 e = BattleController.EventEndBattle.c;

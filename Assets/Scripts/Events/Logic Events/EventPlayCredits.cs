@@ -14,8 +14,6 @@ public class EventPlayCredits : _BaseLogicEvent
 
     public override IEnumerator Execute()
     {
-        //TODO:
-        
         yield return EventFade.c(3f).Execute();
         Credits.StartPlaying();
         yield return EventFade.c(-.4f).Execute();

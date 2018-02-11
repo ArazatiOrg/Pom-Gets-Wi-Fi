@@ -8,8 +8,8 @@ using UnityEngine.SceneManagement;
 //Stop that, don't shame me. I'm just porting the game. I don't intend people to -actually- make their own stuff with this in the future. :V
 
 public class Global : MonoBehaviour {
-    //TODO: set this to false for normal mode..
-    public static bool devMode = true;
+    public static bool devMode = false;
+    static int devModeForce = 0;
 
     public static Global instance;
 
@@ -291,6 +291,18 @@ public class Global : MonoBehaviour {
             changedVariables = false;
         }
 
+        if(Input.GetKeyDown(KeyCode.Pause))
+        {
+            devModeForce++;
+
+            if(devModeForce == 5)
+            {
+                Debug.Log("DEVMODE " + (devMode ? "DISABLED" : "ENABLED"));
+                devMode = !devMode;
+                devModeForce = 0;
+            }
+        }
+
         //rest require devMode to be enabled
         if (!devMode) return;
         
@@ -326,6 +338,8 @@ public class Global : MonoBehaviour {
             }
             ResetLevel();
         }
+
+        
     }
 
     [DllImport("__Internal")]

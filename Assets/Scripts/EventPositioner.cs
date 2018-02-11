@@ -44,6 +44,8 @@ public class EventPositioner : MonoBehaviour {
     public Sprite redSpaceSprite;
     public Sprite purpleSpaceSprite;
 
+    public GameObject yellBoundary;
+
     int oldCrestTalk = -1;
     int oldPuddleTalk = -1;
     int oldParkState = -1;
@@ -230,6 +232,8 @@ public class EventPositioner : MonoBehaviour {
             chi.transform.position = oldHusPos;
             chi.SetFacingDirection(oldHusLook);
         }
+
+        yellBoundary.SetActive(Global.s.UgTalk <= 1);
 
         var malty = NPCList.GetNPC(NPC.Malty);
         switch (s.MaltyTalk)
