@@ -3069,9 +3069,8 @@ manservant?!").SwitchSides;
                 ep = notSilentTreatment;
                 {
                     e = EventPlayerMoveable.c(false);
-                    e = EventTextbox.c(Faces.Pom, @"hey shibe");
-                    e = EventTextbox.c(Faces.Shibe_uh, @"...");
-                    e = EventTextbox.c(Faces.Pom, @"...");
+                    e = EventTextbox.c(Faces.Shibe, @"There's tons of pastries and desserts
+                                                      in here.");
                     e = EventTextboxClose.c;
                     e = EventPlayerMoveable.c(true);
                 }
@@ -3079,8 +3078,9 @@ manservant?!").SwitchSides;
                 ep = silentTreatment;
                 {
                     e = EventPlayerMoveable.c(false);
-                    e = EventTextbox.c(Faces.Shibe, @"There's tons of pastries and desserts
-                                                      in here.");
+                    e = EventTextbox.c(Faces.Pom, @"hey shibe");
+                    e = EventTextbox.c(Faces.Shibe_uh, @"...");
+                    e = EventTextbox.c(Faces.Pom, @"...");
                     e = EventTextboxClose.c;
                     e = EventPlayerMoveable.c(true);
                 }
