@@ -80,7 +80,7 @@ public class AudioController : MonoBehaviour {
 
                     bgmSource.time = 0f;
 
-                    bgmSource.volume = desiredBGM;
+                    bgmSource.volume = desiredVolume;
                     bgmSource.clip = music[desiredBGM];
                     bgmSource.loop = desiredBGM != (int)BGM.Credits;
                     bgmSource.Play();
