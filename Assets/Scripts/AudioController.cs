@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AudioController : MonoBehaviour {
     public static AudioController instance;
@@ -9,6 +10,9 @@ public class AudioController : MonoBehaviour {
 
     public List<AudioClip> music = new List<AudioClip>();
     public List<AudioClip> sfx = new List<AudioClip>();
+
+    public AudioMixer Mixer;
+    public AnimationCurve MixerTransitionFallof;
 
     public float[,] loopTimes = new float[,]
     {
@@ -43,11 +47,27 @@ public class AudioController : MonoBehaviour {
 
     private void Update()
     {
-        if(desiredBGM >= -1 && percentage < 1f)
+        SongTransitionUpdate();
+        
+        if (loopAtTime > 0f && bgmSource.time > loopAtTime)
+        {
+            bgmSource.time -= rewindTime;
+        }
+    }
+
+    int desiredBGM = -2;
+    float desiredVolume = -1;
+    float oldVolume = -1;
+    float percentage = 0f;
+    public float bgmTransitionSpeed = 16f;
+
+    void SongTransitionUpdate()
+    {
+        if (desiredBGM >= -1 && percentage < 1f)
         {
             percentage -= Time.smoothDeltaTime * bgmTransitionSpeed;
 
-            if(percentage <= 0f)
+            if (percentage <= 0f)
             {
                 if (desiredBGM == (int)BGM.NONE)
                 {
@@ -60,47 +80,42 @@ public class AudioController : MonoBehaviour {
 
                     bgmSource.time = 0f;
 
-                    //bgmSource.volume = desiredBGM;
+                    bgmSource.volume = desiredBGM;
                     bgmSource.clip = music[desiredBGM];
                     bgmSource.loop = desiredBGM != (int)BGM.Credits;
                     bgmSource.Play();
-                    
-                    //woo hacky stuff via code instead of clipping the actual audio file
+
+                    //woo hacky stuff via code instead of clipping the actual audio file (removes empty space at the start of the song
                     if (desiredBGM == (int)BGM.Village2) bgmSource.time = 2.20f;
                 }
 
                 desiredBGM = -2;
                 percentage = 0f;
             }
-
-            bgmSource.volume = percentage * oldVolume;
+            
+            Mixer.SetFloat("Vol_Music", Mathf.Lerp(-79f, 0f, MixerTransitionFallof.Evaluate(percentage))); //-80db is muted, but it suspends the audio mixer, which we don't want
+            //bgmSource.volume = percentage * oldVolume;
         }
-        
-        if(desiredBGM == -2 && percentage < 1f)
+
+        if (desiredBGM == -2 && percentage < 1f)
         {
             percentage += Time.smoothDeltaTime * bgmTransitionSpeed;
 
-            if(percentage >= 1f)
+            if (percentage >= 1f)
             {
                 percentage = 1f;
-                bgmSource.volume = desiredVolume;
+                Mixer.SetFloat("Vol_Music", 0f); //0f is "0 change in db", which means default volume
+                //bgmSource.volume = desiredVolume;
                 desiredVolume = -1f;
                 oldVolume = -1f;
             }
-            else bgmSource.volume = percentage * desiredVolume;
-        }
-
-        if (loopAtTime > 0f && bgmSource.time > loopAtTime)
-        {
-            bgmSource.time -= rewindTime;
+            else
+            {
+                Mixer.SetFloat("Vol_Music", Mathf.Lerp(-79f, 0f, MixerTransitionFallof.Evaluate(percentage))); //-80db is muted, but it suspends the audio mixer, which we don't want
+                //bgmSource.volume = percentage * desiredVolume;
+            }
         }
     }
-
-    int desiredBGM = -2;
-    float desiredVolume = -1;
-    float oldVolume = -1;
-    float percentage = 0f;
-    float bgmTransitionSpeed = 16f;
 
     public void PlayBGM(int index, float volume, bool restartIfSame = true)
     {

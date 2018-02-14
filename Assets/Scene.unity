@@ -89202,6 +89202,32 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f6b659a484a12284787684abff20f0b8, type: 3}
   - {fileID: 8300000, guid: 58236cf005c3d5e45b0c57bb7f7d0f0e, type: 3}
   - {fileID: 8300000, guid: e580a91d0b5b89245a9e1b6e88aeb01a, type: 3}
+  Mixer: {fileID: 24100000, guid: 9ffab9c0c140e7e469db9c387d504708, type: 2}
+  MixerTransitionFallof:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0.012305045
+      outSlope: 0.012305045
+      tangentMode: 0
+      weightedMode: 2
+      inWeight: 0.33333334
+      outWeight: 1
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -5.3132057
+      outSlope: -1.402096
+      tangentMode: 1
+      weightedMode: 1
+      inWeight: 0.0282318
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  bgmTransitionSpeed: 16
 --- !u!1 &1378141785
 GameObject:
   m_ObjectHideFlags: 0
