@@ -1,7 +1,5 @@
 fileFormatVersion: 2
 guid: 7ea1370ea0012c2498edbe91d91b9fc7
-timeCreated: 1517213796
-licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: spiderBigger
@@ -53,7 +51,7 @@ TextureImporter:
     21300092: NPCs set3_46
     21300094: NPCs set3_47
   externalObjects: {}
-  serializedVersion: 4
+  serializedVersion: 5
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -100,11 +98,13 @@ TextureImporter:
   spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
+  singleChannelComponent: 0
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
   platformSettings:
-  - buildTarget: DefaultTexturePlatform
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
     maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
@@ -114,7 +114,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - buildTarget: Standalone
+  - serializedVersion: 2
+    buildTarget: Standalone
     maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
@@ -124,7 +125,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - buildTarget: iPhone
+  - serializedVersion: 2
+    buildTarget: iPhone
     maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
@@ -134,7 +136,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - buildTarget: tvOS
+  - serializedVersion: 2
+    buildTarget: tvOS
     maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
@@ -144,7 +147,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - buildTarget: Android
+  - serializedVersion: 2
+    buildTarget: Android
     maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
@@ -154,7 +158,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - buildTarget: WebGL
+  - serializedVersion: 2
+    buildTarget: WebGL
     maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
@@ -187,6 +192,12 @@ TextureImporter:
         - {x: 6, y: -2}
         - {x: 3, y: -1}
       tessellationDetail: 0
+      bones: []
+      spriteID: 4316ba5a6eb4a8143bde5036507b928b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: NPCs set3_3
       rect:
@@ -207,6 +218,12 @@ TextureImporter:
         - {x: -9, y: 0}
         - {x: -11, y: -1}
       tessellationDetail: 0
+      bones: []
+      spriteID: ca5eb1a18c2dfdf42ab7d080c2d1535b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: NPCs set3_4
       rect:
@@ -227,6 +244,12 @@ TextureImporter:
         - {x: -9, y: 0}
         - {x: -11, y: -1}
       tessellationDetail: 0
+      bones: []
+      spriteID: 30d6f95d345a5224c981dc45c05a2829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: NPCs set3_5
       rect:
@@ -247,6 +270,12 @@ TextureImporter:
         - {x: -10, y: 0}
         - {x: -12, y: -1}
       tessellationDetail: 0
+      bones: []
+      spriteID: 5edb925deb76c08498dfdfea7a2d9019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: NPCs set3_6
       rect:
@@ -267,6 +296,12 @@ TextureImporter:
         - {x: 7, y: -16}
         - {x: 7, y: 7}
       tessellationDetail: 0
+      bones: []
+      spriteID: 5edd977c945497247a056aa093692457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: NPCs set3_7
       rect:
@@ -288,6 +323,12 @@ TextureImporter:
         - {x: -7, y: -15}
         - {x: -6, y: -16}
       tessellationDetail: 0
+      bones: []
+      spriteID: 6ae286002c9e9d5439473a15c4f85b25
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: NPCs set3_8
       rect:
@@ -308,6 +349,12 @@ TextureImporter:
         - {x: 7, y: -16}
         - {x: 7, y: 7}
       tessellationDetail: 0
+      bones: []
+      spriteID: f538aa629ce8e1b49912a5bc5d21b69f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: NPCs set3_9
       rect:
@@ -331,6 +378,12 @@ TextureImporter:
         - {x: 12, y: -3}
         - {x: 8, y: 1}
       tessellationDetail: 0
+      bones: []
+      spriteID: 21e97374da9eda94a862d6cf37b8299b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: NPCs set3_10
       rect:
@@ -354,6 +407,12 @@ TextureImporter:
         - {x: 11, y: -3}
         - {x: 7, y: 1}
       tessellationDetail: 0
+      bones: []
+      spriteID: 1accc8336d7044c4cab3655ce207425b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: NPCs set3_11
       rect:
@@ -377,6 +436,12 @@ TextureImporter:
         - {x: 11, y: -3}
         - {x: 7, y: 1}
       tessellationDetail: 0
+      bones: []
+      spriteID: 479de99af670a214597b0fac01a88c87
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: NPCs set3_15
       rect:
@@ -397,6 +462,12 @@ TextureImporter:
         - {x: -10, y: 0}
         - {x: -12, y: -1}
       tessellationDetail: 0
+      bones: []
+      spriteID: 984fefb16ebdf384dad8a3bdda257a7b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: NPCs set3_16
       rect:
@@ -417,6 +488,12 @@ TextureImporter:
         - {x: -10, y: 0}
         - {x: -12, y: -1}
       tessellationDetail: 0
+      bones: []
+      spriteID: bc59ce8433db141469c593dd7c0e5e51
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: NPCs set3_17
       rect:
@@ -440,6 +517,12 @@ TextureImporter:
         - {x: 11, y: -5}
         - {x: 9, y: 0}
       tessellationDetail: 0
+      bones: []
+      spriteID: 52bdbc895a361644882e4a57f9dd10a0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: NPCs set3_18
       rect:
@@ -460,6 +543,12 @@ TextureImporter:
         - {x: 7, y: -16}
         - {x: 7, y: 7}
       tessellationDetail: 0
+      bones: []
+      spriteID: 8976da53776b07846b2957ec55672b28
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: NPCs set3_19
       rect:
@@ -481,6 +570,12 @@ TextureImporter:
         - {x: -7, y: -15}
         - {x: -6, y: -16}
       tessellationDetail: 0
+      bones: []
+      spriteID: ebcede3cbccb45f479a6b737cfea2214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: NPCs set3_20
       rect:
@@ -501,6 +596,12 @@ TextureImporter:
         - {x: 7, y: -16}
         - {x: 7, y: 7}
       tessellationDetail: 0
+      bones: []
+      spriteID: 59cf25e90aac3e04eaee6501b3a272ff
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: NPCs set3_21
       rect:
@@ -524,6 +625,12 @@ TextureImporter:
         - {x: 12, y: -3}
         - {x: 8, y: 1}
       tessellationDetail: 0
+      bones: []
+      spriteID: b4913238f0417234ab9e94e5b132545f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: NPCs set3_22
       rect:
@@ -547,6 +654,12 @@ TextureImporter:
         - {x: 11, y: -3}
         - {x: 7, y: 1}
       tessellationDetail: 0
+      bones: []
+      spriteID: ffcff71433b07754cb553490e32e90cf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: NPCs set3_23
       rect:
@@ -570,6 +683,12 @@ TextureImporter:
         - {x: 11, y: -3}
         - {x: 7, y: 1}
       tessellationDetail: 0
+      bones: []
+      spriteID: abad1dda9d4dcbc48b2b0d40f1f61bc1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: NPCs set3_27
       rect:
@@ -592,6 +711,12 @@ TextureImporter:
         - {x: 12, y: -8}
         - {x: 10, y: -5}
       tessellationDetail: 0
+      bones: []
+      spriteID: 6a048f8af0fdef143bcaa98fd1710a3b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: NPCs set3_28
       rect:
@@ -614,6 +739,12 @@ TextureImporter:
         - {x: 12, y: -10}
         - {x: 9, y: -5}
       tessellationDetail: 0
+      bones: []
+      spriteID: be543e45b21b36f469a6c1d389d4eed1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: NPCs set3_29
       rect:
@@ -636,6 +767,12 @@ TextureImporter:
         - {x: 12, y: -10}
         - {x: 9, y: -5}
       tessellationDetail: 0
+      bones: []
+      spriteID: db1f2427ca2f13940a419eee00f76a8c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: NPCs set3_30
       rect:
@@ -656,6 +793,12 @@ TextureImporter:
         - {x: 7, y: -16}
         - {x: 7, y: 7}
       tessellationDetail: 0
+      bones: []
+      spriteID: 31320080a93422548af5551c955410bf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: NPCs set3_31
       rect:
@@ -677,6 +820,12 @@ TextureImporter:
         - {x: -7, y: -15}
         - {x: -6, y: -16}
       tessellationDetail: 0
+      bones: []
+      spriteID: 199ea7690c0472f4fbb9163eec5c44f7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: NPCs set3_32
       rect:
@@ -697,6 +846,12 @@ TextureImporter:
         - {x: 7, y: -16}
         - {x: 7, y: 7}
       tessellationDetail: 0
+      bones: []
+      spriteID: e67c623da0c655641b72674b2e6c5da5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: NPCs set3_33
       rect:
@@ -719,6 +874,12 @@ TextureImporter:
         - {x: 10, y: -1}
         - {x: 0, y: 1}
       tessellationDetail: 0
+      bones: []
+      spriteID: 2b609fa6fbed1c44a9c381950ba47814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: NPCs set3_34
       rect:
@@ -741,6 +902,12 @@ TextureImporter:
         - {x: 9, y: -1}
         - {x: -1, y: 1}
       tessellationDetail: 0
+      bones: []
+      spriteID: 98d631fe6cb05f54494ba75e3f2dc127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: NPCs set3_35
       rect:
@@ -763,6 +930,12 @@ TextureImporter:
         - {x: 9, y: -1}
         - {x: -1, y: 1}
       tessellationDetail: 0
+      bones: []
+      spriteID: 02c279dff8fa4844287ba8cf0ef6aa2c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: NPCs set3_39
       rect:
@@ -785,6 +958,12 @@ TextureImporter:
         - {x: 12, y: -8}
         - {x: 10, y: -5}
       tessellationDetail: 0
+      bones: []
+      spriteID: 2ebb693e39445684a8b0c6b08f3eceee
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: NPCs set3_40
       rect:
@@ -807,6 +986,12 @@ TextureImporter:
         - {x: 12, y: -10}
         - {x: 9, y: -5}
       tessellationDetail: 0
+      bones: []
+      spriteID: cdaf3b787305c2a43b20dda3f9c48d0a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: NPCs set3_41
       rect:
@@ -829,6 +1014,12 @@ TextureImporter:
         - {x: 12, y: -10}
         - {x: 9, y: -5}
       tessellationDetail: 0
+      bones: []
+      spriteID: 57c68d1349f5a2641b8fad8162d85a3a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: NPCs set3_42
       rect:
@@ -849,6 +1040,12 @@ TextureImporter:
         - {x: 7, y: -16}
         - {x: 7, y: 7}
       tessellationDetail: 0
+      bones: []
+      spriteID: f54ccbe52ede3174481cea65044250db
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: NPCs set3_43
       rect:
@@ -870,6 +1067,12 @@ TextureImporter:
         - {x: -7, y: -15}
         - {x: -6, y: -16}
       tessellationDetail: 0
+      bones: []
+      spriteID: d5e24dc68a4aa034daea412d421f8e03
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: NPCs set3_44
       rect:
@@ -890,6 +1093,12 @@ TextureImporter:
         - {x: 7, y: -16}
         - {x: 7, y: 7}
       tessellationDetail: 0
+      bones: []
+      spriteID: c43dc23bb4de0ba4ea8e1079286f0ae2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: NPCs set3_45
       rect:
@@ -912,6 +1121,12 @@ TextureImporter:
         - {x: 10, y: -1}
         - {x: 0, y: 1}
       tessellationDetail: 0
+      bones: []
+      spriteID: f3d8c31c3aaffd541bd646c9ae01a72a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: NPCs set3_46
       rect:
@@ -934,6 +1149,12 @@ TextureImporter:
         - {x: 9, y: -1}
         - {x: -1, y: 1}
       tessellationDetail: 0
+      bones: []
+      spriteID: 6ec2d345219bf9b46a575a518fc782de
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: NPCs set3_47
       rect:
@@ -956,6 +1177,12 @@ TextureImporter:
         - {x: 9, y: -1}
         - {x: -1, y: 1}
       tessellationDetail: 0
+      bones: []
+      spriteID: 0a0f27fb98431994585833d55bdd07ad
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: spiderBigger
       rect:
@@ -970,6 +1197,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 6055a155699d8644ea33a11e69ace192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: spiderSmall
       rect:
@@ -984,8 +1217,20 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: fcde8c8126344864f8ec3447a18e9dbf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
+    bones: []
+    spriteID: 
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
   spritePackingTag: 
   userData: 
   assetBundleName: 
