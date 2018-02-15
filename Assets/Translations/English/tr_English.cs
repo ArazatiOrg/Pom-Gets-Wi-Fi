@@ -1786,8 +1786,8 @@ public class tr_English : _BaseTR
                     {
                         e = EventPlayerMoveable.c(false);
                         e = EventTextbox.c(Faces.Shibe, @"Alright, let's--").SwitchSides;
-                        e = EventShake.c(5, 5, .2f).Wait;
                         e = EventSFX.c(SFX.fire8);
+                        e = EventShake.c(5, 5, .2f).Wait;
                         e = EventTextbox.c(Faces.Sherman, @"You two over there!");
                         e = EventShake.c(5, 5, .2f).Wait;
                         e = EventTextbox.c(Faces.Sherman, @"What do you think you're doing?!");
@@ -1799,8 +1799,8 @@ public class tr_English : _BaseTR
                         e = EventTextbox.c(Faces.Pom, @"fuk da popo");
                         e = EventTextbox.c(Faces.Pom, @"cant tell me what 2 do");
                         e = EventTextbox.c(Faces.Pom, @"z - snap");
-                        e = EventShake.c(5, 5, .2f).Wait;
                         e = EventSFX.c(SFX.fire8);
+                        e = EventShake.c(5, 5, .2f).Wait;
                         e = EventTextbox.c(Faces.Sherman, @"Stop!");
                         e = EventSFX.c(SFX.Pom_bark);
                         e = EventTextbox.c(Faces.Pom, @"adios bitches");
@@ -3009,8 +3009,8 @@ manservant?!").SwitchSides;
                 e = EventTextbox.c(Faces.Pom, @"M");
                 e = EventTextbox.c(Faces.Pom, @"F");
                 e = EventTextbox.c(Faces.Pom, @"G");
-                e = EventShake.c(5, 5, .2f).Wait;
                 e = EventSFX.c(SFX.Pom_bark);
+                e = EventShake.c(5, 5, .2f).Wait;
                 e = EventTextbox.c(Faces.Pom, @"U HAVE GOTTA B KEEEEEEEEDDING
                                                 ME");
                 e = EventTextbox.c(Faces.WittyFido, @"What's brown and sticky?");
