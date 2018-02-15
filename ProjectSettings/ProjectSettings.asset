@@ -116,7 +116,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 2.45.7
+  bundleVersion: 2.46.9
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -153,7 +153,7 @@ PlayerSettings:
     Standalone: com.Arazati.PomGetsWiFi
     iOS: com.ArazatiOrg.PomGetsWiFi
   buildNumber: {}
-  AndroidBundleVersionCode: 2045007
+  AndroidBundleVersionCode: 2046009
   AndroidMinSdkVersion: 16
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1

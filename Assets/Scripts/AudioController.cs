@@ -45,6 +45,34 @@ public class AudioController : MonoBehaviour {
         instance = this;
 	}
 
+    private void OnGUI()
+    {
+        if (WorldspaceUI.instance.state != WorldspaceUI.UIState.MainMenu) return;
+
+        if (volumeLevelMultiplier == -1f)
+        {
+            Mixer.GetFloat("Vol_Master", out volumeLevelMultiplier);
+            volumeLevelMultiplier = (volumeLevelMultiplier + 80f) / 100f;
+        }
+
+        var width = 150;
+        var height = 12;
+        var offsetFromTop = 8;
+
+        var sliderPos = new Rect(Screen.width - width - 8, height + offsetFromTop + 12, width, height);
+
+        DebugInfo.DrawText(new Vector2(sliderPos.x, offsetFromTop), "Temp Volume Control");
+        GUI.DrawTexture(sliderPos, Texture2D.whiteTexture);
+        var volumeLevel = GUI.HorizontalSlider(sliderPos, volumeLevelMultiplier, 0f, 1f);
+
+        if(volumeLevel != volumeLevelMultiplier)
+        {
+            volumeLevelMultiplier = volumeLevel;
+
+            Mixer.SetFloat("Vol_Master", Mathf.Lerp(-79f, 20f, volumeLevelMultiplier));
+        }
+    }
+    
     private void Update()
     {
         SongTransitionUpdate();
@@ -60,6 +88,8 @@ public class AudioController : MonoBehaviour {
     float oldVolume = -1;
     float percentage = 0f;
     public float bgmTransitionSpeed = 16f;
+
+    float volumeLevelMultiplier = -1f;
 
     void SongTransitionUpdate()
     {
@@ -120,6 +150,8 @@ public class AudioController : MonoBehaviour {
     public void PlayBGM(int index, float volume, bool restartIfSame = true)
     {
         if (!restartIfSame && bgmSource.clip == music[index]) return;
+        
+        volume = 1f; //HACK: Just gonna kill off all volume control since the fucking Firefox Unity3D WebGL build doesn't want to play nice
 
         if (Global.ActiveSavefile != null)
         {
@@ -137,6 +169,8 @@ public class AudioController : MonoBehaviour {
 
     public void PlaySFX(int index, float volume, float pitch = 1f)
     {
+        volume = 1f; //HACK: Just gonna kill off all volume control since the fucking Firefox Unity3D WebGL build doesn't want to play nice
+
         var oldPitch = sfxSource.pitch;
         sfxSource.pitch = pitch;
         sfxSource.PlayOneShot(sfx[index],volume);

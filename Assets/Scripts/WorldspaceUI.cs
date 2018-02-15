@@ -15,7 +15,7 @@ public class WorldspaceUI : MonoBehaviour {
 
     int selectedSlot = 0;
 
-    UIState state = UIState.MainMenu;
+    public UIState state = UIState.MainMenu;
 
     public int saveSlots = 15;
     public Global.SaveFile[] saveFiles;
@@ -161,7 +161,7 @@ public class WorldspaceUI : MonoBehaviour {
         }
     }
 
-    enum UIState
+    public enum UIState
     {
         None,
         MainMenu,

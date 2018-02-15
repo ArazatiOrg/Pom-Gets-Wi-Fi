@@ -26,7 +26,7 @@ public class DebugInfo : MonoBehaviour {
         //DrawText(new Vector2(3, 3 + offset), debugText);
     }
 
-    void DrawText(Vector2 pos, string text)
+    public static void DrawText(Vector2 pos, string text)
     {
         var sizeX = Screen.width - pos.x - 5;
 
