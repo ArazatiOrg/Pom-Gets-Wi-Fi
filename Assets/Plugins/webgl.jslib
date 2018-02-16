@@ -3,6 +3,7 @@ mergeInto(LibraryManager.library, {
     LoadArea_SetText: function(str) {
         document.getElementById("loadarea").style.display = "block";
         document.getElementById("loadtext").value=Pointer_stringify(str);
+		document.getElementById("loadtext").style.display = "inline";
     },
 	
 	LoadArea_GetText: function() {
