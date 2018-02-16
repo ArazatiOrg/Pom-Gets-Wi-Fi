@@ -3,5 +3,5 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class _BaseLogicEvent {
-    public virtual IEnumerator Execute() { return null; }
+    public virtual IEnumerator Execute() { yield return null; }
 }

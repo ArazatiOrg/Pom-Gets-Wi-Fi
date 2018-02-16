@@ -34,8 +34,12 @@ public class InputController : MonoBehaviour {
     Vector2 lastMousePos = Vector2.zero;
     bool lastMousePressed = false;
 
+    static bool ignoreForFrame = false;
     // Update is called once per frame
     void Update () {
+        if (ignoreForFrame) ignoreForFrame = false;
+        if (Global.FocusJustChanged) { ignoreForFrame = true; Global.FocusJustChanged = false; }
+
         var curTouches = Input.touches;
         var curMouse = ScreenToPercentage(Input.mousePosition);
         var curMousePressed = Input.GetMouseButton(0) || //left click
@@ -194,7 +198,7 @@ public class InputController : MonoBehaviour {
 
     public static bool JustPressed(Action action)
     {
-        return instance.curJustPressed[(int)action];
+        return instance.curJustPressed[(int)action] && !ignoreForFrame;
     }
 
     public static bool IsDown(Action action)

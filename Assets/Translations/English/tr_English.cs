@@ -6368,15 +6368,15 @@ manservant?!").SwitchSides;
         {
             tempEP = new EventPage(); e = EventPageSwitch.c(Global.s.IntroGround).AddEventPage(0, tempEP); ep = tempEP;
             e = EventPlayerMoveable.c(false);
-            e = EventMovePlayer.c(Right);
-            e = EventWait.c(.33f);
-            e = EventMovePlayer.c(Right);
-            e = EventWait.c(.33f);
-            e = EventMovePlayer.c(DownRight);
-            e = EventWait.c(.33f);
-            e = EventMovePlayer.c(DownRight);
-            e = EventWait.c(.33f);
             e = EventSetGlobal.c(Global.s.ShibeIntro, 1);
+            e = EventMovePlayer.c(Right);
+            e = EventWait.c(.33f);
+            e = EventMovePlayer.c(Right);
+            e = EventWait.c(.33f);
+            e = EventMovePlayer.c(DownRight);
+            e = EventWait.c(.33f);
+            e = EventMovePlayer.c(DownRight);
+            e = EventWait.c(.33f);
             e = EventMovePlayer.c(Right);
         }
 
@@ -6384,6 +6384,7 @@ manservant?!").SwitchSides;
         {
             tempEP = new EventPage(); e = EventPageSwitch.c(Global.s.IntroGround).AddEventPage(0, tempEP); ep = tempEP;
             e = EventPlayerMoveable.c(false);
+            e = EventSetGlobal.c(Global.s.ShibeIntro, 1);
             e = EventMovePlayer.c(Right);
             e = EventWait.c(.33f);
             e = EventMovePlayer.c(Right);
@@ -6392,7 +6393,6 @@ manservant?!").SwitchSides;
             e = EventWait.c(.33f);
             e = EventMovePlayer.c(Right);
             e = EventWait.c(.33f);
-            e = EventSetGlobal.c(Global.s.ShibeIntro, 1);
             e = EventMovePlayer.c(Right);
         }
 
@@ -6400,15 +6400,15 @@ manservant?!").SwitchSides;
         {
             tempEP = new EventPage(); e = EventPageSwitch.c(Global.s.IntroGround).AddEventPage(0, tempEP); ep = tempEP;
             e = EventPlayerMoveable.c(false);
-            e = EventMovePlayer.c(Right);
-            e = EventWait.c(.33f);
-            e = EventMovePlayer.c(Right);
-            e = EventWait.c(.33f);
-            e = EventMovePlayer.c(Right);
-            e = EventWait.c(.33f);
-            e = EventMovePlayer.c(Right);
-            e = EventWait.c(.33f);
             e = EventSetGlobal.c(Global.s.ShibeIntro, 1);
+            e = EventMovePlayer.c(Right);
+            e = EventWait.c(.33f);
+            e = EventMovePlayer.c(Right);
+            e = EventWait.c(.33f);
+            e = EventMovePlayer.c(Right);
+            e = EventWait.c(.33f);
+            e = EventMovePlayer.c(Right);
+            e = EventWait.c(.33f);
             e = EventMovePlayer.c(Right);
         }
 
@@ -6416,6 +6416,7 @@ manservant?!").SwitchSides;
         {
             tempEP = new EventPage(); e = EventPageSwitch.c(Global.s.IntroGround).AddEventPage(0, tempEP); ep = tempEP;
             e = EventPlayerMoveable.c(false);
+            e = EventSetGlobal.c(Global.s.ShibeIntro, 1);
             e = EventMovePlayer.c(Right);
             e = EventWait.c(.33f);
             e = EventMovePlayer.c(Right);
@@ -6424,7 +6425,6 @@ manservant?!").SwitchSides;
             e = EventWait.c(.33f);
             e = EventMovePlayer.c(Right);
             e = EventWait.c(.33f);
-            e = EventSetGlobal.c(Global.s.ShibeIntro, 1);
             e = EventMovePlayer.c(Right);
         }
 
@@ -6432,15 +6432,15 @@ manservant?!").SwitchSides;
         {
             tempEP = new EventPage(); e = EventPageSwitch.c(Global.s.IntroGround).AddEventPage(0, tempEP); ep = tempEP;
             e = EventPlayerMoveable.c(false);
-            e = EventMovePlayer.c(Right);
-            e = EventWait.c(.33f);
-            e = EventMovePlayer.c(Right);
-            e = EventWait.c(.33f);
-            e = EventMovePlayer.c(UpRight);
-            e = EventWait.c(.33f);
-            e = EventMovePlayer.c(UpRight);
-            e = EventWait.c(.33f);
             e = EventSetGlobal.c(Global.s.ShibeIntro, 1);
+            e = EventMovePlayer.c(Right);
+            e = EventWait.c(.33f);
+            e = EventMovePlayer.c(Right);
+            e = EventWait.c(.33f);
+            e = EventMovePlayer.c(UpRight);
+            e = EventWait.c(.33f);
+            e = EventMovePlayer.c(UpRight);
+            e = EventWait.c(.33f);
             e = EventMovePlayer.c(Right);
         }
 

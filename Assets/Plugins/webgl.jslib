@@ -15,5 +15,12 @@ mergeInto(LibraryManager.library, {
 	
 	GameControlReady: function() {
 		gameReady = true;
+		
+		//document.getElementById("#canvas").width = 960;
+		//document.getElementById("#canvas").height = 720;
+		
+		if(typeof GameIsReady == 'function') {
+			GameIsReady();
+		}
     },
 });

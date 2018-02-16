@@ -243,8 +243,8 @@ public class Global : MonoBehaviour {
             s.PlayerFacing.value = (int)Player.playerInstance.facingDir;
         }
 
-        Application.targetFrameRate = 60;
-
+        //Application.targetFrameRate = 60;
+        
         var defaultFont = TextEngine.instance.text.font;
 
         EventPage.InitializeTranslations();
@@ -259,8 +259,11 @@ public class Global : MonoBehaviour {
 #if !UNITY_EDITOR && UNITY_WEBGL
             UnityEngine.WebGLInput.captureAllKeyboardInput = p_focus == 1;
 #endif
+
+        FocusJustChanged = true;
     }
 
+    public static bool FocusJustChanged = false;
     public static bool changedVariables = false;
     private void Update()
     {

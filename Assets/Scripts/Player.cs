@@ -117,7 +117,7 @@ public class Player : NPCController {
         var beforeSpeed = moveSpeed;
         if (Global.devMode && Input.GetKey(KeyCode.RightControl)) moveSpeed = 80;
 
-		base.UpdateMovement();
+        base.UpdateMovement();
 
         moveSpeed = beforeSpeed;
 

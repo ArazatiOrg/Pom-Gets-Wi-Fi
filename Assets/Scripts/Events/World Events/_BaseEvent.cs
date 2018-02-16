@@ -21,7 +21,14 @@ public class _BaseEvent : MonoBehaviour {
 
 	public virtual IEnumerator TriggeredEvent(GameObject triggeredBy){yield return null;}
 
-	void OnTriggerEnter2D (Collider2D collision2D) { if (triggerBySteppedOn && collision2D == Player.playerInstance.boxCollider) { playerEntered = true; } }
+	void OnTriggerEnter2D (Collider2D collision2D)
+    {
+        if (triggerBySteppedOn && collision2D == Player.playerInstance.boxCollider)
+        {
+            Debug.Log("PLAYER TRIGGER ON " + name, gameObject);
+            playerEntered = true;
+        }
+    }
 	void Bumped(GameObject gameObject) { if (triggerByBumped && gameObject == Player.playerInstance.gameObject) { StartCoroutine(TriggeredEvent(gameObject)); } }
 	public void Activated(GameObject triggeredBy) { if(triggerByActivated) StartCoroutine(TriggeredEvent(triggeredBy)); }
 }

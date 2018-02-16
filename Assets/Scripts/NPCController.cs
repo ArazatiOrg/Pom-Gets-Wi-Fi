@@ -80,6 +80,7 @@ public class NPCController : MonoBehaviour {
                 anim.transform.localPosition = Vector3.zero;
                 standingStill = true;
 				stoppedOnTile = true;
+                moveTimeout = float.Epsilon;
             }
         }
 

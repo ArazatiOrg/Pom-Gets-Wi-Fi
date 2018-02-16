@@ -100276,6 +100276,18 @@ Prefab:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4631379900493138, guid: 955531cd5ba45fb409d5fd0d9e69038a, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631379900493138, guid: 955531cd5ba45fb409d5fd0d9e69038a, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631379900493138, guid: 955531cd5ba45fb409d5fd0d9e69038a, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 955531cd5ba45fb409d5fd0d9e69038a, type: 2}
   m_IsPrefabParent: 0
@@ -101410,7 +101422,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 7
 --- !u!1 &1898611022
 GameObject:
