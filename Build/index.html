@@ -9,11 +9,12 @@
     <script src="TemplateData/UnityProgress.js"></script>  
     <script src="Build/UnityLoader.js"></script>
 	<style type="text/css">
-        #loadarea{height:320px; width:240px; display: none;}
+        #loadarea{ width: 260px; height:240px; }
+		#loadtext{ width: 280px; height: 38px; resize: none}
     </style>
     <script>
 		var gameInstance = UnityLoader.instantiate("gameContainer", "Build/Build.json", {onProgress: UnityProgress});
-	  
+		
 		var gameReady = false;
 		function FocusCanvas(focus) {
 			if(gameReady) {
@@ -34,12 +35,14 @@
     <div class="webgl-content">
       <div id="gameContainer" style="width: 320px; height: 240px"></div>
       <div class="footer">
+		<textarea id="loadtext"></textarea>
         <!--<div class="webgl-logo"></div>-->
         <div class="fullscreen" onclick="gameInstance.SetFullscreen(1)"></div>
         <!--<div class="title">Pom Gets Wi-Fi</div>-->
       </div>
-      <div id="loadarea"><textarea id="loadtext"></textarea><br></div>
+	  <div id="loadarea"><!--<textarea id="loadtext"></textarea>--></div>
 	  <!-- <div>Bugs related to the port can be directed to <a href="https://twitter.com/arazatitea" target="_blank">@ArazatiTea</a> or submitted <a href="https://github.com/ArazatiOrg/Pom-Gets-Wi-Fi/issues" target="_blank">here.</a></div> -->
     </div>
   </body>
+  <script>document.getElementById("loadtext").value="";</script>
 </html>
