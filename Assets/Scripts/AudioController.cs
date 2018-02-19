@@ -43,8 +43,16 @@ public class AudioController : MonoBehaviour {
     // Use this for initialization
     void Start () {
         instance = this;
-	}
+        if (PlayerPrefs.HasKey("GL_AudioController_Volume"))
+        {
+            volumeLevelMultiplier = PlayerPrefs.GetFloat("GL_AudioController_Volume");
+            Mixer.SetFloat("Vol_Master", Mathf.Lerp(-79f, 20f, volumeLevelMultiplier));
+        }
 
+    }
+
+    public Texture2D volumeTexture;
+    bool showSlider = false;
     private void OnGUI()
     {
         if (WorldspaceUI.instance.state != WorldspaceUI.UIState.MainMenu) return;
@@ -61,15 +69,34 @@ public class AudioController : MonoBehaviour {
 
         var sliderPos = new Rect(Screen.width - width - 8, height + offsetFromTop + 12, width, height);
 
-        DebugInfo.DrawText(new Vector2(sliderPos.x, offsetFromTop), "Temp Volume Control");
-        GUI.DrawTexture(sliderPos, Texture2D.whiteTexture);
-        var volumeLevel = GUI.HorizontalSlider(sliderPos, volumeLevelMultiplier, 0f, 1f);
+        var temp = width;
+        width = height;
+        height = temp;
+        offsetFromTop = 28;
+
+        var verticalSliderPos = new Rect(Screen.width - width - 8, offsetFromTop, width, height);
+        var verticalSliderPosBounding = new Rect(Screen.width - width - 9, offsetFromTop, width + 1, height);
+
+        //DebugInfo.DrawText(new Vector2(sliderPos.x, offsetFromTop), "Temp Volume Control");
+        var buttonRectImage = new Rect(Screen.width - 5 - 20, 5, 20, 20);
+        var buttonRect = new Rect(Screen.width - 5 - 20 - 1, 5 - 1, 20 + 2, 20 + 2);
+        if (GUI.Button(buttonRect, ""))
+        {
+            showSlider = !showSlider;
+        }
+        GUI.DrawTexture(buttonRectImage, volumeTexture);
+
+        if (!showSlider) return;
+
+        GUI.DrawTexture(verticalSliderPosBounding, Texture2D.whiteTexture);
+        var volumeLevel = GUI.VerticalSlider(verticalSliderPos, volumeLevelMultiplier, 1f, 0f);
 
         if(volumeLevel != volumeLevelMultiplier)
         {
             volumeLevelMultiplier = volumeLevel;
 
             Mixer.SetFloat("Vol_Master", Mathf.Lerp(-79f, 20f, volumeLevelMultiplier));
+            PlayerPrefs.SetFloat("GL_AudioController_Volume", volumeLevelMultiplier);
         }
     }
     
