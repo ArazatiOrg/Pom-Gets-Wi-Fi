@@ -25,6 +25,9 @@ public class EventTeleportPlayer : _BaseEvent {
 
 		var cameraFader = Camera.main.GetComponentInChildren<CameraFader>();
 
+        var beforeSpeed = cameraFader.fadeSpeed;
+        cameraFader.fadeSpeed = (1f / .4f);
+        
 		cameraFader.StartFading();
 
 		yield return new WaitUntil(() => cameraFader.finishedFading);
@@ -43,6 +46,8 @@ public class EventTeleportPlayer : _BaseEvent {
 		cameraFader.StartUnfading();
 
 		yield return new WaitUntil(() => cameraFader.finishedFading);
+
+        cameraFader.fadeSpeed = beforeSpeed;
 
         if(Player.playerInstance.triggerOverride == 0)
 		    Player.playerInstance.AllowMovement = true;

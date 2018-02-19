@@ -83,7 +83,7 @@ public class tr_English : _BaseTR
             {
                 e = EventPlayerMoveable.c(false);
                 e = EventBGM.c(BGM.Village2, .4f);
-                e = EventSFX.c(SFX.Pom_bark);
+                e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                 e = EventTextbox.c(Faces.Pom_no_laptop, @"the sun is shining");
                 e = EventTextboxClearText.c;
                 e = EventWait.c(.3f);
@@ -95,7 +95,7 @@ public class tr_English : _BaseTR
                 e = EventChangeSprite.c(PlayerSprite.PillowAndLaptop);
                 e = EventFlashScreen.c(.2f);
                 e = EventWait.c(1f);
-                e = EventSFX.c(SFX.Pom_bark);
+                e = EventSFX.c(SFX.Pom_bark, pitch:Pitch_PomBark);
                 e = EventTextbox.c(Faces.Pom, @"...to spend on the internet");
                 e = EventTextboxClose.c;
                 e = EventSetGlobal.c(Global.s.Intro, 1);
@@ -147,7 +147,7 @@ public class tr_English : _BaseTR
                 e = EventTextbox.c(Faces.Pom, @"...");
                 e = EventTextbox.c(Faces.Pom, @"...");
                 e = EventTextbox.c(Faces.Pom, @"??????!!!!!!!");
-                e = EventSFX.c(SFX.Pom_bark);
+                e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                 e = EventTextbox.c(Faces.Pom, @"JESSUSUSUS CHSIRTS");
                 e = EventTextbox.c(Faces.Pom, @"the mythbarkers r doing an AMA");
                 e = EventTextbox.c(Faces.Pom, @"this is terrieriffic
@@ -169,7 +169,7 @@ public class tr_English : _BaseTR
                 e = EventTextbox.c(Faces.Pom, @"lets see what i have here");
                 e = EventTextbox.c(Faces.Pom, @"''Pom, it's not too late to apply!''
                                                 ''Pom, picture yourself at Berkeley''");
-                e = EventSFX.c(SFX.Pom_bark);
+                e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                 e = EventTextbox.c(Faces.Pom, @"IM A FUKKIN POMERANIAN");
                 e = EventTextbox.c(Faces.Pom, @"WTH DO U GUYS WANT FROM ME");
                 e = EventTextbox.c(Faces.Pom, @"...");
@@ -189,7 +189,7 @@ public class tr_English : _BaseTR
                 e = EventTextbox.c(Faces.Pom, @"bless this drawing");
                 e = EventTextbox.c(Faces.Pom, @"...");
                 e = EventTextbox.c(Faces.Pom, @"wh");
-                e = EventSFX.c(SFX.Pom_bark);
+                e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                 e = EventTextbox.c(Faces.Pom, @"the arTIST IS FOURTEEN");
                 e = EventTextbox.c(Faces.Pom, @"WHY THIS");
                 e = EventTextbox.c(Faces.Pom, @"SO TALENT");
@@ -253,7 +253,7 @@ public class tr_English : _BaseTR
                 e = EventSFX.c(SFX.Shibe_barking);
                 e = EventTextbox.c(Faces.None, @"\C[1]Voice\C[0]
                                 Come on! This way!");
-                e = EventSFX.c(SFX.Pom_bark);
+                e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                 e = EventTextbox.c(Faces.Pom, @"wtf!!");
                 e = EventTextbox.c(Faces.Pom, @"that fukkin shiba inu is so noisy");
                 e = EventSFX.c(SFX.Shibe_barking);
@@ -266,7 +266,7 @@ public class tr_English : _BaseTR
                 e = EventTextbox.c(Faces.Pom, @"I SWEAR TO DOG");
                 e = EventTextbox.c(Faces.Pom, @"IF YOU DONT SHADDUP IMMA
                                                 FUKKIN KNOCK THE WALL DOWN");
-                e = EventSFX.c(SFX.Pom_bark);
+                e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                 e = EventTextbox.c(Faces.Pom, @"YA HEAR ME, SHIBE??");
                 e = EventSFX.c(SFX.Shibe_barking);
                 e = EventSFX.c(SFX.bump1);
@@ -274,7 +274,7 @@ public class tr_English : _BaseTR
                 e = EventTextbox.c(Faces.None, @"\C[1]Shibe\C[0]
                                 Pom, listen to me! Open your
                                 door and run for it!");
-                e = EventSFX.c(SFX.Pom_bark);
+                e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                 e = EventTextbox.c(Faces.Pom, @"GO AWAY!!!!!!!!!!!");
                 e = EventTextbox.c(Faces.None, @"\C[1]Shibe\C[0]
                                 No! I'm not leaving without you!");
@@ -292,7 +292,7 @@ public class tr_English : _BaseTR
                 e = EventTextbox.c(Faces.Pom, @"is it just me or is it hella hot in here");
                 e = EventTextbox.c(Faces.Pom, @"our owner should turn up the air 
                                                 conditioning");
-                e = EventSFX.c(SFX.Pom_bark);
+                e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                 e = EventTextbox.c(Faces.Pom, @"HEY OWNER!!");
                 e = EventTextbox.c(Faces.Pom, @"AIR CONDITIONING!!!");
                 e = EventSetBackground.c(Background.IntroFire3);
@@ -337,7 +337,7 @@ public class tr_English : _BaseTR
 
                 e = EventTextbox.c(Faces.Pom, @"...");
                 e = EventTextbox.c(Faces.Pom, @"EH????????");
-                e = EventSFX.c(SFX.Pom_bark);
+                e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                 e = EventShake.c(.2f);
                 e = EventTextbox.c(Faces.Pom, @"THERES NO WI-FI");
                 e = EventTextbox.c(Faces.Pom, @"JUST KILL ME NOW");
@@ -372,7 +372,7 @@ public class tr_English : _BaseTR
             e = EventSetGlobal.c(Global.s.IntroGround, 1);
             e = EventSetGlobal.c(Global.s.ShibeIntro, 3);
             e = EventSetGlobal.c(Global.s.ShibeTalk, 1);
-            e = EventSFX.c(SFX.Medium_Dog1);
+            e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_ShibeBark);
             e = EventTextbox.c(Faces.Shibe, @"Pom!");
             e = EventTextbox.c(Faces.Pom, @"poopy head");
             e = EventTextbox.c(Faces.Shibe, @"I'm glad you didn't get hurt in
@@ -457,7 +457,7 @@ public class tr_English : _BaseTR
                         e = EventTextbox.c(Faces.Pom, @"say ''a new year a new start''");
                         e = EventTextbox.c(Faces.Pom, @"''i hope senpai notices me''");
                         e = EventTextbox.c(Faces.Shibe_uh, @"A new year, a ne-");
-                        e = EventSFX.c(SFX.Pom_bark);
+                        e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                         e = EventTextbox.c(Faces.Pom, @"NO ur doin it wrong");
                         e = EventTextbox.c(Faces.Pom, @"''a new year a new start''");
                         e = EventTextbox.c(Faces.Pom, @"not ''A new year, a new start.''");
@@ -653,7 +653,7 @@ public class tr_English : _BaseTR
             ep = takePicture;
             {
                 e = EventTextboxClose.c;
-                e = EventSFX.c(SFX.cameraShutter);
+                e = EventSFX.c(SFX.cameraShutter, pitch: 1.3f);
                 e = EventWait.c(3f);
                 e = EventTextbox.c(Faces.Pom, @"jeebus that shutter noise is hella loud");
                 e = EventSetGlobal.c(Global.s.PictureTaken, 1);
@@ -678,7 +678,7 @@ public class tr_English : _BaseTR
                 e = EventTextbox.c(Faces.Crest, @"No way! Then there won't be any left
                                                   for the others!").SwitchSides;
                 e = EventTextbox.c(Faces.Papi, @"Right, right.");
-                e = EventSFX.c(SFX.Pom_bark);
+                e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_CrestBark);
                 e = EventShake.c(5, 5, .2f).Wait;
                 e = EventTextbox.c(Faces.Crest, @"I see you trying to sneak out another
                                                   dog treat there!").SwitchSides;
@@ -726,7 +726,7 @@ public class tr_English : _BaseTR
                 e = EventTextbox.c(Faces.Pom, @"whoa");
                 e = EventTextbox.c(Faces.Pom, @"she managed 2 shove it into his 
                                                 mouth while it was open");
-                e = EventSFX.c(SFX.crunching1);
+                e = EventSFX.c(SFX.crunching1, pitch: 1.3f);
                 e = EventTextbox.c(Faces.DavePointer, @"...");
                 e = EventTextbox.c(Faces.DavePointer, @"It's good.");
                 e = EventTextbox.c(Faces.DavePointer, @"It's part of my personal philosophy to
@@ -752,7 +752,7 @@ public class tr_English : _BaseTR
                 e = EventTextbox.c(Faces.Pom, @"i agree");
                 e = EventTextbox.c(Faces.Shibe_uh, @"Me, too.").SwitchSides;
                 e = EventTextbox.c(Faces.Pom, @"i thought u werent talking 2 me");
-                e = EventSFX.c(SFX.Medium_Dog1);
+                e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_ShibeBark);
                 e = EventShake.c(5, 5, .2f).Wait;
                 e = EventTextbox.c(Faces.Shibe_uh, @"Ack! I forgot!").SwitchSides;
                 e = EventTextboxClose.c;
@@ -814,10 +814,10 @@ public class tr_English : _BaseTR
                 {
                     e = EventTextbox.c(Faces.Crest, @"...");
                     e = EventTextbox.c(Faces.Pom, @"...");
-                    e = EventSFX.c(SFX.Pom_bark);
+                    e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                     e = EventShake.c(5, 5, .2f).Wait;
                     e = EventTextbox.c(Faces.Pom, @"SHIT");
-                    e = EventSFX.c(SFX.Pom_bark);
+                    e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_CrestBark);
                     e = EventShake.c(5, 5, .2f).Wait;
                     e = EventTextbox.c(Faces.Crest_crying, @"I knew it!");
                     e = EventTextbox.c(Faces.Crest_crying, @"You were following me!");
@@ -837,18 +837,19 @@ public class tr_English : _BaseTR
 
                 ep = noPicturesTaken;
                 {
-                    e = EventSFX.c(SFX.Pom_bark);
+                    e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_CrestBark);
                     e = EventTextbox.c(Faces.Crest, @"Oh! Hi there, Pom!");
-                    e = EventSFX.c(SFX.Pom_bark);
+                    e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                     e = EventShake.c(5, 5, .2f).Wait;
                     e = EventTextbox.c(Faces.Pom, @"SHIT");
                     e = EventTextbox.c(Faces.Crest, @"You and Shibe have been following 
                                                       me around, haven't you?");
+                    e = EventSFX.c(SFX.Medium_Dog1, pitch:Pitch_ShibeBark);
                     e = EventTextbox.c(Faces.Shibe_nervous, @"W-w-what makes you think that?").SwitchSides;
                     e = EventSetGlobal.c(Global.s.CrestStalkFest, 8);
                     e = EventTextbox.c(Faces.Crest, @"You don't have to be all embarrassed 
                                                       about it!");
-                    e = EventSFX.c(SFX.Pom_bark);
+                    e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_CrestBark);
                     e = EventTextbox.c(Faces.Crest, @"You two have been trying to work up
                                                       the nerve to ask to try my dog treats,
                                                       haven't you?");
@@ -952,7 +953,7 @@ public class tr_English : _BaseTR
                         e = EventTextbox.c(Faces.Sharpeii, @"What do you mean ''What the hell is
                                                              a funyarinpa''?!");
                         e = EventTextbox.c(Faces.Sharpeii, @"You mean...you don't know?!");
-                        e = EventSFX.c(SFX.Pom_bark);
+                        e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                         e = EventTextbox.c(Faces.Pom, @"how the hell would i know!?");
                         e = EventTextbox.c(Faces.Sharpeii, @"How could you not know?!
                                                              That...that's practically blasphemous.");
@@ -1034,7 +1035,7 @@ public class tr_English : _BaseTR
                         e = EventPlayerMoveable.c(false);
                         e = EventTextbox.c(Faces.Shibe, @"This looks like a model of a
                                                           rocket.");
-                        e = EventSFX.c(SFX.Pom_bark);
+                        e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                         e = EventTextbox.c(Faces.Pom, @"shit
                                                         i accidentally just broke a little
                                                         piece of it off");
@@ -1107,7 +1108,7 @@ public class tr_English : _BaseTR
                         e = EventPlayerMoveable.c(false);
                         e = EventTextbox.c(Faces.Shibe, @"This looks like a replica of the
                                                           Titanic.");
-                        e = EventSFX.c(SFX.Pom_bark);
+                        e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                         e = EventTextbox.c(Faces.Pom, @"fuk
                                                         i accidentally just broke a little
                                                         piece of it off");
@@ -1206,7 +1207,7 @@ public class tr_English : _BaseTR
                     e = EventPlayerMoveable.c(false);
                     e = EventTextbox.c(Faces.Pom, @"huh? what's that");
                     e = EventTextbox.c(Faces.Pom, @"HEY");
-                    e = EventSFX.c(SFX.Pom_bark);
+                    e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                     e = EventTextbox.c(Faces.Pom, @"I FOUND THE CORG-KEYS");
                     e = EventTextbox.c(Faces.York, @"Hey! You can't just take those!");
                     e = EventTextbox.c(Faces.Pom, @"2 bad 4 u");
@@ -1414,7 +1415,7 @@ public class tr_English : _BaseTR
                 e = EventMovePlayer.c(Up);
                 e = EventSetFacing.c(NPC.Shibe, SpriteDir.Up);
                 e = EventWait.c(1f);
-                e = EventSFX.c(SFX.Pom_bark);
+                e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_CrestBark);
                 e = EventShake.c(5, 5, .2f).Wait;
                 e = EventTextbox.c(Faces.Crest_crying, @"HELP!");
                 e = EventTextbox.c(Faces.Crest_crying, @"I'M TRAPPED!");
@@ -1436,7 +1437,7 @@ public class tr_English : _BaseTR
                 e = EventTextbox.c(Faces.Crest_crying, @"And then crawls onto my paw?!");
                 e = EventTextbox.c(Faces.Shibe_annoyed, @"Oh, come on!
                                                           What's going to happen if it crawls on you?").SwitchSides;
-                e = EventSFX.c(SFX.Pom_bark);
+                e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_CrestBark);
                 e = EventSFX.c(SFX.fire8);
                 e = EventShake.c(5, 5, .2f).Wait;
                 e = EventTextbox.c(Faces.Crest_crying, @"I'LL DIE!");
@@ -1462,19 +1463,20 @@ public class tr_English : _BaseTR
                 e = EventTextbox.c(Faces.Pom, @"today u meet ur doom");
                 e = EventTextbox.c(Faces.Shibe_uh, @"Can't we just coax it outside?");
                 e = EventTextbox.c(Faces.Shibe_uh, @"There's no real need to kill it.");
-                e = EventSFX.c(SFX.Pom_bark);
+                e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_CrestBark);
                 e = EventShake.c(5, 5, .2f).Wait;
+                e = EventSFX.c(SFX.fire8, pitch: 1.5f);
                 e = EventTextbox.c(Faces.Crest, @"No! Then it might make more
                                                   spiders!");
                 e = EventTextbox.c(Faces.Crest, @"You have to kill it!");
                 e = EventTextbox.c(Faces.Pom, @"fufufu");
                 e = EventTextboxClose.c;
                 e = EventWait.c(1f);
-                e = EventSFX.c(SFX.damage1);
+                e = EventSFX.c(SFX.damage1, pitch: 1.5f);
                 e = EventSetGlobal.c(Global.s.CrestTalk, 5);
                 e = EventWait.c(1f);
                 e = EventTextbox.c(Faces.Pom, @"it hath been slain");
-                e = EventSFX.c(SFX.Pom_bark);
+                e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_CrestBark);
                 e = EventTextbox.c(Faces.Crest, @"THANK YOU THANK YOU
                                                   THANK YOU!!!");
                 e = EventTextboxClose.c;
@@ -1484,7 +1486,7 @@ public class tr_English : _BaseTR
                 e = EventTextboxClose.c;
                 e = EventSetGlobal.c(Global.s.CrestTalk, 7);
                 e = EventSetGlobal.c(Global.s.PuddleTalk, 2);
-                e = EventSFX.c(SFX.close1);
+                e = EventSFX.c(SFX.close1, pitch: 1.5f);
                 e = EventTPPlayer.c(new Vector2(-11.5f, -53.5f), SpriteDir.Up, NPC.Puddle).instantTeleport;
                 e = EventTPPlayer.c(new Vector2(-6.5f, -50.5f), SpriteDir.Left, NPC.Crest).instantTeleport;
                 e = EventMovePlayer.c(Up, NPC.Puddle, Speed.HalfNormal);
@@ -1684,7 +1686,7 @@ public class tr_English : _BaseTR
                             e = EventPlayerMoveable.c(false);
                             e = EventTextbox.c(Faces.Shibe_uh, @"We don't have anything we can stack
                                                                  on there right now.");
-                            e = EventSFX.c(SFX.Pom_bark);
+                            e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                             e = EventTextbox.c(Faces.Pom, @"ding dong that is wrong");
                             e = EventTextbox.c(Faces.Pom, @"we have this famicom");
                             e = EventTextbox.c(Faces.Shibe_uh, @"But that's not ours!");
@@ -1745,7 +1747,7 @@ public class tr_English : _BaseTR
                         e = EventPlayerMoveable.c(false);
                         e = EventTextbox.c(Faces.Shibe_uh, @"We don't have anything we can stack
                                                                  on there right now.");
-                        e = EventSFX.c(SFX.Pom_bark);
+                        e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                         e = EventTextbox.c(Faces.Pom, @"ding dong that is wrong");
                         e = EventTextbox.c(Faces.Pom, @"we have this famicom");
                         e = EventTextbox.c(Faces.Shibe_uh, @"But that's not ours!");
@@ -1786,23 +1788,23 @@ public class tr_English : _BaseTR
                     {
                         e = EventPlayerMoveable.c(false);
                         e = EventTextbox.c(Faces.Shibe, @"Alright, let's--").SwitchSides;
-                        e = EventSFX.c(SFX.fire8);
+                        e = EventSFX.c(SFX.fire8, pitch: 1.5f);
                         e = EventShake.c(5, 5, .2f).Wait;
                         e = EventTextbox.c(Faces.Sherman, @"You two over there!");
                         e = EventShake.c(5, 5, .2f).Wait;
                         e = EventTextbox.c(Faces.Sherman, @"What do you think you're doing?!");
-                        e = EventSFX.c(SFX.Medium_Dog1);
+                        e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_ShibeBark);
                         e = EventShake.c(5, 5, .2f).Wait;
                         e = EventTextbox.c(Faces.Shibe_nervous, @"Ahhh!!!").SwitchSides;
-                        e = EventSFX.c(SFX.Pom_bark);
+                        e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                         e = EventShake.c(5, 5, .2f).Wait;
                         e = EventTextbox.c(Faces.Pom, @"fuk da popo");
                         e = EventTextbox.c(Faces.Pom, @"cant tell me what 2 do");
                         e = EventTextbox.c(Faces.Pom, @"z - snap");
-                        e = EventSFX.c(SFX.fire8);
+                        e = EventSFX.c(SFX.fire8, pitch: 1.5f);
                         e = EventShake.c(5, 5, .2f).Wait;
                         e = EventTextbox.c(Faces.Sherman, @"Stop!");
-                        e = EventSFX.c(SFX.Pom_bark);
+                        e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                         e = EventTextbox.c(Faces.Pom, @"adios bitches");
                         e = EventSetGlobal.c(Global.s.ShibeTalk, 12);
                         e = EventFade.c(.4f);
@@ -2001,7 +2003,7 @@ public class tr_English : _BaseTR
                                                 4 da smallest doge");
                 e = EventTextbox.c(Faces.Pom, @"that would b chi if u need it spelled
                                                 out 4 u");
-                e = EventSFX.c(SFX.Medium_Dog1);
+                e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_ShibeBark);
                 e = EventShake.c(5, 5, .2f).Wait;
                 e = EventTextbox.c(Faces.Shibe, @"Wasn't it your idea to go this way in
                                                   the first place?!");
@@ -2012,10 +2014,10 @@ public class tr_English : _BaseTR
             ep = hasChi;
             {
                 e = EventPlayerMoveable.c(false);
-                e = EventSFX.c(SFX.Pom_bark);
+                e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                 e = EventTextbox.c(Faces.Pom, @"where r we going???");
                 e = EventTextbox.c(Faces.Pom, @"da park isnt that way!!!");
-                e = EventSFX.c(SFX.Medium_Dog1);
+                e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_ShibeBark);
                 e = EventTextbox.c(Faces.Shibe_annoyed, @"I'm following you!");
                 e = EventTextbox.c(Faces.Shibe_annoyed, @"Stop trying to blame your bad sense
                                                           of direction on me!!!");
@@ -2054,10 +2056,10 @@ public class tr_English : _BaseTR
             ep = hasChi;
             {
                 e = EventPlayerMoveable.c(false);
-                e = EventSFX.c(SFX.Pom_bark);
+                e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                 e = EventTextbox.c(Faces.Pom, @"where r we going???");
                 e = EventTextbox.c(Faces.Pom, @"da park isnt that way!!!");
-                e = EventSFX.c(SFX.Medium_Dog1);
+                e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_ShibeBark);
                 e = EventTextbox.c(Faces.Shibe_annoyed, @"I'm following you!");
                 e = EventTextbox.c(Faces.Shibe_annoyed, @"Stop trying to blame your bad sense
                                                           of direction on me!!!");
@@ -2082,7 +2084,7 @@ public class tr_English : _BaseTR
             var tpTo = new Vector2(49.5f, -13.5f);
 
             e = EventPlayerMoveable.c(false);
-            e = EventSFX.c(SFX.punch6);
+            e = EventSFX.c(SFX.punch6, pitch: .9f);
             e = EventFlashScreen.c(.4f);
             e = EventTextbox.c(Faces.Pom, @"fuk");
             e = EventTextboxClose.c;
@@ -2116,11 +2118,11 @@ public class tr_English : _BaseTR
             e = EventSetGlobal.c(Global.s.ShibeAbleToFollow, 0);
             e = EventMovePlayer.c(Up);
             e = EventSetFacing.c(NPC.Pom, SpriteDir.Down);
-            e = EventSFX.c(SFX.Pom_bark);
+            e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
             e = EventTextbox.c(Faces.Pom, @"I DID");
             e = EventTextbox.c(Faces.Pom, @"REACH END");
             e = EventTextbox.c(Faces.Pom, @"SUCCEED");
-            e = EventSFX.c(SFX.Medium_Dog1);
+            e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_ShibeBark);
             e = EventShake.c(5, 5, .2f).Wait;
             e = EventTextbox.c(Faces.Shibe_nervous, @"Watch out for that frisbee!");
             e = EventSetGlobal.c(Global.s.FrisbeeTrap, 1);
@@ -2133,8 +2135,8 @@ public class tr_English : _BaseTR
         {
             e = EventPlayerMoveable.c(false);
             e = EventFlashScreen.c(.5f);
-            e = EventSFX.c(SFX.punch6);
-            e = EventSFX.c(SFX.Pom_bark);
+            e = EventSFX.c(SFX.punch6, pitch: .9f);
+            e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
             e = EventShake.c(5, 5, .2f).Wait;
             e = EventTextbox.c(Faces.Pom, @"fffFUK");
             e = EventShake.c(5, 5, .2f).Wait;
@@ -2149,7 +2151,7 @@ public class tr_English : _BaseTR
             e = EventWait.c(2f);
             e = EventTextbox.c(Faces.Pom, @"...");
             e = EventTextbox.c(Faces.Pom, @"....................");
-            e = EventSFX.c(SFX.Medium_Dog1);
+            e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_HusBark);
             e = EventTextbox.c(Faces.None, @"\C[1]???\C[0]
                                              Hey.");
             e = EventTextbox.c(Faces.None, @"\C[1]???\C[0]
@@ -2163,13 +2165,13 @@ public class tr_English : _BaseTR
             e = EventBGM.c(BGM.Ending3, .4f);
             e = EventFade.c(-.4f);
             e = EventWait.c(1f);
-            e = EventSFX.c(SFX.Pom_bark);
+            e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
             e = EventShake.c(5, 5, .2f).Wait;
             e = EventTextbox.c(Faces.Pom, @"WH");
-            e = EventSFX.c(SFX.Medium_Dog1);
+            e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_HusBark);
             e = EventTextbox.c(Faces.Hus, @"So you've finally regained
                                             consciousness.");
-            e = EventSFX.c(SFX.Medium_Dog1);
+            e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_ShibeBark);
             e = EventTextbox.c(Faces.Shibe_freaking_out, @"AIEEEEEEEEEEEEEEE!!!!").SwitchSides;
             e = EventTextbox.c(Faces.Hus, @"What are you two doing here?");
             e = EventTextbox.c(Faces.Hus, @"Sherman sent me to go after you when
@@ -2179,10 +2181,10 @@ there knocked out by the frisbees. ");
             e = EventTextbox.c(Faces.Pom, @"we're here 2 try 2 fix da frisbee
 machine");
             e = EventTextbox.c(Faces.Hus, @"Is that so?");
-            e = EventSFX.c(SFX.Medium_Dog1);
+            e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_ShibeBark);
             e = EventTextbox.c(Faces.Shibe_nervous, @"H-h-he's going to eat us!").SwitchSides;
             e = EventTextbox.c(Faces.Shibe_nervous, @"Run!!").SwitchSides;
-            e = EventSFX.c(SFX.Medium_Dog1);
+            e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_HusBark);
             e = EventTextbox.c(Faces.Hus, @"I'm not going to hurt you!");
             e = EventTextbox.c(Faces.Hus, @"Not gonna lie, at first I thought you 
 two were up to no good...");
@@ -2197,7 +2199,7 @@ trying to help.");
             e = EventTextbox.c(Faces.Pom, @"and dis shitty ass excuse 4 a 
 manservant over here is sebastian");
             e = EventTextbox.c(Faces.Shibe_annoyed, @"It's Shibe!").SwitchSides;
-            e = EventSFX.c(SFX.Medium_Dog1);
+            e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_ShibeBark);
             e = EventTextbox.c(Faces.Shibe_annoyed, @"And who are you calling a
 manservant?!").SwitchSides;
             e = EventTextbox.c(Faces.Hus, @"Nice to meet you.");
@@ -2247,7 +2249,7 @@ manservant?!").SwitchSides;
                 ep = machineChecked0;
                 {
                     e = EventPlayerMoveable.c(false);
-                    e = EventSFX.c(SFX.Medium_Dog1);
+                    e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_HusBark);
                     e = EventTextbox.c(Faces.Hus, @"Looks like an opening into the 
                                                     machine.");
                     e = EventTextbox.c(Faces.Hus, @"If I remember correctly, there should 
@@ -2260,25 +2262,25 @@ manservant?!").SwitchSides;
                                                     me");
                     e = EventTextbox.c(Faces.Shibe_uh, @"Then I guess Hus and I are going to 
                                                             be left by ourselves out here...");
-                    e = EventSFX.c(SFX.Pom_bark);
+                    e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                     e = EventShake.c(5, 5, .2f).Wait;
                     e = EventTextbox.c(Faces.Pom, @"meRRY CHSRSITMAS");
                     e = EventTextbox.c(Faces.Pom, @"HO-HO-HOMOS");
                     e = EventShake.c(5, 5, .2f).Wait;
                     e = EventTextbox.c(Faces.Shibe_blush, @"W-what the heck are you saying?!");
-                    e = EventSFX.c(SFX.Pom_bark);
+                    e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                     e = EventShake.c(5, 5, .2f).Wait;
                     e = EventTextbox.c(Faces.Pom, @"LOOK AT THE TIME");
                     e = EventTextbox.c(Faces.Pom, @"IT'S YAOI O'CLOCK");
-                    e = EventSFX.c(SFX.Medium_Dog1);
+                    e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_HusBark);
                     e = EventTextbox.c(Faces.Hus, @"What's she talking about?");
-                    e = EventSFX.c(SFX.Medium_Dog1);
+                    e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_ShibeBark);
                     e = EventTextbox.c(Faces.Shibe_blush, @"She's--never mind!
                                                             It's nothing!");
                     e = EventTextbox.c(Faces.Hus, @"Pom, you're drooling a little...");
                     e = EventTextbox.c(Faces.Pom, @"uwee hee");
                     e = EventTextbox.c(Faces.Pom, @"well who can blame me");
-                    e = EventSFX.c(SFX.Medium_Dog1);
+                    e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_ShibeBark);
                     e = EventShake.c(5, 5, .2f).Wait;
                     e = EventTextbox.c(Faces.Shibe_blush, @"Just leave already!");
                     e = EventSetGlobal.c(Global.s.ShibeAbleToFollow, 0);
@@ -2365,25 +2367,25 @@ manservant?!").SwitchSides;
                                                         can he catch it?!");
                         e = EventTextbox.c(Faces.Pom, @"he hasn't been doing well this season");
                         e = EventTextbox.c(Faces.Pom, @"dying and all");
-                        e = EventSFX.c(SFX.Pom_bark);
+                        e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                         e = EventTextbox.c(Faces.Pom, @"he's got it!");
                         e = EventTextbox.c(Faces.Pom, @"huh?");
-                        e = EventSFX.c(SFX.Pom_bark);
+                        e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                         e = EventTextbox.c(Faces.Pom, @"he's dropped it!");
                         e = EventTextbox.c(Faces.Pom, @"that dum shibe");
                         e = EventTextbox.c(Faces.Pom, @"looks like someone's not going to the
                                                         world championships");
                         e = EventTextbox.c(Faces.Pom, @"but whats this?");
-                        e = EventSFX.c(SFX.Pom_bark);
+                        e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                         e = EventShake.c(5, 5, .2f).Wait;
                         e = EventTextbox.c(Faces.Pom, @"hus picked the sAME FUKKIN 
                                                         FRISBEE OFF THE GROUND WITH 
                                                         HIS MOUTH");
                         e = EventTextbox.c(Faces.Pom, @"THAT'S TOTALLY AN INDIRECT KISS");
                         e = EventTextbox.c(Faces.Pom, @"THE GAY IS OFF THE CHARTS!!!");
-                        e = EventSFX.c(SFX.Pom_bark);
+                        e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                         e = EventTextbox.c(Faces.Pom, @"10000/10 OMFHGGGGF");
-                        e = EventSFX.c(SFX.Medium_Dog1);
+                        e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_ShibeBark);
                         e = EventShake.c(5, 5, .2f).Wait;
                         e = EventTextbox.c(Faces.Shibe_blush, @"We don't need this commentary!");
                         e = EventTextbox.c(Faces.Pom, @"i cant help it");
@@ -2397,10 +2399,10 @@ manservant?!").SwitchSides;
                         e = EventTextbox.c(Faces.Shibe, @"...There's something else I wanted to
                                                           say, too.").SwitchSides;
                         e = EventTextbox.c(Faces.Shibe_uh, @"Uh, I--").SwitchSides;
-                        e = EventSFX.c(SFX.Pom_bark);
+                        e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                         e = EventShake.c(5, 5, .2f).Wait;
                         e = EventTextbox.c(Faces.Pom, @"LOVE U");
-                        e = EventSFX.c(SFX.Medium_Dog1);
+                        e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_ShibeBark);
                         e = EventShake.c(5, 5, .2f).Wait;
                         e = EventTextbox.c(Faces.Shibe_blush, @"That's not it!").SwitchSides;
                         e = EventTextbox.c(Faces.Shibe_uh, @"I'm really sorry I screamed like that 
@@ -2418,7 +2420,7 @@ manservant?!").SwitchSides;
                         e = EventTextbox.c(Faces.Pom, @"''...with my body, '' said shibe");
                         e = EventTextbox.c(Faces.Pom, @"the 2 homo doges looked into each 
                                                         others eyes...");
-                        e = EventSFX.c(SFX.Medium_Dog1);
+                        e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_ShibeBark);
                         e = EventShake.c(5, 5, .2f).Wait;
                         e = EventTextbox.c(Faces.Shibe_blush, @"Cut it out already!").SwitchSides;
                         e = EventSetGlobal.c(Global.s.ShibeTalk, 19);
@@ -2493,9 +2495,9 @@ manservant?!").SwitchSides;
                 e = EventTextbox.c(Faces.Pom, @"speaking of turd");
                 e = EventTextbox.c(Faces.Pom, @"don't u think shibe's tail is shaped a
                                                 lot like one");
+                e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
+                e = EventSFX.c(SFX.fire8, pitch: 1.5f);
                 e = EventShake.c(5, 5, .2f).Wait;
-                e = EventSFX.c(SFX.Pom_bark);
-                e = EventSFX.c(SFX.fire8);
                 e = EventTextbox.c(Faces.Pom, @"ACHOO");
                 e = EventSetGlobal.c(Global.s.DustBunny, 1);
                 e = EventTextboxClose.c;
@@ -2545,10 +2547,10 @@ manservant?!").SwitchSides;
                 e = EventTextbox.c(Faces.Pom, @"i was trying 2 scare u");
                 e = EventTextbox.c(Faces.Shibe_uh, @"You always scare me...");
                 e = EventTextbox.c(Faces.Pom, @"wow im all gross and dusty now");
-                e = EventSFX.c(SFX.Medium_Dog1);
+                e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_ShibeBark);
                 e = EventShake.c(5, 5, .2f);
                 e = EventTextbox.c(Faces.Shibe_annoyed, @"Don't wipe your filthy paws on me!");
-                e = EventSFX.c(SFX.Medium_Dog1);
+                e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_HusBark);
                 e = EventTextbox.c(Faces.Hus, @"So, did you find anything?");
                 e = EventTextbox.c(Faces.Pom, @"there was a control panel in there but
                                                 i couldnt reach it");
@@ -2803,21 +2805,21 @@ manservant?!").SwitchSides;
                     e = EventSetGlobal.c(Player.playerInstance.triggerOverride, 1);
                     e = EventPlayerMoveable.c(false);
                     e = EventWait.c(1f);
-                    e = EventSFX.c(SFX.Pom_bark);
+                    e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_CrestBark);
                     e = EventShake.c(5, 5, .2f).Wait;
                     e = EventTextbox.c(Faces.Crest_crying, @"They're here!");
                     e = EventTextbox.c(Faces.Crest_crying, @"They're the ones who were following
                                                              me!");
-                    e = EventSFX.c(SFX.Pom_bark);
+                    e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                     e = EventShake.c(5, 5, .2f).Wait;
                     e = EventTextbox.c(Faces.Pom, @"huh????????? she noticed us?????");
-                    e = EventSFX.c(SFX.Medium_Dog1);
+                    e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_PuddleBark);
                     e = EventTextbox.c(Faces.Puddle, @"It's you two?! But...!");
-                    e = EventSFX.c(SFX.Pom_bark);
+                    e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_CrestBark);
                     e = EventTextbox.c(Faces.Crest_crying, @"I didn't want to believe it either, after
                                                              they were so nice to us...");
                     e = EventTextbox.c(Faces.Crest_crying, @"But I saw them with my own eyes!");
-                    e = EventSFX.c(SFX.Medium_Dog1);
+                    e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_PuddleBark);
                     e = EventShake.c(5, 5, .2f).Wait;
                     e = EventTextbox.c(Faces.Puddle, @"I won't forgive you for making Crest
                                                        cry.");
@@ -2826,14 +2828,14 @@ manservant?!").SwitchSides;
                     e = EventBattle.c(Battles.Puddle);
                     e = EventTextboxClose.c;
                     e = EventWait.c(1f);
-                    e = EventSFX.c(SFX.Pom_bark);
+                    e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_CrestBark);
                     e = EventTextbox.c(Faces.Crest_crying, @"Puddle!");
-                    e = EventSFX.c(SFX.Medium_Dog1);
+                    e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_PuddleBark);
                     e = EventTextbox.c(Faces.Puddle_angry, @"Ugh...!");
                     e = EventTextbox.c(Faces.Pom, @"c");
                     e = EventTextbox.c(Faces.Pom, @"das what happens when u challenge
                                                     my gang");
-                    e = EventSFX.c(SFX.Pom_bark);
+                    e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_CrestBark);
                     e = EventTextbox.c(Faces.Crest_crying, @"Puddle, we have to run away!");
                     e = EventTextboxClose.c;
                     e = EventSetFacing.c(NPC.Crest, SpriteDir.Right);
@@ -2846,19 +2848,19 @@ manservant?!").SwitchSides;
                     e = EventTextbox.c(Faces.Pom, @"shibe lets go");
                     e = EventTextbox.c(Faces.Shibe_freaking_out, @"...No!");
                     e = EventSetFacing.c(NPC.Pom, SpriteDir.Left);
-                    e = EventSFX.c(SFX.Pom_bark);
+                    e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                     e = EventTextbox.c(Faces.Pom, @"NANI???????????????");
                     e = EventTextbox.c(Faces.Pom, @"COME ON SHIBE");
                     e = EventTextbox.c(Faces.Pom, @"SEBASTIAN");
-                    e = EventSFX.c(SFX.Medium_Dog1);
+                    e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_ShibeBark);
                     e = EventShake.c(5, 5, .2f).Wait;
                     e = EventTextbox.c(Faces.Shibe_freaking_out, @"I'm not coming with you!");
                     e = EventTextbox.c(Faces.Shibe_freaking_out, @"I've had enough of this!");
-                    e = EventSFX.c(SFX.Pom_bark);
+                    e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                     e = EventShake.c(5, 5, .2f).Wait;
                     e = EventTextbox.c(Faces.Pom, @"I'LL SHOW U WHAT HAPPENS WHEN
                                                     U DEFY ME");
-                    e = EventSFX.c(SFX.Medium_Dog1);
+                    e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_ShibeBark);
                     e = EventShake.c(5, 5, .2f).Wait;
                     e = EventTextbox.c(Faces.Shibe_freaking_out, @"AIEEEEEEEEEEEEEEE!!!!!");
                     e = EventTextbox.c(Faces.None, @"\C[1]???\C[0]
@@ -2873,18 +2875,18 @@ manservant?!").SwitchSides;
                     e = EventSetGlobal.c(Global.s.HusTalk, 5);
                     e = EventSetGlobal.c(Global.s.MaltyTalk, 6);
                     e = EventFade.c(-.4f);
-                    e = EventSFX.c(SFX.Medium_Dog1);
+                    e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_ShibeBark);
                     e = EventTextbox.c(Faces.Shibe_nervous, @"Hus?!");
-                    e = EventSFX.c(SFX.Medium_Dog1);
+                    e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_HusBark);
                     e = EventTextbox.c(Faces.Hus_angry, @"Shibe, get back!");
-                    e = EventSFX.c(SFX.Pom_bark);
+                    e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                     e = EventShake.c(5, 5, .2f).Wait;
                     e = EventTextbox.c(Faces.Pom, @"OMFGGGGGGG GAY BOYFRIEND 2
                                                     DA RESCUE");
                     e = EventTextbox.c(Faces.Pom, @"I CANT HANDLE THIS");
-                    e = EventSFX.c(SFX.Medium_Dog1);
+                    e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_HusBark);
                     e = EventTextbox.c(Faces.Hus_angry, @"Quit bullying him.");
-                    e = EventSFX.c(SFX.Pom_bark);
+                    e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                     e = EventTextbox.c(Faces.Pom, @"fin e u can take him");
                     e = EventTextbox.c(Faces.Pom, @"im a strong independent pom pom 
                                                     doge who don't need no shibe");
@@ -2924,7 +2926,7 @@ manservant?!").SwitchSides;
                 e = EventTextbox.c(Faces.Ug, @"Welcome to Starpugs!");
                 e = EventTextbox.c(Faces.Ug, @"Can I take your order?");
                 e = EventTextbox.c(Faces.Pom, @"we're just here 4 da wi-fi");
-                e = EventSFX.c(SFX.Medium_Dog1);
+                e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_ShibeBark);
                 e = EventTextbox.c(Faces.Shibe_nervous, @"So honest!").SwitchSides;
                 e = EventTextbox.c(Faces.Ug, @"If you want to be here, you'll have to
                                                buy something using dog treats!");
@@ -2998,18 +3000,18 @@ manservant?!").SwitchSides;
                 e = EventTextbox.c(Faces.WittyFido, @"I'm Witty Fido!");
                 e = EventShake.c(5, 5, .2f).Wait;
                 e = EventTextbox.c(Faces.WittyFido, @"Call me Wi-Fi for short!");
-                e = EventSFX.c(SFX.Rimshot);
+                e = EventSFX.c(SFX.Rimshot, pitch: Pitch_Rimshot);
                 e = EventTextboxClose.c;
                 e = EventWait.c(1f);
                 e = EventTextbox.c(Faces.Shibe_nervous, @"So when the sign said ''free Wi-Fi''...");
-                e = EventSFX.c(SFX.Medium_Dog1);
+                e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_ShibeBark);
                 e = EventShake.c(5, 5, .2f).Wait;
                 e = EventTextbox.c(Faces.Shibe_nervous, @"It meant him?!");
                 e = EventTextbox.c(Faces.Pom, @"O");
                 e = EventTextbox.c(Faces.Pom, @"M");
                 e = EventTextbox.c(Faces.Pom, @"F");
                 e = EventTextbox.c(Faces.Pom, @"G");
-                e = EventSFX.c(SFX.Pom_bark);
+                e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                 e = EventShake.c(5, 5, .2f).Wait;
                 e = EventTextbox.c(Faces.Pom, @"U HAVE GOTTA B KEEEEEEEEDDING
                                                 ME");
@@ -3017,7 +3019,7 @@ manservant?!").SwitchSides;
                 e = EventTextboxClose.c;
                 e = EventWaitForInput.c;
                 e = EventTextbox.c(Faces.WittyFido, @"A stick!");
-                e = EventSFX.c(SFX.Rimshot);
+                e = EventSFX.c(SFX.Rimshot, pitch: Pitch_Rimshot);
                 e = EventTextbox.c(Faces.Pom, @"DOG WHAT A WASTE OF TIME");
                 e = EventTextbox.c(Faces.Pom, @"SHIBE WE'RE LEAVING");
                 e = EventSetGlobal.c(Global.s.CorgTalk, 1);
@@ -3097,10 +3099,10 @@ manservant?!").SwitchSides;
             ep = notWatchedShow;
             {
                 e = EventPlayerMoveable.c(false);
-                e = EventSFX.c(SFX.fire8);
+                e = EventSFX.c(SFX.fire8, pitch: 1.5f);
                 e = EventShake.c(5, 5, .2f).Wait;
                 e = EventTextbox.c(Faces.Ug, @"If you're not buying something, leave!");
-                e = EventSFX.c(SFX.Pom_bark);
+                e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                 e = EventTextbox.c(Faces.Pom, @"RUDE");
                 e = EventTextboxClose.c;
                 e = EventPlayerMoveable.c(true);
@@ -3182,7 +3184,7 @@ manservant?!").SwitchSides;
             e = EventTextbox.c(Faces.Corg, @"You can't see Dog without his
                                              permission!");
             e = EventTextbox.c(Faces.Pom, @"were u even listening 2 obama");
-            e = EventSFX.c(SFX.Pom_bark);
+            e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
             e = EventTextbox.c(Faces.Pom, @"yes we can");
             e = EventTextboxClose.c;
             e = EventFlashScreen.c(.5f);
@@ -3195,7 +3197,7 @@ manservant?!").SwitchSides;
             e = EventMovePlayer.c(Up, NPC.Pom, Speed.Normal, 6);
             e = EventSetGlobal.c(Global.s.StopPom, 1);
             e = EventWait.c(1f);
-            e = EventSFX.c(SFX.Medium_Dog1);
+            e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_HusBark);
             e = EventShake.c(5, 5, .2f).Wait;
             e = EventTextbox.c(Faces.Hus_angry, @"Stop!");
             e = EventTPPlayer.c(new Vector2(122.5f, -20.5f), SpriteDir.Up, NPC.Hus).instantTeleport;
@@ -3699,13 +3701,13 @@ manservant?!").SwitchSides;
                     e = EventTextbox.c(Faces.Papi, @"Welcome to doggy heaven!");
                     e = EventTextbox.c(Faces.Shibe, @"Thanks!").SwitchSides;
                     e = EventTextbox.c(Faces.Shibe_uh, @"...wait, what?").SwitchSides;
+                    e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_ShibeBark);
                     e = EventShake.c(5, 5, .2f);
-                    e = EventSFX.c(SFX.Medium_Dog1);
                     e = EventTextbox.c(Faces.Shibe_nervous, @"D-d-d-doggy heaven?!").SwitchSides;
                     e = EventTextbox.c(Faces.Shibe_nervous, @"Then, that means...!").SwitchSides;
                     e = EventTextbox.c(Faces.Papi, @"You got it!");
+                    e = EventSFX.c(SFX.fire8, pitch: 1.5f);
                     e = EventShake.c(5, 5, .2f);
-                    e = EventSFX.c(SFX.fire8);
                     e = EventTextbox.c(Faces.Papi, @"You're dead!");
                     e = EventTextbox.c(Faces.Shibe_nervous, @"Augh!!").SwitchSides;
                     e = EventTextbox.c(Faces.Pom, @"if this is heaven then where da wi-fi");
@@ -3750,7 +3752,7 @@ manservant?!").SwitchSides;
                                                          treats you owe her.").SwitchSides;
                     e = EventTextbox.c(Faces.Papi, @"Oh...about that...");
                     e = EventTextbox.c(Faces.Papi, @"I already ate them.");
-                    e = EventSFX.c(SFX.Pom_bark);
+                    e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                     e = EventShake.c(5, 5, .2f);
                     e = EventTextbox.c(Faces.Pom, @"PERIOD BLOOD MICROWAVE");
                     e = EventTextbox.c(Faces.Pom, @"WHAT DO WE DO NOW");
@@ -3780,7 +3782,7 @@ manservant?!").SwitchSides;
                 ep = papiTalk4;
                 {
                     e = EventPlayerMoveable.c(false);
-                    e = EventSFX.c(SFX.crunching1);
+                    e = EventSFX.c(SFX.crunching1, pitch: 1.2f);
                     e = EventTextbox.c(Faces.Papi, @"Crest bakes the best dog treats!");
                     e = EventTextbox.c(Faces.Pom, @"i want one");
                     e = EventTextbox.c(Faces.Pom, @"too bad im spying on her so i cant
@@ -4006,7 +4008,7 @@ manservant?!").SwitchSides;
                             e = EventTextbox.c(Faces.York, @"I think the cafe has it.");
                             e = EventTextbox.c(Faces.York, @"If you keep heading east, you'll see it
                                                              for sure.");
-                            e = EventSFX.c(SFX.Pom_bark);
+                            e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                             e = EventTextbox.c(Faces.Pom, @"ARIGATOU YOUNG DOGE");
                             e = EventTextbox.c(Faces.Pom, @"i owe u my life");
                             e = EventTextbox.c(Faces.Pom, @"i love y");
@@ -4137,7 +4139,7 @@ manservant?!").SwitchSides;
                 e = EventTextbox.c(Faces.Bold, @"Don't you think it'd be great if you
                                                  turned on the tap and orange juice 
                                                  came out?");
-                e = EventSFX.c(SFX.Medium_Dog1);
+                e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_ShibeBark);
                 e = EventShake.c(5, 5, .2f).Wait;
                 e = EventTextbox.c(Faces.Shibe_nervous, @"He just suddenly said something
                                                           really stupid!").SwitchSides;
@@ -4166,7 +4168,7 @@ manservant?!").SwitchSides;
                 e = EventTextboxClose.c;
                 e = EventWaitForInput.c;
                 e = EventTextbox.c(Faces.WittyFido, @"A Chi-ha-ha!");
-                e = EventSFX.c(SFX.Rimshot);
+                e = EventSFX.c(SFX.Rimshot, pitch: Pitch_Rimshot);
                 e = EventSetGlobal.c(Global.s.WittyFidoTalk, 1);
                 e = EventTextboxClose.c;
                 e = EventPlayerMoveable.c(true);
@@ -4180,7 +4182,7 @@ manservant?!").SwitchSides;
                 e = EventTextboxClose.c;
                 e = EventWaitForInput.c;
                 e = EventTextbox.c(Faces.WittyFido, @"They're always spotted!");
-                e = EventSFX.c(SFX.Rimshot);
+                e = EventSFX.c(SFX.Rimshot, pitch: Pitch_Rimshot);
                 e = EventSetGlobal.c(Global.s.WittyFidoTalk, 2);
                 e = EventTextboxClose.c;
                 e = EventPlayerMoveable.c(true);
@@ -4194,7 +4196,7 @@ manservant?!").SwitchSides;
                 e = EventTextboxClose.c;
                 e = EventWaitForInput.c;
                 e = EventTextbox.c(Faces.WittyFido, @"Because he wanted to ''train'' him!");
-                e = EventSFX.c(SFX.Rimshot);
+                e = EventSFX.c(SFX.Rimshot, pitch: Pitch_Rimshot);
                 e = EventSetGlobal.c(Global.s.WittyFidoTalk, 3);
                 e = EventTextboxClose.c;
                 e = EventPlayerMoveable.c(true);
@@ -4279,7 +4281,7 @@ manservant?!").SwitchSides;
                         e = EventTextbox.c(Faces.Chi_nervous, @"I'm sorry, Hus...
                                                             I'd love to help you out, but I can't 
                                                             lose my place in line!");
-                        e = EventSFX.c(SFX.Pom_bark);
+                        e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                         e = EventTextbox.c(Faces.Pom, @"you've gotta b shitting me");
                         e = EventTextbox.c(Faces.Pom, @"if u don't help us ur going to b in line 
                                                     4EVER");
@@ -4481,7 +4483,7 @@ manservant?!").SwitchSides;
                 e = EventTextbox.c(Faces.Shibe_uh, @"Papi told us she'd eaten them all.").SwitchSides;
                 e = EventTextbox.c(Faces.Shibe_uh, @"She gave us this thing instead.").SwitchSides;
                 e = EventTextbox.c(Faces.None, @"You gave Goldie the Famicom.");
-                e = EventSFX.c(SFX.Pom_bark);
+                e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                 e = EventShake.c(5, 5, .2f).Wait;
                 e = EventTextbox.c(Faces.Pom, @"ITS NOT OUR FAULT HONEST 2 DOG");
                 e = EventTextbox.c(Faces.Pom, @"TASUKETE PLS GIVE US THE GIANT
@@ -4695,42 +4697,42 @@ manservant?!").SwitchSides;
                 e = EventTextbox.c(Faces.Crest, @"Puddle might know.");
                 e = EventTextbox.c(Faces.Crest, @"She's upstairs.");
                 e = EventTextbox.c(Faces.Shibe, @"Okay, we'll go ask--").SwitchSides;
-                e = EventSFX.c(SFX.Pom_bark);
+                e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_CrestBark);
                 e = EventShake.c(5, 5, .2f).Wait;
                 e = EventTextbox.c(Faces.Crest, @"PUDDLE!");
-                e = EventSFX.c(SFX.Pom_bark);
+                e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_CrestBark);
                 e = EventShake.c(5, 5, .2f).Wait;
                 e = EventTextbox.c(Faces.Crest, @"DO YOU KNOW WHERE TO GET
                                                   WI-FI?");
                 e = EventTextboxClose.c;
-                e = EventSFX.c(SFX.Medium_Dog1);
+                e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_PuddleBark);
                 e = EventShake.c(5, 5, .2f).Wait;
                 e = EventTextbox.c(Faces.None, @"\C[1]" + PuddleName + @"\C[0]
                                                  WHAT? I CAN'T HEAR YOU!");
-                e = EventSFX.c(SFX.Pom_bark);
+                e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_CrestBark);
                 e = EventShake.c(5, 5, .2f).Wait;
                 e = EventTextbox.c(Faces.Crest, @"DO YOU KNOW WHERE TO GET
                                                   WI-FI?");
                 e = EventTextboxClose.c;
-                e = EventSFX.c(SFX.Medium_Dog1);
+                e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_PuddleBark);
                 e = EventShake.c(5, 5, .2f).Wait;
                 e = EventTextbox.c(Faces.None, @"\C[1]" + PuddleName + @"\C[0]
                                                  WHAT?");
                 e = EventTextbox.c(Faces.Shibe_annoyed, @"How long is this going to go on?!
                                                           We'll just go up and ask--").SwitchSides;
-                e = EventSFX.c(SFX.Pom_bark);
+                e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_CrestBark);
                 e = EventShake.c(5, 5, .2f).Wait;
                 e = EventTextbox.c(Faces.Crest, @"WHERE! DO! YOU! FIND! WI-FI!");
                 e = EventTextboxClose.c;
-                e = EventSFX.c(SFX.Medium_Dog1);
+                e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_PuddleBark);
                 e = EventShake.c(5, 5, .2f).Wait;
                 e = EventTextbox.c(Faces.None, @"\C[1]" + PuddleName + @"\C[0]
                                                  WI-FI?");
-                e = EventSFX.c(SFX.Pom_bark);
+                e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_CrestBark);
                 e = EventShake.c(5, 5, .2f).Wait;
                 e = EventTextbox.c(Faces.Crest, @"YEAH!");
                 e = EventTextboxClose.c;
-                e = EventSFX.c(SFX.Medium_Dog1);
+                e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_PuddleBark);
                 e = EventShake.c(5, 5, .2f).Wait;
                 e = EventTextbox.c(Faces.None, @"\C[1]" + PuddleName + @"\C[0]
                                                  I DUNNO!");
@@ -4761,7 +4763,7 @@ manservant?!").SwitchSides;
             ep = crestTalk345;
             {
                 e = EventPlayerMoveable.c(false);
-                e = EventSFX.c(SFX.Pom_bark);
+                e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_CrestBark);
                 e = EventTextbox.c(Faces.Crest, @"Help!");
                 e = EventTextboxClose.c;
                 e = EventPlayerMoveable.c(true);
@@ -4879,7 +4881,7 @@ manservant?!").SwitchSides;
                                                       bathroom in heaven =^-^=");
                     e = EventTextbox.c(Faces.Malty, @"*Subarashii* isn't it uwu");
                     e = EventTextbox.c(Faces.Pom, @"that speaking style...it cant b!!!");
-                    e = EventSFX.c(SFX.Pom_bark);
+                    e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                     e = EventTextbox.c(Faces.Pom, @"ur...
                                                     tumblr user sugoi-neko-chan-desu??? ");
                     e = EventTextbox.c(Faces.Malty, @"OMG o_o");
@@ -4899,7 +4901,7 @@ manservant?!").SwitchSides;
                     e = EventTextbox.c(Faces.Malty, @"It's so hidoi but there isn't any wi-fi 
                                                       in *inu* heaven >_<;;");
                     e = EventTextbox.c(Faces.Malty, @"I'm so gomen orz");
-                    e = EventSFX.c(SFX.Pom_bark);
+                    e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                     e = EventShake.c(5, 5, .2f).Wait;
                     e = EventTextbox.c(Faces.Pom, @"DOUSHITEEEEEEEEEEEEEEEEEE");
                     e = EventTextbox.c(Faces.Pom, @"IM GONNA COMMIT SUDOKU");
@@ -4926,7 +4928,7 @@ manservant?!").SwitchSides;
                                                       existence will be in jeopardy x_x");
                     e = EventTextbox.c(Faces.Malty, @"Then it'll fall to a state where it might 
                                                       be possible to access wi-fi :3");
-                    e = EventSFX.c(SFX.Medium_Dog1);
+                    e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_ShibeBark);
                     e = EventTextbox.c(Faces.Shibe_uh, @"But overthrow Dog?!").SwitchSides;
                     e = EventTextbox.c(Faces.Shibe_uh, @"Is that even possible?!").SwitchSides;
                     e = EventTextbox.c(Faces.Pom, @"a doge's gotta do what a doge's gotta
@@ -5011,10 +5013,10 @@ manservant?!").SwitchSides;
                 e = EventTextbox.c(Faces.Bernard, @"Will you do it?");
                 e = EventTextbox.c(Faces.Shibe_annoyed, @"You already know our answer!").SwitchSides;
                 e = EventTextbox.c(Faces.Shibe_annoyed, @"Hell n--").SwitchSides;
-                e = EventSFX.c(SFX.Pom_bark);
+                e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                 e = EventShake.c(5, 5, .2f).Wait;
                 e = EventTextbox.c(Faces.Pom, @"yes");
-                e = EventSFX.c(SFX.Medium_Dog1);
+                e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_ShibeBark);
                 e = EventShake.c(5, 5, .2f).Wait;
                 e = EventTextbox.c(Faces.Shibe_uh, @"Wha?!").SwitchSides;
                 e = EventTextbox.c(Faces.Bernard, @"It makes me so glad to hear that!");
@@ -5085,7 +5087,7 @@ manservant?!").SwitchSides;
                     {
                         e = EventTextbox.c(Faces.Bernard, @"...");
                         e = EventTextbox.c(Faces.Bernard, @"What's this?");
-                        e = EventSFX.c(SFX.fire8);
+                        e = EventSFX.c(SFX.fire8, pitch: 1.5f);
                         e = EventShake.c(5, 5, .2f).Wait;
                         e = EventTextbox.c(Faces.Bernard, @"You didn't take any photos!");
                         e = EventTextbox.c(Faces.Shibe_annoyed, @"Of course not!").SwitchSides;
@@ -5094,19 +5096,19 @@ manservant?!").SwitchSides;
                         e = EventTextbox.c(Faces.Bernard, @"What did you just call me?");
                         e = EventTextbox.c(Faces.Bernard, @"You better get on your knees right
                                                             now and beg for forgiveness!");
-                        e = EventSFX.c(SFX.Medium_Dog1);
+                        e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_ShibeBark);
                         e = EventTextbox.c(Faces.Shibe_annoyed, @"Try and make me!").SwitchSides;
                         e = EventTextbox.c(Faces.Bernard, @"Look who's Mr. Tough Guy all of a
                                                             sudden!");
                         e = EventTextbox.c(Faces.Bernard, @"Oh, I see how it is!");
                         e = EventTextbox.c(Faces.Bernard, @"You have a thing for Crest too, don't
                                                             you?");
-                        e = EventSFX.c(SFX.Pom_bark);
+                        e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                         e = EventShake.c(5, 5, .2f).Wait;
                         e = EventTextbox.c(Faces.Pom, @"U ROTTEN PUKE-BRAINED
                                                         BITCH-ASS HOE");
                         e = EventTextbox.c(Faces.Bernard, @"Huh?!");
-                        e = EventSFX.c(SFX.Pom_bark);
+                        e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                         e = EventShake.c(5, 5, .2f).Wait;
                         e = EventTextbox.c(Faces.Pom, @"NOW U FUKKED UP");
                         e = EventTextbox.c(Faces.Pom, @"NOW U FUKKED UP");
@@ -5114,12 +5116,12 @@ manservant?!").SwitchSides;
                         e = EventSetGlobal.c(Global.s.UgTalk, 1);
                         e = EventTextboxClose.c;
                         e = EventBattle.c(Battles.Bernard);
-                        e = EventSFX.c(SFX.Pom_bark);
+                        e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                         e = EventTextbox.c(Faces.Pom, @"LIKE A BOSS...ton terrier");
                         e = EventTextbox.c(Faces.Pom, @"we sure showed him");
                         e = EventTextbox.c(Faces.Pom, @"thats what happens when u have bad
                                                         ships");
-                        e = EventSFX.c(SFX.Medium_Dog1);
+                        e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_ShibeBark);
                         e = EventTextbox.c(Faces.Shibe_blush, @"That's the whole reason you attacked
                                                                 him?!");
                         e = EventSetGlobal.c(Global.s.BernardTalk, 6);
@@ -5137,7 +5139,7 @@ manservant?!").SwitchSides;
                     e = EventTextbox.c(Faces.None, @"You handed over the camera.");
                     e = EventTextbox.c(Faces.Bernard, @"...");
                     e = EventTextbox.c(Faces.Bernard, @"What's this?");
-                    e = EventSFX.c(SFX.fire8);
+                    e = EventSFX.c(SFX.fire8, pitch: 1.5f);
                     e = EventShake.c(5, 5, .2f).Wait;
                     e = EventTextbox.c(Faces.Bernard, @"You didn't take any photos!");
                     e = EventTextbox.c(Faces.Pom, @"oh u poor bby");
@@ -5190,7 +5192,7 @@ manservant?!").SwitchSides;
                     e = EventTextbox.c(Faces.Pom, @"r the keys important");
                     e = EventTextbox.c(Faces.Corg, @"I need them to open the gate to Dog's
                                                      throne.");
-                    e = EventSFX.c(SFX.Pom_bark);
+                    e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                     e = EventTextbox.c(Faces.Pom, @"WOW how convenient");
                     e = EventTextbox.c(Faces.Pom, @"we'll find ur corg-keys");
                     e = EventTextbox.c(Faces.Pom, @"where did u last see them");
@@ -5205,32 +5207,32 @@ manservant?!").SwitchSides;
                     e = EventSetGlobal.c(Global.s.CorgTalk, 2);
                     e = EventFade.c(-.4f);
                     e = EventTextbox.c(Faces.Shibe_uh, @"He left...");
-                    e = EventSFX.c(SFX.Pom_bark);
+                    e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                     e = EventTextbox.c(Faces.Pom, @"we should find those keys and use
                                                     them");
-                    e = EventSFX.c(SFX.Medium_Dog1);
+                    e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_ShibeBark);
                     e = EventTextbox.c(Faces.Shibe_nervous, @"Wait wait wait!");
                     e = EventTextbox.c(Faces.Shibe_nervous, @"Pom, are you really planning to fight
                                                               Dog?");
-                    e = EventSFX.c(SFX.Medium_Dog1);
+                    e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_ShibeBark);
                     e = EventTextbox.c(Faces.Shibe_nervous, @"You can't do that!");
                     e = EventTextbox.c(Faces.Shibe_nervous, @"I'm not coming with you!");
-                    e = EventSFX.c(SFX.Pom_bark);
+                    e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                     e = EventTextbox.c(Faces.Pom, @"NANI???????????????");
                     e = EventTextbox.c(Faces.Pom, @"COME ON SHIBE");
                     e = EventTextbox.c(Faces.Pom, @"SEBASTIAN");
-                    e = EventSFX.c(SFX.Medium_Dog1);
+                    e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_ShibeBark);
                     e = EventShake.c(5, 5, .2f).Wait;
                     e = EventTextbox.c(Faces.Shibe_freaking_out, @"No!");
                     e = EventTextbox.c(Faces.Shibe_freaking_out, @"I've had enough of this!");
-                    e = EventSFX.c(SFX.Pom_bark);
+                    e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                     e = EventShake.c(5, 5, .2f).Wait;
                     e = EventTextbox.c(Faces.Pom, @"I'LL SHOW U WHAT HAPPENS WHEN
                                                     U DEFY ME");
-                    e = EventSFX.c(SFX.Medium_Dog1);
+                    e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_ShibeBark);
                     e = EventShake.c(5, 5, .2f).Wait;
                     e = EventTextbox.c(Faces.Shibe_freaking_out, @"AIEEEEEEEEEEEEEEE!!!!");
-                    e = EventSFX.c(SFX.Medium_Dog1);
+                    e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_HusBark);
                     e = EventTextbox.c(Faces.None, @"\C[1]???\C[0]
                                                      I won't let you touch him!");
                     e = EventTextbox.c(Faces.Pom, @"lol whats happening hoo dis");
@@ -5239,18 +5241,18 @@ manservant?!").SwitchSides;
                     e = EventSetGlobal.c(Global.s.CorgTalk, 4);
                     e = EventSetGlobal.c(Global.s.HusTalk, 5);
                     e = EventTextboxClose.c;
-                    e = EventSFX.c(SFX.Medium_Dog1);
+                    e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_ShibeBark);
                     e = EventTextbox.c(Faces.Shibe_nervous, @"Hus?!");
-                    e = EventSFX.c(SFX.Medium_Dog1);
+                    e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_HusBark);
                     e = EventTextbox.c(Faces.Hus_angry, @"Shibe, get back!");
-                    e = EventSFX.c(SFX.Pom_bark);
+                    e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                     e = EventShake.c(5, 5, .2f).Wait;
                     e = EventTextbox.c(Faces.Pom, @"OMFGGGGGGG GAY BOYFRIEND 2
                                                     DA RESCUE");
                     e = EventTextbox.c(Faces.Pom, @"I CANT HANDLE THIS");
-                    e = EventSFX.c(SFX.Medium_Dog1);
+                    e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_HusBark);
                     e = EventTextbox.c(Faces.Hus_angry, @"Quit bullying him.");
-                    e = EventSFX.c(SFX.Pom_bark);
+                    e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                     e = EventTextbox.c(Faces.Pom, @"fin e u can take him");
                     e = EventTextbox.c(Faces.Pom, @"im a strong independent pom pom 
                                                     doge who don't need no shibe");
@@ -5277,7 +5279,7 @@ manservant?!").SwitchSides;
                     e = EventTextbox.c(Faces.Pom, @"r the keys important");
                     e = EventTextbox.c(Faces.Corg, @"I need them to open the gate to Dog's
                                                      throne.");
-                    e = EventSFX.c(SFX.Pom_bark);
+                    e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                     e = EventTextbox.c(Faces.Pom, @"WOW how convenient");
                     e = EventTextbox.c(Faces.Pom, @"i'll find them");
                     e = EventTextbox.c(Faces.Pom, @"where did u last see them");
@@ -5297,7 +5299,7 @@ manservant?!").SwitchSides;
         {
             e = EventPlayerMoveable.c(false);
             e = EventTextbox.c(Faces.Dog, @"Who dares show herself to me?");
-            e = EventSFX.c(SFX.Pom_bark);
+            e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
             e = EventTextbox.c(Faces.Pom, @"it is i");
             e = EventTextbox.c(Faces.Pom, @"the one who's about 2 kick ur ass");
             e = EventTextbox.c(Faces.Dog, @"Impudent mortal!");
@@ -5307,13 +5309,13 @@ manservant?!").SwitchSides;
             e = EventTextbox.c(Faces.Pom, @"wat r u going 2 do");
             e = EventTextbox.c(Faces.Pom, @"shoot me with a gun that looks like a
                                             paint roller?");
-            e = EventSFX.c(SFX.Pom_bark);
+            e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
             e = EventTextbox.c(Faces.Pom, @"let me show u my real power");
             e = EventTextboxClose.c;
             e = EventChangeSprite.c(PlayerSprite.OnFire);
             e = EventWait.c(.5f);
             e = EventSFX.c(SFX.breath);
-            e = EventSFX.c(SFX.Pom_bark);
+            e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
             e = EventShake.c(5, 5, .2f).Wait;
             e = EventTextbox.c(Faces.Pom_fire, @"dIS GIRL IS ON FIYAAAAHHHHH");
             e = EventTextbox.c(Faces.Dog, @"This isn't even my final form!");
@@ -5333,7 +5335,7 @@ manservant?!").SwitchSides;
             e = EventWait.c(1f);
             e = EventFlashScreen.c(.5f);
             e = EventSetGlobal.c(Global.s.RedSpace, 1);
-            e = EventSFX.c(SFX.vanish);
+            e = EventSFX.c(SFX.vanish2);
             e = EventTPPlayer.c(EventPositioner.nullPos, SpriteDir.None, NPC.Dog).instantTeleport;
             e = EventSetGlobal.c(Global.s.DogTalk, 1);
             e = EventWait.c(1f);
@@ -5342,6 +5344,7 @@ manservant?!").SwitchSides;
                                                  doges 4 real ");
             e = EventTextbox.c(Faces.Pom_fire, @"[muffled rap music plays in the
                                                  distance]");
+            e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_ShibeBark);
             e = EventTextbox.c(Faces.Shibe_nervous, @"Pom!");
             e = EventTPPlayer.c(new Vector2(122.5f, 87.5f), SpriteDir.Up, NPC.Shibe).instantTeleport;
             e = EventSetFacing.c(NPC.Pom, SpriteDir.Down);
@@ -5349,7 +5352,7 @@ manservant?!").SwitchSides;
             e = EventSetGlobal.c(Global.s.DogTalk, 2);
             e = EventMovePlayer.c(Up, NPC.Shibe, Speed.Normal, 11);
             e = EventTextbox.c(Faces.Shibe_nervous, @"Are you okay?! You're on fire!");
-            e = EventSFX.c(SFX.Pom_bark);
+            e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
             e = EventTextbox.c(Faces.Pom_fire, @"im better than ok");
             e = EventTextbox.c(Faces.Pom_fire, @"im dog");
             e = EventTextbox.c(Faces.Pom_fire, @"all I have 2 do now is wait 4 dis place
@@ -5377,13 +5380,14 @@ manservant?!").SwitchSides;
                 e = EventTextboxClose.c;
                 e = EventWait.c(2f);
                 e = EventFlashScreen.c(.5f);
-                e = EventSFX.c(SFX.vanish);
+                e = EventSFX.c(SFX.vanish2);
                 e = EventTPPlayer.c(EventPositioner.nullPos, SpriteDir.None, NPC.Shibe).instantTeleport;
                 e = EventSetGlobal.c(Global.s.RedSpace, 2);
                 e = EventWait.c(2f);
                 e = EventFlashScreen.c(.5f);
                 e = EventSFX.c(SFX.quake2);
                 e = EventShake.c(9, 5, 3f).Wait;
+                //TODO: add actual rain effects to be on screen
                 e = EventBGM.c(BGM.Rain);
                 e = EventTextbox.c(Faces.Pom_fire, @"my wi-fi is back");
 
@@ -5417,7 +5421,7 @@ manservant?!").SwitchSides;
                 e = EventTextboxClose.c;
                 e = EventWait.c(2f);
                 e = EventTextbox.c(Faces.Pom_fire, @"regret nothing");
-                e = EventSFX.c(SFX.Pom_bark);
+                e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                 e = EventTextbox.c(Faces.Pom_fire, @"happy end");
                 e = EventTextboxClose.c;
                 e = EventSetGlobal.c(Global.s.RedSpace, 3);
@@ -5433,13 +5437,13 @@ manservant?!").SwitchSides;
                 e = EventTextbox.c(Faces.Pom_fire, @"...u rly think i can do anything");
                 e = EventTextbox.c(Faces.Shibe, @"You're dog!");
                 e = EventTextbox.c(Faces.Shibe, @"Of course you can!");
-                e = EventSFX.c(SFX.Pom_bark);
+                e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                 e = EventTextbox.c(Faces.Pom_fire, @"i can will a sequel of the world ends
                                                      with u into existence");
                 e = EventTextbox.c(Faces.Pom_fire, @"i can make watching baccano
                                                      mandatory for doges who want to
                                                      exist");
-                e = EventSFX.c(SFX.Pom_bark);
+                e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                 e = EventTextbox.c(Faces.Pom_fire, @"i can haVE THE STAFF OF THE 
                                                      NABARI NO OU ANIME EXECUTED");
                 e = EventTextbox.c(Faces.Pom_fire, @"HHHHHOLY SSHSITTTT");
@@ -5455,9 +5459,9 @@ manservant?!").SwitchSides;
                 e = EventSFX.c(SFX.quake2);
                 e = EventShake.c(2, 5, 2f).Wait;
                 e = EventTextbox.c(Faces.Pom_fire, @"how do i do the thing");
-                e = EventSFX.c(SFX.Medium_Dog1);
+                e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_ShibeBark);
                 e = EventTextbox.c(Faces.Shibe_nervous, @"You don't know?!");
-                e = EventSFX.c(SFX.Pom_bark);
+                e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                 e = EventShake.c(5, 5, .2f).Wait;
                 e = EventTextbox.c(Faces.Pom_fire, @"ffFFUUK WHAT DO I DO ");
                 e = EventTextbox.c(Faces.Pom_fire, @"FUKKIN GET AHOLD OF URSELF U 
@@ -5470,9 +5474,9 @@ manservant?!").SwitchSides;
                 e = EventSFX.c(SFX.flash2);
                 e = EventWait.c(2f);
                 e = EventTextbox.c(Faces.Shibe_uh, @"It worked!");
-                e = EventSFX.c(SFX.Pom_bark);
+                e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                 e = EventTextbox.c(Faces.Pom_fire, @"im a hero");
-                e = EventSFX.c(SFX.Medium_Dog1);
+                e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_HusBark);
                 e = EventTextbox.c(Faces.None, @"\C[1]???\C[0]
                                                  Shibe!");
                 e = EventTextboxClose.c;
@@ -5489,7 +5493,7 @@ manservant?!").SwitchSides;
                 e = EventTextboxClose.c;
                 e = EventTPPlayer.c(new Vector2(123.5f, 91.5f), SpriteDir.Up, NPC.Crest).instantTeleport;
                 e = EventMovePlayer.c(Up, NPC.Crest, Speed.Normal, 5);
-                e = EventSFX.c(SFX.Pom_bark);
+                e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_CrestBark);
                 e = EventTextbox.c(Faces.Crest, @"Whoa, Pom!");
                 e = EventTextbox.c(Faces.Crest, @"What happened to you?");
                 e = EventTextboxClose.c;
@@ -5524,7 +5528,7 @@ manservant?!").SwitchSides;
                 e = EventTextbox.c(Faces.Pom_fire, @"wtf is this all coming from ");
                 e = EventTextbox.c(Faces.Pom_fire, @"what did I even do 2 deserve this");
                 e = EventTextbox.c(Faces.Crest, @"Isn't it obvious?");
-                e = EventSFX.c(SFX.Pom_bark);
+                e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_CrestBark);
                 e = EventTextbox.c(Faces.Crest, @"You're our friend!");
                 e = EventTextbox.c(Faces.Pom_fire, @"thats great and all but");
                 e = EventTextbox.c(Faces.Pom_fire, @"i still dont have wi-fi");
@@ -5788,7 +5792,7 @@ manservant?!").SwitchSides;
                 ep = pomTurn5;
                 {
                     e = EventTextbox.c(Faces.Shibe, @"Fighting is bad!").DontSlide;
-                    e = BattleController.EventDamage.c(Target.Enemy, 2);
+                    e = BattleController.EventDamage.c(Target.Enemy, 2).HideValue; //shh, our little secret balance hack
                     e = EventTextboxClose.c;
                 }
 
@@ -5818,7 +5822,7 @@ manservant?!").SwitchSides;
 
             ep = triggerEnemy1Attack;
             {
-                e = BattleController.EventDamage.c(Target.Ally, 10);
+                e = BattleController.EventDamage.cWithAutoCalc(Target.Ally);
                 e = EventBattleAnim.c(Target.Ally, Anim.PunchA);
 
                 //TODO: 50/50 charge up or attack
@@ -5890,7 +5894,7 @@ manservant?!").SwitchSides;
 
             ep = triggerEnemy1Attack;
             {
-                e = BattleController.EventDamage.c(Target.Ally, 10);
+                e = BattleController.EventDamage.cWithAutoCalc(Target.Ally);
                 e = EventBattleAnim.c(Target.Ally, Anim.PunchA);
             }
 
@@ -5948,13 +5952,13 @@ manservant?!").SwitchSides;
             {
                 e = EventSetGlobal.c(BattleController.chargingUp, 0);
                 e = EventTextbox.c(Faces.Bernard, @"Guh! You're a monster!").DontSlide;
-                e = EventSFX.c(SFX.Pom_bark);
+                e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                 e = EventTextbox.c(Faces.Pom, @"take back what u said").DontSlide;
                 e = EventTextbox.c(Faces.Pom, @"shibe doesnt have a thing 4 crest").DontSlide;
                 e = EventTextbox.c(Faces.Bernard, @"Okay, okay! He doesn't").DontSlide;
-                e = EventSFX.c(SFX.Pom_bark);
+                e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                 e = EventTextbox.c(Faces.Pom, @"now say ''i ship hus/shibe''").DontSlide;
-                e = EventSFX.c(SFX.Medium_Dog1);
+                e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_ShibeBark);
                 e = EventTextbox.c(Faces.Shibe, @"Wha?!").DontSlide;
                 e = EventTextbox.c(Faces.Pom, @"say it").DontSlide;
                 e = EventTextbox.c(Faces.Bernard, @"I...ship Hus/Shibe!").DontSlide;
@@ -5984,13 +5988,13 @@ manservant?!").SwitchSides;
             {
                 e = EventBGM.c(BGM.Field4, .4f);
                 e = EventSetGlobal.c(Global.s.StopPom, 2);
-                e = EventSFX.c(SFX.Medium_Dog1);
+                e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_ShibeBark);
                 e = EventTextbox.c(Faces.Shibe, @"Wait, you two!").DontSlide;
                 e = EventTextbox.c(Faces.Shibe, @"Don't fight!").DontSlide;
-                e = EventSFX.c(SFX.Pom_bark);
+                e = EventSFX.c(SFX.Pom_bark, pitch: Pitch_PomBark);
                 e = EventTextbox.c(Faces.Pom, @"no fukkin way").DontSlide;
                 e = EventTextbox.c(Faces.Pom, @"u 2 r going down").DontSlide;
-                e = EventSFX.c(SFX.Medium_Dog1);
+                e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_HusBark);
                 e = EventTextbox.c(Faces.Hus, @"Sorry, Shibe.").DontSlide;
                 e = EventTextbox.c(Faces.Hus, @"Looks like I have no choice.").DontSlide;
                 e = EventTextboxClose.c;
@@ -5998,7 +6002,7 @@ manservant?!").SwitchSides;
 
             ep = triggerEnemy1Attack;
             {
-                e = BattleController.EventDamage.c(Target.Ally, 10);
+                e = BattleController.EventDamage.cWithAutoCalc(Target.Ally);
                 e = EventBattleAnim.c(Target.Ally, Anim.PunchA);
             }
 
@@ -6029,13 +6033,13 @@ manservant?!").SwitchSides;
                     e = EventTextbox.c(Faces.None, @"Shibe used Puppy Dog Eyes!").DontSlide;
                     e = EventTextbox.c(Faces.None, @"It had no effect on Pom...").DontSlide;
                     e = EventTextbox.c(Faces.Hus, @"...").DontSlide;
-                    e = EventSFX.c(SFX.Medium_Dog1);
+                    e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_HusBark);
                     e = EventTextbox.c(Faces.Hus, @"Shibe, stop that!").DontSlide;
-                    e = EventSFX.c(SFX.Medium_Dog1);
+                    e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_ShibeBark);
                     e = EventTextbox.c(Faces.Shibe, @"H-huh?").DontSlide;
-                    e = EventSFX.c(SFX.Medium_Dog1);
+                    e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_HusBark);
                     e = EventTextbox.c(Faces.Hus, @"It's distracting!").DontSlide;
-                    e = EventSFX.c(SFX.Medium_Dog1);
+                    e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_ShibeBark);
                     e = EventTextbox.c(Faces.Shibe, @"O-okay!").DontSlide;
                 }
 
@@ -6076,6 +6080,7 @@ manservant?!").SwitchSides;
                 e = BattleController.EventDamage.c(Target.Enemy, 100);
                 e = EventBattleAnim.c(Target.Enemy, Anim.NonElementalS1);
                 e = EventTextbox.c(Faces.York, @"Gnnrk...!").DontSlide;
+                e = EventTextboxClose.c;
                 e = EventSetGlobal.c(BattleController.chargingUp, 1);
                 e = BattleController.EventEndBattle.c;
             }
@@ -6172,7 +6177,7 @@ manservant?!").SwitchSides;
                 e = EventBGM.c(BGM.EricSkiff_UnderStars, .4f);
                 
                 e = EventTextbox.c(Faces.Shibe, @"Pom, listen to me!");
-                e = EventSFX.c(SFX.Medium_Dog1, 1f, shibeBarkPitch);
+                e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_ShibeBark);
                 e = EventTextbox.c(Faces.Shibe, @"There's got to be a better way than this!");
                 e = EventTextboxClose.c;
             }
@@ -6193,7 +6198,7 @@ manservant?!").SwitchSides;
 
                 ep = shibeTurn00;
                 {
-                    e = EventSFX.c(SFX.Medium_Dog1);
+                    e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_ShibeBark);
                     e = EventTextbox.c(Faces.Shibe, @"I know wi-fi is important to you!").DontSlide;
                     e = EventTextbox.c(Faces.Shibe, @"But it doesn't have to be this way!").DontSlide;
                 }
@@ -6218,7 +6223,7 @@ manservant?!").SwitchSides;
 
                 ep = shibeTurn04;
                 {
-                    e = EventSFX.c(SFX.Medium_Dog1);
+                    e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_ShibeBark);
                     e = EventTextbox.c(Faces.Shibe, @"You're Dog!").DontSlide;
                     e = EventTextbox.c(Faces.Shibe, @"You have the power to do anything right now!").DontSlide;
                     e = EventTextbox.c(Faces.Shibe, @"Literally anything!").DontSlide;
@@ -6277,7 +6282,7 @@ manservant?!").SwitchSides;
                 ep = shibeTurn11;
                 {
                     e = EventTextbox.c(Faces.Shibe, @"It's never too late to start!").DontSlide;
-                    e = EventSFX.c(SFX.Medium_Dog1);
+                    e = EventSFX.c(SFX.Medium_Dog1, pitch: Pitch_ShibeBark);
                     e = EventTextbox.c(Faces.Shibe, @"Not for this, not for anything!").DontSlide;
                 }
 

@@ -20,7 +20,7 @@ public class InputController : MonoBehaviour {
 
         Input.simulateMouseWithTouches = false;
 
-        
+        ignoreForFrame = true;
     }
     
     List<bool> curJustPressed = new List<bool>();

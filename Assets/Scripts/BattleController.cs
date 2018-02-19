@@ -92,7 +92,7 @@ public class BattleController : MonoBehaviour {
     float enemy2Charge = 0f;
 
     float animTimer = 0f;
-    float animSpeed = 5f;
+    public float animSpeed = 5f;
 
     bool enemiesDiedYet = false;
 
@@ -122,10 +122,15 @@ public class BattleController : MonoBehaviour {
         hidInitTextbox = false;
         curBattle = battle;
 
-        pomCharge = 0f;
-        shibeCharge = 0f;
-        enemy1Charge = 0f;
-        enemy2Charge = -.5f;
+        pomCharge = .5f;
+        shibeCharge = .5f;
+        enemy1Charge = .5f;
+        enemy2Charge = .5f;
+
+        pomChargeRate = 1f / 5f;
+        shibeChargeRate = 1f / 5f;
+        enemy1ChargeRate = 1f / 5f;
+        enemy2ChargeRate = 1f / 5f;
 
         pomMaxHP = 100;
         shibeHP = 0;
@@ -147,24 +152,44 @@ public class BattleController : MonoBehaviour {
                 bgImage.sprite = battleImages[(int)BattleBGs.sky];
                 Enemy1Sprite.sprite = enemySprites[(int)EnemySprites.Shibe];
                 guid = new Guid("2d22a536-343a-4910-a780-bf24656916c7");
+                
+                pomChargeRate = 1f / 2.5f;
                 break;
             case Battles.Puddle:
                 bgImage.sprite = battleImages[(int)BattleBGs.sky];
                 Enemy1Sprite.sprite = enemySprites[(int)EnemySprites.Puddle];
                 guid = new Guid("2f18fef2-3ba5-4a18-b384-f096754bc8ce");
+                
+                enemy1Charge = .22f;
+
+                pomChargeRate = 1f / 3.1f;
+                shibeChargeRate = 1f / 13.5f;
+                enemy1ChargeRate = 1f / 9.5f;
                 break;
             case Battles.Bernard:
                 enemy1HP = 90;
                 bgImage.sprite = battleImages[(int)BattleBGs.sky];
                 Enemy1Sprite.sprite = enemySprites[(int)EnemySprites.Bernard];
                 guid = new Guid("b1ecd61a-be10-4c29-b597-af72660aec37");
+                
+                pomChargeRate = 1f / 2.6f;
+                shibeChargeRate = 1f / 11.5f;
+                enemy1ChargeRate = 1f / 7.1f;
                 break;
             case Battles.Hus_and_Shibe:
-                enemy1HP = 80; //shibe
-                enemy2HP = 100; //hus
+                enemy1HP = 100; //shibe
+                enemy2HP = 80; //hus
                 bgImage.sprite = battleImages[(int)BattleBGs.sky];
                 Enemy1Sprite.sprite = enemySprites[(int)EnemySprites.Hus];
                 guid = new Guid("20244fa8-22c7-409f-ae4a-f13e8a315c9a");
+
+                pomCharge = .5f;
+                enemy1Charge = .31f;
+                enemy2Charge = .71f;
+
+                pomChargeRate = 1f / 4.8f;
+                enemy1ChargeRate = 1f / 3.1f;
+                enemy2ChargeRate = 1f / 12.4f;
                 break;
             case Battles.York:
                 enemy1HP = 15; //poor weak bab :(
@@ -179,6 +204,9 @@ public class BattleController : MonoBehaviour {
                 bgImage.sprite = battleImages[(int)BattleBGs.white];
                 Enemy1Sprite.sprite = enemySprites[(int)EnemySprites.Dog];
                 guid = new Guid("f3f9bf44-4dab-42ac-99f2-abeeb497dceb");
+                
+                pomChargeRate = 1f / 3.15f;
+                enemy1ChargeRate = 1f / 2.4f;
                 break;
             case Battles.Shibe_final:
                 song = BGM.EricSkiff_UnderStars;
@@ -228,9 +256,17 @@ public class BattleController : MonoBehaviour {
     string lowHP = "<color=#F7E76B>"; //25% or less
     string zeroHP = "<color=#E27A8B>";
     string endCol = "</color>";
+    float enemy1FadeTimer = 1f;
+    float enemy2FadeTimer = 2f;
+    float fadeOutEnemyMultiplier = 5f;
+
+    float pomHurtTimer = 0f;
+    float shibeHurtTimer = 0f;
     void UpdateVisuals(bool init = false)
     {
         var shibeInParty = Global.ActiveSavefile.ShibeInParty.value == 1;
+        pomHurtTimer -= Time.smoothDeltaTime;
+        shibeHurtTimer -= Time.smoothDeltaTime;
 
         if (init)
         {
@@ -252,7 +288,18 @@ public class BattleController : MonoBehaviour {
             shibeSelected.enabled = false;
 
             ShibeSprite.enabled = shibeInParty;
-            Enemy2Sprite.enabled = (enemy2HP > 0);
+
+            if(init)
+            {
+                PomSprite.enabled = pomHP > 0;
+                ShibeSprite.enabled = shibeHP > 0 && shibeInParty;
+                Enemy1Sprite.enabled = enemy1HP > 0;
+                Enemy2Sprite.enabled = enemy2HP > 0;
+            }
+
+            //TODO: better handling of this enemy sprite enabled stuff, should be fading out instead of just setting the flag
+
+            UpdateEnemyVisuals();
 
             pomFillBar.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, pomCharge * 25f);
             shibeFillBar.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, shibeCharge * 25f);
@@ -278,12 +325,21 @@ public class BattleController : MonoBehaviour {
         {
             animTimer -= 1f;
             animStateUp = !animStateUp;
-            
+
+            //some shenanigans just happened, reset the timer fully...
+            // (fixes super constant bounce when playing timescale super fast for an extended period of time)
+            if (animTimer > 1f) animTimer = 0f;
+
             if (pomDmgTimer <= 0f)
             {
                 var fireModifier = (Global.ActiveSavefile.PlayerSprite.value == (int)PlayerSprite.OnFire ? 0 : 4);
-
-                if (pomHP > 0)
+                
+                //not on fire, and hurt
+                if(fireModifier == 4 && pomHurtTimer > 0)
+                {
+                    PomSprite.sprite = heroSprites[(animStateUp ? 1 : 0) + 2];
+                }
+                else if (pomHP > 0)
                 {
                     PomSprite.sprite = heroSprites[(animStateUp ? 1 : 0) + fireModifier];
                 }
@@ -303,6 +359,8 @@ public class BattleController : MonoBehaviour {
                 if (shibeHP > 0)
                 {
                     ShibeSprite.sprite = heroSprites[(animStateUp ? 1 : 0) + 8];
+
+                    if (shibeHurtTimer > 0) ShibeSprite.sprite = heroSprites[10];
                 }
                 else
                 {
@@ -313,6 +371,57 @@ public class BattleController : MonoBehaviour {
             {
                 shibeDmgTimer -= Time.smoothDeltaTime;
                 ShibeSprite.sprite = heroSprites[10];
+            }
+        }
+    }
+
+    void UpdateEnemyVisuals()
+    {
+        if (alreadyDoingTrigger > 0) return;
+
+        if (enemy1HP > 0)
+        {
+            enemy1FadeTimer = 1f;
+            Enemy1Sprite.enabled = true;
+
+            if (Enemy1Sprite.color.a < 1f) Enemy1Sprite.color = new Color(Enemy1Sprite.color.r, Enemy1Sprite.color.g, Enemy1Sprite.color.b, 1f);
+        }
+        else
+        {
+            if (enemy1FadeTimer > 0)
+            {
+                enemy1FadeTimer -= Time.smoothDeltaTime * fadeOutEnemyMultiplier;
+                if (enemy1FadeTimer < 0)
+                {
+                    Enemy2Sprite.enabled = false;
+                    enemy1FadeTimer = 0f;
+                }
+
+                var c = Enemy1Sprite.color;
+                Enemy1Sprite.color = new Color(c.r, c.g, c.b, enemy1FadeTimer);
+            }
+        }
+
+        if (enemy2HP > 0)
+        {
+            enemy2FadeTimer = 1f;
+            Enemy2Sprite.enabled = true;
+
+            if (Enemy2Sprite.color.a < 1f) Enemy2Sprite.color = new Color(Enemy2Sprite.color.r, Enemy2Sprite.color.g, Enemy2Sprite.color.b, 1f);
+        }
+        else
+        {
+            if (enemy2FadeTimer > 0)
+            {
+                enemy2FadeTimer -= Time.smoothDeltaTime * fadeOutEnemyMultiplier;
+                if (enemy2FadeTimer < 0)
+                {
+                    Enemy2Sprite.enabled = false;
+                    enemy2FadeTimer = 0f;
+                }
+
+                var c = Enemy2Sprite.color;
+                Enemy2Sprite.color = new Color(c.r, c.g, c.b, enemy2FadeTimer);
             }
         }
     }
@@ -386,7 +495,7 @@ public class BattleController : MonoBehaviour {
         chargingUp.value = 1;
     }
 
-    public void Damage(Attacker target, int damage)
+    public void Damage(Attacker target, int damage, bool showDamage = true)
     {
         Vector3 pos = Vector2.zero;
         switch (target)
@@ -394,10 +503,14 @@ public class BattleController : MonoBehaviour {
             case Attacker.Pom:
                 pomHP -= damage;
                 pos = PomSprite.transform.position;
+
+                if(damage > 0) pomHurtTimer = 1f;
                 break;
             case Attacker.Shibe:
                 shibeHP -= damage;
                 pos = ShibeSprite.transform.position;
+
+                if(damage > 0) shibeHurtTimer = 1f;
                 break;
             case Attacker.Enemy1:
                 enemy1HP -= damage;
@@ -412,9 +525,17 @@ public class BattleController : MonoBehaviour {
         var shiftAmount = 4/16f;
         pos += new Vector3(UnityEngine.Random.Range(-shiftAmount, shiftAmount), UnityEngine.Random.Range(-shiftAmount, shiftAmount));
 
-        var obj = Instantiate(damageNumPrefab, pos, Quaternion.identity, damageCollection.transform).GetComponent<FallingNumber>();
-        obj.InitText(damage > 0 ? damage.ToString() : "lmao");
+        if (showDamage)
+        {
+            var obj = Instantiate(damageNumPrefab, pos, Quaternion.identity, damageCollection.transform).GetComponent<FallingNumber>();
+            obj.InitText(damage > 0 ? damage.ToString() : "lmao");
+        }
 
+        if(damage <= 0)
+        {
+            EventBattleAnim.woopAudio = true;
+            AudioController.instance.PlaySFX((int)SFX.evade1, 1f);
+        }
 
         if(pomHP <= 0 && shibeHP <= 0)
         {
@@ -458,12 +579,16 @@ public class BattleController : MonoBehaviour {
         }
         alreadyDoingTrigger--;
     }
-
-    float pomChargeSpeed = 1f / 2f; //2 seconds to charge
-    float shibeChargeSpeed = 1f / 17f; //17 seconds to charge
-    float enemyChargeSpeed = 1f / 7f; //7 seconds to charge
+    
+    float pomChargeRate = 1f / 5f;
+    float shibeChargeRate = 1f / 5f;
+    float enemy1ChargeRate = 1f / 5f;
+    float enemy2ChargeRate = 1f / 5f;
     List<Attacker> attackers = new List<Attacker>();
     void Update () {
+        //bleh, I don't like doing all this stuff every frame regardless just for the fadeout at the end of a battle..
+        UpdateEnemyVisuals();
+
         if (curBattle == Battles.None || gameOver) return;
         
         if(chargingUp.value == 0)
@@ -476,7 +601,7 @@ public class BattleController : MonoBehaviour {
         {
             if (pomCharge == 0f) pomFillBar.sprite = fillingBarSprite;
 
-            pomCharge += Time.smoothDeltaTime * pomChargeSpeed;
+            pomCharge += Time.smoothDeltaTime * pomChargeRate;
 
             pomFillBar.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, pomCharge * 25f);
 
@@ -499,9 +624,9 @@ public class BattleController : MonoBehaviour {
         }
         if (shibeCharge < 1f && Global.s.ShibeInParty == 1 && shibeHP > 0)
         {
-            if (pomCharge == 0f) shibeFillBar.sprite = fillingBarSprite;
+            if (shibeCharge == 0f) shibeFillBar.sprite = fillingBarSprite;
 
-            shibeCharge += Time.smoothDeltaTime * shibeChargeSpeed;
+            shibeCharge += Time.smoothDeltaTime * shibeChargeRate;
 
             shibeFillBar.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, shibeCharge * 25f);
 
@@ -521,7 +646,7 @@ public class BattleController : MonoBehaviour {
         }
         if (enemy1Charge < 1f && enemy1HP > 0)
         {
-            enemy1Charge += Time.smoothDeltaTime * enemyChargeSpeed;
+            enemy1Charge += Time.smoothDeltaTime * enemy1ChargeRate;
 
             if(enemy1Charge >= 1f)
             {
@@ -532,7 +657,7 @@ public class BattleController : MonoBehaviour {
         }
         if (enemy2Charge < 1f && enemy2HP > 0)
         {
-            enemy2Charge += Time.smoothDeltaTime * enemyChargeSpeed;
+            enemy2Charge += Time.smoothDeltaTime * enemy2ChargeRate;
 
             if (enemy2Charge >= 1f)
             {
@@ -546,7 +671,7 @@ public class BattleController : MonoBehaviour {
         {
             var attacker = attackers[0];
             
-            if (InputController.JustPressed(Action.Confirm))
+            if (InputController.JustPressed(Action.Confirm) && (Time.time - TextEngine.timeSinceClosed > .1f)) //small hack here to prevent killing shibe in the good end if you accidentally double tap
             {
                 AudioController.instance.PlaySFX((int)SFX.Choice, 1f);
 
@@ -559,6 +684,8 @@ public class BattleController : MonoBehaviour {
                 {
                     pomCharge -= 1f;
                     pomTurn.value++;
+                    EventBattleAnim.enemy1AliveBefore = enemy1HP > 0;
+                    EventBattleAnim.enemy2AliveBefore = enemy2HP > 0;
                     Trigger(BattleStates.PomAttack);
                 }
                 else
@@ -587,7 +714,18 @@ public class BattleController : MonoBehaviour {
 
         if(enemy1HP <= 0 && enemy2HP <= 0)
         {
-            if (alreadyDoingTrigger > 0) chargingUp.value = 0;
+            if (alreadyDoingTrigger > 0)
+            {
+                chargingUp.value = 0;
+                UpdateVisuals();
+                return;
+            }
+
+            if(!EventBattleAnim.doneWithAnim)
+            {
+                UpdateVisuals();
+                return;
+            }
 
             if(!enemiesDiedYet)
             {
@@ -626,6 +764,15 @@ public class BattleController : MonoBehaviour {
         Target target;
         DamageType damageType;
         float damage;
+        bool showDamage = true;
+        
+        bool calcDamageFromStats = false;
+        bool fromEnemy1 = true;
+
+        public static EventDamage cWithAutoCalc(Target target, bool fromEnemy1 = true)
+        {
+            return new EventDamage() { target = target, damageType = DamageType.Normal, fromEnemy1 = fromEnemy1, calcDamageFromStats = true };
+        }
 
         public static EventDamage c(Target target, int damage)
         {
@@ -637,6 +784,8 @@ public class BattleController : MonoBehaviour {
             return new EventDamage() { target = target, damageType = DamageType.Percentage, damage = damagePercentage };
         }
 
+        public EventDamage HideValue { get { showDamage = false; return this; } }
+
         public override IEnumerator Execute()
         {
             if(damageType == DamageType.Percentage)
@@ -646,25 +795,43 @@ public class BattleController : MonoBehaviour {
                     if (instance.pomHP > 0 && instance.shibeHP <= 0)
                     {
                         lastRand = 0;
-                        instance.Damage(Attacker.Pom, (int)(instance.pomHP * damage));
+                        var calcDamage = instance.pomHP * damage;
+                        if (calcDamage < 2f) Mathf.Ceil(calcDamage);
+                        instance.Damage(Attacker.Pom, (int)(calcDamage), showDamage);
                     }
                     else if (instance.shibeHP > 0 && instance.pomHP <= 0)
                     {
                         lastRand = 1;
-                        instance.Damage(Attacker.Shibe, (int)(instance.shibeHP * damage));
+                        var calcDamage = instance.shibeHP * damage;
+                        if (calcDamage < 2f) Mathf.Ceil(calcDamage);
+                        instance.Damage(Attacker.Shibe, (int)(calcDamage), showDamage);
                     }
                     else
                     {
                         var rand = UnityEngine.Random.Range(0, 2);
                         lastRand = rand;
 
-                        instance.Damage(rand == 0 ? Attacker.Pom : Attacker.Shibe, (int)((rand == 0 ? instance.pomHP : instance.shibeHP) * damage));
+                        var calcDamage = (rand == 0 ? instance.pomHP : instance.shibeHP) * damage;
+                        if (calcDamage < 2f) Mathf.Ceil(calcDamage);
+                        instance.Damage(rand == 0 ? Attacker.Pom : Attacker.Shibe, (int)(calcDamage), showDamage);
                     }
                 }
                 else
                 {
-                    if (instance.enemy1HP > 0) instance.Damage(Attacker.Enemy1, (int)(instance.enemy1HP * damage));
-                    if (instance.enemy2HP > 0) instance.Damage(Attacker.Enemy2, (int)(instance.enemy2HP * damage));
+                    if (instance.enemy1HP > 0)
+                    {
+                        var calcDamage = instance.enemy1HP * damage;
+                        if (calcDamage < 2f) Mathf.Ceil(calcDamage);
+
+                        instance.Damage(Attacker.Enemy1, (int)(calcDamage), showDamage);
+                    }
+                    if (instance.enemy2HP > 0)
+                    {
+                        var calcDamage = instance.enemy2HP * damage;
+                        if (calcDamage < 2f) Mathf.Ceil(calcDamage);
+
+                        instance.Damage(Attacker.Enemy2, (int)(calcDamage), showDamage);
+                    }
                 }
             }
             else
@@ -673,30 +840,69 @@ public class BattleController : MonoBehaviour {
                 {
                     if (instance.pomHP > 0 && instance.shibeHP <= 0)
                     {
+                        if(calcDamageFromStats) damage = CalcDamage(true);
+                        
                         lastRand = 0;
-                        instance.Damage(Attacker.Pom, (int)(damage));
+                        instance.Damage(Attacker.Pom, (int)(damage), showDamage);
                     }
                     else if (instance.shibeHP > 0 && instance.pomHP <= 0)
                     {
+                        if (calcDamageFromStats) damage = CalcDamage(false);
+
                         lastRand = 1;
-                        instance.Damage(Attacker.Shibe, (int)(damage));
+                        instance.Damage(Attacker.Shibe, (int)(damage), showDamage);
                     }
                     else
                     {
                         var rand = UnityEngine.Random.Range(0, 2);
                         lastRand = rand;
 
-                        instance.Damage(rand == 0 ? Attacker.Pom : Attacker.Shibe, (int)damage);
+                        if (calcDamageFromStats) damage = CalcDamage(rand == 0);
+
+                        instance.Damage(rand == 0 ? Attacker.Pom : Attacker.Shibe, (int)damage, showDamage);
                     }
                 }
                 else
                 {
-                    if (instance.enemy1HP > 0) instance.Damage(Attacker.Enemy1, (int)damage);
-                    if (instance.enemy2HP > 0) instance.Damage(Attacker.Enemy2, (int)damage);
+                    if (instance.enemy1HP > 0) instance.Damage(Attacker.Enemy1, (int)damage, showDamage);
+                    if (instance.enemy2HP > 0) instance.Damage(Attacker.Enemy2, (int)damage, showDamage);
                 }
             }
 
             yield return null;
+        }
+
+        int CalcDamage(bool againstPom)
+        {
+            var dmg = 0;
+            var attackPow = 2;
+            var defensePow = 1;
+
+            switch (instance.curBattle)
+            {
+                case Battles.Puddle:
+                    attackPow = 30;
+                    break;
+                case Battles.Bernard:
+                    attackPow = 40;
+                    break;
+                case Battles.Hus_and_Shibe:
+                    attackPow = 10;
+                    break;
+                default:
+                    break;
+            }
+
+            dmg = (attackPow / 2) - (defensePow / 4);
+            var variance = UnityEngine.Random.Range(-.2f, .2f);
+
+            dmg += (int)(dmg * variance);
+
+            //miss chance
+            var missPercentage = .15f;
+            if (UnityEngine.Random.Range(0f, 1f) <= missPercentage) dmg = 0;
+
+            return dmg;
         }
     }
 }

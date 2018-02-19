@@ -25,7 +25,6 @@ public class _BaseEvent : MonoBehaviour {
     {
         if (triggerBySteppedOn && collision2D == Player.playerInstance.boxCollider)
         {
-            Debug.Log("PLAYER TRIGGER ON " + name, gameObject);
             playerEntered = true;
         }
     }

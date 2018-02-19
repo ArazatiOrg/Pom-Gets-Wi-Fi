@@ -14,8 +14,7 @@ public class _BaseTR : MonoBehaviour {
     public readonly Vector2 DownLeft = Vector2.down + Vector2.left;
     public readonly Vector2 Left = Vector2.left;
     public readonly Vector2 UpLeft = Vector2.up + Vector2.left;
-
-
+    
     [HideInInspector] public string TranslationName;
     [HideInInspector] public string TranslationCredits;
 
@@ -42,7 +41,13 @@ public class _BaseTR : MonoBehaviour {
     [HideInInspector] public string WittyFidoName =   "Witty Fido";
     [HideInInspector] public string YorkName =        "York";
 
-    [HideInInspector] public float shibeBarkPitch = 1.2f;
+    [HideInInspector] public float Pitch_PomBark = 1.1f;
+    [HideInInspector] public float Pitch_ShibeBark = 1.2f;
+    [HideInInspector] public float Pitch_ShibeBarking = 1.2f;
+    [HideInInspector] public float Pitch_CrestBark = 1.3f;
+    [HideInInspector] public float Pitch_HusBark = .9f;
+    [HideInInspector] public float Pitch_PuddleBark = 1.5f;
+    [HideInInspector] public float Pitch_Rimshot = 1.1f;
 
     public Font font;
 

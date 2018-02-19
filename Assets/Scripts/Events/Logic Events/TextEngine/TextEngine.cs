@@ -64,6 +64,7 @@ public class TextEngine : MonoBehaviour {
     [HideInInspector] public bool finishedTextbox = false;
     
     float timeSinceOpened = 0f;
+    public static float timeSinceClosed = 0f;
 
     // Use this for initialization
     void Start () {
@@ -185,6 +186,8 @@ public class TextEngine : MonoBehaviour {
         {
             waitingForInput = false;
             finishedTextbox = true;
+
+            timeSinceClosed = Time.time;
 
             UpdateCursorState();
         }

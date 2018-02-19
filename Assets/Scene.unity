@@ -5596,7 +5596,7 @@ MonoBehaviour:
   ConstantlyWalk: 1
   AllowMovement: 1
   moveSpeed: 8
-  animSpeed: 2
+  animSpeed: 3
   anim: {fileID: 0}
   boxCollider: {fileID: 0}
   facingDir: 2
@@ -6108,7 +6108,7 @@ MonoBehaviour:
   ConstantlyWalk: 0
   AllowMovement: 1
   moveSpeed: 3
-  animSpeed: 2
+  animSpeed: 3
   anim: {fileID: 0}
   boxCollider: {fileID: 0}
   facingDir: 1
@@ -16065,7 +16065,13 @@ MonoBehaviour:
   UgName: Ug
   WittyFidoName: Witty Fido
   YorkName: York
-  shibeBarkPitch: 1.2
+  Pitch_PomBark: 1.1
+  Pitch_ShibeBark: 1.2
+  Pitch_ShibeBarking: 1.2
+  Pitch_CrestBark: 1.3
+  Pitch_HusBark: 0.9
+  Pitch_PuddleBark: 1.5
+  Pitch_Rimshot: 1.1
   font: {fileID: 12800000, guid: b66472161bd0ffa43991554b44539c89, type: 3}
 --- !u!1001 &465454918
 Prefab:
@@ -17768,7 +17774,7 @@ MonoBehaviour:
   ConstantlyWalk: 0
   AllowMovement: 1
   moveSpeed: 8
-  animSpeed: 2
+  animSpeed: 3
   anim: {fileID: 0}
   boxCollider: {fileID: 0}
   facingDir: 2
@@ -19982,7 +19988,7 @@ MonoBehaviour:
   ConstantlyWalk: 0
   AllowMovement: 1
   moveSpeed: 8
-  animSpeed: 2
+  animSpeed: 3
   anim: {fileID: 0}
   boxCollider: {fileID: 0}
   facingDir: 2
@@ -77301,7 +77307,7 @@ MonoBehaviour:
   ConstantlyWalk: 0
   AllowMovement: 1
   moveSpeed: 8
-  animSpeed: 2
+  animSpeed: 3
   anim: {fileID: 0}
   boxCollider: {fileID: 0}
   facingDir: 2
@@ -79124,7 +79130,7 @@ MonoBehaviour:
   ConstantlyWalk: 1
   AllowMovement: 1
   moveSpeed: 8
-  animSpeed: 2
+  animSpeed: 3
   anim: {fileID: 0}
   boxCollider: {fileID: 0}
   facingDir: 2
@@ -82599,7 +82605,7 @@ MonoBehaviour:
   ConstantlyWalk: 0
   AllowMovement: 0
   moveSpeed: 8
-  animSpeed: 2
+  animSpeed: 3
   anim: {fileID: 0}
   boxCollider: {fileID: 0}
   facingDir: 2
@@ -83020,7 +83026,7 @@ MonoBehaviour:
   ConstantlyWalk: 0
   AllowMovement: 1
   moveSpeed: 8
-  animSpeed: 2
+  animSpeed: 3
   anim: {fileID: 0}
   boxCollider: {fileID: 0}
   facingDir: 1
@@ -85119,7 +85125,7 @@ MonoBehaviour:
   ConstantlyWalk: 1
   AllowMovement: 1
   moveSpeed: 8
-  animSpeed: 2
+  animSpeed: 3
   anim: {fileID: 0}
   boxCollider: {fileID: 0}
   facingDir: 1
@@ -87121,6 +87127,12 @@ MonoBehaviour:
   - {fileID: 21300028, guid: 9024358bd72704748b63d637a908d8f0, type: 3}
   - {fileID: 21300020, guid: 9024358bd72704748b63d637a908d8f0, type: 3}
   - {fileID: 21300014, guid: 9024358bd72704748b63d637a908d8f0, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   curBattle: 8
   battleImages:
   - {fileID: 21300000, guid: 3dbd333998f52a442b96fca72a882f51, type: 3}
@@ -87220,6 +87232,7 @@ MonoBehaviour:
   shibeHP: 0
   enemy1HP: 0
   enemy2HP: 0
+  animSpeed: 7
 --- !u!1 &1275291501
 GameObject:
   m_ObjectHideFlags: 0
@@ -88482,7 +88495,7 @@ MonoBehaviour:
   ConstantlyWalk: 0
   AllowMovement: 1
   moveSpeed: 8
-  animSpeed: 2
+  animSpeed: 3
   anim: {fileID: 0}
   boxCollider: {fileID: 0}
   facingDir: 2
@@ -89204,6 +89217,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f6b659a484a12284787684abff20f0b8, type: 3}
   - {fileID: 8300000, guid: 58236cf005c3d5e45b0c57bb7f7d0f0e, type: 3}
   - {fileID: 8300000, guid: e580a91d0b5b89245a9e1b6e88aeb01a, type: 3}
+  - {fileID: 8300000, guid: 33c5b2451703a7c42b2eb4730312fca3, type: 3}
+  - {fileID: 8300000, guid: e5e0871a582340e4c83de7279fe3c9a0, type: 3}
   Mixer: {fileID: 24100000, guid: 9ffab9c0c140e7e469db9c387d504708, type: 2}
   MixerTransitionFallof:
     serializedVersion: 2
@@ -89276,7 +89291,7 @@ MonoBehaviour:
   ConstantlyWalk: 0
   AllowMovement: 1
   moveSpeed: 8
-  animSpeed: 2
+  animSpeed: 3
   anim: {fileID: 0}
   boxCollider: {fileID: 0}
   facingDir: 3
@@ -90083,7 +90098,7 @@ MonoBehaviour:
   ConstantlyWalk: 0
   AllowMovement: 1
   moveSpeed: 8
-  animSpeed: 2
+  animSpeed: 3
   anim: {fileID: 0}
   boxCollider: {fileID: 0}
   facingDir: 2
@@ -98815,7 +98830,7 @@ MonoBehaviour:
   ConstantlyWalk: 0
   AllowMovement: 1
   moveSpeed: 8
-  animSpeed: 2
+  animSpeed: 3
   anim: {fileID: 0}
   boxCollider: {fileID: 0}
   facingDir: 2
@@ -99417,7 +99432,7 @@ MonoBehaviour:
   ConstantlyWalk: 0
   AllowMovement: 1
   moveSpeed: 8
-  animSpeed: 2
+  animSpeed: 3
   anim: {fileID: 0}
   boxCollider: {fileID: 0}
   facingDir: 2
@@ -99706,7 +99721,7 @@ MonoBehaviour:
   ConstantlyWalk: 0
   AllowMovement: 1
   moveSpeed: 8
-  animSpeed: 2
+  animSpeed: 3
   anim: {fileID: 0}
   boxCollider: {fileID: 0}
   facingDir: 2
@@ -100222,7 +100237,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4631379900493138, guid: 955531cd5ba45fb409d5fd0d9e69038a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 5
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 4631379900493138, guid: 955531cd5ba45fb409d5fd0d9e69038a, type: 2}
       propertyPath: m_LocalPosition.y
@@ -100278,11 +100293,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4631379900493138, guid: 955531cd5ba45fb409d5fd0d9e69038a, type: 2}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4631379900493138, guid: 955531cd5ba45fb409d5fd0d9e69038a, type: 2}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4631379900493138, guid: 955531cd5ba45fb409d5fd0d9e69038a, type: 2}
       propertyPath: m_LocalScale.z
@@ -106919,7 +106934,7 @@ MonoBehaviour:
   ConstantlyWalk: 0
   AllowMovement: 1
   moveSpeed: 8
-  animSpeed: 2
+  animSpeed: 3
   anim: {fileID: 0}
   boxCollider: {fileID: 0}
   facingDir: 2
@@ -106972,7 +106987,7 @@ MonoBehaviour:
   ConstantlyWalk: 1
   AllowMovement: 1
   moveSpeed: 8
-  animSpeed: 2
+  animSpeed: 3
   anim: {fileID: 0}
   boxCollider: {fileID: 0}
   facingDir: 2
@@ -107693,7 +107708,7 @@ MonoBehaviour:
   ConstantlyWalk: 0
   AllowMovement: 1
   moveSpeed: 4
-  animSpeed: 2
+  animSpeed: 3
   anim: {fileID: 0}
   boxCollider: {fileID: 0}
   facingDir: 3
@@ -121817,7 +121832,7 @@ MonoBehaviour:
   ConstantlyWalk: 0
   AllowMovement: 1
   moveSpeed: 8
-  animSpeed: 2
+  animSpeed: 3
   anim: {fileID: 0}
   boxCollider: {fileID: 0}
   facingDir: 1
@@ -123594,7 +123609,7 @@ MonoBehaviour:
   ConstantlyWalk: 1
   AllowMovement: 1
   moveSpeed: 8
-  animSpeed: 2
+  animSpeed: 3
   anim: {fileID: 0}
   boxCollider: {fileID: 0}
   facingDir: 0
@@ -123822,7 +123837,7 @@ MonoBehaviour:
   ConstantlyWalk: 0
   AllowMovement: 1
   moveSpeed: 8
-  animSpeed: 2
+  animSpeed: 3
   anim: {fileID: 0}
   boxCollider: {fileID: 0}
   facingDir: 2
@@ -123875,7 +123890,7 @@ MonoBehaviour:
   ConstantlyWalk: 0
   AllowMovement: 1
   moveSpeed: 8
-  animSpeed: 2
+  animSpeed: 3
   anim: {fileID: 0}
   boxCollider: {fileID: 0}
   facingDir: 2
@@ -123959,7 +123974,7 @@ MonoBehaviour:
   ConstantlyWalk: 0
   AllowMovement: 1
   moveSpeed: 8
-  animSpeed: 2
+  animSpeed: 3
   anim: {fileID: 0}
   boxCollider: {fileID: 0}
   facingDir: 2

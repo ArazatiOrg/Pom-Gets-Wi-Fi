@@ -41,7 +41,7 @@ public enum SFX
     punch1,
     cameraShutter,
     breath,
-    vanish,
+    vanish1,
     quake2,
     flash2,
     punch3,
@@ -49,5 +49,7 @@ public enum SFX
     fire2,
     fire3,
     explode1,
-    heal4
+    heal4,
+    evade1,
+    vanish2
 }

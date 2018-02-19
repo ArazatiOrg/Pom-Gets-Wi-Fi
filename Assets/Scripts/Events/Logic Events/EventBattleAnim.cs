@@ -20,6 +20,8 @@ public class EventBattleAnim : _BaseLogicEvent {
 
     public override IEnumerator Execute()
     {
+        doneWithAnim = false;
+
         switch (anim)
         {
             case Anim.PunchA:
@@ -546,19 +548,30 @@ public class EventBattleAnim : _BaseLogicEvent {
 
                 } break;
         }
+
+        woopAudio = false;
+        doneWithAnim = true;
     }
+
+    public static bool doneWithAnim = true;
 
     IEnumerator WaitFrame()
     {
-        yield return new WaitForSecondsRealtime(.0166f);
+        yield return new WaitForSecondsRealtime(.0166f); //60fps
+        //yield return new WaitForSecondsRealtime(.05f); //Battle actuall runs at 20fps? but that feels too slow
         ResetSprites();
     }
 
+    public static bool woopAudio = false;
     void PlaySFX(SFX sfx)
     {
+        if (woopAudio) return;
+
         AudioController.instance.PlaySFX((int)sfx, 1f);
     }
 
+    public static bool enemy1AliveBefore = false;
+    public static bool enemy2AliveBefore = false;
     void SetSprite(int index, int xOffset = 0, int yOffset = 0, float scale = 1f, float opacity = 1f)
     {
         var offset = new Vector2(xOffset/16f, yOffset/16f);
@@ -589,8 +602,8 @@ public class EventBattleAnim : _BaseLogicEvent {
                     }
                     else
                     {
-                        if(BattleController.instance.enemy1HP > 0) SetSprite(index, offset, BattleController.instance.Enemy1Sprite.transform.position, scale, opacity);
-                        if(BattleController.instance.enemy2HP > 0) SetSprite(index, offset, BattleController.instance.Enemy2Sprite.transform.position, scale, opacity);
+                        if(enemy1AliveBefore) SetSprite(index, offset, BattleController.instance.Enemy1Sprite.transform.position, scale, opacity);
+                        if(enemy2AliveBefore) SetSprite(index, offset, BattleController.instance.Enemy2Sprite.transform.position, scale, opacity);
                     }
                 } break;
         }

@@ -309,7 +309,8 @@ public class EventPositioner : MonoBehaviour {
             crest.SetFacingDirection(SpriteDir.Left);
         }
 
-        if(s.HusTalk == 5)
+        var pom = NPCList.GetNPC(NPC.Pom);
+        if (s.HusTalk == 5)
         {
             hus.transform.position = new Vector3(92.5f, -20f);
             hus.SetFacingDirection(SpriteDir.Right);
@@ -353,7 +354,7 @@ public class EventPositioner : MonoBehaviour {
 
         Gate_ShibeAndHusPile.SetActive(s.StopPom >= 2);
 
-        if(s.HusTalk == 5)
+        if(s.HusTalk == 5 && pom.transform.position.x > 103)
         {
             hus.transform.position = new Vector3(119.5f, -20f);
             hus.SetFacingDirection(SpriteDir.Right);

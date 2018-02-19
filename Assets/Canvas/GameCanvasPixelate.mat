@@ -83,6 +83,6 @@ Material:
     - _UseUIAlphaClip: 0
     - _ZWrite: 1
     m_Colors:
-    - _CellSize: {r: 0.0011356116, g: 0.0015141487, b: 0, a: 0}
+    - _CellSize: {r: 0.00060201884, g: 0.0008026918, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

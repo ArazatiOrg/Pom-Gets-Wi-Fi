@@ -171,9 +171,9 @@ public class AudioController : MonoBehaviour {
     {
         volume = 1f; //HACK: Just gonna kill off all volume control since the fucking Firefox Unity3D WebGL build doesn't want to play nice
 
-        var oldPitch = sfxSource.pitch;
+        //var oldPitch = sfxSource.pitch; //can't do this because apparently resetting pitch afterwards actually resets the pitch for the oneshot.. whatever
         sfxSource.pitch = pitch;
         sfxSource.PlayOneShot(sfx[index],volume);
-        sfxSource.pitch = oldPitch;
+        //sfxSource.pitch = oldPitch;
     }
 }
